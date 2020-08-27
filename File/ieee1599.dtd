@@ -1,0 +1,1068 @@
+<!--
+ File name:			ieee1599.dtd
+ Version:			1.0
+ Creation date:			25/02/2007
+ Last update:			08/04/2007
+
+ Description
+ IEEE 1599 format is an XML-based language aimed at a comprehensive description of music and music-related contents.
+ It has been designed in response to IEEE Std 1599 - IEEE Recommended Practice for Defining a Commonly Acceptable Musical Application Using XML Language.
+
+-->
+
+
+<!--================================================================================================================-->
+
+<!-- Import of external DTDs -->
+
+<!ENTITY % svg SYSTEM "svg11.dtd" >
+%svg;
+
+<!ENTITY % ChannelRequired "#REQUIRED">
+
+<!ENTITY % midixml SYSTEM "midixml.dtd" >
+%midixml;
+
+
+<!--================================================================================================================-->
+
+<!-- Common attributes parameter entities -->
+
+<!ENTITY % spine_ref 
+	"event_ref IDREF #REQUIRED">
+
+<!ENTITY % spine_start_end_ref
+	"start_event_ref IDREF #REQUIRED
+   end_event_ref IDREF #REQUIRED">
+
+<!ENTITY % accidental 
+	"(none | double_flat | flat_and_a_half | flat | demiflat | natural | demisharp | sharp | sharp_and_a_half | double_sharp)">
+
+<!ENTITY % formats 
+	"(application_excel | application_mac-binhex40 | application_msword | application_octet-stream | application_pdf | application_x-director | application_x-gzip | application_x-javascript | application_x-macbinary | application_x-pn-realaudio | application_x-shockwave_flash | application_x-tar | application_zip | audio_aiff | audio_avi | audio_mp3 | audio_mpeg | audio_mpeg3 | audio_mpg | audio_wav | audio_x_aiff | audio_x_midi | audio_x_wav | audio_x-mp3 | audio_x-mpeg | audio_x-mpeg3 | audio_x-mpegaudio | audio_x-mpg | audio_x-ms-wma | image_avi | image_bmp | image_x-bmp | image_x-bitmap | image_x-xbitmap | image_x-win-bitmap | image_x-windows-bmp | image_ms-bmp | image_x-ms-bmp | application_bmp | application_x-bmp | application_x-win-bitmap | application_preview | image_gif | image_jpeg | image_pict | image_png | application_png | application_x-png | image_tiff | text_html | text_plain_application_postscript | video_avi | video_mpeg | video_msvideo | video_quicktime | video_x-msvideo | video_x-ms-wmv | video_x-qtc | video_xmpg2)">
+
+
+<!-- Common Elements -->
+
+<!ELEMENT rights EMPTY>
+<!ATTLIST rights
+  file_name CDATA #REQUIRED>
+  file_name CDATA #REQUIRED>
+  file_name CDATA #REQUIRED>
+  file_name CDATA #REQUIRED>
+  file_name CDATA #REQUIRED>
+  file_name CDATA #REQUIRED>
+
+<!--================================================================================================================-->
+
+<!-- Root Element -->
+
+<!ELEMENT ieee1599 (general, logic, structural?, notational?, performance?, audio?)>
+<!ATTLIST ieee1599
+	version CDATA #REQUIRED
+	creator CDATA #IMPLIED>
+
+
+<!--================================================================================================================-->
+
+<!-- General Layer -->
+
+<!ELEMENT general (description, related_files?, analog_media?, notes?)>
+
+<!ELEMENT description (main_title, author*, other_title*, number?, work_title?, work_number?, date*, genres?)>
+
+<!ELEMENT main_title (#PCDATA)>
+
+<!ELEMENT author (#PCDATA)>
+<!ATTLIST author
+	type CDATA #IMPLIED>
+
+<!ELEMENT other_title (#PCDATA)>
+
+<!ELEMENT number (#PCDATA)>
+
+<!ELEMENT work_title (#PCDATA)>
+
+<!ELEMENT work_number (#PCDATA)>
+
+<!ELEMENT date (#PCDATA)>
+<!ATTLIST date
+	type CDATA #IMPLIED>
+
+<!ELEMENT genres (genre+)>
+
+<!ELEMENT genre EMPTY>
+<!ATTLIST genre
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+	weight CDATA #IMPLIED>
+
+<!ELEMENT related_files (related_file+)>
+
+<!ELEMENT related_file EMPTY>
+<!ATTLIST related_file
+	file_name CDATA #REQUIRED
+	file_format %formats; #REQUIRED
+	encoding_format %formats; #REQUIRED
+	start_event_ref IDREF #IMPLIED
+	end_event_ref IDREF #IMPLIED
+	description CDATA #IMPLIED
+	copyright CDATA #IMPLIED
+	notes CDATA #IMPLIED>
+
+<!ELEMENT analog_media (analog_medium+)>
+
+<!ELEMENT analog_medium EMPTY>
+<!ATTLIST analog_medium
+	description CDATA #REQUIRED
+	copyright CDATA #IMPLIED
+	notes CDATA #IMPLIED>
+
+<!ELEMENT notes (#PCDATA)>
+
+
+<!--================================================================================================================-->
+
+<!-- Logic Layer -->
+
+<!ELEMENT logic (spine, los?, layout?)>
+
+
+<!-- Spine -->
+<!ELEMENT spine (event)+>
+
+<!ELEMENT event EMPTY>
+<!ATTLIST event
+	id ID #REQUIRED
+	timing CDATA "null"
+	hpos CDATA "null">
+
+<!ELEMENT los (agogics*, text_field*, metronomic_indication*, staff_list, part+, horizontal_symbols?, ornaments?, lyrics*)>
+
+<!ELEMENT agogics (#PCDATA)>
+<!ATTLIST agogics
+	bracketed (no | yes) #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT text_field (#PCDATA)>
+<!ATTLIST text_field
+	extension_line_to IDREF #IMPLIED
+	extension_line_shape (normal | dotted | dashed) #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT metronomic_indication EMPTY>
+<!ATTLIST metronomic_indication
+	num CDATA #REQUIRED
+	den CDATA #REQUIRED
+	dots CDATA #IMPLIED
+	value CDATA #REQUIRED
+	%spine_ref;>
+
+<!ELEMENT staff_list (brackets | staff)+>
+
+<!ELEMENT brackets EMPTY>
+<!ATTLIST brackets
+	marker (start_of_staff_group | end_of_staff_group) #REQUIRED
+	group_number CDATA #REQUIRED
+	shape (square | rounded_square | brace | vertical_bar | none) #REQUIRED>
+
+<!ELEMENT staff (clef | ( key_signature | custom_key_signature) | time_signature | barline | tablature_tuning)*>
+<!ATTLIST staff
+	id ID #REQUIRED
+	line_number CDATA "5"
+	ossia (yes | no) "no"
+	tablature (none | french | german | italian) #IMPLIED>
+
+<!ELEMENT clef EMPTY>
+<!ATTLIST clef
+	shape (G | F | C | gregorian_F | gregorian_C | percussion | doubleG | tabguitar) #REQUIRED
+	staff_step CDATA #REQUIRED
+	octave_num (0 | 8 | -8 | 15 | -15) "0"
+	%spine_ref;>
+
+<!ELEMENT key_signature (sharp_num | flat_num) >
+<!ATTLIST key_signature
+	%spine_ref;>
+
+<!ELEMENT sharp_num EMPTY>
+<!ATTLIST sharp_num
+	number (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED>
+
+<!ELEMENT flat_num EMPTY>
+<!ATTLIST flat_num
+	number (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED>
+
+<!ELEMENT custom_key_signature (key_accidental)+>
+<!ATTLIST custom_key_signature
+	%spine_ref;>
+
+<!ELEMENT key_accidental EMPTY>
+<!ATTLIST key_accidental
+	step (A | B | C | D | E | F | G) #REQUIRED
+	accidental %accidental; "none">
+
+<!ELEMENT time_signature (time_indication)+>
+<!ATTLIST time_signature
+	visible (yes | no) "yes" 
+	%spine_ref;>
+
+<!ELEMENT time_indication EMPTY>
+<!ATTLIST time_indication
+	num CDATA #REQUIRED
+	den CDATA #IMPLIED
+	abbreviation (yes | no) "no" 
+	vtu_amount CDATA #IMPLIED>
+
+<!ELEMENT barline EMPTY>
+<!ATTLIST barline
+	style (dashed | double | final | invisible | standard | medium | short) #REQUIRED
+	extension (single_staff | staff_group | all_staves | mensurstrich) #REQUIRED
+	%spine_ref;>
+
+<!ELEMENT tablature_tuning (string*)>
+<!ATTLIST tablature_tuning
+	type (D | E | G | A | baroque | flat_french | other) #IMPLIED>
+
+<!ELEMENT string EMPTY>
+<!ATTLIST string
+	string_number CDATA #REQUIRED
+	string_pitch (A | B | C | D | E | F | G) #REQUIRED
+	string_accidental %accidental; #IMPLIED
+	string_octave CDATA #REQUIRED>
+
+<!ELEMENT part (voice_list, measure+)>
+<!ATTLIST part
+	id ID #REQUIRED
+	performers_number CDATA "unknown"
+    transposition_pitch (A | B | C | D | E | F | G) #IMPLIED
+    transposition_accidental %accidental; #IMPLIED
+	octave_offset CDATA #IMPLIED>
+
+<!ELEMENT voice_list (voice_item+)>
+
+<!ELEMENT voice_item EMPTY>
+<!ATTLIST voice_item
+	id ID #REQUIRED
+	staff_ref IDREF #REQUIRED
+	notation_style (normal | rhythmic | slash | blank) #IMPLIED>
+
+<!ELEMENT measure (voice+ | multiple_rest | measure_repeat?)>
+<!ATTLIST measure
+	number CDATA #REQUIRED
+	id ID #IMPLIED
+	show_number (yes | no) #IMPLIED
+	numbering_style (arabic_numbers | roman_numbers | small_letters | capital_letters) #IMPLIED>
+
+<!ELEMENT multiple_rest EMPTY>
+<!ATTLIST multiple_rest
+	number_of_measures CDATA #REQUIRED
+  event_ref IDREF #IMPLIED>
+
+<!ELEMENT measure_repeat EMPTY>
+<!ATTLIST measure_repeat
+	number_of_measures CDATA #REQUIRED
+  event_ref IDREF #IMPLIED>
+
+<!ELEMENT voice (chord | rest | tablature_symbol | gregorian_symbol)+>
+<!ATTLIST voice
+	voice_item_ref IDREF #REQUIRED
+	ossia (yes | no) "no">
+
+<!ELEMENT chord (duration, augmentation_dots?, (notehead+ | repetition), articulation?)>
+<!ATTLIST chord
+	id ID #IMPLIED
+	%spine_ref; 
+	stem_direction (up | down | none) #IMPLIED
+	beam_before (yes | no) "no"
+	beam_after (yes | no) "no"
+	cue (yes | no) "no"
+	tremolo_lines (no | 1 | 2 | 3 | 4 | 5 | 6) #IMPLIED>
+
+<!ELEMENT repetition EMPTY>
+
+<!ELEMENT duration (tuplet_ratio?)>
+<!ATTLIST duration
+	num CDATA #REQUIRED
+	den CDATA #REQUIRED>
+
+<!ELEMENT tuplet_ratio (tuplet_ratio*)>
+<!ATTLIST tuplet_ratio
+	enter_num CDATA #REQUIRED
+	enter_den CDATA #REQUIRED
+	enter_dots CDATA #IMPLIED
+	in_num CDATA #REQUIRED
+	in_den CDATA #REQUIRED
+	in_dots CDATA #IMPLIED>
+
+<!ELEMENT rest (duration, augmentation_dots?)>
+<!ATTLIST rest
+	id CDATA #IMPLIED
+	%spine_ref;
+	staff_ref IDREF #IMPLIED
+	hidden (no | yes) #IMPLIED>
+
+<!ELEMENT tablature_symbol (duration, augmentation_dots?, key+)>
+<!ATTLIST tablature_symbol
+	id ID #IMPLIED
+	%spine_ref; 
+	stem_direction (up | down | none) #IMPLIED
+	beam_before (yes | no) "no"
+	beam_after (yes | no) "no">
+
+<!ELEMENT key (tablature_pitch, tablature_articulation?, tie?, tablature_fingering?)>
+<!ATTLIST key
+	id ID #IMPLIED
+	staff_ref IDREF #IMPLIED>
+
+<!ELEMENT tablature_pitch EMPTY>
+<!ATTLIST tablature_pitch
+	string_number CDATA #IMPLIED
+	key_number CDATA #REQUIRED>
+
+<!ELEMENT tablature_articulation EMPTY>
+<!ATTLIST tablature_articulation
+	shape (cross | tie | other) #REQUIRED>
+
+<!ELEMENT tablature_fingering (#PCDATA)>
+<!ATTLIST tablature_fingering
+	shape (number | dot | other) #REQUIRED>
+
+<!ELEMENT gregorian_symbol (notehead+)>
+<!ATTLIST gregorian_symbol
+	id ID #IMPLIED
+	neume (punctum | virga | punctum_inclinatum | quilisma | apostrofa | oriscus | podatus | pes | clivis | flexa | epiphonus | cephalicus | bistropha | bivirga | trigon | torculus | porrectus | scandicus | salicus | climacus | tristropha | trivirga | strophicus | pressus | custos) #REQUIRED
+	inflexion (no | resupinus | flexus) "no"
+	subpunctis (no | praepunctis | subpunctis | subbipunctis | subtripunctis | subquadripunctis | subquinquipunctis) "no"
+	interpretative_mark (no | vertical_episema | horizontal_episema | liquescens) "no"
+	mora (yes | no) "no"
+	%spine_ref;>
+
+<!-- Articulation signs -->
+
+<!ELEMENT articulation (normal_accent | staccatissimo | staccato | strong_accent | tenuto | stopped_note | snap_pizzicato | natural_harmonic | up_bow | down_bow | open_mute | close_mute | custom_articulation)*>
+
+<!ELEMENT normal_accent EMPTY>
+
+<!ELEMENT staccatissimo EMPTY>
+
+<!ELEMENT staccato EMPTY>
+
+<!ELEMENT strong_accent EMPTY>
+
+<!ELEMENT tenuto EMPTY>
+
+<!ELEMENT stopped_note EMPTY>
+
+<!ELEMENT snap_pizzicato EMPTY>
+
+<!ELEMENT natural_harmonic EMPTY>
+
+<!ELEMENT up_bow EMPTY>
+
+<!ELEMENT down_bow EMPTY>
+
+<!ELEMENT open_mute EMPTY>
+
+<!ELEMENT close_mute EMPTY>
+
+<!ELEMENT custom_articulation (svg)>
+
+<!ELEMENT notehead_ref EMPTY>
+<!ATTLIST notehead_ref
+	%spine_ref;>
+
+<!ELEMENT notehead (pitch, printed_accidentals?, tie?, fingering?)>
+<!ATTLIST notehead
+  id ID #IMPLIED
+  staff_ref IDREF #IMPLIED
+  style (normal | harmonic | unpitched | cymbal | parenthesis | circled | squared) #IMPLIED>
+
+<!ELEMENT pitch EMPTY>
+<!ATTLIST pitch
+	step (A | B | C | D | E | F | G | none) #REQUIRED
+	octave CDATA #REQUIRED
+	actual_accidental %accidental; #IMPLIED>
+
+<!ELEMENT printed_accidentals (double_flat | flat_and_a_half | flat | demiflat | natural | demisharp | sharp | sharp_and_a_half | double_sharp)+>
+<!ATTLIST printed_accidentals
+	shape (normal | small | bracketed) "normal">
+
+<!ELEMENT tie EMPTY>
+
+<!ELEMENT fingering EMPTY>
+<!ATTLIST fingering
+	number (1 | 2 | 3 | 4 | 5) #REQUIRED>
+
+<!ELEMENT double_flat EMPTY>
+<!ATTLIST double_flat
+	parenthesis (yes | no) "no">
+
+<!ELEMENT flat_and_a_half EMPTY>
+<!ATTLIST flat_and_a_half
+	parenthesis (yes | no) "no">
+
+<!ELEMENT flat EMPTY>
+<!ATTLIST flat
+	parenthesis (yes | no) "no">
+
+<!ELEMENT demiflat EMPTY>
+<!ATTLIST demiflat
+	parenthesis (yes | no) "no">
+
+<!ELEMENT natural EMPTY>
+<!ATTLIST natural
+	parenthesis (yes | no) "no">
+
+<!ELEMENT demisharp EMPTY>
+<!ATTLIST demisharp
+	parenthesis (yes | no) "no">
+
+<!ELEMENT sharp EMPTY>
+<!ATTLIST sharp
+	parenthesis (yes | no) "no">
+
+<!ELEMENT sharp_and_a_half EMPTY>
+<!ATTLIST sharp_and_a_half
+	parenthesis (yes | no) "no">
+
+<!ELEMENT double_sharp EMPTY>
+<!ATTLIST double_sharp
+	parenthesis (yes | no) "no">
+
+<!ELEMENT augmentation_dots EMPTY>
+<!ATTLIST augmentation_dots
+	number CDATA "1">
+
+<!ELEMENT lyrics (syllable+)>
+<!ATTLIST lyrics
+	part_ref IDREF #REQUIRED
+	voice_ref IDREF #REQUIRED>
+
+<!ELEMENT syllable (#PCDATA)>
+<!ATTLIST syllable
+	start_event_ref IDREF #REQUIRED
+	end_event_ref IDREF #IMPLIED
+	hyphen (yes | no) "no">
+
+<!ELEMENT horizontal_symbols (arpeggio | bend | breath_mark | chord_symbol | dynamic | fermata | glissando | hairpin | octave_bracket | pedal_start | pedal_end | percussion_beater | percussion_special | slur | special_beam | tablature_hsymbol | repeat | coda | segno | fine | multiple_ending | custom_hsymbol)*>
+
+<!ELEMENT arpeggio (notehead_ref+)>
+<!ATTLIST arpeggio
+	shape (wavy | line | no_arpeggio) #REQUIRED
+	direction (up | down) "down">
+
+<!ELEMENT bend EMPTY>
+<!ATTLIST bend
+  id ID #IMPLIED
+	%spine_ref;
+  type (single | double) "single"
+	to_pitch (A | B | C | D | E | F | G | up | down) #REQUIRED
+	to_accidental %accidental; #IMPLIED
+  to_octave CDATA #IMPLIED>
+
+<!ELEMENT breath_mark EMPTY>
+<!ATTLIST breath_mark
+	id CDATA #IMPLIED
+	type (comma | caesura) #REQUIRED
+	staff_ref IDREF #IMPLIED
+	%spine_start_end_ref;>
+
+<!ELEMENT chord_symbol (#PCDATA)>
+<!ATTLIST chord_symbol
+	id CDATA #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT dynamic (#PCDATA)>
+<!ATTLIST dynamic
+	id CDATA #IMPLIED
+  extension_line_to IDREF #IMPLIED
+  extension_line_shape (normal | dotted | dashed) #IMPLIED
+	staff_ref IDREF #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT fermata (#PCDATA)>
+<!ATTLIST fermata
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT glissando EMPTY>
+<!ATTLIST glissando
+  id ID #IMPLIED
+	start_event_ref IDREF #REQUIRED
+	end_event_ref IDREF #IMPLIED>
+
+<!ELEMENT hairpin EMPTY>
+<!ATTLIST hairpin
+	id CDATA #IMPLIED
+	type (crescendo | diminuendo) #REQUIRED
+	staff_ref IDREF #IMPLIED
+	%spine_start_end_ref;>
+
+<!ELEMENT octave_bracket EMPTY>
+<!ATTLIST octave_bracket
+	id CDATA #IMPLIED
+	type (8va | 8vb | 15ma | 15mb) #REQUIRED
+	staff_ref IDREF #REQUIRED
+	%spine_start_end_ref;>
+
+<!ELEMENT pedal_start EMPTY>
+<!ATTLIST pedal_start
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT pedal_end EMPTY>
+<!ATTLIST pedal_end
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT percussion_beater (#PCDATA)>
+<!ATTLIST percussion_beater
+  id CDATA #IMPLIED
+  type (bow | snare_stick | snare_stick_plastic | spoon_shaped | guiro | triangle | knitting_needle | hand | hammer | metal_hammer | wooden_timpani_mallet | light_timpani_mallet | medium_timpani_mallet | heavy_timpani_mallet | light_vibraphone_mallet | medium_vibraphone_mallet | heavy_vibraphone_mallet | light_bassdrum_mallet | medium_bassdrum_mallet | heavy_bassdrum_mallet | steel_core_bassdrum_mallet | coin | brush | nails) #REQUIRED
+  start_event_ref IDREF #REQUIRED
+  end_event_ref IDREF #IMPLIED>
+
+<!ELEMENT percussion_special (#PCDATA)>
+<!ATTLIST percussion_special
+  id CDATA #IMPLIED
+  type (play_on_border | stop_drumhead | muffle_with_harmonics | muffle | rub | shake) #REQUIRED
+  %spine_ref;>
+
+<!ELEMENT slur (svg?)>
+<!ATTLIST slur
+  id ID #IMPLIED
+	%spine_start_end_ref;
+	shape (normal | dashed | dotted) "normal"
+	bracketed (no | yes) "no">
+
+<!ELEMENT special_beam (notehead_ref+)>
+<!ATTLIST special_beam
+	id CDATA #IMPLIED
+	fanned_from CDATA #IMPLIED
+  fanned_to CDATA #IMPLIED>
+
+<!ELEMENT tablature_hsymbol (tablature_element | barre)+>
+<!ATTLIST tablature_hsymbol
+	id CDATA #IMPLIED
+	%spine_ref;
+  string_number CDATA #REQUIRED
+  start_fret CDATA #REQUIRED
+  fret_number CDATA #REQUIRED>
+
+<!ELEMENT tablature_element EMPTY>
+<!ATTLIST tablature_element
+	shape (empty_circle | full_circle | cross | rhombus | 1 | 2 | 3 | 4 | T) #REQUIRED
+  string_position CDATA #REQUIRED
+  fret_position CDATA #REQUIRED>
+
+<!ELEMENT barre EMPTY>
+<!ATTLIST barre
+	start_string_position CDATA #REQUIRED
+  end_string_position CDATA #REQUIRED
+  fret_position CDATA #REQUIRED>
+
+<!ELEMENT repeat (repeat_text?, (jump_to, end?)+)>
+<!ATTLIST repeat
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT repeat_text (#PCDATA)>
+
+<!ELEMENT jump_to EMPTY>
+<!ATTLIST jump_to
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT end EMPTY>
+<!ATTLIST end
+	id CDATA #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT segno (#PCDATA)>
+<!ATTLIST segno
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT coda (#PCDATA)>
+<!ATTLIST coda
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT fine (#PCDATA)>
+<!ATTLIST fine
+	id ID #IMPLIED
+	%spine_ref;>
+
+<!ELEMENT multiple_endings (multiple_ending+)>
+<!ATTLIST multiple_endings
+	id ID #IMPLIED>
+
+<!ELEMENT multiple_ending EMPTY>
+<!ATTLIST multiple_ending
+	id ID #IMPLIED
+  number CDATA #REQUIRED
+  %spine_start_end_ref;
+  return_to IDREF #IMPLIED>
+
+<!ELEMENT custom_hsymbol (svg)>
+<!ATTLIST custom_hsymbol
+  id ID #IMPLIED
+	start_event_ref IDREF #REQUIRED
+	end_event_ref IDREF #IMPLIED>
+
+<!ELEMENT ornaments (acciaccatura | baroque_acciaccatura | appoggiatura | baroque_appoggiatura | mordent | tremolo | trill | turn)*>
+
+<!ELEMENT acciaccatura (chord+)>
+<!ATTLIST acciaccatura
+  id ID #IMPLIED
+	%spine_ref;
+	slur (yes | no) "no">
+
+<!ELEMENT baroque_acciaccatura EMPTY>
+<!ATTLIST baroque_acciaccatura
+  id ID #IMPLIED
+	%spine_ref;
+	style (vertical_turn | mordent | flatte | tierce_coulee | slash | backslash) #REQUIRED>
+
+<!ELEMENT appoggiatura (chord+)>
+<!ATTLIST appoggiatura
+  id ID #IMPLIED
+	%spine_ref;
+	slur (yes | no) "no">
+
+<!ELEMENT baroque_appoggiatura EMPTY>
+<!ATTLIST baroque_appoggiatura
+  id ID #IMPLIED
+	%spine_ref;
+	style (hairpin | plus | slash | backslash | pipe | double_slur | up_hook | down_hook) #REQUIRED>
+
+<!ELEMENT mordent EMPTY>
+<!ATTLIST mordent
+  id ID #IMPLIED
+	%spine_ref;
+	type (upper | lower) "upper"
+	length (normal | double) "normal"
+	accidental %accidental; "none"
+	style (normal | up_hook | down_hook) "normal">
+
+<!ELEMENT tremolo EMPTY>
+<!ATTLIST tremolo
+  id ID #IMPLIED
+  %spine_start_end_ref;
+	tremolo_lines (1 | 2 | 3 | 4 | 5 | 6) #REQUIRED>
+
+<!ELEMENT trill EMPTY>
+<!ATTLIST trill
+  id ID #IMPLIED
+	%spine_ref;
+	accidental %accidental; "none"
+	style (t | tr | tr- | plus | double_slash | caesura_double_slash | slur_double_slash | mordent | double_mordent) #IMPLIED
+	start_hook (none | up | down) "none"
+	end_hook (none | up | down) "none">
+
+<!ELEMENT turn EMPTY>
+<!ATTLIST turn
+  id ID #IMPLIED
+	%spine_ref;
+	type (over | after) #REQUIRED
+	style (normal | inverted | cut | vertical) #REQUIRED
+	upper_accidental %accidental; "none"
+	lower_accidental %accidental; "none">
+
+<!-- Layout -->
+
+<!ELEMENT layout (page+, text_font?, music_font?)>
+<!ATTLIST layout
+	hpos_per_unit CDATA #REQUIRED
+	measurement_unit (centimeters | millimeters | inches | decimal_inches | points | picas | pixels | twips) #REQUIRED>
+
+<!ELEMENT page ((standard_page_format | custom_page_format), layout_system*, layout_images*, layout_shapes*)>
+<!ATTLIST page
+	id CDATA #REQUIRED
+	number CDATA #IMPLIED>
+
+<!ELEMENT standard_page_format EMPTY>
+<!ATTLIST standard_page_format
+  format (a0 | a1 | a2 | a3 | a4 | a5 | a6 | a7 | a8 | b0 | b1 | b2 | b3 | b4 | b5 | b6 | b7 | b8 | c0 | c1 | c2 | c3 | c4 | c5 | c6 | c7 | c8 | ansi_a | ansi_b | ansi_c | ansi_d | ansi_e | arch_a | arch_b | arch_c | arch_e | arch_e1 | quarto | foolscap | executive | monarch | government_letter | letter | legal | ledger | tabloid | post | crown | large_post | demy | medium | royal | elephant | double_demy | quad_demy | statement) #REQUIRED>
+
+<!ELEMENT custom_page_format EMPTY>
+<!ATTLIST custom_page_format
+	width CDATA #REQUIRED
+	height CDATA #REQUIRED>
+
+<!ELEMENT layout_system (layout_staff+)>
+<!ATTLIST layout_system
+	id CDATA #IMPLIED
+	upper_left_x CDATA #REQUIRED
+	upper_left_y CDATA #REQUIRED
+	lower_right_x CDATA #REQUIRED
+	lower_right_y CDATA #REQUIRED>
+
+<!ELEMENT layout_staff EMPTY>
+<!ATTLIST layout_staff
+	id ID #IMPLIED
+	staff_ref CDATA #REQUIRED
+	vertical_offset CDATA #REQUIRED
+  height CDATA #REQUIRED
+	show_key_signature (yes | no) "yes"
+	show_clef (yes | no) "yes"
+	show_time_signature (yes | no) "no"
+	ossia (yes | no) "no">
+
+<!ELEMENT layout_images EMPTY>
+<!ATTLIST layout_images
+  file_name CDATA #REQUIRED
+  file_format %formats; #REQUIRED
+  encoding_format %formats; #REQUIRED
+  horizontal_offset CDATA #REQUIRED
+  vertical_offset CDATA #REQUIRED
+  description CDATA #IMPLIED
+  copyright CDATA #IMPLIED
+  notes CDATA #IMPLIED>
+
+<!ELEMENT layout_shapes (svg)>
+<!ATTLIST layout_shapes
+  horizontal_offset CDATA #REQUIRED
+  vertical_offset CDATA #REQUIRED>
+
+<!ELEMENT text_font (font)>
+
+<!ELEMENT music_font (font)>
+
+<!--================================================================================================================-->
+
+<!-- Structural Layer -->
+
+<!ELEMENT structural (chord_grid*, analysis*, petri_nets*, mir*)>
+
+<!-- Chord Grid -->
+
+<!ELEMENT chord_grid (chord_name+)>
+<!ATTLIST chord_grid
+  id ID #IMPLIED
+  author CDATA #IMPLIED
+	description CDATA #IMPLIED>
+
+<!ELEMENT chord_name (#PCDATA)>
+<!ATTLIST chord_name
+	root_id IDREF #REQUIRED>
+
+<!-- Analysis -->
+
+<!ELEMENT analysis (segmentation, relationships?, feature_object_relationships?)>
+<!ATTLIST analysis
+  id ID #IMPLIED
+  author CDATA #IMPLIED
+  description CDATA #IMPLIED>
+
+<!ELEMENT segmentation (segment+)>
+<!ATTLIST segmentation
+  id ID #IMPLIED
+  description CDATA #IMPLIED
+  method CDATA #IMPLIED>
+
+<!ELEMENT segment (segment_event+, feature_object*)>
+<!ATTLIST segment
+  id ID #REQUIRED>
+
+<!ELEMENT segment_event EMPTY>
+<!ATTLIST segment_event
+  %spine_ref;>
+
+<!ENTITY % added_feature_object_classes "">
+
+<!ELEMENT feature_object (simple_description
+   %added_feature_object_classes;)>
+<!ATTLIST feature_object
+  id ID #IMPLIED
+  name CDATA #REQUIRED>
+
+<!ELEMENT simple_description (#PCDATA)>
+
+<!ELEMENT relationships (relationship+)>
+
+<!ELEMENT relationship EMPTY>
+<!ATTLIST relationship
+  id ID #REQUIRED
+  description CDATA #IMPLIED
+  segment_a_ref IDREF #REQUIRED
+  segment_b_ref IDREF #REQUIRED
+  feature_object_a_ref IDREF #IMPLIED
+  feature_object_b_ref IDREF #IMPLIED
+  feature_object_relationship_ref IDREF #IMPLIED>
+
+<!ELEMENT feature_object_relationships (feature_object_relationship+)>
+
+<!ELEMENT feature_object_relationship (ver_rule)>
+<!ATTLIST feature_object_relationship 
+  id ID #REQUIRED>
+
+<!ELEMENT ver_rule (#PCDATA)>
+
+<!-- Petri Nets -->
+
+<!ELEMENT petri_nets (petri_net+)>
+
+<!ELEMENT petri_net (place | transition)+>
+<!ATTLIST petri_net
+	id ID #IMPLIED
+  author CDATA #IMPLIED
+	description CDATA #IMPLIED
+  file_name CDATA #REQUIRED>
+
+<!ELEMENT place EMPTY>
+<!ATTLIST place
+	place_ref CDATA #REQUIRED
+	segment_ref IDREF #REQUIRED>
+
+<!ELEMENT transition EMPTY>
+<!ATTLIST transition
+	transition_ref CDATA #REQUIRED
+	feature_object_relationship_ref IDREF #REQUIRED>
+
+<!-- Music Information Retrieval -->
+
+<!ELEMENT mir (mir_model+)>
+
+<!ELEMENT mir_model (mir_object+, mir_morphism*)>
+<!ATTLIST mir_model
+  id ID #IMPLIED
+  description CDATA #IMPLIED
+  file_name CDATA #IMPLIED>
+
+<!ELEMENT mir_object (mir_subobject+, mir_feature*)>
+<!ATTLIST mir_object
+  id ID #IMPLIED
+  description CDATA #IMPLIED
+  displacement_ref CDATA #IMPLIED>
+
+<!ELEMENT mir_subobject (mir_feature*)>
+<!ATTLIST mir_subobject
+  id ID #IMPLIED
+  description CDATA #IMPLIED
+  displacement_ref CDATA #IMPLIED
+  segment_ref IDREF #IMPLIED>
+
+<!ELEMENT mir_feature EMPTY>
+<!ATTLIST mir_feature
+  id ID #IMPLIED
+  description CDATA #IMPLIED
+  displacement_ref CDATA #IMPLIED>
+
+<!ELEMENT mir_morphism (mir_feature*)>
+<!ATTLIST mir_morphism
+  id ID #IMPLIED
+  description CDATA #IMPLIED
+  domain_ref IDREF #REQUIRED
+  codomain_ref IDREF #REQUIRED
+  displacement_ref CDATA #IMPLIED>
+
+
+<!--================================================================================================================-->
+
+<!-- Notational Layer -->
+
+<!ELEMENT notational (graphic_instance_group | notation_instance_group)+>
+
+<!ELEMENT graphic_instance_group (graphic_instance+)>
+<!ATTLIST graphic_instance_group
+	description CDATA #REQUIRED>
+
+<!ELEMENT graphic_instance (graphic_event+, rights?)>
+<!ATTLIST graphic_instance
+  description CDATA #IMPLIED
+	position_in_group CDATA #REQUIRED
+	file_name CDATA #REQUIRED
+	file_format %formats; #REQUIRED
+	encoding_format %formats; #REQUIRED
+	measurement_unit (centimeters | millimeters | inches | decimal_inches | points | picas | pixels | twips) #REQUIRED>
+
+<!ELEMENT graphic_event EMPTY>
+<!ATTLIST graphic_event
+	%spine_ref;
+	upper_left_x CDATA #REQUIRED
+	upper_left_y CDATA #REQUIRED
+	lower_right_x CDATA #REQUIRED
+	lower_right_y CDATA #REQUIRED
+	highlight_color CDATA #IMPLIED
+  description CDATA #IMPLIED>
+
+<!ELEMENT notation_instance_group (notation_instance+)>
+<!ATTLIST notation_instance_group
+	description CDATA #REQUIRED>
+
+<!ELEMENT notation_instance (notation_event+, rights?)>
+<!ATTLIST notation_instance
+  description CDATA #IMPLIED
+	position_in_group CDATA #REQUIRED
+	file_name CDATA #REQUIRED
+	format CDATA #REQUIRED
+  measurement_unit CDATA #REQUIRED>
+
+<!ELEMENT notation_event EMPTY>
+<!ATTLIST notation_event
+  %spine_ref;
+  start_position CDATA #REQUIRED
+  end_position CDATA #REQUIRED
+  description CDATA #IMPLIED>
+
+
+<!--================================================================================================================-->
+
+<!-- Performance Layer -->
+
+<!ELEMENT performance (midi_instance | csound_instance | mpeg4_instance)+>
+
+<!ELEMENT midi_instance (midi_mapping+, rights?)>
+<!ATTLIST midi_instance
+  file_name CDATA #REQUIRED
+	format (0 | 1 | 2) #REQUIRED>
+
+<!ELEMENT midi_mapping (midi_event_sequence+)>
+<!ATTLIST midi_mapping
+	part_ref IDREF #REQUIRED
+	voice_ref IDREF #IMPLIED
+	track CDATA #REQUIRED
+	channel CDATA #REQUIRED>
+
+<!ELEMENT midi_event_sequence (midi_event | sys_ex)+ >
+<!ATTLIST midi_event_sequence
+	division_type	(metrical | timecode) #REQUIRED
+	division_value NMTOKEN #REQUIRED
+  measurement_unit (ticks | sec) #REQUIRED>
+
+<!ELEMENT midi_event (%MIDIChannelMessage;)*>
+<!ATTLIST midi_event
+	timing CDATA #REQUIRED
+  %spine_ref;>
+
+<!ELEMENT sys_ex (SysEx)>
+<!ATTLIST sys_ex
+	%spine_ref;>
+
+<!ELEMENT csound_instance (csound_score | csound_orchestra)+>
+
+<!ELEMENT csound_score (csound_spine_event+, rights?)>
+<!ATTLIST csound_score
+	file_name CDATA #REQUIRED>
+
+<!ELEMENT csound_spine_event EMPTY>
+<!ATTLIST csound_spine_event
+	line_number CDATA #REQUIRED
+	%spine_ref;>
+
+<!ELEMENT csound_orchestra (csound_instrument_mapping*, rights?)>
+<!ATTLIST csound_orchestra
+	file_name CDATA #REQUIRED>
+
+<!ELEMENT csound_instrument_mapping (csound_part_ref | csound_spine_ref)+>
+<!ATTLIST csound_instrument_mapping
+	instrument_number CDATA #REQUIRED
+	start_line CDATA #IMPLIED
+	end_line CDATA #IMPLIED
+	pnml_file CDATA #IMPLIED>
+
+<!ELEMENT csound_part_ref EMPTY>
+<!ATTLIST csound_part_ref
+	part_ref IDREF #REQUIRED>
+
+<!ELEMENT csound_spine_ref EMPTY>
+<!ATTLIST csound_spine_ref
+	%spine_ref;>
+
+<!ELEMENT mpeg4_instance (mpeg4_score | mpeg4_orchestra)+>
+
+<!ELEMENT mpeg4_score (csound_spine_event+, rights?)>
+<!ATTLIST mpeg4_score
+	file_name CDATA #REQUIRED>
+
+<!ELEMENT mpeg4_spine_event EMPTY>
+<!ATTLIST mpeg4_spine_event
+	line_number CDATA #REQUIRED
+	%spine_ref;>
+
+<!ELEMENT mpeg4_orchestra (mpeg4_instrument_mapping*, rights?)>
+<!ATTLIST mpeg4_orchestra
+	file_name CDATA #REQUIRED>
+
+<!ELEMENT mpeg4_instrument_mapping (mpeg4_part_ref | mpeg4_spine_ref)+>
+<!ATTLIST mpeg4_instrument_mapping
+	instrument_name CDATA #REQUIRED
+	start_line CDATA #IMPLIED
+	end_line CDATA #IMPLIED
+	pnml_file CDATA #IMPLIED>
+
+<!ELEMENT mpeg4_part_ref EMPTY>
+<!ATTLIST mpeg4_part_ref
+	part_ref IDREF #REQUIRED>
+
+<!ELEMENT mpeg4_spine_ref EMPTY>
+<!ATTLIST mpeg4_spine_ref
+	%spine_ref;>
+
+<!--================================================================================================================-->
+
+<!-- Audio Layer -->
+
+<!ELEMENT audio (track+)>
+
+<!ELEMENT track (track_general?, track_indexing?, rights?)>
+<!ATTLIST track
+	file_name CDATA #REQUIRED
+	file_format %formats; #REQUIRED
+	encoding_format %formats; #REQUIRED
+  md5 CDATA #IMPLIED>
+
+<!-- General Sub-Layer -->
+
+<!ELEMENT track_general (recordings?, genres?, albums?, performers?, notes?)>
+<!ATTLIST track_general
+	geographical_region CDATA #IMPLIED
+	lyrics_language CDATA #IMPLIED>
+
+<!ELEMENT recordings (recording+)>
+
+<!ELEMENT recording EMPTY>
+<!ATTLIST recording
+	date CDATA #REQUIRED
+	recorded_part CDATA #IMPLIED
+	studio_name CDATA #IMPLIED
+	studio_address CDATA #IMPLIED>
+
+<!ELEMENT albums (album+)>
+
+<!ELEMENT album EMPTY>
+<!ATTLIST album
+	title CDATA #REQUIRED
+  track_number CDATA #IMPLIED
+	carrier_type CDATA #IMPLIED
+	catalogue_number CDATA #IMPLIED
+	number_of_tracks CDATA #IMPLIED
+	publication_date CDATA #IMPLIED
+	label CDATA #IMPLIED>
+
+<!ELEMENT performers (performer+)>
+
+<!ELEMENT performer EMPTY>
+<!ATTLIST performer
+	name CDATA #REQUIRED
+	type CDATA #REQUIRED>
+
+<!-- Indexing Sub-Layer -->
+
+<!ELEMENT track_indexing (track_region*, track_event+)>
+<!ATTLIST track_indexing
+	timing_type (samples | time | seconds | time_frames | frames | measures | smpte_24 | smpte_25 | smpte_2997 | smpte_30) #REQUIRED>
+
+<!ELEMENT track_region EMPTY>
+<!ATTLIST track_region
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+  %spine_start_end_ref;>
+
+<!ELEMENT track_event EMPTY>
+<!ATTLIST track_event
+	start_time CDATA #REQUIRED
+	end_time CDATA #IMPLIED
+  %spine_ref;
+ 	description CDATA #IMPLIED>
