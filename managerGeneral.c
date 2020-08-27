@@ -45,11 +45,11 @@ struct related_file{//EMPTY
   char* file_name;//REQUIRED
   char* file_format;//REQUIRED
   char* encoding_format;//REQUIRED
-  //start_event_ref;
-  // end_event_ref;
   char* description;
   char* copyright;
   char* notes;
+  //start_event_ref;
+  // end_event_ref;
   struct related_file *next_file;
 };
 
@@ -70,17 +70,21 @@ struct general{
     char* notes;
 };
 
-//Variabili
+//Variables
 struct general general_layer;
 
+//Prototypes
 void loadGeneral();
 void loadNotes();
 void loadAnalogMedia();
 void loadRelatedFiles();
 void loadDescription();
 
+//Functions
 void loadGeneral(){ 
 
+    //inizializzare general_layer
+    
     loadDescription();
     loadRelatedFiles();
     loadAnalogMedia();
@@ -201,13 +205,7 @@ void loadRelatedFiles (){
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"encoding_format")){
                         temp->encoding_format=xmlGetProp(cur,attributes->name);
 
-                    }
-                    /*else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
-                    }
-                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
-                    }*/
+                    }                   
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
                         temp->description=xmlGetProp(cur,attributes->name);
 
@@ -219,7 +217,13 @@ void loadRelatedFiles (){
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
                         temp->notes=xmlGetProp(cur,attributes->name);
  
-                    }                            
+                    }  
+                    /*else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                        temp->notes=xmlGetProp(cur,attributes->name);
+                    }
+                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                        temp->notes=xmlGetProp(cur,attributes->name);
+                    }*/
                     attributes=attributes->next;                     
                 }  
                 temp->next_file=NULL;
@@ -264,16 +268,16 @@ void loadDescription(){
         cur=cur->xmlChildrenNode;
         while(cur!=NULL){
             if(!xmlStrcmp(cur->name,(const xmlChar*)"main_title")){
-            
+                general_layer.description.main_title=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"number")){
-            
+                general_layer.description.number=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"work_title")){
-            
+                general_layer.description.work_title=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*) "work_number")) {
-
+                general_layer.description.work_number=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"author")){
             
