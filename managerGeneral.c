@@ -226,6 +226,7 @@ void loadDescription(){
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"weight")){
                                 genre_temp->weight=xmlGetProp(cur,attributes->name);
                             }
+                            attributes=attributes->next;
                         }
                         genre_temp->next_genre=NULL;
                         if(genre_head==NULL){
@@ -285,7 +286,7 @@ void printDescription(){
     if(general_layer.description.genres!=NULL){
         genre_p=general_layer.description.genres;
         while(genre_p!=NULL){
-            printf("Genre: %s %s %s",genre_p->name,genre_p->description,genre_p->weight);
+            printf("Genre: %s %s %s\n",genre_p->name,genre_p->description,genre_p->weight);
             genre_p=genre_p->next_genre;
         }
     }

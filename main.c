@@ -29,13 +29,12 @@ void readAudio();
 
 int main(int argc, char **argv) {
 
-    docname="aida_marcia_trionfale.xml";
-    docpath="File/aida_marcia_trionfale.xml";
+    docpath="File/gottes_macht.xml";
     
     doc=getDoc(docpath);
     
     if(doc!=NULL){
-        fprintf(stdout,"Loaded %s\n",docname);
+        fprintf(stdout,"Loaded %s\n",docpath);
         
         loadGeneral();
         //readLogic();//spine,los,layout
