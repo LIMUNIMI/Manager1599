@@ -121,6 +121,12 @@ void loadDescription(){
     struct date *date_temp=NULL;
     struct date *date_p=NULL;
     
+    xmlNodePtr temp_cur;
+    
+    struct genre *genre_head=NULL;
+    struct genre *genre_temp=NULL;
+    struct genre *genre_p=NULL;
+    
     xpath=(xmlChar *)"/ieee1599/general/description";
     result=getNodeset(doc,xpath);
     if(xmlXPathNodeSetIsEmpty(result->nodesetval)){
@@ -203,13 +209,45 @@ void loadDescription(){
                 }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"genres")){
-            
+                temp_cur=cur;
+                cur=cur->xmlChildrenNode; 
+                while(cur!=NULL){
+                    if(!xmlStrcmp(cur->name,(const xmlChar*)"genre")){
+                        genre_temp=(struct genre*)malloc(sizeof(struct genre));
+                        genre_temp=calloc(1,sizeof(struct genre));
+                        attributes=cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"name")){
+                                genre_temp->name=xmlGetProp(cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
+                                genre_temp->description=xmlGetProp(cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"weight")){
+                                genre_temp->weight=xmlGetProp(cur,attributes->name);
+                            }
+                        }
+                        genre_temp->next_genre=NULL;
+                        if(genre_head==NULL){
+                            genre_head=genre_temp;
+                        }
+                        else{
+                            genre_p=genre_head;
+                            while(genre_p->next_genre!=NULL)
+                                genre_p=genre_p->next_genre;
+                            genre_p->next_genre=genre_temp;
+                        }
+                    }
+                    cur=cur->next;
+                }
+                cur=temp_cur;
             }
             cur=cur->next;
         }
         general_layer.description.authors=author_head;
         general_layer.description.other_titles=other_title_head;
         general_layer.description.dates=date_head;
+        general_layer.description.genres=genre_head;
     }
 }
 
@@ -217,6 +255,7 @@ void printDescription(){
     struct author *author_p=NULL;
     struct other_title *other_title_p=NULL;
     struct date* date_p=NULL;
+    struct genre* genre_p=NULL;
     
     printf("Title: %s\n",general_layer.description.main_title);
     if(general_layer.description.number!=NULL) printf("Number: %s\n",general_layer.description.number);
@@ -241,6 +280,13 @@ void printDescription(){
         while(date_p!=NULL){
             printf("Date: %s\n",date_p->date_value);
             date_p=date_p->next_date;
+        }
+    }
+    if(general_layer.description.genres!=NULL){
+        genre_p=general_layer.description.genres;
+        while(genre_p!=NULL){
+            printf("Genre: %s %s %s",genre_p->name,genre_p->description,genre_p->weight);
+            genre_p=genre_p->next_genre;
         }
     }
 }
