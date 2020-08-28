@@ -76,183 +76,33 @@ struct general general_layer;
 
 //Prototypes
 void loadGeneral();
-void loadNotes();
-void loadAnalogMedia();
-void loadRelatedFiles();
 void loadDescription();
+void loadRelatedFiles();
+void loadAnalogMedia();
+void loadNotes();
+
+void printDescription();
+void printRelatedFiles();
+void printAnalogMedia();
+void printNotes();
+
 
 //Functions
 void loadGeneral(){ 
-
     //inizializzare general_layer
     
     loadDescription();
     loadRelatedFiles();
     loadAnalogMedia();
-    loadNotes();
+    loadNotes(); 
     
-}
-
-void loadNotes (){
-    
-    xmlChar *xpath;
-    xmlXPathObjectPtr result;
-    xmlNodeSetPtr nodeset;
-    xmlNodePtr cur;
-    
-    xpath=(xmlChar *)"/ieee1599/general/notes";
-    result=getNodeset(doc,xpath);
-    if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
-        nodeset=result->nodesetval;
-        cur=nodeset->nodeTab[0];
-        while(cur!=NULL){
-            if(xmlStrcmp(cur->name,(const xmlChar*)"text")){
-                if(!xmlStrcmp(cur->name,(const xmlChar*)"notes")){
-                    if(xmlNodeListGetString(doc,cur->xmlChildrenNode,1)!=NULL){
-                        general_layer.notes=xmlNodeListGetString(doc,cur->xmlChildrenNode,1); 
-                    }
-                }
-            }
-            cur=cur->next;
-        }
-    }
-    
-    printf("Notes: %s\n",general_layer.notes);
-}
-
-void loadAnalogMedia (){
-    xmlChar *xpath;
-    xmlXPathObjectPtr result;
-    xmlNodeSetPtr nodeset;
-    xmlNodePtr cur;
-    xmlAttr *attributes;
-    
-    struct analog_medium *head=NULL;
-    struct analog_medium *temp=NULL;
-    struct analog_medium *p=NULL;
-    
-    xpath=(xmlChar *)"/ieee1599/general/analog_media/analog_medium";
-    result=getNodeset(doc,xpath);
-    if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
-        nodeset=result->nodesetval;
-        for(int i=0;i<nodeset->nodeNr;i++){
-            cur=nodeset->nodeTab[i];
-            if(!xmlStrcmp(cur->name,(const xmlChar*)"analog_media")){
-                temp=(struct  analog_medium*)malloc(sizeof(struct analog_medium));
-                temp=calloc(1,sizeof(struct analog_medium));
-                attributes=cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-                        temp->description=xmlGetProp(cur,attributes->name);
-                    }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"copyright")){
-                        temp->copyright=xmlGetProp(cur,attributes->name);
-                    }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
-                    }
-                    attributes=attributes->next;
-                }
-                temp->next_medium=NULL;
-                if(head==NULL){
-                    head=temp;
-                }
-                else{
-                    p=head;
-                    while(p->next_medium!=NULL)
-                        p=p->next_medium;
-                    p->next_medium=temp;
-                }
-            }
-        }
-        general_layer.analog_media=head;
-    }   
-    
-    p=general_layer.analog_media;
-    while(p!=NULL){
-        printf("Medium: %s %s %s\n",p->copyright,p->description,p->notes);
-        p=p->next_medium;
-    }
-    
-}
-
-void loadRelatedFiles (){
-    xmlChar *xpath;
-    xmlXPathObjectPtr result;
-    xmlNodeSetPtr nodeset;
-    xmlNodePtr cur;
-    xmlAttr *attributes;
-    
-    struct related_file *head=NULL;
-    struct related_file *temp=NULL;
-    struct related_file *p=NULL;
-    xpath=(xmlChar *)"/ieee1599/general/related_files/related_file";
-    result=getNodeset(doc,xpath);
-    if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
-        nodeset=result->nodesetval;
-        for(int i=0;i<nodeset->nodeNr;i++){
-            cur=nodeset->nodeTab[i];
-            if(!xmlStrcmp(cur->name,(const xmlChar*)"related_file")){
-                temp=(struct related_file*)malloc(sizeof(struct related_file));
-                temp=calloc(1,sizeof(struct related_file));
-                attributes=cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
-                        temp->file_name=xmlGetProp(cur,attributes->name); 
-                    }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_format")){
-                        temp->file_format=xmlGetProp(cur,attributes->name);
-
-                    }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"encoding_format")){
-                        temp->encoding_format=xmlGetProp(cur,attributes->name);
-
-                    }                   
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-                        temp->description=xmlGetProp(cur,attributes->name);
-
-                    }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"copyright")){
-                        temp->copyright=xmlGetProp(cur,attributes->name);
-
-                    }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
- 
-                    }  
-                    /*else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
-                    }
-                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
-                    }*/
-                    attributes=attributes->next;                     
-                }  
-                temp->next_file=NULL;
-                if(head==NULL){
-                    head=temp;
-                }
-                else{
-                    p=head;
-                    while(p->next_file!=NULL)
-                        p=p->next_file;
-                    p->next_file=temp;
-                }
-            }
-        }
-        general_layer.related_files=head;
-    }   
-    
-    p=NULL;
-    p=general_layer.related_files;
-    while(p!=NULL){
-       printf("File: %s %s %s %s %s %s\n",p->file_name,p->file_format,p->encoding_format,p->description,p->copyright,p->notes);
-       p=p->next_file;
-    }
+    printDescription();
+    printRelatedFiles();
+    printAnalogMedia();
+    printNotes();
 }
 
 void loadDescription(){
-    
     xmlChar *xpath;
     xmlXPathObjectPtr result;
     xmlNodeSetPtr nodeset;
@@ -361,6 +211,12 @@ void loadDescription(){
         general_layer.description.other_titles=other_title_head;
         general_layer.description.dates=date_head;
     }
+}
+
+void printDescription(){
+    struct author *author_p=NULL;
+    struct other_title *other_title_p=NULL;
+    struct date* date_p=NULL;
     
     printf("Title: %s\n",general_layer.description.main_title);
     if(general_layer.description.number!=NULL) printf("Number: %s\n",general_layer.description.number);
@@ -387,4 +243,170 @@ void loadDescription(){
             date_p=date_p->next_date;
         }
     }
+}
+
+void loadRelatedFiles(){
+    xmlChar *xpath;
+    xmlXPathObjectPtr result;
+    xmlNodeSetPtr nodeset;
+    xmlNodePtr cur;
+    xmlAttr *attributes;
+    
+    struct related_file *head=NULL;
+    struct related_file *temp=NULL;
+    struct related_file *p=NULL;
+    xpath=(xmlChar *)"/ieee1599/general/related_files/related_file";
+    result=getNodeset(doc,xpath);
+    if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
+        nodeset=result->nodesetval;
+        for(int i=0;i<nodeset->nodeNr;i++){
+            cur=nodeset->nodeTab[i];
+            if(!xmlStrcmp(cur->name,(const xmlChar*)"related_file")){
+                temp=(struct related_file*)malloc(sizeof(struct related_file));
+                temp=calloc(1,sizeof(struct related_file));
+                attributes=cur->properties;
+                while(attributes!=NULL){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
+                        temp->file_name=xmlGetProp(cur,attributes->name); 
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_format")){
+                        temp->file_format=xmlGetProp(cur,attributes->name);
+
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"encoding_format")){
+                        temp->encoding_format=xmlGetProp(cur,attributes->name);
+
+                    }                   
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
+                        temp->description=xmlGetProp(cur,attributes->name);
+
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"copyright")){
+                        temp->copyright=xmlGetProp(cur,attributes->name);
+
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
+                        temp->notes=xmlGetProp(cur,attributes->name);
+ 
+                    }  
+                    /*else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                        temp->notes=xmlGetProp(cur,attributes->name);
+                    }
+                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                        temp->notes=xmlGetProp(cur,attributes->name);
+                    }*/
+                    attributes=attributes->next;                     
+                }  
+                temp->next_file=NULL;
+                if(head==NULL){
+                    head=temp;
+                }
+                else{
+                    p=head;
+                    while(p->next_file!=NULL)
+                        p=p->next_file;
+                    p->next_file=temp;
+                }
+            }
+        }
+        general_layer.related_files=head;
+    }   
+}
+
+void printRelatedFiles(){
+    struct related_file* p=NULL;
+    
+    p=NULL;
+    p=general_layer.related_files;
+    while(p!=NULL){
+       printf("File: %s %s %s %s %s %s\n",p->file_name,p->file_format,p->encoding_format,p->description,p->copyright,p->notes);
+       p=p->next_file;
+    }
+}
+
+void loadAnalogMedia(){
+    xmlChar *xpath;
+    xmlXPathObjectPtr result;
+    xmlNodeSetPtr nodeset;
+    xmlNodePtr cur;
+    xmlAttr *attributes;
+    
+    struct analog_medium *head=NULL;
+    struct analog_medium *temp=NULL;
+    struct analog_medium *p=NULL;
+    
+    xpath=(xmlChar *)"/ieee1599/general/analog_media/analog_medium";
+    result=getNodeset(doc,xpath);
+    if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
+        nodeset=result->nodesetval;
+        for(int i=0;i<nodeset->nodeNr;i++){
+            cur=nodeset->nodeTab[i];
+            if(!xmlStrcmp(cur->name,(const xmlChar*)"analog_media")){
+                temp=(struct  analog_medium*)malloc(sizeof(struct analog_medium));
+                temp=calloc(1,sizeof(struct analog_medium));
+                attributes=cur->properties;
+                while(attributes!=NULL){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
+                        temp->description=xmlGetProp(cur,attributes->name);
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"copyright")){
+                        temp->copyright=xmlGetProp(cur,attributes->name);
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
+                        temp->notes=xmlGetProp(cur,attributes->name);
+                    }
+                    attributes=attributes->next;
+                }
+                temp->next_medium=NULL;
+                if(head==NULL){
+                    head=temp;
+                }
+                else{
+                    p=head;
+                    while(p->next_medium!=NULL)
+                        p=p->next_medium;
+                    p->next_medium=temp;
+                }
+            }
+        }
+        general_layer.analog_media=head;
+    }       
+}
+
+void printAnalogMedia(){
+    struct analog_medium *p=NULL;
+    
+    p=general_layer.analog_media;
+    while(p!=NULL){
+        printf("Medium: %s %s %s\n",p->copyright,p->description,p->notes);
+        p=p->next_medium;
+    }   
+}
+
+void loadNotes(){  
+    xmlChar *xpath;
+    xmlXPathObjectPtr result;
+    xmlNodeSetPtr nodeset;
+    xmlNodePtr cur;
+    
+    xpath=(xmlChar *)"/ieee1599/general/notes";
+    result=getNodeset(doc,xpath);
+    if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
+        nodeset=result->nodesetval;
+        cur=nodeset->nodeTab[0];
+        while(cur!=NULL){
+            if(xmlStrcmp(cur->name,(const xmlChar*)"text")){
+                if(!xmlStrcmp(cur->name,(const xmlChar*)"notes")){
+                    if(xmlNodeListGetString(doc,cur->xmlChildrenNode,1)!=NULL){
+                        general_layer.notes=xmlNodeListGetString(doc,cur->xmlChildrenNode,1); 
+                    }
+                }
+            }
+            cur=cur->next;
+        }
+    }
+}
+
+void printNotes(){ 
+    printf("Notes: %s\n",general_layer.notes);
 }
