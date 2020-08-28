@@ -408,5 +408,6 @@ void loadNotes(){
 }
 
 void printNotes(){ 
-    printf("Notes: %s\n",general_layer.notes);
+    if(general_layer.notes!=NULL)
+        printf("Notes: %s\n",general_layer.notes);
 }

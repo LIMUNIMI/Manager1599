@@ -29,8 +29,8 @@ void readAudio();
 
 int main(int argc, char **argv) {
 
-    docname="aida_marcia_trionfale.xml";
-    docpath="File/aida_marcia_trionfale.xml";
+    docname="matin.xml";
+    docpath="File/matin.xml";
     
     doc=getDoc(docpath);
     
