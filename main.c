@@ -29,7 +29,7 @@ void readAudio();
 
 int main(int argc, char **argv) {
 
-    docpath="File/gottes_macht.xml";
+    docpath="File/aida_marcia_trionfale.xml";
     
     doc=getDoc(docpath);
     

@@ -1,4 +1,5 @@
-build/Debug/Cygwin-Windows/managerGeneral.o: managerGeneral.c common.h \
+build/Debug/Cygwin-Windows/managerGeneral.o: managerGeneral.c \
+ managerGeneral.h common.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xpath.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlversion.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlexports.h \
@@ -20,6 +21,8 @@ build/Debug/Cygwin-Windows/managerGeneral.o: managerGeneral.c common.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xlink.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h
+
+managerGeneral.h:
 
 common.h:
 

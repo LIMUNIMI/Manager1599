@@ -3,91 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include "common.h"
 
-//Description
-struct author{
-    char* name;
-    char* type;
-    struct author* next_author;
-};
+#include "managerGeneral.h"
 
-struct other_title{
-    char* title_value;
-    struct other_title *next_title;
- };
- 
- struct date{
-    char* date_value;
-    char* type;
-    struct date* next_date;
- };
- 
- struct genre{//?
-      char* name;//REQUIRED
-      char* description;
-      char* weight;
-      struct genre* next_genre;
- };
-
-struct description{
-  char* main_title;//1
-  char* number;//?
-  char* work_title;//?
-  char* work_number;//?
-  struct author* authors;//*
-  struct other_title* other_titles;//*
-  struct date* dates;//*
-  struct genre* genres;//1
-};
-
-//Realted Files
-struct related_file{//EMPTY
-  char* file_name;//REQUIRED
-  char* file_format;//REQUIRED
-  char* encoding_format;//REQUIRED
-  char* description;
-  char* copyright;
-  char* notes;
-  //start_event_ref;
-  // end_event_ref;
-  struct related_file *next_file;
-};
-
-//Analog Media
-struct analog_medium{//EMPTY
-    char* description;//REQUIRED
-    char* copyright;
-    char* notes;
-    struct analog_medium* next_medium;
-};
-
-
-//Livello General
-struct general{
-    struct description description;
-    struct related_file* related_files;
-    struct analog_medium* analog_media;
-    char* notes;
-};
-
-//Variables
-struct general general_layer;
-
-//Prototypes
-void loadGeneral();
-void loadDescription();
-void loadRelatedFiles();
-void loadAnalogMedia();
-void loadNotes();
-
-void printDescription();
-void printRelatedFiles();
-void printAnalogMedia();
-void printNotes();
-
-
-//Functions
 void loadGeneral(){ 
     //inizializzare general_layer
     
@@ -126,6 +44,11 @@ void loadDescription(){
     struct genre *genre_head=NULL;
     struct genre *genre_temp=NULL;
     struct genre *genre_p=NULL;
+    
+    general_layer.description.n_authors=0;
+    general_layer.description.n_other_titles=0;
+    general_layer.description.n_dates=0;
+    general_layer.description.n_genres=0;
     
     xpath=(xmlChar *)"/ieee1599/general/description";
     result=getNodeset(doc,xpath);
@@ -170,6 +93,7 @@ void loadDescription(){
                         author_p=author_p->next_author;
                     author_p->next_author=author_temp;
                 }
+                general_layer.description.n_authors++;
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"other_title")){
                 other_title_temp=(struct other_title*)malloc(sizeof(struct other_title));
@@ -185,6 +109,7 @@ void loadDescription(){
                         other_title_p=other_title_p->next_title;
                     other_title_p->next_title=other_title_temp;
                 }
+                general_layer.description.n_other_titles++;
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"date")){
                 date_temp=(struct date*)malloc(sizeof(struct date));
@@ -207,6 +132,7 @@ void loadDescription(){
                         date_p=date_p->next_date;
                     date_p->next_date=date_temp;
                 }
+                general_layer.description.n_dates++;
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"genres")){
                 temp_cur=cur;
@@ -238,6 +164,7 @@ void loadDescription(){
                                 genre_p=genre_p->next_genre;
                             genre_p->next_genre=genre_temp;
                         }
+                        general_layer.description.n_genres++;
                     }
                     cur=cur->next;
                 }
@@ -264,6 +191,7 @@ void printDescription(){
     if(general_layer.description.work_number!=NULL) printf("Work Number: %s\n",general_layer.description.work_number);
     if(general_layer.description.authors!=NULL){
         author_p=general_layer.description.authors;
+        printf("%i authors\n",general_layer.description.n_authors);
         while(author_p!=NULL){
             printf("%s: %s\n",author_p->type,author_p->name);
             author_p=author_p->next_author;
@@ -271,6 +199,7 @@ void printDescription(){
     }
     if(general_layer.description.other_titles!=NULL){
         other_title_p=general_layer.description.other_titles;
+        printf("%i other titles\n",general_layer.description.n_other_titles);
         while(other_title_p!=NULL){
             printf("Other title: %s\n",other_title_p->title_value);
             other_title_p=other_title_p->next_title;
@@ -278,6 +207,7 @@ void printDescription(){
     }
     if(general_layer.description.dates!=NULL){
         date_p=general_layer.description.dates;
+        printf("%i dates\n",general_layer.description.n_dates);
         while(date_p!=NULL){
             printf("Date: %s\n",date_p->date_value);
             date_p=date_p->next_date;
@@ -285,6 +215,7 @@ void printDescription(){
     }
     if(general_layer.description.genres!=NULL){
         genre_p=general_layer.description.genres;
+        printf("%i genres\n",general_layer.description.n_genres);
         while(genre_p!=NULL){
             printf("Genre: %s %s %s\n",genre_p->name,genre_p->description,genre_p->weight);
             genre_p=genre_p->next_genre;
@@ -302,6 +233,9 @@ void loadRelatedFiles(){
     struct related_file *head=NULL;
     struct related_file *temp=NULL;
     struct related_file *p=NULL;
+    
+    general_layer.n_related_files=0;
+    
     xpath=(xmlChar *)"/ieee1599/general/related_files/related_file";
     result=getNodeset(doc,xpath);
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
@@ -354,6 +288,7 @@ void loadRelatedFiles(){
                         p=p->next_file;
                     p->next_file=temp;
                 }
+                general_layer.n_related_files++;
             }
         }
         general_layer.related_files=head;
@@ -362,6 +297,10 @@ void loadRelatedFiles(){
 
 void printRelatedFiles(){
     struct related_file* p=NULL;
+    
+    if(general_layer.n_related_files!=0){
+        printf("%i related files\n",general_layer.n_related_files);
+    }   
     
     p=NULL;
     p=general_layer.related_files;
@@ -381,6 +320,8 @@ void loadAnalogMedia(){
     struct analog_medium *head=NULL;
     struct analog_medium *temp=NULL;
     struct analog_medium *p=NULL;
+    
+    general_layer.n_analog_media=0;
     
     xpath=(xmlChar *)"/ieee1599/general/analog_media/analog_medium";
     result=getNodeset(doc,xpath);
@@ -414,6 +355,7 @@ void loadAnalogMedia(){
                         p=p->next_medium;
                     p->next_medium=temp;
                 }
+                general_layer.n_analog_media++;
             }
         }
         general_layer.analog_media=head;
@@ -423,6 +365,9 @@ void loadAnalogMedia(){
 void printAnalogMedia(){
     struct analog_medium *p=NULL;
     
+    if(general_layer.n_analog_media!=0){
+        printf("%i analog media\n",general_layer.n_related_files);
+    }  
     p=general_layer.analog_media;
     while(p!=NULL){
         printf("Medium: %s %s %s\n",p->copyright,p->description,p->notes);
