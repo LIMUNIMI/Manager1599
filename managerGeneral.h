@@ -70,7 +70,7 @@ struct related_file{//EMPTY
   char* copyright;
   char* notes;
   //start_event_ref;
-  // end_event_ref;
+  //end_event_ref;
   struct related_file *next_file;
 };
 

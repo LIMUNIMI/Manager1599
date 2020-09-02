@@ -37,7 +37,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/common.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/managerGeneral.o
+	${OBJECTDIR}/managerGeneral.o \
+	${OBJECTDIR}/managerLogic.o
 
 
 # C Compiler Flags
@@ -78,6 +79,11 @@ ${OBJECTDIR}/managerGeneral.o: managerGeneral.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerGeneral.o managerGeneral.c
+
+${OBJECTDIR}/managerLogic.o: managerLogic.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLogic.o managerLogic.c
 
 # Subprojects
 .build-subprojects:

@@ -32,6 +32,7 @@ int main(int argc, char **argv) {
     docpath="File/aida_marcia_trionfale.xml";
     
     doc=getDoc(docpath);
+    //validate DTD
     
     if(doc!=NULL){
         fprintf(stdout,"Loaded %s\n",docpath);
