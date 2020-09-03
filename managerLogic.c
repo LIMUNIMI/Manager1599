@@ -50,6 +50,20 @@ struct horizontal_symbol_list{
     struct horizontal_symbol_list* next_horizontal_symbol;
 };
 
+struct syllabe{
+    char* syllabe_value;
+    //start_event_ref
+    //end_event_ref
+    char* hyphen;//(yes,no) default no
+    struct syllabe* next_syllabe;
+};
+
+struct lyrics{//(syllabe+)
+    struct syllabe* syllabes;
+    //part_ref
+    //voice_ref
+};
+
 struct los{//?
     struct staff* staff_list;//1    
     struct horizontal_symbol_list* horizontal_symbols;//?
@@ -57,7 +71,7 @@ struct los{//?
     struct agogic* agogics;
     struct text_field* text_field;
     struct metronomic_indication* metronomic_indication;
-    struct lyric* lyrics;
+    struct lyrics lyrics;
     struct part* part;//+
 };
 

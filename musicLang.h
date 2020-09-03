@@ -20,31 +20,13 @@ extern "C" {
     
 enum accidentals {double_sharp,sharp_and_a_half,sharp,demisharp,natural,demiflat,flat,flat_and_a_half,double_flat};
 enum articulation_signs {normal_accent,staccatissimo,staccato,strong_accent,tenuto,stopped_note,snap_pizzicato,natural_harmonic,up_bow,down_bow,open_mute,close_mute,custom_articulation};
+enum neumes {punctum,virga,punctum_inclinatum,quilisma,apostrofa,oriscus,podatus,pes,clivis,flexa,epiphonus,cephalicus,bistropha,bivirga,trigon,torculus,porrectus,scandicus,salicus,climacus,tristropha,trivirga,strophicus,pressus,custos};
 
-struct chord{
-};
 
-//  START
-struct syllabe{
-    char* syllabe_value;
-    //start_event_ref
-    //end_event_ref
-    char* hyphen;//(yes,no) default no
-    struct syllabe* next_syllabe;
-};
-
-struct lyrics{//(syllabe+)
-    struct syllabe* syllabes;
-    //part_ref
-    //voice_ref
-};
+//Tablature  START
 
 struct augmentation_dots{
     int number;//default 1
-};
-
-struct tie{
-    int tie_value;//value=1 se c'é tie
 };
 
 struct fingering{
@@ -73,8 +55,9 @@ struct notehead{
     char* style;//(normal,harmonic,unpitched,cymbal,parenthesis,circled,squared)
     struct pitch pitch;
     struct printed_accidentals printed_accidentals;//?
-    struct tie tie;//?
+    int tie;//? yes=,no=0
     struct fingering fingering;//?
+    struct notehead* next_notehead;
 };
 
 struct nothead_ref{
@@ -82,12 +65,103 @@ struct nothead_ref{
 };
 
 struct articulation{
-    //custom_articulation(svg)
-    articulation_signs articulation_sign;
+    char articulation_sign;
+    //svg per custom_articulation
     struct articulation* next_articulation;
 };
 
-//  END
+struct gregorian_symbol{
+    struct notehead* notehead;
+    char* id;
+    char* neume;//REQUIRED
+    char* inflexion;//(no,resupinus,fleux) default no
+    char* subpunctis;//(no,praepunctis,subpunctis,subbipunctis,subtripunctis,subquadripunctis,subquinquipunctis) default no
+    char* interpretative_mark;//(no,vertical_episema,horizontal_episema,liquescens) default no
+    char* mora;//(yes,no) default no
+    //spine_ref
+};
+
+struct tablature_fingering{
+    char* tablature_fingering_value;
+    char* shape;//REQUIRED (number,dot,other)
+};
+
+struct tablature_articulation{
+    char* shape;//REQUIRED (cross,tie,other)
+};
+
+struct tablature_pitch{
+    int string_number;
+    int key_number;//REQUIRED
+};
+
+struct key{
+    struct tablature_pitch tablature_pitch;
+    struct tablature_articulation tablature_articulation;//?
+    int tie;//? yes=,no=0
+    struct tablature_fingering tablature_fingering;//?
+    char* id;
+    //staff_ref
+    struct key* next_key;
+};
+
+struct tuplet_ratio{//(tuplet_ratio)
+    int enter_num;//REQUIRED
+    int enter_den;//REQUIRED
+    int enter_dots;
+    int in_num;//REQUIRED
+    int in_den;//REQUIRED
+    int in_dots;
+    struct tuplet_ratio* next_tuplet_ratio;
+};
+
+struct duration{
+    int num;//REQUIRED
+    int den;//REQUIRED
+    struct tuplet_ratio* tuplet_ratio;//?
+};
+
+struct tablature_symbol{
+    struct duration duration;
+    struct augmentation_dots augmentation_dots;//?
+    struct key* keys;
+    char* id;
+    //spine_ref
+    char* stem_direction;//(up,down,none)
+    char* beam_before;//(yes,no) default no
+    char* beam_after;//(yes,no) default no
+};
+
+struct res{
+    struct duration duration;
+    struct augmentation_dots augmentation_dots;//?
+    char* id;
+    //spine_ref
+    //staff_ref
+    char* hidden;//(yes,no)
+};
+
+struct repetition{
+
+};
+
+struct chord{
+    char* id;
+    //spine_ref
+    char* stem_direction;//(up,down,none)
+    char* beam_before;//(yes,no) default no
+    char* beam_after;//(yes,no) default no
+    char* cue;//(yes,no) default no
+    char* tremolo_lines;//(no,1,2,3,4,5,6)    
+    
+    struct duration duration;
+    struct augmentation_dots augmentation_dots;//?
+    //(notehead+|repetition)
+    struct notehead* noteheads;//+
+    int repetition;//yes=1, no=0
+    struct articulation* articulations;//?   
+};
+//Tablature  END
 
 //Horizontal Symbols START
 struct custom_hsymbol{
