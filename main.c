@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
         fprintf(stdout,"Loaded %s\n",docpath);
         
         loadGeneral();
-        //readLogic();//spine,los,layout
+        //loadLogic();
         //readStructural();
         //readNotational();
         //readPerformance();

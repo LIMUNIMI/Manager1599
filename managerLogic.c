@@ -5,6 +5,7 @@
  */
 
 #include "common.h"
+#include "musicLang.h"
 
 //Spine
 struct event{//EMPTY
@@ -39,10 +40,20 @@ struct metronomic_indication{//EMPTY
     struct metronomic_indication* next_metronomic_indication;
 };
 
+struct ornament_list{
+    ornament ornament_value;
+    struct ornament_list* next_ornament;
+};
+
+struct horizontal_symbol_list{
+    horizontal_symbol horizontal_symbol_value;
+    struct horizontal_symbol_list* next_horizontal_symbol;
+};
+
 struct los{//?
     struct staff* staff_list;//1    
-    struct horizontal_symbol* horizontal_symbols;//?
-    struct ornament* ornaments;//?    
+    struct horizontal_symbol_list* horizontal_symbols;//?
+    struct ornament_list* ornaments;//?    
     struct agogic* agogics;
     struct text_field* text_field;
     struct metronomic_indication* metronomic_indication;
@@ -53,6 +64,6 @@ struct los{//?
 //Logic
 struct logic{
     struct event* spine;//+
-    struct los;//?
+    struct los los;//?
     //struct layout;//?
 };
