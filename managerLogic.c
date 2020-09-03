@@ -64,6 +64,19 @@ struct lyrics{//(syllabe+)
     //voice_ref
 };
 
+struct part{
+    char* id;//REQUIRED
+    int performes_number;//default unknown
+    char* transposition_pitch;//(A,B,C,D,E,F,G)
+    //accidental transposition_accidental
+    int octave_offset;
+  
+    struct voice_item* voice_list;
+    struct measure* measures;
+    
+    struct part* next_part;
+};
+
 struct los{//?
     struct staff* staff_list;//1    
     struct horizontal_symbol_list* horizontal_symbols;//?

@@ -22,9 +22,11 @@ enum accidentals {double_sharp,sharp_and_a_half,sharp,demisharp,natural,demiflat
 enum articulation_signs {normal_accent,staccatissimo,staccato,strong_accent,tenuto,stopped_note,snap_pizzicato,natural_harmonic,up_bow,down_bow,open_mute,close_mute,custom_articulation};
 enum neumes {punctum,virga,punctum_inclinatum,quilisma,apostrofa,oriscus,podatus,pes,clivis,flexa,epiphonus,cephalicus,bistropha,bivirga,trigon,torculus,porrectus,scandicus,salicus,climacus,tristropha,trivirga,strophicus,pressus,custos};
 
+//Staff Eelements START
 
-//Tablature  START
+//Staff Elements END
 
+//Part Elements START
 struct augmentation_dots{
     int number;//default 1
 };
@@ -71,7 +73,6 @@ struct articulation{
 };
 
 struct gregorian_symbol{
-    struct notehead* notehead;
     char* id;
     char* neume;//REQUIRED
     char* inflexion;//(no,resupinus,fleux) default no
@@ -79,6 +80,10 @@ struct gregorian_symbol{
     char* interpretative_mark;//(no,vertical_episema,horizontal_episema,liquescens) default no
     char* mora;//(yes,no) default no
     //spine_ref
+    
+    struct notehead* notehead;
+    
+    struct gregorian_symbol* next_gregorian_symbol;
 };
 
 struct tablature_fingering{
@@ -122,27 +127,28 @@ struct duration{
 };
 
 struct tablature_symbol{
-    struct duration duration;
-    struct augmentation_dots augmentation_dots;//?
-    struct key* keys;
     char* id;
     //spine_ref
     char* stem_direction;//(up,down,none)
     char* beam_before;//(yes,no) default no
     char* beam_after;//(yes,no) default no
+    
+    struct duration duration;
+    struct augmentation_dots augmentation_dots;//?
+    struct key* keys;
+    
+    struct tablature_symbol* next_tablature_symbol;
 };
 
-struct res{
+struct rest{
     struct duration duration;
     struct augmentation_dots augmentation_dots;//?
     char* id;
     //spine_ref
     //staff_ref
     char* hidden;//(yes,no)
-};
-
-struct repetition{
-
+    
+    struct rest* next_rest;
 };
 
 struct chord{
@@ -159,9 +165,53 @@ struct chord{
     //(notehead+|repetition)
     struct notehead* noteheads;//+
     int repetition;//yes=1, no=0
-    struct articulation* articulations;//?   
+    struct articulation* articulations;//?
+    
+    struct chord* next_chord;
 };
-//Tablature  END
+
+struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
+    //voice_item_ref REQUIRED
+    char* ossia;//(yes,no) default no
+    struct chord* chords;
+    struct rest* rests;
+    struct tablature_symbol* tablature_symbols;
+    struct gregorian_symbol* gregorian_symbols;
+    
+    struct voice* next_voice;
+};
+
+struct measure_repeat{
+    int number_of_measures;//REQUIRED
+    //event_ref
+};
+
+struct multiple_rest{
+    int number_of_measures;//REQUIRED
+    //event_ref
+};
+
+struct measure{
+    int number;//REQUIRED
+    char* id;
+    char* show_number;//(yes,no)
+    char* numbering_style;//(arabic_numbers,roman_numbers,small_letter,capital_letters)
+    
+    //(voice+ | multiple_rest | measure_repeat?)
+    struct voice* voices;//+
+    struct multiple_rest multiple_rest;//1
+    struct measure_repeat measure_repeat;//?    
+    
+    struct measure* next_measure;
+};
+
+struct voice_item{
+    char* id;//REQUIRED
+    //staff_ref REQUIRED
+    char* notation_style;///(normal,rhythmic,slash,blank))
+    struct voice_item* next_voice_item;
+};
+//Part Elements  END
 
 //Horizontal Symbols START
 struct custom_hsymbol{
