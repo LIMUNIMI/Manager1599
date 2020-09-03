@@ -17,10 +17,77 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+enum accidentals {double_sharp,sharp_and_a_half,sharp,demisharp,natural,demiflat,flat,flat_and_a_half,double_flat};
+enum articulation_signs {normal_accent,staccatissimo,staccato,strong_accent,tenuto,stopped_note,snap_pizzicato,natural_harmonic,up_bow,down_bow,open_mute,close_mute,custom_articulation};
 
 struct chord{
-
 };
+
+//  START
+struct syllabe{
+    char* syllabe_value;
+    //start_event_ref
+    //end_event_ref
+    char* hyphen;//(yes,no) default no
+    struct syllabe* next_syllabe;
+};
+
+struct lyrics{//(syllabe+)
+    struct syllabe* syllabes;
+    //part_ref
+    //voice_ref
+};
+
+struct augmentation_dots{
+    int number;//default 1
+};
+
+struct tie{
+    int tie_value;//value=1 se c'é tie
+};
+
+struct fingering{
+    int number;//REQUIRED (1,2,3,4,5)
+};
+
+struct printed_accidental_list{
+    char* parenthesis;//(yes,no) default no
+    struct printed_accidental_list* next_printed_accidental;
+};
+
+struct printed_accidentals{
+    char* shape;//(normal,small,bracketed) default normal
+    struct printed_accidental_list* printed_accidentals;
+};
+
+struct pitch{
+    char* step;//REQUIRED (A,B,C,D,E,F,G,none)
+    int octve;//REQUIRED
+    //accidental actual_accidental
+};
+
+struct notehead{
+    char* id;
+    //staff_ref
+    char* style;//(normal,harmonic,unpitched,cymbal,parenthesis,circled,squared)
+    struct pitch pitch;
+    struct printed_accidentals printed_accidentals;//?
+    struct tie tie;//?
+    struct fingering fingering;//?
+};
+
+struct nothead_ref{
+    //spine_ref
+};
+
+struct articulation{
+    //custom_articulation(svg)
+    articulation_signs articulation_sign;
+    struct articulation* next_articulation;
+};
+
+//  END
 
 //Horizontal Symbols START
 struct custom_hsymbol{
@@ -93,7 +160,7 @@ struct tablature_element{
     char* shape;//REQUIRED (empty_circle,full_circle,cross,rhombus,1,2,3,4,T)
     char* string_position;//REQUIRED
     char* fre_position;//REQUIRED
-    struct tablature_element next_tablature_element;
+    struct tablature_element* next_tablature_element;
 };
 
 struct tablature_hsymbol{//(tablature_element|barre)+
