@@ -23,8 +23,8 @@ enum articulation_signs {normal_accent,staccatissimo,staccato,strong_accent,tenu
 enum neumes {punctum,virga,punctum_inclinatum,quilisma,apostrofa,oriscus,podatus,pes,clivis,flexa,epiphonus,cephalicus,bistropha,bivirga,trigon,torculus,porrectus,scandicus,salicus,climacus,tristropha,trivirga,strophicus,pressus,custos};
 
 //Staff Eelements START
-
-//Staff Elements END
+ //DTD 231
+//Staff Elements END 
 
 //Part Elements START
 struct augmentation_dots{
