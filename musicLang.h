@@ -23,7 +23,76 @@ enum articulation_signs {normal_accent,staccatissimo,staccato,strong_accent,tenu
 enum neumes {punctum,virga,punctum_inclinatum,quilisma,apostrofa,oriscus,podatus,pes,clivis,flexa,epiphonus,cephalicus,bistropha,bivirga,trigon,torculus,porrectus,scandicus,salicus,climacus,tristropha,trivirga,strophicus,pressus,custos};
 
 //Staff Eelements START
- //DTD 231
+struct string{
+    int string_number;//REQUIRED
+    char* string_pitch;//(A,B,C,D,E,F,G) REQUIRED
+    //accidental string_accidental
+    int string_octave;//REQUIRED
+    
+    struct string* next_string;
+};
+
+struct tablature_tuning{
+    char* type;//(D,E,G,A,baroque,flat_french,other)
+    struct string* strings;
+    
+    struct tablature_tuning* next_tablature_tuning;
+};
+
+struct barline{
+    char* style;//REQUIRED (dashed,double,final,invisibile,staandard,medium,short)
+    char* extensione;//REQUIRED (single_staff,staff_group,all_stave,mensurstrich
+    //spine_ref
+    
+    struct barline* next_barline;
+};
+
+struct time_indication{
+    int num;//REQUIRED
+    int den;//REQUIRED
+    char* abbreviation;//(yes,no) default no
+    int vtu_amount;
+    
+    struct time_indication* next_time_indication;
+};
+
+struct time_signature{
+    char* visibile;//(yes,no) default no
+    //spine_ref    
+    struct time_indication* time_indications;//+
+    
+    struct time_signature* next_time_signature;
+};
+
+struct key_accidental{
+    char* step;//REQUIRED (A,B,C,D,E,F,G)
+    //accidental accidental
+    struct key_accidental* next_key_accidental;
+};
+
+struct custom_key_signature{
+    //spine_ref
+    struct key_accidental* key_accidentals;//+
+    
+    struct custom_key_signature* next_custom_key_signature;
+};
+
+struct key_signature{
+    char* num_type;//REQUIRED(flat_num,sharp_num)
+    int number;//REQUIRED (0,1,2,3,4,5,6,7)
+    //spine_ref
+    
+    struct key_signature* next_key_signature;
+};
+
+struct clef{
+    char* shape;//REQUIRED (G,F,C,gregorian_F,gregorian_C,percussion,doubleG,tabguitar)
+    char* staff_step;//REQUIRED
+    int octave_num;//(0,8,-8,15,-15) default 0
+    //spine_ref
+    
+    struct clef* next_clef;
+};
 //Staff Elements END 
 
 //Part Elements START

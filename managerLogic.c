@@ -1,6 +1,6 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template file, choose Tools,Templates
  * and open the template in the editor.
  */
 
@@ -77,8 +77,34 @@ struct part{
     struct part* next_part;
 };
 
+struct brackets{
+    //marker REQUIRED (start_of_staff_group|end_of_staff_group)
+    int gruop_number;//REQUIRED
+    char* shape;//REQUIRED (square,rounded_square,brace,vertical_bar,none)
+    
+    struct brackets* next_brackets;
+};
+
+struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline|tablature_tuning)*
+    char* id;
+    int line_number;//default 5
+    char* ossia;//(yes,no) default no
+    char* tablature;//(none,french,german,italian)
+    
+    struct clef* clefs;
+    struct key_signature* key_signatures;
+    struct custom_key_signature* custom_key_singatures;
+    struct time_signature* time_signatures;
+    struct barline* barlines;
+    struct tablature_tuning* tablature_tunings;
+    
+    struct staff* next_staff;
+};
+
 struct los{//?
+    //(brackets,staff)+
     struct staff* staff_list;//1    
+    struct brackets* staff_list_brackets;
     struct horizontal_symbol_list* horizontal_symbols;//?
     struct ornament_list* ornaments;//?    
     struct agogic* agogics;
@@ -86,6 +112,78 @@ struct los{//?
     struct metronomic_indication* metronomic_indication;
     struct lyrics lyrics;
     struct part* part;//+
+};
+
+//Layout
+struct layout_shapes{
+    //svg
+    int horizontal_offset;//REQUIRED
+    int vertical_offset;//REQUIRED
+};
+
+struct layout_images{
+    char* file_name;//#REQUIRED
+    char* file_format;//REQUIRED
+    char* encoding_format;//REQUIRED
+    int horizontal_offset;//#REQUIRED
+    int vertical_offset;//#REQUIRED
+    char* description;
+    char* copyright; 
+    char* notes;    
+};
+
+struct layout_staff{
+    char* id;
+    //staff_ref REQUIRED
+    int vertical_offset;//REQUIRED
+    int height;//REQUIRED
+    char* show_key_signature;//(yes,no) default yes
+    char* show_clef;//(yes,no) default yes
+    char* show_time_signature;//(yes,no) default no
+    char* ossia;//(yes,no) default no
+
+    struct layout_staff* next_layout_staff;
+};
+
+struct layout_system{
+    char* id;
+    int upper_left_x;//REQUIRED
+    int upper_left_y;//REQUIRED
+    int lower_right_x;//REQUIRED
+    int lower_right_y;//REQUIRED
+    
+    struct layout_staff* layout_staves;//+
+};
+
+struct custom_page_format{
+    int width;//REQUIRED
+    int height;//REQUIRED
+};
+
+struct standard_page_format{
+    char* format;//REQUIRED (a0,a1,a2,a3,a4,a5,a6,a7,a8,b0,b1,b2,b3,b4,b5,b6,b7,b8,c0,c1,c2,c3,c4,c5,c6,c7,c8,ansi_a,ansi_b,ansi_c,ansi_d,ansi_e,arch_a,arch_b,arch_c,arch_e,arch_e1,quarto,foolscap,executive,monarch,government_letter,letter,legal,ledger,tabloid,post,crown,large_post,demy,medium,royal,elephant,double_demy,quad_demy,statement) 
+};
+
+struct page{//((standard_page_format | custom_page_format), layout_system*, layout_images*, layout_shapes*)
+    char* id;//REQUIRED
+    int number;
+    
+    struct standard_page_format* standard_page_formats;
+    struct custom_page_format* custom_page_formats;
+    struct layout_system* layout_systems;
+    struct layout_images* layout_images_list;
+    struct layout_shapes* layout_shapes_list;
+    
+    struct page* next_page;
+};
+
+struct layout{//(page+, text_font?, music_font?)
+    int hpos_per_unit;//REQUIRED
+    char* mesurement_unit;//REQUIRED (centimeters,millimeters,inches,decimal_inches,points,picas,pixels,twips)
+    
+    struct page* pages;//+
+    char* text_font;
+    char* music_font;
 };
 
 //Logic
