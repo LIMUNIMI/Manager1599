@@ -37,8 +37,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/common.o \
 	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/managerAudio.o \
 	${OBJECTDIR}/managerGeneral.o \
-	${OBJECTDIR}/managerLogic.o
+	${OBJECTDIR}/managerLogic.o \
+	${OBJECTDIR}/managerNotational.o \
+	${OBJECTDIR}/managerPerformance.o \
+	${OBJECTDIR}/managerStructural.o
 
 
 # C Compiler Flags
@@ -75,6 +79,11 @@ ${OBJECTDIR}/main.o: main.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
+${OBJECTDIR}/managerAudio.o: managerAudio.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerAudio.o managerAudio.c
+
 ${OBJECTDIR}/managerGeneral.o: managerGeneral.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -84,6 +93,21 @@ ${OBJECTDIR}/managerLogic.o: managerLogic.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLogic.o managerLogic.c
+
+${OBJECTDIR}/managerNotational.o: managerNotational.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerNotational.o managerNotational.c
+
+${OBJECTDIR}/managerPerformance.o: managerPerformance.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerPerformance.o managerPerformance.c
+
+${OBJECTDIR}/managerStructural.o: managerStructural.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerStructural.o managerStructural.c
 
 # Subprojects
 .build-subprojects:

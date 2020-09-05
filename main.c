@@ -16,11 +16,6 @@
 //char *encoding="ISO-8859-1";
 
 void readLogic();
-void readStructural();
-void readNotational();
-void readPerformancee();
-void readAudio();
-
 
 /*
  * 
@@ -50,8 +45,6 @@ int main(int argc, char **argv) {
     
     return (EXIT_SUCCESS);
 }
-
-
 
 void readLogic(){
     xmlXPathObjectPtr result;
@@ -600,20 +593,3 @@ void readLogic(){
     
     //layout riga 672 DTD
 }
-
-void readStructural(){
-    //riga 734 DTD
-}
-
-void readNotational(){
-    //riga 863 DTD
-}
-
-void readPerformance(){
-    //riga 912 DTD
-}
-
-void readAudio(){
-    //riga 1005 DTD
-}
-

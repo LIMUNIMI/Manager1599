@@ -5,8 +5,12 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>common.h</itemPath>
+      <itemPath>managerAudio.h</itemPath>
       <itemPath>managerGeneral.h</itemPath>
       <itemPath>managerLogic.h</itemPath>
+      <itemPath>managerNotational.h</itemPath>
+      <itemPath>managerPerformance.h</itemPath>
+      <itemPath>managerStructural.h</itemPath>
       <itemPath>musicLang.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -18,8 +22,12 @@
                    projectFiles="true">
       <itemPath>common.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>managerAudio.c</itemPath>
       <itemPath>managerGeneral.c</itemPath>
       <itemPath>managerLogic.c</itemPath>
+      <itemPath>managerNotational.c</itemPath>
+      <itemPath>managerPerformance.c</itemPath>
+      <itemPath>managerStructural.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -57,6 +65,10 @@
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="managerAudio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerAudio.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="managerGeneral.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="managerGeneral.h" ex="false" tool="3" flavor2="0">
@@ -64,6 +76,18 @@
       <item path="managerLogic.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="managerLogic.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerNotational.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerNotational.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerPerformance.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerPerformance.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerStructural.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerStructural.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="musicLang.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -94,6 +118,10 @@
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="managerAudio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerAudio.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="managerGeneral.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="managerGeneral.h" ex="false" tool="3" flavor2="0">
@@ -101,6 +129,18 @@
       <item path="managerLogic.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="managerLogic.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerNotational.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerNotational.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerPerformance.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerPerformance.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerStructural.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerStructural.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="musicLang.h" ex="false" tool="3" flavor2="0">
       </item>
