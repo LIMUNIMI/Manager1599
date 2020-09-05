@@ -87,7 +87,7 @@ void printSpine(){
     p=NULL;
     p=logic_layer.spine;
     while(p!=NULL){
-       //printf("Event: %s %s %s\n",p->id,p->timing,p->hpos);
+       printf("Event: %s %s %s\n",p->id,p->timing,p->hpos);
        p=p->next_event;
     }
 }

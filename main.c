@@ -14,15 +14,6 @@
 #include "common.h"
 #include "managerGeneral.h"
 #include "managerLogic.h"
-#include "managerStructural.h"
-#include "managerNotational.h"
-#include "managerPerformance.h"
-#include "managerAudio.h"
-
-/*
- * 
- * 
- */
 
 int main(int argc, char **argv) {
 
@@ -39,10 +30,6 @@ int main(int argc, char **argv) {
         
         loadGeneral();
         loadLogic();
-        //loadStructura();
-        //loadNotational();
-        //loadPerformance();
-        //loadAudio();
     }
     
     xmlFreeDoc(doc);

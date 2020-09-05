@@ -24,6 +24,7 @@ extern "C" {
 #include <libxml/parser.h>
 #include <libxml/xmlmemory.h>
 #include <string.h>
+ 
     
 xmlChar *docname;
 xmlChar *docpath;
@@ -32,7 +33,8 @@ char* encoding;
 
 xmlDocPtr getDoc(xmlChar *docpath);
 xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
-char* concat(const char *s1, const char *s2);    
+char* concat(const char *s1, const char *s2);  
+
 
 #ifdef __cplusplus
 }
