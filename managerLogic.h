@@ -202,6 +202,8 @@ struct layout{//(page+, text_font?, music_font?)
 
 //Logic
 struct logic{
+    int n_events;
+    
     struct event* spine;//+
     struct los los;//?
     struct layout layout;//?
@@ -211,6 +213,14 @@ struct logic{
 struct logic logic_layer;
 
 //Prototypes
+void loadLogic();
+void loadSpine();
+void loadLos();
+void loadLayout();
+    
+void printSpine();
+void printLos();
+void printLayout();
 
 #ifdef __cplusplus
 }

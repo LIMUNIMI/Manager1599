@@ -4,4 +4,4 @@
  * and open the template in the editor.
  */
 
-#include "managerStrucutral.h"
+#include "managerStructural.h"

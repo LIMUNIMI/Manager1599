@@ -19,7 +19,9 @@ build/Debug/Cygwin-Windows/main.o: main.c common.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/SAX2.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xlink.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h \
- ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h
+ ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h \
+ managerGeneral.h managerLogic.h musicLang.h managerStructural.h \
+ managerNotational.h managerPerformance.h managerAudio.h
 
 common.h:
 
@@ -64,3 +66,17 @@ common.h:
 ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h:
 
 ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h:
+
+managerGeneral.h:
+
+managerLogic.h:
+
+musicLang.h:
+
+managerStructural.h:
+
+managerNotational.h:
+
+managerPerformance.h:
+
+managerAudio.h:
