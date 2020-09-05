@@ -26,6 +26,7 @@
 
 int main(int argc, char **argv) {
 
+    encoding="ISO-8859-1";
     docpath="File/gottes_macht.xml";
     
     doc=getDoc(docpath);

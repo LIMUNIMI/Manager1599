@@ -28,7 +28,7 @@ extern "C" {
 xmlChar *docname;
 xmlChar *docpath;
 xmlDocPtr doc;
-char *encoding="ISO-8859-1";
+char* encoding;
 
 xmlDocPtr getDoc(xmlChar *docpath);
 xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);

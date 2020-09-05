@@ -32,7 +32,7 @@ struct event{//EMPTY
 
 //Los
 struct agogic{
-    int bracketed;// yes!=0, no=0
+    char* bracketed;//(yes,no) default no
     //spine-ref
     
     char* agogic_value;
@@ -119,6 +119,8 @@ struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline
 };
 
 struct los{//?
+    int n_agogics;
+    
     //(brackets,staff)+
     struct staff* staff_list;//1    
     struct brackets* staff_list_brackets;
