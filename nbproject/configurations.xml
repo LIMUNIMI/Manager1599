@@ -28,6 +28,7 @@
       <itemPath>managerNotational.c</itemPath>
       <itemPath>managerPerformance.c</itemPath>
       <itemPath>managerStructural.c</itemPath>
+      <itemPath>musicLang.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -89,6 +90,8 @@
       </item>
       <item path="managerStructural.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="musicLang.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="musicLang.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
@@ -141,6 +144,8 @@
       <item path="managerStructural.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="managerStructural.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="musicLang.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="musicLang.h" ex="false" tool="3" flavor2="0">
       </item>

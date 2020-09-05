@@ -26,14 +26,17 @@ struct event{//EMPTY
     char* id;//required
     char* timing;//null
     char* hpos;//null
+    
     struct event* next_event;
 };
 
 //Los
 struct agogic{
-    char* agogic_value;
     int bracketed;// yes!=0, no=0
     //spine-ref
+    
+    char* agogic_value;
+    
     struct agogic* next_agogic;
 };
 

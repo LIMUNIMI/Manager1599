@@ -599,4 +599,6 @@ void loadLos(){
     }
 }
 
-void printLos(){}
+void printLos(){
+
+}

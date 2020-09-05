@@ -42,7 +42,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/managerLogic.o \
 	${OBJECTDIR}/managerNotational.o \
 	${OBJECTDIR}/managerPerformance.o \
-	${OBJECTDIR}/managerStructural.o
+	${OBJECTDIR}/managerStructural.o \
+	${OBJECTDIR}/musicLang.o
 
 
 # C Compiler Flags
@@ -108,6 +109,11 @@ ${OBJECTDIR}/managerStructural.o: managerStructural.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerStructural.o managerStructural.c
+
+${OBJECTDIR}/musicLang.o: musicLang.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/musicLang.o musicLang.c
 
 # Subprojects
 .build-subprojects:
