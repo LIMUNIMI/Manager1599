@@ -61,3 +61,21 @@ char* concat(const char *s1, const char *s2)
     
     return result;
 }
+
+int xmlCharToInt(xmlChar* string){
+    int value=0;
+    int error=0;
+    
+    for(int i=xmlStrlen(string)-1;i>=0;i--){
+        if (string[i]>='0'&&string[i]<='9'){
+            value+=pow(10,xmlStrlen(string)-1-i)*((int)string[i]-48);
+        }
+        else{error=1;}
+    }
+    if(error){
+        value=-1;
+        fprintf(stderr,"Can't convert string to integer\n");
+    }
+
+    return value;
+}

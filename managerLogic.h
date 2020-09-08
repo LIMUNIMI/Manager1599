@@ -43,7 +43,7 @@ struct agogic{
 struct text_field{
     char* text_field_value;
     //extension_line_to
-    //extensione_lines_shape (normal,dotted,slashed)
+    char* extension_line_shape;//(normal,dotted,slashed)
     //spine_ref
     struct text_field* next_text_field;
 };
@@ -57,28 +57,24 @@ struct metronomic_indication{//EMPTY
     struct metronomic_indication* next_metronomic_indication;
 };
 
-struct ornament_list{
-    ornament ornament_value;
-    struct ornament_list* next_ornament;
-};
-
-struct horizontal_symbol_list{
-    horizontal_symbol horizontal_symbol_value;
-    struct horizontal_symbol_list* next_horizontal_symbol;
-};
-
 struct syllabe{
-    char* syllabe_value;
     //start_event_ref
     //end_event_ref
     char* hyphen;//(yes,no) default no
+    
+    char* syllabe_value;
+    
     struct syllabe* next_syllabe;
 };
 
 struct lyrics{//(syllabe+)
+    int n_syllabes;
+    
     struct syllabe* syllabes;
     //part_ref
     //voice_ref
+    
+    struct lyrics* next_lyrics;
 };
 
 struct part{
@@ -120,6 +116,12 @@ struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline
 
 struct los{//?
     int n_agogics;
+    int n_text_fields;
+    int n_metronomic_indications;
+    int n_lyrics;
+    int n_parts;
+    int n_staves;
+    int n_brackets;
     
     //(brackets,staff)+
     struct staff* staff_list;//1    
@@ -129,7 +131,7 @@ struct los{//?
     struct agogic* agogics;
     struct text_field* text_field;
     struct metronomic_indication* metronomic_indication;
-    struct lyrics lyrics;
+    struct lyrics* lyrics;
     struct part* part;//+
 };
 

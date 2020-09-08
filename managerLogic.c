@@ -99,12 +99,32 @@ void loadLos(){
     xmlNodePtr cur;
     xmlAttr *attributes;
     
-    struct agogic *head=NULL;
-    struct agogic *temp=NULL;
-    struct agogic *p=NULL;
+    xmlNodePtr temp_cur;
+    
+    struct agogic *agogic_head=NULL;
+    struct agogic *agogic_temp=NULL;
+    struct agogic *agogic_p=NULL;
+    
+    struct text_field *text_field_head=NULL;
+    struct text_field *text_field_temp=NULL;
+    struct text_field *text_field_p=NULL;
+    
+    struct metronomic_indication *metronomic_indication_head=NULL;
+    struct metronomic_indication *metronomic_indication_temp=NULL;
+    struct metronomic_indication *metronomic_indication_p=NULL;
+    
+    struct lyrics* lyrics_head=NULL;
+    struct lyrics* lyrics_temp=NULL;
+    struct lyrics* lyrics_p=NULL;
+    
+    struct syllabe* syllabe_head=NULL;
+    struct syllabe* syllabe_temp=NULL;
+    struct syllabe* syllabe_p=NULL;
     
     logic_layer.los.n_agogics=0;
-    
+    logic_layer.los.n_text_fields=0;
+    logic_layer.los.n_lyrics=0;
+       
     xpath=(xmlChar *)"/ieee1599/logic/los";
     result=getNodeset(doc,xpath);
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
@@ -113,35 +133,162 @@ void loadLos(){
         cur=cur->xmlChildrenNode;
         while(cur!=NULL){//scan los children
             if(!xmlStrcmp(cur->name,(const xmlChar*)"agogics")){
-                temp=(struct agogic*)malloc(sizeof(struct agogic));
-                temp=calloc(1,sizeof(struct agogic));
-                temp->agogic_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
+                agogic_temp=(struct agogic*)malloc(sizeof(struct agogic));
+                agogic_temp=calloc(1,sizeof(struct agogic));
+                agogic_temp->agogic_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
                 attributes=cur->properties;
                 while(attributes!=NULL){
                     if(!xmlStrcmp(attributes->name,(const xmlChar*)"bracketed")){
-                        temp->bracketed=xmlGetProp(cur,attributes->name); 
+                        agogic_temp->bracketed=xmlGetProp(cur,attributes->name); 
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                        //temp->spine_ref=xmlGetProp(cur,attributes->name);
+                        //agogic_temp->spine_ref=xmlGetProp(cur,attributes->name);
                     }                
                     attributes=attributes->next;                     
                 }  
-                temp->next_agogic=NULL;
-                if(head==NULL){
-                    head=temp;
+                agogic_temp->next_agogic=NULL;
+                if(agogic_head==NULL){
+                    agogic_head=agogic_temp;
                 }
                 else{
-                    p=head;
-                    while(p->next_agogic!=NULL)
-                        p=p->next_agogic;
-                    p->next_agogic=temp;
+                    agogic_p=agogic_head;
+                    while(agogic_p->next_agogic!=NULL)
+                        agogic_p=agogic_p->next_agogic;
+                    agogic_p->next_agogic=agogic_temp;
                 }
                 logic_layer.los.n_agogics++;                                           
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"text_field")){
-            
+                text_field_temp=(struct text_field*)malloc(sizeof(struct text_field));
+                text_field_temp=calloc(1,sizeof(struct text_field));
+                text_field_temp->text_field_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
+                attributes=cur->properties;
+                while(attributes!=NULL){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"extension_line_to")){
+                        //text_field_temp->extensione_lines_shape=xmlGetProp(cur,attributes->name); 
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"extension_line_shape")){
+                        text_field_temp->extension_line_shape=xmlGetProp(cur,attributes->name);
+                    }                
+                    attributes=attributes->next;                     
+                }  
+                text_field_temp->next_text_field=NULL;
+                if(text_field_head==NULL){
+                    text_field_head=text_field_temp;
+                }
+                else{
+                    text_field_p=text_field_head;
+                    while(text_field_p->next_text_field!=NULL)
+                        text_field_p=text_field_p->next_text_field;
+                    text_field_p->next_text_field=text_field_temp;
+                }
+                logic_layer.los.n_text_fields++;  
             }
-         cur=cur->next;//next los children
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"metronomic_indication")){
+                metronomic_indication_temp=(struct metronomic_indication*)malloc(sizeof(struct metronomic_indication));
+                metronomic_indication_temp=calloc(1,sizeof(struct metronomic_indication));
+                attributes=cur->properties;
+                while(attributes!=NULL){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"num")){
+                        metronomic_indication_temp->num=xmlCharToInt(xmlGetProp(cur,attributes->name));
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"den")){
+                        metronomic_indication_temp->den=xmlCharToInt(xmlGetProp(cur,attributes->name));
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"value")){
+                        metronomic_indication_temp->value=xmlCharToInt(xmlGetProp(cur,attributes->name));
+                    }  
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"dots")){
+                        metronomic_indication_temp->dots=xmlCharToInt(xmlGetProp(cur,attributes->name));
+                    }  
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                        //metronomic_indication_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                    }  
+                    attributes=attributes->next;                     
+                }  
+                metronomic_indication_temp->next_metronomic_indication=NULL;
+                if(metronomic_indication_head==NULL){
+                    metronomic_indication_head=metronomic_indication_temp;
+                }
+                else{
+                    metronomic_indication_p=metronomic_indication_head;
+                    while(metronomic_indication_p->next_metronomic_indication!=NULL)
+                        metronomic_indication_p=metronomic_indication_p->next_metronomic_indication;
+                    metronomic_indication_p->next_metronomic_indication=metronomic_indication_temp;
+                }
+                logic_layer.los.n_metronomic_indications++;
+            }
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"staff_list")){
+            
+            }// end if staff_list
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"part")){
+            
+            }// end if part
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"horizontal_symbols")){
+                logic_layer.los.horizontal_symbols=loadHorizontalSymbols(cur);
+            }
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"ornaments")){
+                logic_layer.los.ornaments=loadOrnaments(cur);
+            }
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"lyrics")){
+                lyrics_temp=(struct lyrics*)malloc(sizeof(struct lyrics));
+                lyrics_temp=calloc(1,sizeof(struct lyrics));
+                lyrics_temp->n_syllabes=0;
+                attributes=cur->properties;
+                while(attributes!=NULL){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"part_ref")){
+                        //lyrics_temp->part_ref=xmlGetProp(cur,attributes->name);
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"voide_ref")){
+                        //lyrics_temp->voice_ref=xmlGetProp(cur,attributes->name);
+                    } 
+                    attributes=attributes->next;                     
+                }
+                temp_cur=cur->xmlChildrenNode;
+                while(temp_cur!=NULL){//syllabe in lyrics
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"syllabe")){
+                        syllabe_temp=(struct syllabe*)malloc(sizeof(struct syllabe));
+                        syllabe_temp=calloc(1,sizeof(struct syllabe));
+                        attributes=cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                                //lyrics_temp->part_ref=xmlGetProp(cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                                //lyrics_temp->voice_ref=xmlGetProp(cur,attributes->name);
+                            } 
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"hyphen")){
+                                syllabe_temp->hyphen=xmlGetProp(cur,attributes->name);
+                            } 
+                            attributes=attributes->next;                     
+                        }
+                        syllabe_temp->next_syllabe=NULL;
+                        if(syllabe_head==NULL){
+                            syllabe_head=syllabe_temp;
+                        }
+                        else{
+                            syllabe_p=syllabe_head;
+                            while(syllabe_p->next_syllabe!=NULL)
+                                syllabe_p=syllabe_p->next_syllabe;
+                            syllabe_p->next_syllabe=syllabe_temp;
+                        } 
+                        lyrics_temp->n_syllabes++;
+                    }
+                    temp_cur=temp_cur->next;
+                }//end while syllabe in lyrics
+                lyrics_temp->next_lyrics=NULL;
+                if(lyrics_head==NULL){
+                    lyrics_head=lyrics_temp;
+                }
+                else{
+                    lyrics_p=lyrics_head;
+                    while(lyrics_p->next_lyrics!=NULL)
+                        lyrics_p=lyrics_p->next_lyrics;
+                    lyrics_p->next_lyrics=lyrics_temp;
+                }
+                logic_layer.los.n_lyrics++;
+            }
+            cur=cur->next;//next los children
         }//end while (los children)
     }//end if nodeset not empty
 }

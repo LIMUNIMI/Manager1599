@@ -5,3 +5,11 @@
  */
 
 #include "musicLang.h"
+
+struct ornament_list* loadOrnaments(xmlNodePtr cur){
+    
+}
+
+struct horizontal_symbol_list* loadHorizontalSymbols(xmlNodePtr cur){
+    
+}
