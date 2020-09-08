@@ -131,11 +131,16 @@ void loadLos(){
     struct ornament_list* ornament_list_p=NULL;
     ornament ornament_value;
     
+    struct part* part_temp=NULL;
+    struct part* part_head=NULL;
+    struct part* part_p=NULL;
+    
     logic_layer.los.n_agogics=0;
     logic_layer.los.n_text_fields=0;
     logic_layer.los.n_lyrics=0;
     logic_layer.los.n_horizontal_symbols=0;
     logic_layer.los.n_ornaments=0;
+    logic_layer.los.n_parts=0;
     
     xpath=(xmlChar *)"/ieee1599/logic/los";
     result=getNodeset(doc,xpath);
@@ -231,10 +236,51 @@ void loadLos(){
                 logic_layer.los.n_metronomic_indications++;
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"staff_list")){
-            
+                
             }// end if staff_list
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"part")){
-            
+                part_temp=(struct part*)malloc(sizeof(struct part));
+                part_temp=calloc(1,sizeof(struct part));
+                temp_cur=cur->xmlChildrenNode;
+                attributes=cur->properties;
+                while(attributes!=NULL){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                        part_temp->id=xmlGetProp(cur,attributes->name);
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"performers_number")){
+                        part_temp->performes_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"transposition_pitch")){
+                        part_temp->transposition_pitch=xmlGetProp(cur,attributes->name);
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"transposition_accidental")){
+                        //part_temp->transposition_accidental=xmlGetProp(cur,attributes->name);
+                    }
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"octave_offset")){
+                        part_temp->octave_offset=xmlCharToInt(xmlGetProp(cur,attributes->name));
+                    }
+                    attributes=attributes->next;
+                }
+                while(temp_cur!=NULL){
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"voice_list")){
+                    
+                    }
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"measure")){
+                        
+                    }
+                    temp_cur=temp_cur->next;
+                }
+                part_temp->next_part=NULL;
+                if(part_head==NULL){
+                    part_head=part_temp;
+                }
+                else{
+                    part_p=part_head;
+                    while(part_p->next_part!=NULL)
+                        part_p=part_p->next_part;
+                    part_p->next_part=part_temp;
+                }
+                logic_layer.los.n_parts++;  
             }// end if part
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"horizontal_symbols")){
                 horizontal_symbol_list_temp=(struct horizontal_symbol_list*)malloc(sizeof(struct horizontal_symbol_list));
@@ -242,7 +288,7 @@ void loadLos(){
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
                     horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
-                    if(xmlStrcmp(cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
+                    if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
                         horizontal_symbol_list_temp->horizontal_symbol_value=horizontal_symbol_value;
                         horizontal_symbol_list_temp->next_horizontal_symbol=NULL;
                         if(horizontal_symbol_list_head==NULL){
@@ -265,7 +311,7 @@ void loadLos(){
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
                     ornament_value=loadOrnamentValue(temp_cur);
-                    if(xmlStrcmp(cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
+                    if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
                         ornament_list_temp->ornament_value=ornament_value;
                         ornament_list_temp->next_ornament=NULL;
                         if(ornament_list_head==NULL){
@@ -328,6 +374,7 @@ void loadLos(){
                     }
                     temp_cur=temp_cur->next;
                 }//end while syllabe in lyrics
+                lyrics_temp->syllabes=syllabe_head;
                 lyrics_temp->next_lyrics=NULL;
                 if(lyrics_head==NULL){
                     lyrics_head=lyrics_temp;
@@ -342,6 +389,17 @@ void loadLos(){
             }
             cur=cur->next;//next los children
         }//end while (los children)
+        
+        logic_layer.los.agogics=agogic_head;
+        logic_layer.los.text_field=text_field_head;
+        logic_layer.los.metronomic_indication=metronomic_indication_head;
+        //logic_layer.los.staff_list=staff_list_head;
+        //logic_layer.los.staff_list_brackets=staff_list_brackets_head;
+        logic_layer.los.horizontal_symbols=horizontal_symbol_list_head;
+        logic_layer.los.ornaments=ornament_list_head;
+        logic_layer.los.lyrics=lyrics_head;
+        logic_layer.los.part=part_head;
+        
     }//end if nodeset not empty
 }
 

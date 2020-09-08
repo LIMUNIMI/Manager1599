@@ -280,6 +280,7 @@ struct voice_item{
     char* id;//REQUIRED
     //staff_ref REQUIRED
     char* notation_style;///(normal,rhythmic,slash,blank))
+    
     struct voice_item* next_voice_item;
 };
 //Part Elements  END
