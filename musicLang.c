@@ -6,10 +6,12 @@
 
 #include "musicLang.h"
 
-struct ornament_list* loadOrnaments(xmlNodePtr cur){
-    
+ornament loadOrnamentValue(xmlNodePtr cur){
+    ornament value;
+    return value;
 }
 
-struct horizontal_symbol_list* loadHorizontalSymbols(xmlNodePtr cur){
-    
+horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
+    horizontal_symbol value;
+    return value;
 }

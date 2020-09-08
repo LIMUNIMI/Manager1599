@@ -495,11 +495,6 @@ typedef union{
     struct multiple_ending multiple_ending;
     struct custom_hsymbol custom_hsymbol;    
 }horizontal_symbol;
-
-struct horizontal_symbol_list{
-    horizontal_symbol horizontal_symbol_value;
-    struct horizontal_symbol_list* next_horizontal_symbol;
-};
 //Horizontal Symbols END
 
 //Ornaments START
@@ -570,16 +565,11 @@ typedef union{
     struct trill trill;
     struct turn turn;
 }ornament;
-
-struct ornament_list{
-    ornament ornament_value;
-    struct ornament_list* next_ornament;
-};
 //Ornaments END
 
 //Functions
-struct ornament_list* loadOrnaments(xmlNodePtr cur);
-struct horizontal_symbol_list* loadHorizontalSymbols(xmlNodePtr cur);
+ornament loadOrnamentValue(xmlNodePtr cur);
+horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

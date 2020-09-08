@@ -57,6 +57,16 @@ struct metronomic_indication{//EMPTY
     struct metronomic_indication* next_metronomic_indication;
 };
 
+struct horizontal_symbol_list{
+    horizontal_symbol horizontal_symbol_value;
+    struct horizontal_symbol_list* next_horizontal_symbol;
+};
+
+struct ornament_list{
+    ornament ornament_value;
+    struct ornament_list* next_ornament;
+};
+
 struct syllabe{
     //start_event_ref
     //end_event_ref
@@ -122,6 +132,8 @@ struct los{//?
     int n_parts;
     int n_staves;
     int n_brackets;
+    int n_ornaments;
+    int n_horizontal_symbols;
     
     //(brackets,staff)+
     struct staff* staff_list;//1    

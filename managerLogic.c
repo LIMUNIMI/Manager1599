@@ -121,10 +121,22 @@ void loadLos(){
     struct syllabe* syllabe_temp=NULL;
     struct syllabe* syllabe_p=NULL;
     
+    struct horizontal_symbol_list* horizontal_symbol_list_head=NULL;
+    struct horizontal_symbol_list* horizontal_symbol_list_temp=NULL;
+    struct horizontal_symbol_list* horizontal_symbol_list_p=NULL;
+    horizontal_symbol horizontal_symbol_value;
+    
+    struct ornament_list* ornament_list_head=NULL;
+    struct ornament_list* ornament_list_temp=NULL;
+    struct ornament_list* ornament_list_p=NULL;
+    ornament ornament_value;
+    
     logic_layer.los.n_agogics=0;
     logic_layer.los.n_text_fields=0;
     logic_layer.los.n_lyrics=0;
-       
+    logic_layer.los.n_horizontal_symbols=0;
+    logic_layer.los.n_ornaments=0;
+    
     xpath=(xmlChar *)"/ieee1599/logic/los";
     result=getNodeset(doc,xpath);
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
@@ -225,10 +237,50 @@ void loadLos(){
             
             }// end if part
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"horizontal_symbols")){
-                logic_layer.los.horizontal_symbols=loadHorizontalSymbols(cur);
+                horizontal_symbol_list_temp=(struct horizontal_symbol_list*)malloc(sizeof(struct horizontal_symbol_list));
+                horizontal_symbol_list_temp=calloc(1,sizeof(struct horizontal_symbol_list));
+                temp_cur=cur->xmlChildrenNode;
+                while(temp_cur!=NULL){
+                    horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
+                    if(xmlStrcmp(cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
+                        horizontal_symbol_list_temp->horizontal_symbol_value=horizontal_symbol_value;
+                        horizontal_symbol_list_temp->next_horizontal_symbol=NULL;
+                        if(horizontal_symbol_list_head==NULL){
+                            horizontal_symbol_list_head=horizontal_symbol_list_temp;
+                        }
+                        else{
+                            horizontal_symbol_list_p=horizontal_symbol_list_head;
+                            while(horizontal_symbol_list_p->next_horizontal_symbol!=NULL)
+                                horizontal_symbol_list_p=horizontal_symbol_list_p->next_horizontal_symbol;
+                            horizontal_symbol_list_p->next_horizontal_symbol=horizontal_symbol_list_temp;
+                        }
+                        logic_layer.los.n_horizontal_symbols++;
+                    }
+                    temp_cur=temp_cur->next;
+                }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"ornaments")){
-                logic_layer.los.ornaments=loadOrnaments(cur);
+                ornament_list_temp=(struct ornament_list*)malloc(sizeof(struct ornament_list));
+                ornament_list_temp=calloc(1,sizeof(struct ornament_list));
+                temp_cur=cur->xmlChildrenNode;
+                while(temp_cur!=NULL){
+                    ornament_value=loadOrnamentValue(temp_cur);
+                    if(xmlStrcmp(cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
+                        ornament_list_temp->ornament_value=ornament_value;
+                        ornament_list_temp->next_ornament=NULL;
+                        if(ornament_list_head==NULL){
+                            ornament_list_head=ornament_list_temp;
+                        }
+                        else{
+                            ornament_list_p=ornament_list_head;
+                            while(ornament_list_p->next_ornament!=NULL)
+                                ornament_list_p=ornament_list_p->next_ornament;
+                            ornament_list_p->next_ornament=ornament_list_temp;
+                        }
+                        logic_layer.los.n_ornaments++;
+                    }
+                    temp_cur=temp_cur->next;
+                }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"lyrics")){
                 lyrics_temp=(struct lyrics*)malloc(sizeof(struct lyrics));
