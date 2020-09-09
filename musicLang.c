@@ -15,3 +15,13 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
     horizontal_symbol value;
     return value;
 }
+
+struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
+    struct voice_item* value;
+    return value;
+}
+
+struct measure* loadMeasureValue(xmlNodePtr cur){
+    struct measure* value;
+    return value;
+}

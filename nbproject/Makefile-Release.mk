@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/common.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/managerAudio.o \
+	${OBJECTDIR}/managerDocument.o \
 	${OBJECTDIR}/managerGeneral.o \
 	${OBJECTDIR}/managerLogic.o \
 	${OBJECTDIR}/managerNotational.o \
@@ -84,6 +85,11 @@ ${OBJECTDIR}/managerAudio.o: managerAudio.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerAudio.o managerAudio.c
+
+${OBJECTDIR}/managerDocument.o: managerDocument.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerDocument.o managerDocument.c
 
 ${OBJECTDIR}/managerGeneral.o: managerGeneral.c
 	${MKDIR} -p ${OBJECTDIR}

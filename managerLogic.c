@@ -97,9 +97,9 @@ void loadLos(){
     xmlXPathObjectPtr result;
     xmlNodeSetPtr nodeset;
     xmlNodePtr cur;
+    xmlNodePtr temp_cur;
     xmlAttr *attributes;
     
-    xmlNodePtr temp_cur;
     
     struct agogic *agogic_head=NULL;
     struct agogic *agogic_temp=NULL;
@@ -124,16 +124,30 @@ void loadLos(){
     struct horizontal_symbol_list* horizontal_symbol_list_head=NULL;
     struct horizontal_symbol_list* horizontal_symbol_list_temp=NULL;
     struct horizontal_symbol_list* horizontal_symbol_list_p=NULL;
-    horizontal_symbol horizontal_symbol_value;
     
     struct ornament_list* ornament_list_head=NULL;
     struct ornament_list* ornament_list_temp=NULL;
     struct ornament_list* ornament_list_p=NULL;
-    ornament ornament_value;
     
     struct part* part_temp=NULL;
     struct part* part_head=NULL;
     struct part* part_p=NULL;
+    
+    struct voice_item* voice_item_temp=NULL;
+    struct voice_item* voice_item_head=NULL;
+    struct voice_item* voice_item_p=NULL;
+    
+    struct measure* measure_temp=NULL;
+    struct measure* measure_head=NULL;
+    struct measure* measure_p=NULL;
+    
+    struct brackets* brackets_temp=NULL;
+    struct brackets* brackets_head=NULL;
+    struct brackets* brackets_p=NULL;
+
+    struct staff* staff_temp=NULL;
+    struct staff* staff_head=NULL;
+    struct staff* staff_p=NULL;
     
     logic_layer.los.n_agogics=0;
     logic_layer.los.n_text_fields=0;
@@ -141,6 +155,8 @@ void loadLos(){
     logic_layer.los.n_horizontal_symbols=0;
     logic_layer.los.n_ornaments=0;
     logic_layer.los.n_parts=0;
+    logic_layer.los.n_brackets=0;
+    logic_layer.los.n_staves=0;
     
     xpath=(xmlChar *)"/ieee1599/logic/los";
     result=getNodeset(doc,xpath);
@@ -236,12 +252,86 @@ void loadLos(){
                 logic_layer.los.n_metronomic_indications++;
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"staff_list")){
-                
+                temp_cur=cur->xmlChildrenNode;
+                while(temp_cur!=NULL){
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"brackets")){
+                        brackets_temp=(struct brackets*)malloc(sizeof(struct brackets));
+                        brackets_temp=calloc(1,sizeof(struct brackets));                             
+                        attributes=temp_cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"marker")){
+                                brackets_temp->marker=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"group_number")){
+                                brackets_temp->group_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
+                                brackets_temp->shape=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            attributes=attributes->next;
+                        }
+                        brackets_temp->next_brackets=NULL;
+                        if(brackets_head==NULL){
+                            brackets_head=brackets_temp;
+                        }
+                        else{
+                            brackets_p=brackets_head;
+                            while(brackets_p->next_brackets!=NULL)
+                                brackets_p=brackets_p->next_brackets;
+                            brackets_p->next_brackets=brackets_temp;                          
+                        }
+                        logic_layer.los.n_brackets++;
+                    }
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"staff")){
+                        staff_temp=(struct staff*)malloc(sizeof(struct staff));
+                        staff_temp=calloc(1,sizeof(struct staff));                             
+                        attributes=temp_cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                                staff_temp->id=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"line_number")){
+                                staff_temp->line_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"ossia")){
+                                staff_temp->ossia=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"tablature")){
+                                staff_temp->tablature=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            attributes=attributes->next;
+                        }
+                        //scanning elements of staff
+                        if(temp_cur->xmlChildrenNode!=NULL){
+                            temp_cur=temp_cur->xmlChildrenNode;
+                            if(temp_cur!=NULL){
+                                do{
+                                    temp_cur=temp_cur->next;
+                                }while(temp_cur->next!=NULL);
+                            }
+                            temp_cur=temp_cur->parent;
+                        }
+                        //end scanning elements of staff
+                        staff_temp->next_staff=NULL;
+                        if(staff_head==NULL){
+                            staff_head=staff_temp;
+                        }
+                        else{
+                            staff_p=staff_head;
+                            while(staff_p->next_staff!=NULL)
+                                staff_p=staff_p->next_staff;
+                            staff_p->next_staff=staff_temp;                          
+                        }
+                        logic_layer.los.n_staves++;
+                    }
+                    temp_cur=temp_cur->next;
+                }
             }// end if staff_list
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"part")){
                 part_temp=(struct part*)malloc(sizeof(struct part));
                 part_temp=calloc(1,sizeof(struct part));
-                temp_cur=cur->xmlChildrenNode;
+                part_temp->n_voice_items=0;
+                part_temp->n_measures=0;
                 attributes=cur->properties;
                 while(attributes!=NULL){
                     if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -261,15 +351,55 @@ void loadLos(){
                     }
                     attributes=attributes->next;
                 }
+                temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"voice_list")){
-                    
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"voice_list")&&part_temp->voice_list==NULL){
+                        if(temp_cur->xmlChildrenNode!=NULL){
+                            temp_cur=temp_cur->xmlChildrenNode;
+                            if(temp_cur!=NULL){
+                                do{
+                                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"voice_item")){
+                                        voice_item_temp=(struct voice_item*)malloc(sizeof(struct voice_item));
+                                        voice_item_temp=calloc(1,sizeof(struct voice_item));
+                                        //voice_item_temp=loadVoiceItemValue(temp_cur);
+                                        voice_item_temp->next_voice_item=NULL;
+                                        if(voice_item_head==NULL){
+                                            voice_item_head=voice_item_temp;
+                                        }
+                                        else{
+                                            voice_item_p=voice_item_head;
+                                            while(voice_item_p->next_voice_item!=NULL)
+                                                voice_item_p=voice_item_p->next_voice_item;
+                                            voice_item_p->next_voice_item=voice_item_temp;
+                                        }
+                                        part_temp->n_voice_items++;
+                                    }
+                                    temp_cur=temp_cur->next;
+                                }while(temp_cur->next!=NULL);
+                                part_temp->voice_list=voice_item_head;
+                            }
+                        temp_cur=temp_cur->parent;//l'ultimo é null
+                        }
                     }
                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"measure")){
-                        
+                        measure_temp=(struct measure*)malloc(sizeof(struct measure));
+                        measure_temp=calloc(1,sizeof(struct measure));
+                        //measure_temp=loadMeasureValue(temp_cur);
+                        measure_temp->next_measure=NULL;
+                        if(measure_head==NULL){
+                            measure_head=measure_temp;
+                        }
+                        else{
+                            measure_p=measure_head;
+                            while(measure_p->next_measure!=NULL)
+                                measure_p=measure_p->next_measure;
+                            measure_p->next_measure=measure_temp;
+                        }
+                        part_temp->n_measures++;
                     }
                     temp_cur=temp_cur->next;
                 }
+                part_temp->measures=measure_head;
                 part_temp->next_part=NULL;
                 if(part_head==NULL){
                     part_head=part_temp;
@@ -287,9 +417,8 @@ void loadLos(){
                 horizontal_symbol_list_temp=calloc(1,sizeof(struct horizontal_symbol_list));
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
-                    horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
-                    if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
-                        horizontal_symbol_list_temp->horizontal_symbol_value=horizontal_symbol_value;
+                    if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
+                        horizontal_symbol_list_temp->horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
                         horizontal_symbol_list_temp->next_horizontal_symbol=NULL;
                         if(horizontal_symbol_list_head==NULL){
                             horizontal_symbol_list_head=horizontal_symbol_list_temp;
@@ -310,9 +439,8 @@ void loadLos(){
                 ornament_list_temp=calloc(1,sizeof(struct ornament_list));
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
-                    ornament_value=loadOrnamentValue(temp_cur);
-                    if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(cur->name,(const xmlChar*)"comment")){
-                        ornament_list_temp->ornament_value=ornament_value;
+                    if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
+                        ornament_list_temp->ornament_value=loadOrnamentValue(temp_cur);
                         ornament_list_temp->next_ornament=NULL;
                         if(ornament_list_head==NULL){
                             ornament_list_head=ornament_list_temp;
@@ -347,16 +475,16 @@ void loadLos(){
                     if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"syllabe")){
                         syllabe_temp=(struct syllabe*)malloc(sizeof(struct syllabe));
                         syllabe_temp=calloc(1,sizeof(struct syllabe));
-                        attributes=cur->properties;
+                        attributes=temp_cur->properties;
                         while(attributes!=NULL){
                             if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                                //lyrics_temp->part_ref=xmlGetProp(cur,attributes->name);
+                                //lyrics_temp->part_ref=xmlGetProp(temp_cur,attributes->name);
                             }
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                                //lyrics_temp->voice_ref=xmlGetProp(cur,attributes->name);
+                                //lyrics_temp->voice_ref=xmlGetProp(temp_cur,attributes->name);
                             } 
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"hyphen")){
-                                syllabe_temp->hyphen=xmlGetProp(cur,attributes->name);
+                                syllabe_temp->hyphen=xmlGetProp(temp_cur,attributes->name);
                             } 
                             attributes=attributes->next;                     
                         }
@@ -393,8 +521,8 @@ void loadLos(){
         logic_layer.los.agogics=agogic_head;
         logic_layer.los.text_field=text_field_head;
         logic_layer.los.metronomic_indication=metronomic_indication_head;
-        //logic_layer.los.staff_list=staff_list_head;
-        //logic_layer.los.staff_list_brackets=staff_list_brackets_head;
+        logic_layer.los.staff_list=staff_head;
+        logic_layer.los.staff_list_brackets=brackets_head;
         logic_layer.los.horizontal_symbols=horizontal_symbol_list_head;
         logic_layer.los.ornaments=ornament_list_head;
         logic_layer.los.lyrics=lyrics_head;

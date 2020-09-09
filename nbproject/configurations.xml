@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>common.h</itemPath>
       <itemPath>managerAudio.h</itemPath>
+      <itemPath>managerDocument.h</itemPath>
       <itemPath>managerGeneral.h</itemPath>
       <itemPath>managerLogic.h</itemPath>
       <itemPath>managerNotational.h</itemPath>
@@ -23,6 +24,7 @@
       <itemPath>common.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>managerAudio.c</itemPath>
+      <itemPath>managerDocument.c</itemPath>
       <itemPath>managerGeneral.c</itemPath>
       <itemPath>managerLogic.c</itemPath>
       <itemPath>managerNotational.c</itemPath>
@@ -69,6 +71,10 @@
       <item path="managerAudio.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="managerAudio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerDocument.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerDocument.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="managerGeneral.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -124,6 +130,10 @@
       <item path="managerAudio.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="managerAudio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="managerDocument.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="managerDocument.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="managerGeneral.c" ex="false" tool="0" flavor2="0">
       </item>

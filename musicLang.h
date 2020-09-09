@@ -571,6 +571,8 @@ typedef union{
 //Functions
 ornament loadOrnamentValue(xmlNodePtr cur);
 horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur);
+struct voice_item* loadVoiceItemValue(xmlNodePtr cur);
+struct measure* loadMeasureValue(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

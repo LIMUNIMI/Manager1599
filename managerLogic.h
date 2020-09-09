@@ -88,6 +88,9 @@ struct lyrics{//(syllabe+)
 };
 
 struct part{
+    int n_voice_items;
+    int n_measures;
+    
     char* id;//REQUIRED
     int performes_number;//default unknown
     char* transposition_pitch;//(A,B,C,D,E,F,G)
@@ -101,8 +104,8 @@ struct part{
 };
 
 struct brackets{
-    //marker REQUIRED (start_of_staff_group|end_of_staff_group)
-    int gruop_number;//REQUIRED
+    char* marker;//REQUIRED (start_of_staff_group|end_of_staff_group)
+    int group_number;//REQUIRED
     char* shape;//REQUIRED (square,rounded_square,brace,vertical_bar,none)
     
     struct brackets* next_brackets;
