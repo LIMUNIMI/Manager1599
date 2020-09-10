@@ -1,5 +1,5 @@
-build/Debug/Cygwin-Windows/managerLogic.o: managerLogic.c managerLogic.h \
- common.h \
+build/Debug/Cygwin-Windows/managerLosElements.o: managerLosElements.c \
+ managerLosElements.h common.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xpath.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlversion.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlexports.h \
@@ -20,10 +20,9 @@ build/Debug/Cygwin-Windows/managerLogic.o: managerLogic.c managerLogic.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/SAX2.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xlink.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h \
- ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h \
- managerLosElements.h
+ ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h
 
-managerLogic.h:
+managerLosElements.h:
 
 common.h:
 
@@ -68,5 +67,3 @@ common.h:
 ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h:
 
 ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h:
-
-managerLosElements.h:

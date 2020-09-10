@@ -41,10 +41,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/managerDocument.o \
 	${OBJECTDIR}/managerGeneral.o \
 	${OBJECTDIR}/managerLogic.o \
+	${OBJECTDIR}/managerLosElements.o \
 	${OBJECTDIR}/managerNotational.o \
 	${OBJECTDIR}/managerPerformance.o \
-	${OBJECTDIR}/managerStructural.o \
-	${OBJECTDIR}/musicLang.o
+	${OBJECTDIR}/managerStructural.o
 
 
 # C Compiler Flags
@@ -101,6 +101,11 @@ ${OBJECTDIR}/managerLogic.o: managerLogic.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLogic.o managerLogic.c
 
+${OBJECTDIR}/managerLosElements.o: managerLosElements.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLosElements.o managerLosElements.c
+
 ${OBJECTDIR}/managerNotational.o: managerNotational.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -115,11 +120,6 @@ ${OBJECTDIR}/managerStructural.o: managerStructural.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerStructural.o managerStructural.c
-
-${OBJECTDIR}/musicLang.o: musicLang.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/musicLang.o musicLang.c
 
 # Subprojects
 .build-subprojects:

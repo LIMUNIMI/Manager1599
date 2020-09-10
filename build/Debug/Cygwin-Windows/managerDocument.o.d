@@ -21,8 +21,8 @@ build/Debug/Cygwin-Windows/managerDocument.o: managerDocument.c \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xlink.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h \
- managerLogic.h musicLang.h managerNotational.h managerStructural.h \
- managerPerformance.h managerAudio.h
+ managerLogic.h managerLosElements.h managerNotational.h \
+ managerStructural.h managerPerformance.h managerAudio.h
 
 managerDocument.h:
 
@@ -74,7 +74,7 @@ common.h:
 
 managerLogic.h:
 
-musicLang.h:
+managerLosElements.h:
 
 managerNotational.h:
 

@@ -19,7 +19,7 @@ extern "C" {
 #endif
     
 #include "common.h"
-#include "musicLang.h"
+#include "managerLosElements.h"
     
 //Spine
 struct event{//EMPTY
