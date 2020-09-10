@@ -620,6 +620,7 @@ void loadLos(){
                             } 
                             attributes=attributes->next;                     
                         }
+                        syllable_temp->syllable_value=xmlNodeListGetString(doc,temp_cur->xmlChildrenNode,1);
                         syllable_temp->next_syllable=NULL;
                         if(syllable_head==NULL){
                             syllable_head=syllable_temp;

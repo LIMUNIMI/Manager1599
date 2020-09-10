@@ -29,7 +29,6 @@ int main(int argc, char **argv) {
         
         loadDocument();
         printDocument();
-        printf("titolazzo %s\n",ieee1599_document.logic_layer.los.lyrics->syllables->syllable_value);
     }
     
     xmlFreeDoc(doc);
