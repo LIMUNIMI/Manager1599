@@ -437,7 +437,12 @@ void loadLos(){
                             temp_cur=temp_cur->parent;
                         }
                         //end scanning elements of staff
-                        //aggiungere liste elementi a staff_temp
+                        staff_temp->clefs=clef_head;
+                        staff_temp->key_signatures=key_signature_head;
+                        staff_temp->custom_key_singatures=custom_key_signature_head;
+                        staff_temp->time_signatures=time_signature_head;
+                        staff_temp->barlines=barline_head;
+                        staff_temp->tablature_tunings=tablature_tuning_head;
                         staff_temp->next_staff=NULL;
                         if(staff_head==NULL){
                             staff_head=staff_temp;
