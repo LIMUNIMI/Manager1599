@@ -18,9 +18,30 @@
 extern "C" {
 #endif
 
+#include "managerGeneral.h"
+#include "managerLogic.h"
+#include "managerNotational.h"
+#include "managerStructural.h"    
+#include "managerPerformance.h"     
+#include "managerAudio.h"
+    
+struct ieee1599{
+    char* file_name;
 
+    char* version;
+    char* creator;
 
+    struct general general_layer;
+    struct logic logic_layer;
+    //struct notational notational_layer;
+    //struct structural structural_layer;
+    //struct performance performance_layer;
+    //struct audio audio_layer;
+};
+struct ieee1599 ieee1599_document;
 
+void loadDocument();
+void printDocument();
 #ifdef __cplusplus
 }
 #endif

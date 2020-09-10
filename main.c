@@ -12,24 +12,22 @@
  */
 
 #include "common.h"
-#include "managerGeneral.h"
-#include "managerLogic.h"
+#include "managerDocument.h"
 
 int main(int argc, char **argv) {
 
     encoding="ISO-8859-1";
-    docpath="File/gottes_macht.xml";
+    file_name="File/gottes_macht.xml";
     
-    doc=getDoc(docpath);
+    doc=getDoc(file_name);
     //creare struttura ieee1599
     //encoding check
     //validate DTD
     
     if(doc!=NULL){
-        fprintf(stdout,"Loaded %s\n",docpath);
+        fprintf(stdout,"Loaded %s\n",file_name);
         
-        loadGeneral();
-        loadLogic();
+        loadDocument(file_name);
     }
     
     xmlFreeDoc(doc);

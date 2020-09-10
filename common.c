@@ -6,6 +6,7 @@
 #include "common.h"
 
 xmlDocPtr getDoc(xmlChar *docpath){
+    
     xmlDocPtr doc;
     xmlNodePtr cur; 
     

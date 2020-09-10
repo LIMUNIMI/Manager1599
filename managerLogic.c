@@ -11,11 +11,12 @@ void loadLogic(){
     
     loadSpine();
     loadLos();
-    //loadLayout();
+    loadLayout();
     
     printSpine();
     printLos();
-    //printLayout();
+    printLayout();
+
 }
 
 void loadSpine(){
@@ -663,5 +664,13 @@ void loadLos(){
 }
 
 void printLos(){
+
+}
+
+void loadLayout(){
+
+}
+
+void printLayout(){
 
 }

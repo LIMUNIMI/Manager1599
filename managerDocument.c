@@ -5,3 +5,22 @@
  */
 
 #include "managerDocument.h"
+
+void loadDocument(){
+    
+    loadGeneral();
+    loadLogic();
+    //loadStructural();
+    //loadNotational();
+    //loadPerformance();
+    //loadAudio();
+}
+
+void printDocument(){
+    
+    printDescription();
+    printRelatedFiles();
+    printAnalogMedia();
+    printNotes();
+    
+}
