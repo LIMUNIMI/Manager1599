@@ -100,7 +100,6 @@ void loadLos(){
     xmlNodePtr temp_cur;
     xmlAttr *attributes;
     
-    
     struct agogic *agogic_head=NULL;
     struct agogic *agogic_temp=NULL;
     struct agogic *agogic_p=NULL;
@@ -148,6 +147,30 @@ void loadLos(){
     struct staff* staff_temp=NULL;
     struct staff* staff_head=NULL;
     struct staff* staff_p=NULL;
+    
+    struct clef* clef_temp=NULL;
+    struct clef* clef_head=NULL;
+    struct clef* clef_p=NULL;
+    
+    struct key_signature* key_signature_temp=NULL;
+    struct key_signature* key_signature_head=NULL;
+    struct key_signature* key_signature_p=NULL;
+    
+    struct custom_key_signature* custom_key_signature_temp=NULL;
+    struct custom_key_signature* custom_key_signature_head=NULL;
+    struct custom_key_signature* custom_key_signature_p=NULL;
+    
+    struct time_signature* time_signature_temp=NULL;
+    struct time_signature* time_signature_head=NULL;
+    struct time_signature* time_signature_p=NULL;
+    
+    struct barline* barline_temp=NULL;
+    struct barline* barline_head=NULL;
+    struct barline* barline_p=NULL;
+    
+    struct tablature_tuning* tablature_tuning_temp=NULL;
+    struct tablature_tuning* tablature_tuning_head=NULL;
+    struct tablature_tuning* tablature_tuning_p=NULL;
     
     logic_layer.los.n_agogics=0;
     logic_layer.los.n_text_fields=0;
@@ -284,7 +307,13 @@ void loadLos(){
                     }
                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"staff")){
                         staff_temp=(struct staff*)malloc(sizeof(struct staff));
-                        staff_temp=calloc(1,sizeof(struct staff));                             
+                        staff_temp=calloc(1,sizeof(struct staff)); 
+                        staff_temp->n_clefs=0;
+                        staff_temp->n_key_signatures=0;
+                        staff_temp->n_custom_key_signatures=0;
+                        staff_temp->n_time_signatures=0;
+                        staff_temp->n_barlines=0;
+                        staff_temp->n_tablature_tunings=0;
                         attributes=temp_cur->properties;
                         while(attributes!=NULL){
                             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -306,12 +335,109 @@ void loadLos(){
                             temp_cur=temp_cur->xmlChildrenNode;
                             if(temp_cur!=NULL){
                                 do{
+                                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"clef")){
+                                        clef_temp=(struct clef*)malloc(sizeof(struct clef));
+                                        clef_temp=calloc(1,sizeof(struct clef));
+                                        //cleff_temp=loadCleffValue(temp_cur);
+                                        clef_temp->next_clef=NULL;
+                                        if(clef_head==NULL){
+                                            clef_head=clef_temp;
+                                        }
+                                        else{
+                                            clef_p=clef_head;
+                                            while(clef_p->next_clef!=NULL)
+                                                clef_p=clef_p->next_clef;
+                                            clef_p->next_clef=clef_temp;
+                                        }
+                                        staff_temp->n_clefs++;
+                                    }
+                                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"key_signature")){
+                                        key_signature_temp=(struct key_signature*)malloc(sizeof(struct key_signature));
+                                        key_signature_temp=calloc(1,sizeof(struct key_signature));
+                                        //key_signature_temp=loadKeySignatureValue(temp_cur);
+                                        key_signature_temp->next_key_signature=NULL;
+                                        if(key_signature_head==NULL){
+                                            key_signature_head=key_signature_temp;
+                                        }
+                                        else{
+                                            key_signature_p=key_signature_head;
+                                            while(key_signature_p->next_key_signature!=NULL)
+                                                key_signature_p=key_signature_p->next_key_signature;
+                                            key_signature_p->next_key_signature=key_signature_temp;
+                                        }
+                                        staff_temp->n_key_signatures++;
+                                    }
+                                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"custom_key_signature")){
+                                        custom_key_signature_temp=(struct custom_key_signature*)malloc(sizeof(struct custom_key_signature));
+                                        custom_key_signature_temp=calloc(1,sizeof(struct custom_key_signature));
+                                        //custom_key_signature_temp=loadCustomKeySignatureValue(temp_cur);
+                                        custom_key_signature_temp->next_custom_key_signature=NULL;
+                                        if(custom_key_signature_head==NULL){
+                                            custom_key_signature_head=custom_key_signature_temp;
+                                        }
+                                        else{
+                                            custom_key_signature_p=custom_key_signature_head;
+                                            while(custom_key_signature_p->next_custom_key_signature!=NULL)
+                                                custom_key_signature_p=custom_key_signature_p->next_custom_key_signature;
+                                            custom_key_signature_p->next_custom_key_signature=custom_key_signature_temp;
+                                        }
+                                        staff_temp->n_custom_key_signatures++;
+                                    }
+                                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"time_signature")){
+                                        time_signature_temp=(struct time_signature*)malloc(sizeof(struct time_signature));
+                                        time_signature_temp=calloc(1,sizeof(struct time_signature));
+                                        //time_signature_temp=loadTimeSignatureValue(temp_cur);
+                                        time_signature_temp->next_time_signature=NULL;
+                                        if(time_signature_head==NULL){
+                                            time_signature_head=time_signature_temp;
+                                        }
+                                        else{
+                                            time_signature_p=time_signature_head;
+                                            while(time_signature_p->next_time_signature!=NULL)
+                                                time_signature_p=time_signature_p->next_time_signature;
+                                            time_signature_p->next_time_signature=time_signature_temp;
+                                        }
+                                        staff_temp->n_time_signatures++;
+                                    }
+                                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"barline")){
+                                        barline_temp=(struct barline*)malloc(sizeof(struct barline));
+                                        barline_temp=calloc(1,sizeof(struct barline));
+                                        //cleff_temp=loadBarlineValue(temp_cur);
+                                        barline_temp->next_barline=NULL;
+                                        if(barline_head==NULL){
+                                            barline_head=barline_temp;
+                                        }
+                                        else{
+                                            barline_p=barline_head;
+                                            while(barline_p->next_barline!=NULL)
+                                                barline_p=barline_p->next_barline;
+                                            barline_p->next_barline=barline_temp;
+                                        }
+                                        staff_temp->n_barlines++;
+                                    }
+                                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tablature_tuning")){
+                                        tablature_tuning_temp=(struct tablature_tuning*)malloc(sizeof(struct tablature_tuning));
+                                        tablature_tuning_temp=calloc(1,sizeof(struct tablature_tuning));
+                                        //tablature_tuning_temp=loadTablatureTuningValue(temp_cur);
+                                        tablature_tuning_temp->next_tablature_tuning=NULL;
+                                        if(tablature_tuning_head==NULL){
+                                            tablature_tuning_head=tablature_tuning_temp;
+                                        }
+                                        else{
+                                            tablature_tuning_p=tablature_tuning_head;
+                                            while(tablature_tuning_p->next_tablature_tuning!=NULL)
+                                                tablature_tuning_p=tablature_tuning_p->next_tablature_tuning;
+                                            tablature_tuning_p->next_tablature_tuning=tablature_tuning_temp;
+                                        }
+                                        staff_temp->n_tablature_tunings++;
+                                    }
                                     temp_cur=temp_cur->next;
                                 }while(temp_cur->next!=NULL);
                             }
                             temp_cur=temp_cur->parent;
                         }
                         //end scanning elements of staff
+                        //aggiungere liste elementi a staff_temp
                         staff_temp->next_staff=NULL;
                         if(staff_head==NULL){
                             staff_head=staff_temp;
@@ -418,7 +544,7 @@ void loadLos(){
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
                     if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
-                        horizontal_symbol_list_temp->horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
+                        //horizontal_symbol_list_temp->horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
                         horizontal_symbol_list_temp->next_horizontal_symbol=NULL;
                         if(horizontal_symbol_list_head==NULL){
                             horizontal_symbol_list_head=horizontal_symbol_list_temp;
@@ -440,7 +566,7 @@ void loadLos(){
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
                     if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
-                        ornament_list_temp->ornament_value=loadOrnamentValue(temp_cur);
+                        //ornament_list_temp->ornament_value=loadOrnamentValue(temp_cur);
                         ornament_list_temp->next_ornament=NULL;
                         if(ornament_list_head==NULL){
                             ornament_list_head=ornament_list_temp;

@@ -573,6 +573,13 @@ ornament loadOrnamentValue(xmlNodePtr cur);
 horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur);
 struct voice_item* loadVoiceItemValue(xmlNodePtr cur);
 struct measure* loadMeasureValue(xmlNodePtr cur);
+struct clef* loadCleffValue(xmlNodePtr cur);
+struct key_signature* loadKeySignatureValue(xmlNodePtr cur);
+struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur);
+struct time_signature* loadTimeSignatureValue(xmlNodePtr cur);
+struct barline* loadBarlineValue(xmlNodePtr cur);
+struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur);
+
 
 #ifdef __cplusplus
 }

@@ -112,6 +112,13 @@ struct brackets{
 };
 
 struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline|tablature_tuning)*
+    int n_clefs;
+    int n_key_signatures;
+    int n_custom_key_signatures;
+    int n_time_signatures;
+    int n_barlines;
+    int n_tablature_tunings;
+    
     char* id;
     int line_number;//default 5
     char* ossia;//(yes,no) default no

@@ -25,3 +25,33 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
     struct measure* value;
     return value;
 }
+
+struct clef* loadCleffValue(xmlNodePtr cur){
+    struct clef* value;
+    return value;
+}
+
+struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
+    struct key_signature* value;
+    return value;
+}
+
+struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
+    struct custom_key_signature* value;
+    return value;
+}
+
+struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
+    struct time_signature* value;
+    return value;
+}
+
+struct barline* loadBarlineValue(xmlNodePtr cur){
+    struct barline* value;
+    return value;
+}
+
+struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
+    struct tablature_tuning* value;
+    return value;
+}
