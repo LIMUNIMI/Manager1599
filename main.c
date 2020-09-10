@@ -27,7 +27,9 @@ int main(int argc, char **argv) {
     if(doc!=NULL){
         fprintf(stdout,"Loaded %s\n",file_name);
         
-        loadDocument(file_name);
+        loadDocument();
+        printDocument();
+        printf("titolazzo %s\n",ieee1599_document.logic_layer.los.lyrics->syllables->syllable_value);
     }
     
     xmlFreeDoc(doc);

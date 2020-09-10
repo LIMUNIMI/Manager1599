@@ -9,7 +9,9 @@
 void loadDocument(){
     
     loadGeneral();
+    ieee1599_document.general_layer=general_layer;
     loadLogic();
+    ieee1599_document.logic_layer=logic_layer;
     //loadStructural();
     //loadNotational();
     //loadPerformance();
@@ -18,9 +20,7 @@ void loadDocument(){
 
 void printDocument(){
     
-    printDescription();
-    printRelatedFiles();
-    printAnalogMedia();
-    printNotes();
+    printGeneral();
+    printLogic();
     
 }

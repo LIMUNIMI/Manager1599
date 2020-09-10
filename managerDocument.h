@@ -42,6 +42,7 @@ struct ieee1599 ieee1599_document;
 
 void loadDocument();
 void printDocument();
+
 #ifdef __cplusplus
 }
 #endif

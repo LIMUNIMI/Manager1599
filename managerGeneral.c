@@ -8,17 +8,18 @@
 
 void loadGeneral(){ 
     //inizializzare general_layer
-
     loadDescription();
     loadRelatedFiles();
     loadAnalogMedia();
-    loadNotes(); 
+    loadNotes();   
+}
+
+void printGeneral(){
     
     printDescription();
     printRelatedFiles();
     printAnalogMedia();
     printNotes();
-    
 }
 
 void loadDescription(){

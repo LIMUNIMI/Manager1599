@@ -67,22 +67,22 @@ struct ornament_list{
     struct ornament_list* next_ornament;
 };
 
-struct syllabe{
+struct syllable{
     //start_event_ref
     //end_event_ref
     char* hyphen;//(yes,no) default no
     
-    char* syllabe_value;
+    char* syllable_value;
     
-    struct syllabe* next_syllabe;
+    struct syllable* next_syllable;
 };
 
-struct lyrics{//(syllabe+)
-    int n_syllabes;
+struct lyrics{//(syllable+)
+    int n_syllables;
     
-    struct syllabe* syllabes;
-    //part_ref
-    //voice_ref
+    struct syllable* syllables;
+    char* part_ref;
+    char* voice_ref;
     
     struct lyrics* next_lyrics;
 };
@@ -247,6 +247,7 @@ void loadSpine();
 void loadLos();
 void loadLayout();
     
+void printLogic();
 void printSpine();
 void printLos();
 void printLayout();

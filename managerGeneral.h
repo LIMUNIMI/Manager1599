@@ -104,6 +104,7 @@ void loadRelatedFiles();
 void loadAnalogMedia();
 void loadNotes();
 
+void printGeneral();
 void printDescription();
 void printRelatedFiles();
 void printAnalogMedia();

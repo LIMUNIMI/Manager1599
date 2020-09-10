@@ -7,16 +7,16 @@
 #include "managerLogic.h"
 
 void loadLogic(){ 
-    //inizializzare logic_layer
-    
+    //inizializzare logic_layer 
     loadSpine();
     loadLos();
     loadLayout();
-    
+}
+
+void printLogic(){  
     printSpine();
     printLos();
     printLayout();
-
 }
 
 void loadSpine(){
@@ -117,9 +117,9 @@ void loadLos(){
     struct lyrics* lyrics_temp=NULL;
     struct lyrics* lyrics_p=NULL;
     
-    struct syllabe* syllabe_head=NULL;
-    struct syllabe* syllabe_temp=NULL;
-    struct syllabe* syllabe_p=NULL;
+    struct syllable* syllable_head=NULL;
+    struct syllable* syllable_temp=NULL;
+    struct syllable* syllable_p=NULL;
     
     struct horizontal_symbol_list* horizontal_symbol_list_head=NULL;
     struct horizontal_symbol_list* horizontal_symbol_list_temp=NULL;
@@ -591,22 +591,22 @@ void loadLos(){
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"lyrics")){
                 lyrics_temp=(struct lyrics*)malloc(sizeof(struct lyrics));
                 lyrics_temp=calloc(1,sizeof(struct lyrics));
-                lyrics_temp->n_syllabes=0;
+                lyrics_temp->n_syllables=0;
                 attributes=cur->properties;
                 while(attributes!=NULL){
                     if(!xmlStrcmp(attributes->name,(const xmlChar*)"part_ref")){
-                        //lyrics_temp->part_ref=xmlGetProp(cur,attributes->name);
+                        lyrics_temp->part_ref=xmlGetProp(cur,attributes->name);
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"voide_ref")){
-                        //lyrics_temp->voice_ref=xmlGetProp(cur,attributes->name);
+                        lyrics_temp->voice_ref=xmlGetProp(cur,attributes->name);
                     } 
                     attributes=attributes->next;                     
                 }
                 temp_cur=cur->xmlChildrenNode;
-                while(temp_cur!=NULL){//syllabe in lyrics
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"syllabe")){
-                        syllabe_temp=(struct syllabe*)malloc(sizeof(struct syllabe));
-                        syllabe_temp=calloc(1,sizeof(struct syllabe));
+                while(temp_cur!=NULL){//syllable in lyrics
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"syllable")){
+                        syllable_temp=(struct syllable*)malloc(sizeof(struct syllable));
+                        syllable_temp=calloc(1,sizeof(struct syllable));
                         attributes=temp_cur->properties;
                         while(attributes!=NULL){
                             if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
@@ -616,25 +616,25 @@ void loadLos(){
                                 //lyrics_temp->voice_ref=xmlGetProp(temp_cur,attributes->name);
                             } 
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"hyphen")){
-                                syllabe_temp->hyphen=xmlGetProp(temp_cur,attributes->name);
+                                syllable_temp->hyphen=xmlGetProp(temp_cur,attributes->name);
                             } 
                             attributes=attributes->next;                     
                         }
-                        syllabe_temp->next_syllabe=NULL;
-                        if(syllabe_head==NULL){
-                            syllabe_head=syllabe_temp;
+                        syllable_temp->next_syllable=NULL;
+                        if(syllable_head==NULL){
+                            syllable_head=syllable_temp;
                         }
                         else{
-                            syllabe_p=syllabe_head;
-                            while(syllabe_p->next_syllabe!=NULL)
-                                syllabe_p=syllabe_p->next_syllabe;
-                            syllabe_p->next_syllabe=syllabe_temp;
+                            syllable_p=syllable_head;
+                            while(syllable_p->next_syllable!=NULL)
+                                syllable_p=syllable_p->next_syllable;
+                            syllable_p->next_syllable=syllable_temp;
                         } 
-                        lyrics_temp->n_syllabes++;
+                        lyrics_temp->n_syllables++;
                     }
                     temp_cur=temp_cur->next;
-                }//end while syllabe in lyrics
-                lyrics_temp->syllabes=syllabe_head;
+                }//end while syllable in lyrics
+                lyrics_temp->syllables=syllable_head;
                 lyrics_temp->next_lyrics=NULL;
                 if(lyrics_head==NULL){
                     lyrics_head=lyrics_temp;
