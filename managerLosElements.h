@@ -436,12 +436,13 @@ struct fermata{
 };
 
 struct dynamic{
-    char* dynamic_value;
     char* id;
-    //extension_line_to
-    //extension_line_shape (normal,dotted,dashed)
-    //staff_ref
-    //spine_ref
+    char* extension_line_to;
+    char* extension_line_shape;// (normal,dotted,dashed)
+    char* staff_ref;
+    char* event_ref;
+    
+    char* dynamic_value;
 };
 
 struct chord_symbol{

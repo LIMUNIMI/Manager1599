@@ -544,13 +544,13 @@ void loadLos(){
                 }
                 logic_layer.los.n_parts++;  
             }// end if part
-            else if(!xmlStrcmp(cur->name,(const xmlChar*)"horizontal_symbols")){
-                horizontal_symbol_list_temp=(struct horizontal_symbol_list*)malloc(sizeof(struct horizontal_symbol_list));
-                horizontal_symbol_list_temp=calloc(1,sizeof(struct horizontal_symbol_list));
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"horizontal_symbols")){                            
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
                     if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
-                        //horizontal_symbol_list_temp->horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
+                        horizontal_symbol_list_temp=(struct horizontal_symbol_list*)malloc(sizeof(struct horizontal_symbol_list));
+                        horizontal_symbol_list_temp=calloc(1,sizeof(struct horizontal_symbol_list));          
+                        horizontal_symbol_list_temp->horizontal_symbol_value=loadHorizontalSymbolValue(temp_cur);
                         horizontal_symbol_list_temp->next_horizontal_symbol=NULL;
                         if(horizontal_symbol_list_head==NULL){
                             horizontal_symbol_list_head=horizontal_symbol_list_temp;
@@ -560,7 +560,7 @@ void loadLos(){
                             while(horizontal_symbol_list_p->next_horizontal_symbol!=NULL)
                                 horizontal_symbol_list_p=horizontal_symbol_list_p->next_horizontal_symbol;
                             horizontal_symbol_list_p->next_horizontal_symbol=horizontal_symbol_list_temp;
-                        }
+                        }                       
                         logic_layer.los.n_horizontal_symbols++;
                     }
                     temp_cur=temp_cur->next;
