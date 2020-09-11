@@ -300,64 +300,73 @@ struct multiple_ending{
     int number;//REQUIRED
     //spine_start_end_ref
     //return_to IDREF
+    
+    struct multiple_ending* next_multiple_ending;
 };
 
 struct multiple_endings{//+
     char* id;
-    struct multiple_ending multiple_ending_value;
-    struct multiple_ending* next_multiple_ending;
+
+    struct multiple_ending* multiple_ending;
 };
 
 struct fine{
-    char* fine_value;
     char* id;
     //spine_ref
+    
+    char* fine_value;
 };
 
 struct coda{
-    char* coda_value;
     char* id;
     //spine_ref
+
+    char* coda_value;
 };
 
 struct segno{
+    char* id;
+    //spine_ref
+    
     char* segno_value;
-    char* id;
-    //spine_ref
-};
-
-struct end{
-    char* id;
-    //spine_ref
 };
 
 struct jump_to{
     char* id;
     //spine_ref
+    
+    struct jump_to* next_jump_to;
+};
+
+struct end{
+    char* id;
+    //spine_ref
+    
+    struct end* next_end;
 };
 
 struct repeat{
     char* id;
     //spine_ref
-    char* repeat_text;
-    struct jumps{//(jump_to,end?)+
-        struct jump_to jump_to;//REQUIRED
-        struct end end;
-        struct jumps* next_jump;
-    }jumps;
+    
+    char* repeat_text;//?
+    struct jump_to* jump_tos;//(jump_to,end?)+
+    struct end* ends;//
 };
 
 struct barre{
     char* start_string_position;//REQUIRED
     char* end_string_position;//REQUIRED
     char* fret_position;//REQUIRED
+    
     struct barre* next_barre;
 };
 
 struct tablature_element{
     char* shape;//REQUIRED (empty_circle,full_circle,cross,rhombus,1,2,3,4,T)
     char* string_position;//REQUIRED
-    char* fre_position;//REQUIRED
+    char* fret_position;//REQUIRED
+    
     struct tablature_element* next_tablature_element;
 };
 
@@ -367,6 +376,7 @@ struct tablature_hsymbol{//(tablature_element|barre)+
     int string_number;//REQUIRED
     char* start_fret;//REQUIRED
     int fret_number;//REQUIRED
+    
     struct barre* barres;
     struct tablature_element* tablature_elements;
 };
@@ -375,15 +385,15 @@ struct special_beam{//(notehead_ref+)
     char* id;
     char* fanned_from;
     char* fanned_to;
-    //nothead_ref list
-
+    
+    struct notehead_ref* notehead_ref;//+
 };
 
 struct slur{//(svg?)
     char* id;
     //spine_start_end_ref
     char* shape;//(normal,dasched,dotted) default normal
-    int bracketed;//no=0, yes=1, default no
+    char* bracketed;//(yes,no) default no
 };
 
 struct percussion_special{
@@ -432,9 +442,10 @@ struct glissando{
 };
 
 struct fermata{
-    int fermata_value;
     char* id;
     //spine_ref
+    
+    int fermata_value;
 };
 
 struct dynamic{
@@ -448,9 +459,10 @@ struct dynamic{
 };
 
 struct chord_symbol{
-    char* chord_symbol_value;
     char* id;
     //spine_ref
+    
+    char* chord_symbol_value;
 };
 
 struct breath_mark{
@@ -497,7 +509,7 @@ typedef union{
     struct coda coda;
     struct segno segno;
     struct fine fine;
-    struct multiple_ending multiple_ending;
+    struct multiple_endings multiple_endings;
     struct custom_hsymbol custom_hsymbol;    
 }horizontal_symbol;
 //Horizontal Symbols END
