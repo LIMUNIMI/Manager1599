@@ -133,8 +133,10 @@ struct notehead{
     struct notehead* next_notehead;
 };
 
-struct nothead_ref{
+struct notehead_ref{
     //spine_ref
+    
+    struct notehead_ref* next_notehead_ref;
 };
 
 struct articulation{
@@ -467,10 +469,11 @@ struct bend{
     int to_octave;
 };
 
-struct arpeggio{//(notehead_ref+)
-    //nothead_ref list
+struct arpeggio{
     char* shape;//REQUIRED (wavy,line,no_arpeggio)
     char* direction;//(up,down) default=down
+    
+    struct notehead_ref* notehead_ref;//+
 };
 
 typedef union{

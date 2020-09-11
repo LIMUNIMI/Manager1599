@@ -567,11 +567,11 @@ void loadLos(){
                 }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"ornaments")){
-                ornament_list_temp=(struct ornament_list*)malloc(sizeof(struct ornament_list));
-                ornament_list_temp=calloc(1,sizeof(struct ornament_list));
                 temp_cur=cur->xmlChildrenNode;
                 while(temp_cur!=NULL){
                     if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
+                        ornament_list_temp=(struct ornament_list*)malloc(sizeof(struct ornament_list));
+                        ornament_list_temp=calloc(1,sizeof(struct ornament_list));
                         //ornament_list_temp->ornament_value=loadOrnamentValue(temp_cur);
                         ornament_list_temp->next_ornament=NULL;
                         if(ornament_list_head==NULL){

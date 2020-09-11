@@ -15,10 +15,69 @@ ornament loadOrnamentValue(xmlNodePtr cur){
 horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
     horizontal_symbol value;
     xmlAttr *attributes;
+    xmlNodePtr temp_cur;
     
-    if(!xmlStrcmp(cur->name,(const xmlChar*)"arpeggio")){
+    if(!xmlStrcmp(cur->name,(const xmlChar*)"arpeggio")){       
+        struct notehead_ref* notehead_ref_temp=NULL;
+        struct notehead_ref* notehead_ref_head=NULL;
+        struct notehead_ref* notehead_ref_p=NULL;
+        
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
+                value.arpeggio.shape=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"direction")){
+                value.arpeggio.direction=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+        temp_cur=cur->xmlChildrenNode;
+        while(temp_cur!=NULL){//notehead_ref list in arpeggio
+            notehead_ref_temp=(struct notehead_ref*)malloc(sizeof(struct notehead_ref));
+            notehead_ref_temp=calloc(1,sizeof(struct notehead_ref));
+            attributes=temp_cur->properties;
+            while(attributes!=NULL){
+                if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"spine_ref")){
+                    //notehead_ref_temp->spine_ref=xmlGetPropr(temp_cur,attributes->name);
+                }
+                attributes=attributes->next;
+            }
+            notehead_ref_temp->next_notehead_ref=NULL;
+            if(notehead_ref_head==NULL)
+                notehead_ref_head=notehead_ref_temp;
+            else{
+                notehead_ref_p=notehead_ref_head;
+                while(notehead_ref_p->next_notehead_ref!=NULL)
+                    notehead_ref_p=notehead_ref_p->next_notehead_ref;
+                notehead_ref_p=notehead_ref_temp;
+            }
+        }//end notehead_ref list in arpeggio
+        value.arpeggio.notehead_ref=notehead_ref_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"bend")){
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.bend.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.bend.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
+                value.bend.type=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"to_pitch")){
+                value.bend.to_pitch=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"to_accidental")){
+                //value.bend.to_accidentale=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"to_octave")){
+                value.bend.to_octave=xmlCharToInt(xmlGetProp(cur,attributes->name));
+            }
+            attributes=attributes->next;
+        } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"breath_mark")){
     }
