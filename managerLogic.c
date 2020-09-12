@@ -493,7 +493,7 @@ void loadLos(){
                                     if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"voice_item")){
                                         voice_item_temp=(struct voice_item*)malloc(sizeof(struct voice_item));
                                         voice_item_temp=calloc(1,sizeof(struct voice_item));
-                                        //voice_item_temp=loadVoiceItemValue(temp_cur);
+                                        voice_item_temp=loadVoiceItemValue(temp_cur);
                                         voice_item_temp->next_voice_item=NULL;
                                         if(voice_item_head==NULL){
                                             voice_item_head=voice_item_temp;

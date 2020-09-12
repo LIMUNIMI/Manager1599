@@ -556,7 +556,8 @@ struct baroque_appoggiatura{
 struct appoggiatura{//(chord+)
     char* id;
     //spine_ref
-    int slur;//no=0, yes=1 default no
+    char* slur;//(yes,no) default no
+    
     struct chord* chords;
 };
 
@@ -569,7 +570,7 @@ struct baroque_acciaccatura{
 struct acciaccatura{//(chord+)
     char* id;
     //spine_ref
-    int slur;//no=0, yes=1 default no
+    char* slur;//(yes,no) default no
 };
 
 typedef union{

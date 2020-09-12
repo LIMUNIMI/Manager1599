@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
         fprintf(stdout,"Loaded %s\n",file_name);
         
         loadDocument();
-        printDocument();        
+        printDocument();  
     }
     xmlFreeDoc(doc);
     xmlCleanupParser();

@@ -587,8 +587,26 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
     return value;
 }
 
-struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
-    struct voice_item* value;
+struct voice_item* loadVoiceItemValue(xmlNodePtr cur){   
+    xmlAttr *attributes;
+    struct voice_item* value=(struct voice_item*)malloc(sizeof(struct voice_item));
+    value=calloc(1,sizeof(struct voice_item));
+    
+    value->next_voice_item=NULL;
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+            value->id=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
+            //value.staff_ref=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notation_style")){
+            value->notation_style=xmlGetProp(cur,attributes->name);
+        }
+        attributes=attributes->next;
+    }
+    
     return value;
 }
 
