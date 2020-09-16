@@ -146,6 +146,8 @@ struct articulation{
 };
 
 struct gregorian_symbol{
+    int n_noteheads;
+    
     char* id;
     char* neume;//REQUIRED
     char* inflexion;//(no,resupinus,fleux) default no
@@ -200,6 +202,8 @@ struct duration{
 };
 
 struct tablature_symbol{
+    int n_keys;
+    
     char* id;
     //spine_ref
     char* stem_direction;//(up,down,none)
@@ -214,17 +218,21 @@ struct tablature_symbol{
 };
 
 struct rest{
-    struct duration duration;
-    struct augmentation_dots augmentation_dots;//?
     char* id;
     //spine_ref
     //staff_ref
     char* hidden;//(yes,no)
     
+    struct duration duration;
+    struct augmentation_dots augmentation_dots;//?
+    
     struct rest* next_rest;
 };
 
 struct chord{
+    int n_noteheads;
+    int n_articulations;
+    
     char* id;
     //spine_ref
     char* stem_direction;//(up,down,none)
@@ -244,8 +252,14 @@ struct chord{
 };
 
 struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
+    int n_chords;
+    int n_rests;
+    int n_tablature_symbols;
+    int n_gregorian_symbols;
+    
     //voice_item_ref REQUIRED
     char* ossia;//(yes,no) default no
+    
     struct chord* chords;
     struct rest* rests;
     struct tablature_symbol* tablature_symbols;
@@ -265,6 +279,8 @@ struct multiple_rest{
 };
 
 struct measure{
+    int n_voices;
+    
     int number;//REQUIRED
     char* id;
     char* show_number;//(yes,no)
@@ -596,7 +612,11 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur);
 struct time_signature* loadTimeSignatureValue(xmlNodePtr cur);
 struct barline* loadBarlineValue(xmlNodePtr cur);
 struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur);
-
+struct voice* loadVoiceValue(xmlNodePtr cur);
+struct chord* loadChordValue(xmlNodePtr cur);
+struct notehead* loadNoteheadValue(xmlNodePtr cur);
+struct duration loadDurationValue(xmlNodePtr cur);
+struct key* loadKeyValue(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

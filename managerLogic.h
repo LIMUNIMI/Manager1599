@@ -208,6 +208,12 @@ struct standard_page_format{
 };
 
 struct page{//((standard_page_format | custom_page_format), layout_system*, layout_images*, layout_shapes*)
+    int n_standard_page_formats;
+    int n_custom_page_formats;
+    int n_layout_systems;
+    int n_layout_image_list;
+    int n_layout_shapes_list;
+    
     char* id;//REQUIRED
     int number;
     
@@ -221,6 +227,8 @@ struct page{//((standard_page_format | custom_page_format), layout_system*, layo
 };
 
 struct layout{//(page+, text_font?, music_font?)
+    int n_pages;
+    
     int hpos_per_unit;//REQUIRED
     char* mesurement_unit;//REQUIRED (centimeters,millimeters,inches,decimal_inches,points,picas,pixels,twips)
     
