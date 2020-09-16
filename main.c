@@ -29,6 +29,7 @@ int main(int argc, char **argv) {
         
         loadDocument();
         printDocument();  
+       
     }
     xmlFreeDoc(doc);
     xmlCleanupParser();

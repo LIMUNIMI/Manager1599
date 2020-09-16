@@ -114,30 +114,33 @@ struct fingering{
     int number;//REQUIRED (1,2,3,4,5)
 };
 
-struct printed_accidental_list{
+struct printed_accidental{  
     char* parenthesis;//(yes,no) default no
-    struct printed_accidental_list* next_printed_accidental;
-};
-
-struct printed_accidentals{
-    char* shape;//(normal,small,bracketed) default normal
-    struct printed_accidental_list* printed_accidentals;
+    
+    char* printed_accidental_type;
+    
+    struct printed_accidental* next_printed_accidental;
 };
 
 struct pitch{
     char* step;//REQUIRED (A,B,C,D,E,F,G,none)
-    int octve;//REQUIRED
+    int octave;//REQUIRED
     //accidental actual_accidental
 };
 
 struct notehead{
+    int n_printed_accidentals;
+    
     char* id;
     //staff_ref
     char* style;//(normal,harmonic,unpitched,cymbal,parenthesis,circled,squared)
+    
     struct pitch pitch;
-    struct printed_accidentals printed_accidentals;//?
-    int tie;//? yes=,no=0
+    struct printed_accidental* printed_accidentals;//? and +
+    char* printed_accidentals_shape;
+    int tie;//? yes=1,no=0
     struct fingering fingering;//?
+    
     struct notehead* next_notehead;
 };
 
