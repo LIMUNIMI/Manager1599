@@ -61,8 +61,11 @@ struct time_indication{
 };
 
 struct time_signature{
+    int n_time_indications;
+    
     char* visibile;//(yes,no) default no
-    //spine_ref    
+    //spine_ref   
+    
     struct time_indication* time_indications;//+
     
     struct time_signature* next_time_signature;
@@ -75,6 +78,8 @@ struct key_accidental{
 };
 
 struct custom_key_signature{
+    int n_key_accidentals;
+    
     //spine_ref
     struct key_accidental* key_accidentals;//+
     
@@ -82,9 +87,10 @@ struct custom_key_signature{
 };
 
 struct key_signature{
+    //spine_ref
+   
     char* num_type;//REQUIRED(flat_num,sharp_num)
     int number;//REQUIRED (0,1,2,3,4,5,6,7)
-    //spine_ref
     
     struct key_signature* next_key_signature;
 };
@@ -142,8 +148,10 @@ struct notehead_ref{
 };
 
 struct articulation{
-    char articulation_sign;
+    char* articulation_sign;
+    
     //svg per custom_articulation
+    
     struct articulation* next_articulation;
 };
 

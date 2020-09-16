@@ -697,8 +697,17 @@ struct clef* loadClefValue(xmlNodePtr cur){
     
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
-        
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
+            value->shape=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_step")){
+            value->staff_step=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"octave_num")){
+            value->octave_num=xmlCharToInt(xmlGetProp(cur,attributes->name));
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+            //value->spine_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
@@ -714,11 +723,20 @@ struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
     
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
-        
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+            //value->spine_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
+    temp_cur=cur->xmlChildrenNode;
+    while(temp_cur!=NULL){
+        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"sharp_num")||!xmlStrcmp(temp_cur->name,(const xmlChar*)"flat_num")){
+            value->num_type=(char*)temp_cur->name;
+            value->number=xmlCharToInt(xmlGetProp(temp_cur,"number"));
+        }
+        temp_cur=temp_cur->next;
+    }
+    
     return value;
 }
 
@@ -729,14 +747,47 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
     value=calloc(1,sizeof(struct custom_key_signature));
     value->next_custom_key_signature=NULL;
     
+    struct key_accidental* key_accidental_temp=NULL;
+    struct key_accidental* key_accidental_head=NULL;
+    struct key_accidental* key_accidental_p=NULL;
+    value->n_key_accidentals=0;
+    
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
-        
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+            //value->spine_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
-    return value;
+    temp_cur=cur->xmlChildrenNode;
+    while(temp_cur!=NULL){
+        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"key_accidental")){
+            key_accidental_temp=(struct key_accidental*)malloc(sizeof(struct key_accidental));
+            key_accidental_temp=calloc(1,sizeof(struct key_accidental));
+            attributes=temp_cur->properties;
+            while(attributes!=NULL){
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"step")){
+                    key_accidental_temp->step=xmlGetProp(temp_cur,attributes->name);
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"accidental")){
+                    //key_accidental_temp->accidental=xmlGetProp(temp_cur,attributes->name);
+                }
+                attributes=attributes->next;
+            }          
+            key_accidental_temp->next_key_accidental=NULL;
+            if(key_accidental_head==NULL)
+                key_accidental_head=key_accidental_temp;
+            else{
+                key_accidental_p=key_accidental_head;
+                while(key_accidental_p->next_key_accidental!=NULL)
+                    key_accidental_p=key_accidental_p->next_key_accidental;
+                key_accidental_p->next_key_accidental=key_accidental_temp;
+            }
+            value->n_key_accidentals++;
+        }
+        temp_cur=temp_cur->next;
+    }
+    value->key_accidentals=key_accidental_head;
 }
 
 struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
@@ -746,13 +797,57 @@ struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
     value=calloc(1,sizeof(struct time_signature));
     value->next_time_signature=NULL;
     
+    struct time_indication* time_indication_temp=NULL;
+    struct time_indication* time_indication_head=NULL;
+    struct time_indication* time_indication_p=NULL;
+    value->n_time_indications=0;
+    
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
-        
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"visible")){
+            value->visibile=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+            //value->spine_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
+    temp_cur=cur->xmlChildrenNode;
+    while(temp_cur!=NULL){
+        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"time_indication")){
+            time_indication_temp=(struct time_indication*)malloc(sizeof(struct time_indication));
+            time_indication_temp=calloc(1,sizeof(struct time_indication));
+            attributes=temp_cur->properties;
+            while(attributes!=NULL){
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"num")){
+                    time_indication_temp->num=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"den")){
+                    time_indication_temp->den=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"abbreviation")){
+                    time_indication_temp->abbreviation=xmlGetProp(temp_cur,attributes->name);
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"vtu_amount")){
+                    time_indication_temp->vtu_amount=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                attributes=attributes->next;
+            }          
+            time_indication_temp->next_time_indication=NULL;
+            if(time_indication_head==NULL)
+                time_indication_head=time_indication_temp;
+            else{
+                time_indication_p=time_indication_head;
+                while(time_indication_p->next_time_indication!=NULL)
+                    time_indication_p=time_indication_p->next_time_indication;
+                time_indication_p->next_time_indication=time_indication_temp;
+            }
+            value->n_time_indications++;
+        }
+        temp_cur=temp_cur->next;
+    }
+    value->time_indications=time_indication_head;
+    
     return value;
 }
 
@@ -1167,21 +1262,34 @@ struct chord* loadChordValue(xmlNodePtr cur){
             value->repetition=1;
         }
         else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"articulation")){
-            articulation_temp=loadArticulationValue(temp_cur);
-            articulation_temp->next_articulation=NULL;
-            if(articulation_head==NULL){
-                articulation_head=articulation_temp;
+            if(temp_cur->xmlChildrenNode!=NULL){
+                temp_cur=temp_cur->xmlChildrenNode;
+                if(temp_cur!=NULL){
+                    do{
+                        if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")){
+                            articulation_temp=loadArticulationValue(temp_cur);
+                            articulation_temp->next_articulation=NULL;
+                            if(articulation_head==NULL){
+                                articulation_head=articulation_temp;
+                            }
+                            else{
+                                articulation_p=articulation_head;
+                                while(articulation_p->next_articulation!=NULL)
+                                    articulation_p=articulation_p->next_articulation;
+                                articulation_p->next_articulation=articulation_temp;
+                            }
+                            value->n_articulations++; 
+                        }
+                        temp_cur=temp_cur->next;
+                    }while(temp_cur->next!=NULL);
+                }
+                temp_cur=temp_cur->parent;
             }
-            else{
-                articulation_p=articulation_head;
-                while(articulation_p->next_articulation!=NULL)
-                    articulation_p=articulation_p->next_articulation;
-                articulation_p->next_articulation=articulation_temp;
-            }
-            value->n_articulations++; 
         }
         temp_cur=temp_cur->next;
     }
+    value->noteheads=notehead_head;
+    value->articulations=articulation_head;
     
     return value;  
 }
@@ -1336,8 +1444,12 @@ struct key* loadKeyValue(xmlNodePtr cur){
 }
 
 struct articulation* loadArticulationValue(xmlNodePtr cur){
-    struct articulation* value;
+    struct articulation* value=(struct articulation*)malloc(sizeof(struct articulation));
+    value=calloc(1,sizeof(struct articulation));
     value->next_articulation=NULL;  
+    
+    value->articulation_sign=(char*)cur->name;
+    //if custom_articulation > child contains svg
     
     return value;
 }
