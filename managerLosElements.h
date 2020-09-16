@@ -35,6 +35,8 @@ struct string{
 };
 
 struct tablature_tuning{
+    int n_strings;
+    
     char* type;//(D,E,G,A,baroque,flat_french,other)
     struct string* strings;
     
@@ -43,7 +45,7 @@ struct tablature_tuning{
 
 struct barline{
     char* style;//REQUIRED (dashed,double,final,invisibile,staandard,medium,short)
-    char* extensione;//REQUIRED (single_staff,staff_group,all_stave,mensurstrich
+    char* extension;//REQUIRED (single_staff,staff_group,all_stave,mensurstrich
     //spine_ref
     
     struct barline* next_barline;
@@ -196,6 +198,8 @@ struct tuplet_ratio{//(tuplet_ratio)
 };
 
 struct duration{
+    int n_tuplet_ratios;
+    
     int num;//REQUIRED
     int den;//REQUIRED
     struct tuplet_ratio* tuplet_ratio;//?
@@ -606,7 +610,7 @@ ornament loadOrnamentValue(xmlNodePtr cur);
 horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur);
 struct voice_item* loadVoiceItemValue(xmlNodePtr cur);
 struct measure* loadMeasureValue(xmlNodePtr cur);
-struct clef* loadCleffValue(xmlNodePtr cur);
+struct clef* loadClefValue(xmlNodePtr cur);
 struct key_signature* loadKeySignatureValue(xmlNodePtr cur);
 struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur);
 struct time_signature* loadTimeSignatureValue(xmlNodePtr cur);
@@ -617,6 +621,7 @@ struct chord* loadChordValue(xmlNodePtr cur);
 struct notehead* loadNoteheadValue(xmlNodePtr cur);
 struct duration loadDurationValue(xmlNodePtr cur);
 struct key* loadKeyValue(xmlNodePtr cur);
+struct articulation* loadArticulationValue(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

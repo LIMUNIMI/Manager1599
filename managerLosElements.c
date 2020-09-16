@@ -591,8 +591,8 @@ struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
     xmlAttr* attributes;
     struct voice_item* value=(struct voice_item*)malloc(sizeof(struct voice_item));
     value=calloc(1,sizeof(struct voice_item));
-    
     value->next_voice_item=NULL;
+    
     attributes=cur->properties;
     while(attributes!=NULL){
         if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -615,6 +615,7 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct measure* value=(struct measure*)malloc(sizeof(struct measure));
     value=calloc(1,sizeof(struct measure));
+    value->next_measure=NULL;
     
     struct voice* voice_temp=NULL;
     struct voice* voice_head=NULL;
@@ -680,51 +681,160 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
                 attributes=attributes->next;
             }
         }
+        temp_cur=temp_cur->next;
     }
     value->voices=voice_head;
     
     return value;
 }
 
-struct clef* loadCleffValue(xmlNodePtr cur){
+struct clef* loadClefValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct clef* value;
+    struct clef* value=(struct clef*)malloc(sizeof(struct clef));
+    value=calloc(1,sizeof(struct clef));
+    value->next_clef=NULL;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
+        
+        }
+        attributes=attributes->next;
+    }
     return value;
 }
 
 struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct key_signature* value;
+    struct key_signature* value=(struct key_signature*)malloc(sizeof(struct key_signature));
+    value=calloc(1,sizeof(struct key_signature));
+    value->next_key_signature=NULL;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
+        
+        }
+        attributes=attributes->next;
+    }
     return value;
 }
 
 struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct custom_key_signature* value;
+    struct custom_key_signature* value=(struct custom_key_signature*)malloc(sizeof(struct custom_key_signature));
+    value=calloc(1,sizeof(struct custom_key_signature));
+    value->next_custom_key_signature=NULL;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
+        
+        }
+        attributes=attributes->next;
+    }
     return value;
 }
 
 struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct time_signature* value;
+    struct time_signature* value=(struct time_signature*)malloc(sizeof(struct time_signature));
+    value=calloc(1,sizeof(struct time_signature));
+    value->next_time_signature=NULL;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
+        
+        }
+        attributes=attributes->next;
+    }
     return value;
 }
 
 struct barline* loadBarlineValue(xmlNodePtr cur){
     xmlAttr* attributes;
-    xmlNodePtr temp_cur;
-    struct barline* value;
+    struct barline* value=(struct barline*)malloc(sizeof(struct barline));
+    value=calloc(1,sizeof(struct barline));
+    value->next_barline=NULL;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
+            value->style=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"extension")){
+            value->extension=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+           //value->spine_ref=xmlGetProp(cur,attributes->name);
+        }
+        attributes=attributes->next;
+    }
+  
     return value;
 }
 
 struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct tablature_tuning* value;
+    struct tablature_tuning* value=(struct tablature_tuning*)malloc(sizeof(struct tablature_tuning));
+    value=calloc(1,sizeof(struct tablature_tuning));
+    value->next_tablature_tuning=NULL;
+    
+    struct string* string_temp=NULL;
+    struct string* string_head=NULL;
+    struct string* string_p=NULL;
+    value->n_strings=0;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
+            value->type=xmlGetProp(cur,attributes->name);
+        }
+        attributes=attributes->next;
+    }
+    temp_cur=cur->xmlChildrenNode;
+    while(temp_cur!=NULL){
+        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"string")){
+            string_temp=(struct string*)malloc(sizeof(struct string));
+            string_temp=calloc(1,sizeof(struct string));
+            attributes=temp_cur->properties;
+            while(attributes!=NULL){
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_number")){
+                    string_temp->string_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_pitch")){
+                    string_temp->string_pitch=xmlGetProp(temp_cur,attributes->name);
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_accidental")){
+                    //string_temp->accidental=xmlGetProp(temp_cur,attributes->name);
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_octave")){
+                    string_temp->string_octave=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                attributes=attributes->next;
+            }
+            string_temp->next_string=NULL;
+            if(string_head==NULL){
+                string_head=string_temp;
+            }
+            else{
+                string_p=string_head;
+                while(string_p->next_string!=NULL)
+                    string_p=string_p->next_string;
+                string_p->next_string=string_temp;
+            }
+            value->n_strings++;
+        }
+        temp_cur=temp_cur->next;
+    }
+    value->strings=string_head;
+
     return value;
 }
 
@@ -732,7 +842,8 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
     struct voice* value=(struct voice*)malloc(sizeof(struct voice));
-    value=calloc(1,sizeof(struct voice));    
+    value=calloc(1,sizeof(struct voice));   
+    value->next_voice=NULL;
     
     struct chord* chord_temp=NULL;
     struct chord* chord_head=NULL;
@@ -990,6 +1101,87 @@ struct chord* loadChordValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct chord* value=(struct chord*)malloc(sizeof(struct chord));
     value=calloc(1,sizeof(struct chord));
+    value->next_chord=NULL;
+    value->repetition=0;
+    
+    struct notehead* notehead_temp=NULL;
+    struct notehead* notehead_head=NULL;
+    struct notehead* notehead_p=NULL;
+    value->n_noteheads=0;
+    
+    struct articulation* articulation_temp=NULL;
+    struct articulation* articulation_head=NULL;
+    struct articulation* articulation_p=NULL;
+    value->n_articulations=0;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+            value->id=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+            //value->spine_ref=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"stem_direction")){
+            value->stem_direction=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"beam_before")){
+            value->beam_before=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"beam_after")){
+            value->beam_after=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"cue")){
+            value->cue=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"tremolo_lines")){
+            value->tremolo_lines=xmlGetProp(cur,attributes->name);
+        }
+        attributes=attributes->next;
+    }
+    temp_cur=cur->xmlChildrenNode;
+    while(temp_cur!=NULL){
+        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"duration")){
+            value->duration=loadDurationValue(temp_cur);
+        }
+        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"augmentation_dots")){
+            value->augmentation_dots=(struct augmentation_dots){1};
+            if(xmlGetProp(temp_cur,(const xmlChar*)"number")!=NULL)
+             value->augmentation_dots=(struct augmentation_dots){ xmlCharToInt(xmlGetProp(temp_cur,(const xmlChar*)"augmentation_dots"))};
+        }
+        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"notehead")){
+            notehead_temp=loadNoteheadValue(temp_cur);
+            notehead_temp->next_notehead=NULL;
+            if(notehead_head==NULL){
+                notehead_head=notehead_temp;
+            }
+            else{
+                notehead_p=notehead_head;
+                while(notehead_p->next_notehead!=NULL)
+                    notehead_p=notehead_p->next_notehead;
+                notehead_p->next_notehead=notehead_temp;
+            }
+            value->n_noteheads++;
+        }
+        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"repetition")){
+            value->repetition=1;
+        }
+        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"articulation")){
+            articulation_temp=loadArticulationValue(temp_cur);
+            articulation_temp->next_articulation=NULL;
+            if(articulation_head==NULL){
+                articulation_head=articulation_temp;
+            }
+            else{
+                articulation_p=articulation_head;
+                while(articulation_p->next_articulation!=NULL)
+                    articulation_p=articulation_p->next_articulation;
+                articulation_p->next_articulation=articulation_temp;
+            }
+            value->n_articulations++; 
+        }
+        temp_cur=temp_cur->next;
+    }
     
     return value;  
 }
@@ -999,6 +1191,15 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct notehead* value=(struct notehead*)malloc(sizeof(struct notehead));
     value=calloc(1,sizeof(struct notehead));
+    value->next_notehead=NULL;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"")){
+        
+        }
+        attributes=attributes->next;
+    }
     
     return value;    
 }
@@ -1009,6 +1210,67 @@ struct duration loadDurationValue(xmlNodePtr cur){
     struct duration* value=(struct duration*)malloc(sizeof(struct duration));
     value=calloc(1,sizeof(struct duration));
     
+    struct tuplet_ratio* tuplet_ratio_temp=NULL;
+    struct tuplet_ratio* tuplet_ratio_head=NULL;
+    struct tuplet_ratio* tuplet_ratio_p=NULL;
+    value->n_tuplet_ratios=0;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"num")){
+            value->num=xmlCharToInt(xmlGetProp(cur,attributes->name));
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"den")){
+            value->den=xmlCharToInt(xmlGetProp(cur,attributes->name));
+        }
+        attributes=attributes->next;
+    }
+    temp_cur=cur->xmlChildrenNode;
+    while(temp_cur!=NULL){
+        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tuplet_ratio")){
+            tuplet_ratio_temp=(struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
+            tuplet_ratio_temp=calloc(1,sizeof(struct tuplet_ratio));
+            attributes=temp_cur->properties;
+            while(attributes!=NULL){
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"enter_num")){
+                    tuplet_ratio_temp->enter_num=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"enter_den")){
+                    tuplet_ratio_temp->enter_den=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"enter_dots")){
+                    tuplet_ratio_temp->enter_dots=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"in_num")){
+                    tuplet_ratio_temp->in_num=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"in_den")){
+                    tuplet_ratio_temp->in_den=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"in_dots")){
+                    tuplet_ratio_temp->in_dots=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                }
+                attributes=attributes->next;
+            }
+            tuplet_ratio_temp->next_tuplet_ratio=NULL;
+            if(tuplet_ratio_head==NULL){
+                tuplet_ratio_head=tuplet_ratio_temp;
+            }
+            else{
+                tuplet_ratio_p=tuplet_ratio_head;
+                while(tuplet_ratio_p->next_tuplet_ratio!=NULL)
+                    tuplet_ratio_p=tuplet_ratio_p->next_tuplet_ratio;
+                tuplet_ratio_p->next_tuplet_ratio=tuplet_ratio_temp;
+            }
+            value->n_tuplet_ratios++;
+            temp_cur=temp_cur->xmlChildrenNode;
+        }
+        else{
+            temp_cur=temp_cur->next;
+        }
+    }
+    value->tuplet_ratio=tuplet_ratio_head;
+    
     return *value;     
 }
 
@@ -1017,6 +1279,7 @@ struct key* loadKeyValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct key* value=(struct key*)malloc(sizeof(struct key));
     value=calloc(1,sizeof(struct key));
+    value->next_key=NULL;
     value->tie=0;
     
     attributes=cur->properties;
@@ -1070,4 +1333,11 @@ struct key* loadKeyValue(xmlNodePtr cur){
     
     
     return value;  
+}
+
+struct articulation* loadArticulationValue(xmlNodePtr cur){
+    struct articulation* value;
+    value->next_articulation=NULL;  
+    
+    return value;
 }

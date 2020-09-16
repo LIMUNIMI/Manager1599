@@ -339,7 +339,7 @@ void loadLos(){
                                     if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"clef")){
                                         clef_temp=(struct clef*)malloc(sizeof(struct clef));
                                         clef_temp=calloc(1,sizeof(struct clef));
-                                        //cleff_temp=loadCleffValue(temp_cur);
+                                        clef_temp=loadClefValue(temp_cur);
                                         clef_temp->next_clef=NULL;
                                         if(clef_head==NULL){
                                             clef_head=clef_temp;
@@ -355,7 +355,7 @@ void loadLos(){
                                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"key_signature")){
                                         key_signature_temp=(struct key_signature*)malloc(sizeof(struct key_signature));
                                         key_signature_temp=calloc(1,sizeof(struct key_signature));
-                                        //key_signature_temp=loadKeySignatureValue(temp_cur);
+                                        key_signature_temp=loadKeySignatureValue(temp_cur);
                                         key_signature_temp->next_key_signature=NULL;
                                         if(key_signature_head==NULL){
                                             key_signature_head=key_signature_temp;
@@ -371,7 +371,7 @@ void loadLos(){
                                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"custom_key_signature")){
                                         custom_key_signature_temp=(struct custom_key_signature*)malloc(sizeof(struct custom_key_signature));
                                         custom_key_signature_temp=calloc(1,sizeof(struct custom_key_signature));
-                                        //custom_key_signature_temp=loadCustomKeySignatureValue(temp_cur);
+                                        custom_key_signature_temp=loadCustomKeySignatureValue(temp_cur);
                                         custom_key_signature_temp->next_custom_key_signature=NULL;
                                         if(custom_key_signature_head==NULL){
                                             custom_key_signature_head=custom_key_signature_temp;
@@ -387,7 +387,7 @@ void loadLos(){
                                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"time_signature")){
                                         time_signature_temp=(struct time_signature*)malloc(sizeof(struct time_signature));
                                         time_signature_temp=calloc(1,sizeof(struct time_signature));
-                                        //time_signature_temp=loadTimeSignatureValue(temp_cur);
+                                        time_signature_temp=loadTimeSignatureValue(temp_cur);
                                         time_signature_temp->next_time_signature=NULL;
                                         if(time_signature_head==NULL){
                                             time_signature_head=time_signature_temp;
@@ -403,7 +403,7 @@ void loadLos(){
                                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"barline")){
                                         barline_temp=(struct barline*)malloc(sizeof(struct barline));
                                         barline_temp=calloc(1,sizeof(struct barline));
-                                        //cleff_temp=loadBarlineValue(temp_cur);
+                                        barline_temp=loadBarlineValue(temp_cur);
                                         barline_temp->next_barline=NULL;
                                         if(barline_head==NULL){
                                             barline_head=barline_temp;
@@ -419,7 +419,7 @@ void loadLos(){
                                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tablature_tuning")){
                                         tablature_tuning_temp=(struct tablature_tuning*)malloc(sizeof(struct tablature_tuning));
                                         tablature_tuning_temp=calloc(1,sizeof(struct tablature_tuning));
-                                        //tablature_tuning_temp=loadTablatureTuningValue(temp_cur);
+                                        tablature_tuning_temp=loadTablatureTuningValue(temp_cur);
                                         tablature_tuning_temp->next_tablature_tuning=NULL;
                                         if(tablature_tuning_head==NULL){
                                             tablature_tuning_head=tablature_tuning_temp;
@@ -516,7 +516,7 @@ void loadLos(){
                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"measure")){
                         measure_temp=(struct measure*)malloc(sizeof(struct measure));
                         measure_temp=calloc(1,sizeof(struct measure));
-                        //measure_temp=loadMeasureValue(temp_cur);
+                        measure_temp=loadMeasureValue(temp_cur);
                         measure_temp->next_measure=NULL;
                         if(measure_head==NULL){
                             measure_head=measure_temp;
@@ -572,7 +572,7 @@ void loadLos(){
                     if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
                         ornament_list_temp=(struct ornament_list*)malloc(sizeof(struct ornament_list));
                         ornament_list_temp=calloc(1,sizeof(struct ornament_list));
-                        //ornament_list_temp->ornament_value=loadOrnamentValue(temp_cur);
+                        ornament_list_temp->ornament_value=loadOrnamentValue(temp_cur);
                         ornament_list_temp->next_ornament=NULL;
                         if(ornament_list_head==NULL){
                             ornament_list_head=ornament_list_temp;
