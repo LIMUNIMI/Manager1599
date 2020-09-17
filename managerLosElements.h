@@ -602,6 +602,8 @@ struct acciaccatura{//(chord+)
     char* id;
     //spine_ref
     char* slur;//(yes,no) default no
+    
+    struct chord* chords;
 };
 
 typedef union{

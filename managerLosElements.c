@@ -8,6 +8,207 @@
 
 ornament loadOrnamentValue(xmlNodePtr cur){
     ornament value;
+    xmlAttr* attributes;
+    xmlNodePtr temp_cur;
+    
+    struct chord* chord_temp;
+    struct chord* chord_head;
+    struct chord* chord_p;
+    
+    if(!xmlStrcmp(cur->name,(const xmlChar*)"acciaccatura")){//contains chord+
+        chord_temp=NULL;
+        chord_head=NULL;
+        chord_p=NULL;
+
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.acciaccatura.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.acciaccatura.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"slur")){
+                value.acciaccatura.slur=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+        
+        temp_cur=cur->xmlChildrenNode;
+        while(temp_cur!=NULL){
+            if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"chord")){
+                chord_temp=(struct chord*)malloc(sizeof(struct chord));
+                chord_temp=calloc(1,sizeof(struct chord));
+                chord_temp=loadChordValue(temp_cur);
+                chord_temp->next_chord=NULL;
+                if(chord_head==NULL)
+                    chord_head=chord_temp;
+                else{
+                    chord_p=chord_head;
+                    while(chord_p->next_chord!=NULL)
+                        chord_p=chord_p->next_chord;
+                    chord_p->next_chord=chord_temp;
+                }
+            }  
+        }
+        value.acciaccatura.chords=chord_head;
+        
+    }
+    else if(!xmlStrcmp(cur->name,(const xmlChar*)"baroque_acciaccatura")){
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.baroque_acciaccatura.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.baroque_acciaccatura.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
+                value.baroque_acciaccatura.style=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+    }
+    else if(!xmlStrcmp(cur->name,(const xmlChar*)"appoggiatura")){//contains chord+
+        chord_temp=NULL;
+        chord_head=NULL;
+        chord_p=NULL;
+        
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.appoggiatura.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.appoggiatura.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"slur")){
+                value.appoggiatura.slur=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+        
+        temp_cur=cur->xmlChildrenNode;
+        while(temp_cur!=NULL){
+            if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"chord")){
+                chord_temp=(struct chord*)malloc(sizeof(struct chord));
+                chord_temp=calloc(1,sizeof(struct chord));
+                chord_temp=loadChordValue(temp_cur);
+                chord_temp->next_chord=NULL;
+                if(chord_head==NULL)
+                    chord_head=chord_temp;
+                else{
+                    chord_p=chord_head;
+                    while(chord_p->next_chord!=NULL)
+                        chord_p=chord_p->next_chord;
+                    chord_p->next_chord=chord_temp;
+                }
+            }  
+        }
+        value.appoggiatura.chords=chord_head;
+    }
+    else if(!xmlStrcmp(cur->name,(const xmlChar*)"baroque_appoggiatura")){
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.baroque_appoggiatura.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.baroque_appoggiatura.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
+                value.baroque_appoggiatura.style=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+    }
+    else if(!xmlStrcmp(cur->name,(const xmlChar*)"mordent")){
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.mordent.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.mordent.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
+                value.mordent.type=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"length")){
+                value.mordent.length=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"accidental")){
+                //value.mordent.accidental=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
+                value.mordent.style=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+    }
+    else if(!xmlStrcmp(cur->name,(const xmlChar*)"tremolo")){
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.tremolo.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_start_end_ref")){
+                //value.tremolo.spine_start_end_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"tremolo_lines")){
+                value.tremolo.tremolo_lines=xmlCharToInt(xmlGetProp(cur,attributes->name));                
+            }
+            attributes=attributes->next;
+        }
+    }
+    else if(!xmlStrcmp(cur->name,(const xmlChar*)"trill")){
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.trill.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.trill.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"accidental")){
+                //value.trill.accidental=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
+                value.trill.style=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_hook")){
+                value.trill.start_hook=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_hook")){
+                value.trill.end_hook=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+    }
+    else if(!xmlStrcmp(cur->name,(const xmlChar*)"turn")){
+        attributes=cur->properties;
+        while(attributes!=NULL){
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                value.turn.id=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
+                //value.turn.spine_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
+                value.turn.type=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
+                value.turn.style=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"upper_accidental")){
+                //value.turn.upper_accidental=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"lower_accidental")){
+                //value.turn.lower_accidental=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+    }
     
     return value;
 }
@@ -51,7 +252,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                     notehead_ref_p=notehead_ref_head;
                     while(notehead_ref_p->next_notehead_ref!=NULL)
                         notehead_ref_p=notehead_ref_p->next_notehead_ref;
-                    notehead_ref_p=notehead_ref_temp;
+                    notehead_ref_p->next_notehead_ref=notehead_ref_temp;
                 }
             }  
         }//end notehead_ref list in arpeggio
@@ -313,7 +514,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                     notehead_ref_p=notehead_ref_head;
                     while(notehead_ref_p->next_notehead_ref!=NULL)
                         notehead_ref_p=notehead_ref_p->next_notehead_ref;
-                    notehead_ref_p=notehead_ref_temp;
+                    notehead_ref_p->next_notehead_ref=notehead_ref_temp;
                 }
             }  
         }//end notehead_ref list in special_beam
