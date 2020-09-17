@@ -669,7 +669,286 @@ void printLos(){
 }
 
 void loadLayout(){
-
+    xmlChar *xpath;
+    xmlXPathObjectPtr result;
+    xmlNodeSetPtr nodeset;
+    xmlNodePtr cur;
+    xmlNodePtr temp_cur;
+    xmlAttr *attributes;
+    
+    struct page* page_temp=NULL;
+    struct page* page_head=NULL;
+    struct page* page_p=NULL;
+    logic_layer.layout.n_pages=0; 
+    
+    xpath=(xmlChar *)"/ieee1599/logic/layout";
+    result=getNodeset(doc,xpath);
+    if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
+        nodeset=result->nodesetval;
+        cur=nodeset->nodeTab[0];
+        attributes=cur->properties;
+        
+        while(attributes!=NULL){//layout attributes
+            if(!xmlStrcmp(attributes->name,(const xmlChar*)"hpos_per_unit")){
+                logic_layer.layout.hpos_per_unit=xmlCharToInt(xmlGetProp(cur,attributes->name));
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"measurement_unit")){
+                logic_layer.layout.measurement_unit=xmlGetProp(cur,attributes->name);
+            }
+            attributes=attributes->next;
+        }
+        
+        cur=cur->xmlChildrenNode;
+        while(cur!=NULL){//scan layout children
+            if(!xmlStrcmp(cur->name,(const xmlChar*)"page")){
+                page_temp=(struct page*)malloc(sizeof(struct page));
+                page_temp=calloc(1,sizeof(struct page));
+                
+                struct layout_system* layout_system_temp=NULL;
+                struct layout_system* layout_system_head=NULL;
+                struct layout_system* layout_syustem_p=NULL;
+                page_temp->n_layout_systems=0;
+                
+                struct layout_images* layout_images_temp=NULL;
+                struct layout_images* layout_images_head=NULL;
+                struct layout_images* layout_images_p=NULL;
+                page_temp->n_layout_images=0;
+                
+                struct layout_shapes* layout_shapes_temp=NULL;
+                struct layout_shapes* layout_shapes_head=NULL;
+                struct layout_shapes* layout_shapes_p=NULL;
+                page_temp->n_layout_shapes=0;
+                
+                attributes=cur->properties;
+                while(attributes!=NULL){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                        page_temp->id=xmlGetProp(cur,attributes->name); 
+                    } 
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"number")){
+                        page_temp->number=xmlCharToInt(xmlGetProp(cur,attributes->name)); 
+                    }  
+                    attributes=attributes->next;                     
+                }  
+                
+                //start page elements
+                temp_cur=cur->xmlChildrenNode;
+                while(temp_cur!=NULL){
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"standard_page_format")){
+                        attributes=temp_cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"format")){
+                                page_temp->standard_page_formats.format=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            attributes=attributes->next;
+                        }
+                    }
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"custom_page_format")){
+                        attributes=temp_cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"width")){
+                                page_temp->custom_page_formats.width=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"height")){
+                                page_temp->custom_page_formats.height=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            attributes=attributes->next;
+                        }
+                    }
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"layout_system")){//contains layout_staff+
+                        layout_system_temp=(struct layout_system*)malloc(sizeof(struct layout_system));
+                        layout_system_temp=calloc(1,sizeof(struct layout_system));
+                        
+                        struct layout_staff* layout_staff_temp;
+                        struct layout_staff* layout_staff_head;
+                        struct layout_staff* layout_staff_p;
+                        layout_system_temp->n_layout_staves=0;
+                        
+                        attributes=temp_cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                                layout_system_temp->id=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"upper_left_x")){
+                                layout_system_temp->upper_left_x=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"upper_left_y")){
+                                layout_system_temp->upper_left_y=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"lower_right_x")){
+                                layout_system_temp->lower_right_x=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"lower_right_y")){
+                                layout_system_temp->lower_right_y=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            attributes=attributes->next;
+                        }
+                        
+                        //start scan layout_staff
+                        temp_cur=temp_cur->xmlChildrenNode;
+                        do{
+                            if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"layout_staff")){
+                                layout_staff_temp=(struct layout_staff*)malloc(sizeof(struct layout_staff));
+                                layout_staff_temp=calloc(1,sizeof(struct layout_staff));
+                                
+                                attributes=temp_cur->properties;
+                                while(attributes!=NULL){
+                                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
+                                        layout_staff_temp->id=xmlGetProp(temp_cur,attributes->name);
+                                    }
+                                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
+                                        //layout_staff_temp->staff_ref=xmlGetProp(temp_cur,attributes->name);
+                                    }
+                                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"vertical_offset")){
+                                        layout_staff_temp->vertical_offset=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                                    }
+                                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"height")){
+                                        layout_staff_temp->height=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                                    }
+                                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"show_key_signature")){
+                                        layout_staff_temp->show_key_signature=xmlGetProp(temp_cur,attributes->name);
+                                    }
+                                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"show_clef")){
+                                        layout_staff_temp->show_clef=xmlGetProp(temp_cur,attributes->name);
+                                    }
+                                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"show_time_signature")){
+                                        layout_staff_temp->show_time_signature=xmlGetProp(temp_cur,attributes->name);
+                                    }
+                                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"ossia")){
+                                        layout_staff_temp->ossia=xmlGetProp(temp_cur,attributes->name);
+                                    }
+                                    attributes=attributes->next; 
+                                }
+                                
+                                layout_staff_temp->next_layout_staff=NULL;
+                                if(layout_staff_head==NULL){
+                                    layout_staff_head=layout_staff_temp;
+                                }
+                                else{
+                                    layout_staff_p=layout_staff_head;
+                                    while(layout_staff_p->next_layout_staff!=NULL)
+                                        layout_staff_p=layout_staff_p->next_layout_staff;
+                                    layout_staff_p->next_layout_staff=layout_staff_temp;
+                                }
+                                layout_system_temp->n_layout_staves++;
+                            }
+                            temp_cur=temp_cur->next;
+                        }while(temp_cur->next!=NULL);
+                        temp_cur=temp_cur->parent;                        
+                        //end scan layout staff
+                        layout_system_temp->layout_staves=layout_staff_head;
+                        
+                        layout_system_temp->next_layout_system=NULL;
+                        if(layout_system_head==NULL)
+                            layout_system_head=layout_system_temp;
+                        else{
+                            layout_syustem_p=layout_system_head;
+                            while(layout_syustem_p->next_layout_system!=NULL)
+                                layout_syustem_p=layout_syustem_p->next_layout_system;
+                            layout_syustem_p->next_layout_system=layout_system_temp;
+                        } 
+                        
+                        page_temp->n_layout_systems++;
+                    }
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"layout_images")){
+                        layout_images_temp=(struct layout_images*)malloc(sizeof(struct layout_images));
+                        layout_images_temp=calloc(1,sizeof(struct layout_images));
+                        
+                        attributes=temp_cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
+                                layout_images_temp->file_name=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_format")){
+                                layout_images_temp->file_format=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"encoding_format")){
+                                layout_images_temp->encoding_format=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"horizontal_offset")){
+                                layout_images_temp->horizontal_offset=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"vertical_offset")){
+                                layout_images_temp->vertical_offset=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
+                                layout_images_temp->description=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"copyright")){
+                                layout_images_temp->copyright=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
+                                layout_images_temp->notes=xmlGetProp(temp_cur,attributes->name);
+                            }
+                            attributes=attributes->next;
+                        }
+                        
+                        layout_images_temp->next_layout_images=NULL;
+                        if(layout_images_head==NULL)
+                            layout_images_head=layout_images_temp;
+                        else{
+                            layout_images_p=layout_images_head;
+                            while(layout_images_p->next_layout_images!=NULL)
+                                layout_images_p=layout_images_p->next_layout_images;
+                            layout_images_p->next_layout_images=layout_images_temp;
+                        }                         
+                        page_temp->n_layout_images++;
+                    }
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"layout_shapes")){//contains svg
+                        layout_shapes_temp=(struct layout_shapes*)malloc(sizeof(struct layout_shapes));
+                        layout_shapes_temp=calloc(1,sizeof(struct layout_shapes));
+                        
+                        attributes=temp_cur->properties;
+                        while(attributes!=NULL){
+                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"horizontal_offset")){
+                                layout_shapes_temp->horizontal_offset=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"vertical_offset")){
+                                layout_shapes_temp->vertical_offset=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                            }
+                            attributes=attributes->next;
+                        }
+                                                
+                        //caricare contenuto svg
+                        
+                        layout_shapes_temp->next_layout_shapes=NULL;
+                        if(layout_shapes_head==NULL)
+                            layout_shapes_head=layout_shapes_temp;
+                        else{
+                            layout_shapes_p=layout_shapes_head;
+                            while(layout_shapes_p->next_layout_shapes!=NULL)
+                                layout_shapes_p=layout_shapes_p->next_layout_shapes;
+                            layout_shapes_p->next_layout_shapes=layout_shapes_temp;
+                        }                        
+                        page_temp->n_layout_shapes++;
+                    }                   
+                    temp_cur=temp_cur->next;
+                }
+                page_temp->layout_systems=layout_system_head;
+                page_temp->layout_images_list=layout_images_head;
+                page_temp->layout_shapes_list=layout_shapes_head;
+                //end page elements
+                
+                page_temp->next_page=NULL;
+                if(page_head==NULL){
+                    page_head=page_temp;
+                }
+                else{
+                    page_p=page_head;
+                    while(page_p->next_page!=NULL)
+                        page_p=page_p->next_page;
+                    page_p->next_page=page_temp;
+                }
+                logic_layer.layout.n_pages++;                                           
+            }
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"text_font")){
+                //logic_layer.layout.text_font=loadTextFont(...)
+            }
+            else if(!xmlStrcmp(cur->name,(const xmlChar*)"music_font")){
+                //logic_layer.layout.music_font=loadMusicFont(...);
+            }
+        }
+        logic_layer.layout.pages=page_head;
+    }//layout is optional
 }
 
 void printLayout(){

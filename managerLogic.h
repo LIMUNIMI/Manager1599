@@ -159,9 +159,12 @@ struct los{//?
 
 //Layout
 struct layout_shapes{
-    //svg
     int horizontal_offset;//REQUIRED
     int vertical_offset;//REQUIRED
+    
+    //svg
+    
+    struct layout_shapes* next_layout_shapes;
 };
 
 struct layout_images{
@@ -172,7 +175,9 @@ struct layout_images{
     int vertical_offset;//#REQUIRED
     char* description;
     char* copyright; 
-    char* notes;    
+    char* notes;   
+    
+    struct layout_images* next_layout_images;
 };
 
 struct layout_staff{
@@ -189,6 +194,8 @@ struct layout_staff{
 };
 
 struct layout_system{
+    int n_layout_staves;
+    
     char* id;
     int upper_left_x;//REQUIRED
     int upper_left_y;//REQUIRED
@@ -196,6 +203,8 @@ struct layout_system{
     int lower_right_y;//REQUIRED
     
     struct layout_staff* layout_staves;//+
+    
+    struct layout_system* next_layout_system;
 };
 
 struct custom_page_format{
@@ -208,17 +217,15 @@ struct standard_page_format{
 };
 
 struct page{//((standard_page_format | custom_page_format), layout_system*, layout_images*, layout_shapes*)
-    int n_standard_page_formats;
-    int n_custom_page_formats;
     int n_layout_systems;
-    int n_layout_image_list;
-    int n_layout_shapes_list;
+    int n_layout_images;
+    int n_layout_shapes;
     
     char* id;//REQUIRED
     int number;
     
-    struct standard_page_format* standard_page_formats;
-    struct custom_page_format* custom_page_formats;
+    struct standard_page_format standard_page_formats;
+    struct custom_page_format custom_page_formats;
     struct layout_system* layout_systems;
     struct layout_images* layout_images_list;
     struct layout_shapes* layout_shapes_list;
@@ -230,7 +237,7 @@ struct layout{//(page+, text_font?, music_font?)
     int n_pages;
     
     int hpos_per_unit;//REQUIRED
-    char* mesurement_unit;//REQUIRED (centimeters,millimeters,inches,decimal_inches,points,picas,pixels,twips)
+    char* measurement_unit;//REQUIRED (centimeters,millimeters,inches,decimal_inches,points,picas,pixels,twips)
     
     struct page* pages;//+
     char* text_font;
