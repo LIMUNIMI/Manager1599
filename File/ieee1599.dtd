@@ -771,8 +771,8 @@
 
 <!ENTITY % added_feature_object_classes "">
 
-<!ELEMENT feature_object (simple_description
-   %added_feature_object_classes;)>
+<!ELEMENT feature_object (simple_description 
+%added_feature_object_classes;)>
 <!ATTLIST feature_object
   id ID #IMPLIED
   name CDATA #REQUIRED>

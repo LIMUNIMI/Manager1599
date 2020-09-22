@@ -33,10 +33,10 @@ struct ieee1599{
 
     struct general general_layer;
     struct logic logic_layer;
-    //struct notational notational_layer;
-    //struct structural structural_layer;
-    //struct performance performance_layer;
-    //struct audio audio_layer;
+    struct structural structural_layer;
+    struct notational notational_layer;
+    struct performance performance_layer;
+    struct audio audio_layer;
 };
 struct ieee1599 ieee1599_document;
 

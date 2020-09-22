@@ -18,7 +18,15 @@
 extern "C" {
 #endif
 
+//Notational
+    struct notational{
+    
+    };
 
+//Variables
+    struct notational notational_layer;
+    
+//Prototypes
 
 
 #ifdef __cplusplus

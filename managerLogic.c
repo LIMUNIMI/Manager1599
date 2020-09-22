@@ -14,7 +14,7 @@ void loadLogic(){
 }
 
 void printLogic(){  
-    printSpine();
+    //printSpine();
     printLos();
     printLayout();
 }

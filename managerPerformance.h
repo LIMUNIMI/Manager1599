@@ -17,6 +17,17 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+//Performance
+    struct performance{
+    
+    };
+
+//Variables
+    struct performance performance_layer;
+    
+//Prototypes
+
 
 
 

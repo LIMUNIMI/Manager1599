@@ -17,6 +17,17 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+//Audio
+    struct audio{
+    
+    };
+
+//Variables
+    struct audio audio_layer;
+    
+//Prototypes
+
 
 
 
