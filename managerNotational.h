@@ -18,6 +18,8 @@
 extern "C" {
 #endif
 
+#include "common.h"
+
 //Notational
     struct notational{
     

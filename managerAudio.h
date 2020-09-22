@@ -17,6 +17,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+  
+#include "common.h"
     
 //Audio
     struct audio{
