@@ -26,6 +26,10 @@ extern "C" {
 #include <libxml/xmlmemory.h>
 #include <string.h>
 
+struct rights{
+    char* file_name;
+};
+    
 xmlChar *docname;
 xmlChar *file_name;
 xmlDocPtr doc;
@@ -36,6 +40,7 @@ xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
 char* concat(const char *s1, const char *s2);  
 int xmlCharToInt(xmlChar* string);
 
+struct rights loadRights(xmlNodePtr);
 
 #ifdef __cplusplus
 }

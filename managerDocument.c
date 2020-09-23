@@ -42,8 +42,8 @@ void loadDocument(){
     ieee1599_document.logic_layer=logic_layer;
     loadStructural();
     ieee1599_document.structural_layer=structural_layer;
-    //loadNotational();
-    //ieee1599_document.notational_layer=notational_layer;
+    loadNotational();
+    ieee1599_document.notational_layer=notational_layer;
     //loadPerformance();
     //ieee1599_document.performance_layer=performance_layer;
     //loadAudio();
@@ -56,5 +56,6 @@ void printDocument(){
     printf("[version=%s creator=%s]",ieee1599_document.version,ieee1599_document.creator);
     printGeneral();
     printLogic();
-    
+    printStructural();
+    printNotational();
 }

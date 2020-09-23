@@ -75,8 +75,23 @@ int xmlCharToInt(xmlChar* string){
     }
     if(error){
         value=-1;
-        fprintf(stderr,"Can't convert string to integer\n");
+        fprintf(stderr,"Can't convert string '%s' to integer\n",string);
     }
 
+    return value;
+}
+
+struct rights loadRights(xmlNodePtr cur){
+    struct rights value;
+    xmlAttr* attributes;
+    
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
+            value.file_name=xmlGetProp(cur,attributes->name);
+        }
+        attributes=attributes->next;
+    }
+    
     return value;
 }

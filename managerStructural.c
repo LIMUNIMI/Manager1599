@@ -373,7 +373,8 @@ struct segmentation loadSegmentation(xmlNodePtr cur){
 }
 
 struct feature_object* loadFeatureObject(xmlNodePtr cur){
-    struct feature_object* value;
+    struct feature_object* value=(struct feature_object*)malloc(sizeof(struct feature_object));
+    value=calloc(1, sizeof(struct feature_object*));
     xmlAttr* attributes; 
     
     value->next_feature_object=NULL;
@@ -466,7 +467,8 @@ void loadPetriNets(){
 }
 
 struct petri_net* loadPetriNet(xmlNodePtr cur){
-    struct petri_net* value;
+    struct petri_net* value=(struct petri_net*)malloc(sizeof(struct petri_net));
+    value=calloc(1, sizeof(struct petri_net*));
     xmlAttr* attributes;
     
     struct place* place_temp=NULL;
@@ -626,7 +628,8 @@ void loadMir(){
 }
 
 struct mir_model* loadMirModel(xmlNodePtr cur){
-    struct mir_model* value;
+    struct mir_model* value=(struct mir_model*)malloc(sizeof(struct mir_model));
+    value=calloc(1, sizeof(struct mir_model*));
     xmlAttr* attributes;
     
     struct mir_object* mir_object_temp=NULL;
@@ -700,7 +703,8 @@ struct mir_model* loadMirModel(xmlNodePtr cur){
 }
 
 struct mir_object* loadMirObject(xmlNodePtr cur){
-    struct mir_object* value;
+    struct mir_object* value=(struct mir_object*)malloc(sizeof(struct mir_object));
+    value=calloc(1, sizeof(struct mir_object*));
     xmlAttr* attributes;
     
     struct mir_subobject* mir_subobject_temp=NULL;
@@ -771,7 +775,8 @@ struct mir_object* loadMirObject(xmlNodePtr cur){
 }
 
 struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
-    struct mir_subobject* value;
+    struct mir_subobject* value=(struct mir_subobject*)malloc(sizeof(struct mir_subobject));
+    value=calloc(1, sizeof(struct mir_subobject*));
     xmlAttr* attributes;
     
     struct mir_feature* mir_feature_temp=NULL;
@@ -825,7 +830,8 @@ struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
 }
 
 struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
-    struct mir_morphism* value;
+    struct mir_morphism* value=(struct mir_morphism*)malloc(sizeof(struct mir_morphism));
+    value=calloc(1, sizeof(struct mir_morphism*));
     xmlAttr* attributes;
     
     struct mir_feature* mir_feature_temp=NULL;
@@ -881,7 +887,8 @@ struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
 }
 
 struct mir_feature* loadMirFeature(xmlNodePtr cur){
-    struct mir_feature* value;
+    struct mir_feature* value=(struct mir_feature*)malloc(sizeof(struct mir_feature));
+    value=calloc(1, sizeof(struct mir_feature*));
     xmlAttr* attributes;
     
     value->next_mir_feature=NULL;
