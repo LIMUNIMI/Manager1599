@@ -44,10 +44,10 @@ void loadDocument(){
     ieee1599_document.structural_layer=structural_layer;
     loadNotational();
     ieee1599_document.notational_layer=notational_layer;
-    //loadPerformance();
-    //ieee1599_document.performance_layer=performance_layer;
-    //loadAudio();
-    //ieee1599_document.audio_layer=audio_layer;
+    loadPerformance();
+    ieee1599_document.performance_layer=performance_layer;
+    loadAudio();
+    ieee1599_document.audio_layer=audio_layer;
     
 }
 
@@ -58,4 +58,6 @@ void printDocument(){
     printLogic();
     printStructural();
     printNotational();
+    printPerformance();
+    printAudio();
 }

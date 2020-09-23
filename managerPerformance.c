@@ -5,3 +5,11 @@
  */
 
 #include "managerPerformance.h"
+
+void loadPerformance(){
+
+}
+
+void printPerformance(){
+
+}

@@ -29,10 +29,9 @@ extern "C" {
     struct performance performance_layer;
     
 //Prototypes
-
-
-
-
+    void loadPerformance();
+    
+    void printPerformance();
 
 #ifdef __cplusplus
 }

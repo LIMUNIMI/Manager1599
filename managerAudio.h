@@ -29,10 +29,9 @@ extern "C" {
     struct audio audio_layer;
     
 //Prototypes
-
-
-
-
+    void loadAudio();
+    
+    void printAudio();
 
 #ifdef __cplusplus
 }

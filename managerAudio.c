@@ -5,3 +5,11 @@
  */
 
 #include "managerAudio.h"
+
+void loadAudio(){
+
+}
+
+void printAudio(){
+
+}
