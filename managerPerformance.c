@@ -7,9 +7,37 @@
 #include "managerPerformance.h"
 
 void loadPerformance(){
+    loadMidiInstance();
+    loadCsoundInstance();
+    loadMpeg4Instance();
+}
+
+void loadMidiInstance(){
+
+}
+
+void loadCsoundInstance(){
+
+}
+    
+void loadMpeg4Instance(){
 
 }
 
 void printPerformance(){
+    printMidiInstance();
+    printCsoundInstance();
+    printMpeg4Instance();
+}
+
+void printMidiInstance(){
+
+}
+
+void printCsoundInstance(){
+
+}
+
+void printMpeg4Instance(){
 
 }
