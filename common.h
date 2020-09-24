@@ -40,7 +40,7 @@ xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
 char* concat(const char *s1, const char *s2);  
 int xmlCharToInt(xmlChar* string);
 
-struct rights loadRights(xmlNodePtr);
+struct rights loadRights(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

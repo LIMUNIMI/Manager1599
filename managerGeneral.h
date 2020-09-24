@@ -42,6 +42,7 @@ struct other_title{
       char* name;//REQUIRED
       char* description;
       char* weight;
+      
       struct genre* next_genre;
  };
 

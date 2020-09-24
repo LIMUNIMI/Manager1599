@@ -19,10 +19,46 @@ extern "C" {
 #endif
   
 #include "common.h"
+
+//Track General
+    struct recording{};
     
+    struct album{};
+    
+    struct performer{};
+    
+    struct track_general{//(recordings?, genres?, albums?, performers?, notes?)
+        char* geographical_region;
+        char* lyrics_language;
+        
+        struct recording* recorings;
+        struct genre* genres;
+        struct album* albums;
+        struct performer* performers;
+        char* notes;
+    };
+//Track Indexing
+    struct track_indexing{//(track_region*, track_event+)
+    
+    };
 //Audio
-    struct audio{
+    struct track{//(track_general?, track_indexing?, rights?)
+        char* file_name;//REQUIRED
+        char* file_format;//REQUIRED
+        char* encoding_format;//REQUIRED
+        char* md5;
+        
+        struct track_general track_general;
+        struct track_indexing track_indexing;
+        struct rights rights;
+        
+        struct track* next_track;
+    };
     
+    struct audio{
+        int n_tracks;
+        
+        struct track* tracks;
     };
 
 //Variables

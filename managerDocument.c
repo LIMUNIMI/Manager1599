@@ -13,8 +13,6 @@ void loadDocument(){
     xmlNodeSetPtr nodeset;
     xmlNodePtr cur;
     xmlAttr *attributes;
-    xmlNodePtr temp_cur;
-    
     
     xpath=(xmlChar *)"/ieee1599";
     result=getNodeset(doc,xpath);
