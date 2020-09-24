@@ -21,13 +21,40 @@ extern "C" {
 #include "common.h"
 
 //Track General
-    struct recording{};
+    struct recording{
+        char* date;//REQUIRED
+        char* recorder_part;
+        char* studio_name;
+        char* studio_address;
+
+        struct recording* next_recording;
+    };
     
-    struct album{};
+    struct album{
+        char* title;//REQUIRED
+        char* track_number;//REQUIRED
+        char* carrier_type;
+        char* catalogue_number;
+        int number_of_tracks;
+        char* publication_date;
+        char* label;
+
+        struct album* next_album;
+    };
     
-    struct performer{};
+    struct performer{
+        char* name;//REQUIRED
+        char* type;//REQUIRED
+        
+        struct performer* next_performer;
+    };
     
     struct track_general{//(recordings?, genres?, albums?, performers?, notes?)
+        int n_recordings;
+        int n_genres;
+        int n_albums;
+        int n_performers;
+        
         char* geographical_region;
         char* lyrics_language;
         
@@ -38,8 +65,31 @@ extern "C" {
         char* notes;
     };
 //Track Indexing
-    struct track_indexing{//(track_region*, track_event+)
+    struct track_event{
+        char* start_time;//REQUIRED
+	char* end_time;
+        //spine_ref;
+ 	char* description;
+        
+        struct track_event* next_track_event;
+    };
     
+    struct track_region{
+        char* name;//REQUIRED
+        char* description;
+        //spine_start_end_ref
+        
+        struct track_region* next_track_region;
+    };
+    
+    struct track_indexing{//(track_region*, track_event+)
+        int n_track_regions;
+        int n_track_events;
+        
+        char* timing_type;//REQUIRED
+        
+        struct track_region* track_regions;
+        struct track_event* track_events;
     };
 //Audio
     struct track{//(track_general?, track_indexing?, rights?)
