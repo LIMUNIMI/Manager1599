@@ -29,6 +29,14 @@ extern "C" {
 struct rights{
     char* file_name;
 };
+
+struct genre{//?
+     char* name;//REQUIRED
+     char* description;
+     char* weight;
+
+     struct genre* next_genre;
+};
     
 xmlChar *docname;
 xmlChar *file_name;
@@ -41,6 +49,7 @@ char* concat(const char *s1, const char *s2);
 int xmlCharToInt(xmlChar* string);
 
 struct rights loadRights(xmlNodePtr cur);
+struct genre* loadGenre(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

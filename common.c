@@ -95,3 +95,26 @@ struct rights loadRights(xmlNodePtr cur){
     
     return value;
 }
+
+struct genre* loadGenre(xmlNodePtr cur){
+    struct genre* value=(struct genre*)malloc(sizeof(struct genre));
+    value=calloc(1,sizeof(struct genre));
+    xmlAttr* attributes;
+    
+    value->next_genre=NULL;
+    attributes=cur->properties;
+    while(attributes!=NULL){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"name")){
+            value->name=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
+            value->description=xmlGetProp(cur,attributes->name);
+        }
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"weight")){
+            value->weight=xmlGetProp(cur,attributes->name);
+        }
+        attributes=attributes->next;
+    }
+    
+    return value;
+}

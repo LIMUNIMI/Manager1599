@@ -37,14 +37,6 @@ struct other_title{
     char* type;
     struct date* next_date;
  };
- 
- struct genre{//?
-      char* name;//REQUIRED
-      char* description;
-      char* weight;
-      
-      struct genre* next_genre;
- };
 
 struct description{
   int n_authors;

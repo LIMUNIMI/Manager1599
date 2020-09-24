@@ -143,19 +143,9 @@ void loadDescription(){
                     if(!xmlStrcmp(cur->name,(const xmlChar*)"genre")){
                         genre_temp=(struct genre*)malloc(sizeof(struct genre));
                         genre_temp=calloc(1,sizeof(struct genre));
-                        attributes=cur->properties;
-                        while(attributes!=NULL){
-                            if(!xmlStrcmp(attributes->name,(const xmlChar*)"name")){
-                                genre_temp->name=xmlGetProp(cur,attributes->name);
-                            }
-                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-                                genre_temp->description=xmlGetProp(cur,attributes->name);
-                            }
-                            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"weight")){
-                                genre_temp->weight=xmlGetProp(cur,attributes->name);
-                            }
-                            attributes=attributes->next;
-                        }
+                        
+                        genre_temp=loadGenre(cur);
+                        
                         genre_temp->next_genre=NULL;
                         if(genre_head==NULL){
                             genre_head=genre_temp;

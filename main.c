@@ -17,7 +17,7 @@
 int main(int argc, char **argv) {
 
     encoding="ISO-8859-1";
-    file_name="File/aida_marcia_trionfale.xml";
+    file_name="File/gottes_macht.xml";
     
     doc=getDoc(file_name);
     //creare struttura ieee1599
