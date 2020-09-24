@@ -23,7 +23,7 @@ extern "C" {
 //Track General
     struct recording{
         char* date;//REQUIRED
-        char* recorder_part;
+        char* recorded_part;
         char* studio_name;
         char* studio_address;
 
@@ -32,7 +32,7 @@ extern "C" {
     
     struct album{
         char* title;//REQUIRED
-        char* track_number;//REQUIRED
+        int track_number;//REQUIRED
         char* carrier_type;
         char* catalogue_number;
         int number_of_tracks;
@@ -58,7 +58,7 @@ extern "C" {
         char* geographical_region;
         char* lyrics_language;
         
-        struct recording* recorings;
+        struct recording* recordings;
         struct genre* genres;
         struct album* albums;
         struct performer* performers;
@@ -116,8 +116,12 @@ extern "C" {
     
 //Prototypes
     void loadAudio();
+    struct track_general loadTrackGeneral(xmlNodePtr cur);
+    struct track_indexing loadTrackIndexing(xmlNodePtr cur);    
     
     void printAudio();
+    void printTrackGeneral(struct track_general cur);
+    void printTrackIndexing(struct track_indexing cur);
 
 #ifdef __cplusplus
 }
