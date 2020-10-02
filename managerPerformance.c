@@ -233,8 +233,8 @@ struct midi_event* loadMidiEvent(xmlNodePtr cur){
         if(!xmlStrcmp(attributes->name,(const xmlChar*)"timing")){
             value->timing=xmlGetProp(cur,attributes->name);
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-            //value->spine_ref =xmlGetProp(cur,attributes->name);   
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+            value->event_ref =xmlGetProp(cur,attributes->name);   
         }
         attributes=attributes->next;
     }
@@ -253,8 +253,8 @@ struct sys_ex* loadSysEx(xmlNodePtr cur){
 
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-            //value->spine_ref =xmlGetProp(cur,attributes->name);   
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+            value->event_ref =xmlGetProp(cur,attributes->name);   
         }
         attributes=attributes->next;
     }
@@ -384,8 +384,8 @@ struct csound_score* loadCsoundScore(xmlNodePtr cur){
                 if(!xmlStrcmp(attributes->name,(const xmlChar*)"line_number")){
                     csound_spine_event_temp->line_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //csound_spine_event_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    csound_spine_event_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }
                 attributes=attributes->next;
             }
@@ -525,8 +525,8 @@ struct csound_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr cur){
             
             attributes=cur->properties;
             while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //csound_spine_ref_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    csound_spine_ref_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }
                 attributes=attributes->next;
             }
@@ -670,8 +670,8 @@ struct mpeg4_score* loadMpeg4Score(xmlNodePtr cur){
                 if(!xmlStrcmp(attributes->name,(const xmlChar*)"line_number")){
                     mpeg4_spine_event_temp->line_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //mpeg4_spine_event_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    mpeg4_spine_event_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }
                 attributes=attributes->next;
             }
@@ -811,8 +811,8 @@ struct mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cur){
             
             attributes=cur->properties;
             while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //mpeg4_spine_ref_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    mpeg4_spine_ref_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }
                 attributes=attributes->next;
             }

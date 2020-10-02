@@ -25,8 +25,8 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.acciaccatura.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.acciaccatura.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.acciaccatura.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"slur")){
                 value.acciaccatura.slur=xmlGetProp(cur,attributes->name);
@@ -60,8 +60,8 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.baroque_acciaccatura.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.baroque_acciaccatura.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.baroque_acciaccatura.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
                 value.baroque_acciaccatura.style=xmlGetProp(cur,attributes->name);
@@ -79,8 +79,8 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.appoggiatura.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.appoggiatura.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.appoggiatura.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"slur")){
                 value.appoggiatura.slur=xmlGetProp(cur,attributes->name);
@@ -113,8 +113,8 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.baroque_appoggiatura.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.baroque_appoggiatura.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.baroque_appoggiatura.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
                 value.baroque_appoggiatura.style=xmlGetProp(cur,attributes->name);
@@ -128,8 +128,8 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.mordent.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.mordent.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.mordent.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
                 value.mordent.type=xmlGetProp(cur,attributes->name);
@@ -152,8 +152,11 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.tremolo.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_start_end_ref")){
-                //value.tremolo.spine_start_end_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                value.tremolo.start_event_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                value.tremolo.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"tremolo_lines")){
                 value.tremolo.tremolo_lines=xmlCharToInt(xmlGetProp(cur,attributes->name));                
@@ -167,11 +170,11 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.trill.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.trill.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.trill.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"accidental")){
-                //value.trill.accidental=xmlGetProp(cur,attributes->name);
+                value.trill.accidental=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
                 value.trill.style=xmlGetProp(cur,attributes->name);
@@ -191,8 +194,8 @@ ornament loadOrnamentValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.turn.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.turn.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.turn.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
                 value.turn.type=xmlGetProp(cur,attributes->name);
@@ -201,10 +204,10 @@ ornament loadOrnamentValue(xmlNodePtr cur){
                 value.turn.style=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"upper_accidental")){
-                //value.turn.upper_accidental=xmlGetProp(cur,attributes->name);
+                value.turn.upper_accidental=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"lower_accidental")){
-                //value.turn.lower_accidental=xmlGetProp(cur,attributes->name);
+                value.turn.lower_accidental=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         }
@@ -240,8 +243,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 notehead_ref_temp=calloc(1,sizeof(struct notehead_ref));
                 attributes=temp_cur->properties;
                 while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"spine_ref")){
-                        //notehead_ref_temp->spine_ref=xmlGetPropr(temp_cur,attributes->name);
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
+                        notehead_ref_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                     }
                     attributes=attributes->next;
                 }
@@ -264,8 +267,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.bend.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.bend.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.bend.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
                 value.bend.type=xmlGetProp(cur,attributes->name);
@@ -274,7 +277,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.bend.to_pitch=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"to_accidental")){
-                //value.bend.to_accidentale=xmlGetProp(cur,attributes->name);
+                value.bend.to_accidental=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"to_octave")){
                 value.bend.to_octave=xmlCharToInt(xmlGetProp(cur,attributes->name));
@@ -292,10 +295,13 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.breath_mark.type=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-                //value.breath_mark.staff_ref=xmlGetProp(cur,attributes->name);
+                value.breath_mark.staff_ref=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_start_end_ref")){
-                //value.breath_mark.spine_start_end_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                value.breath_mark.start_event_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                value.breath_mark.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -307,8 +313,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.chord_symbol.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.chord_symbol.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.chord_symbol.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -342,8 +348,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.fermata.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.fermata.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.fermata.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -355,10 +361,10 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.glissando.id=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                //value.glissando.start_event_ref=xmlGetProp(cur,attributes->name);
+                value.glissando.start_event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                //value.glissando.end_event_ref=xmlGetProp(cur,attributes->name);
+                value.glissando.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -373,10 +379,13 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.hairpin.type=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-                //value.hairpin.start_event_ref=xmlGetProp(cur,attributes->name);
+                value.hairpin.staff_ref=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_end_event_ref")){
-                //value.hairpin.start_end_event_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                value.hairpin.start_event_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                value.hairpin.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -391,10 +400,13 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.octave_bracket.type=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-                //value.octave_bracket.start_event_ref=xmlGetProp(cur,attributes->name);
+                value.octave_bracket.staff_ref=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_end_event_ref")){
-                //value.octave_bracket.start_end_event_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                value.octave_bracket.start_event_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                value.octave_bracket.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -405,8 +417,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.pedal_start.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.pedal_start.start_event_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.pedal_start.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -417,8 +429,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.pedal_end.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.pedal_end.start_event_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.pedal_end.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -434,10 +446,10 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.percussion_beater.type=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                //value.percussion_beater.start_event_ref=xmlGetProp(cur,attributes->name);
+                value.percussion_beater.start_event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                //value.percussion_beater.end_event_ref=xmlGetProp(cur,attributes->name);
+                value.percussion_beater.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -452,8 +464,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
                 value.percussion_special.type=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.percussion_special.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.percussion_special.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -465,8 +477,11 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.slur.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_start_end_ref")){
-                //value.slur.spine_start_end_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                value.slur.start_event_ref=xmlGetProp(cur,attributes->name);
+            }
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                value.slur.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
                 value.slur.shape=xmlGetProp(cur,attributes->name);
@@ -502,8 +517,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 notehead_ref_temp=calloc(1,sizeof(struct notehead_ref));
                 attributes=temp_cur->properties;
                 while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"spine_ref")){
-                        //notehead_ref_temp->spine_ref=xmlGetPropr(temp_cur,attributes->name);
+                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
+                        notehead_ref_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                     }
                     attributes=attributes->next;
                 }
@@ -534,8 +549,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.tablature_hsymbol.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.tablature_hsymbol.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.tablature_hsymbol.event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_number")){
                 value.tablature_hsymbol.string_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
@@ -620,8 +635,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.repeat.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.repeat.spine_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.repeat.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         }
@@ -638,8 +653,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                     if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"id")){
                         jump_to_temp->id=xmlGetProp(temp_cur,attributes->name);
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"spine_ref")){
-                        //jump_to_temp->spine_ref=xmlGetProp(temp_cur,attributes->name);
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
+                        jump_to_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                     }
                     attributes=attributes->next;
                 }
@@ -661,8 +676,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                     if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"id")){
                         end_temp->id=xmlGetProp(temp_cur,attributes->name);
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"spine_ref")){
-                        //end_temp->spine_ref=xmlGetProp(temp_cur,attributes->name);
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
+                        end_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                     }
                     attributes=attributes->next;
                 }
@@ -687,8 +702,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.segno.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.segno.start_event_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.segno.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -700,8 +715,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.coda.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.coda.start_event_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.coda.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -713,8 +728,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                 value.fine.id=xmlGetProp(cur,attributes->name);
             }
-            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                //value.fine.start_event_ref=xmlGetProp(cur,attributes->name);
+            else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                value.fine.event_ref=xmlGetProp(cur,attributes->name);
             }
             attributes=attributes->next;
         } 
@@ -744,11 +759,14 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"number")){
                         multiple_ending_temp->number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"spine_start_end_ref")){
-                        //multiple_ending_temp->spine_start_end_ref=xmlGetProp(temp_cur,attributes->name);
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"start_event_ref")){
+                        multiple_ending_temp->start_event_ref=xmlGetProp(temp_cur,attributes->name);
+                    }
+                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"end_event_ref")){
+                        multiple_ending_temp->end_event_ref=xmlGetProp(temp_cur,attributes->name);
                     }
                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"return_to")){
-                        //multiple_ending_temp->return_to=xmlGetProp(temp_cur,attributes->name);
+                        multiple_ending_temp->return_to=xmlGetProp(temp_cur,attributes->name);
                     }
                     attributes=attributes->next;
                 }
@@ -773,10 +791,10 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.custom_hsymbol.id=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                //value.custom_hsymbol.start_event_ref=xmlGetProp(cur,attributes->name);
+                value.custom_hsymbol.start_event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                //value.custom_hsymbol.end_event_ref=xmlGetProp(cur,attributes->name);
+                value.custom_hsymbol.end_event_ref=xmlGetProp(cur,attributes->name);
             }
 
             attributes=attributes->next;
@@ -800,7 +818,7 @@ struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
             value->id=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-            //value.staff_ref=xmlGetProp(cur,attributes->name);
+            value.staff_ref=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notation_style")){
             value->notation_style=xmlGetProp(cur,attributes->name);
@@ -865,7 +883,7 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
                     value->multiple_rest.number_of_measures=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    //value->multiple_rest.event_ref=xmlGetPropr(temp_cur,attributes->name);
+                    value->multiple_rest.event_ref=xmlGetProp(temp_cur,attributes->name);
                 }
                 attributes=attributes->next;
             }  
@@ -877,7 +895,7 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
                     value->measure_repeat.number_of_measures=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    //value->measure_repeat.event_ref=xmlGetPropr(temp_cur,attributes->name);
+                    value->measure_repeat.event_ref=xmlGetProp(temp_cur,attributes->name);
                 }
                 attributes=attributes->next;
             }
@@ -907,8 +925,8 @@ struct clef* loadClefValue(xmlNodePtr cur){
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"octave_num")){
             value->octave_num=xmlCharToInt(xmlGetProp(cur,attributes->name));
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-            //value->spine_ref=xmlGetProp(cur,attributes->name);
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+            value->event_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
@@ -924,8 +942,8 @@ struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
     
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-            //value->spine_ref=xmlGetProp(cur,attributes->name);
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+            value->event_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
@@ -955,8 +973,8 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
     
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-            //value->spine_ref=xmlGetProp(cur,attributes->name);
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+            value->event_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
@@ -971,7 +989,7 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
                     key_accidental_temp->step=xmlGetProp(temp_cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"accidental")){
-                    //key_accidental_temp->accidental=xmlGetProp(temp_cur,attributes->name);
+                    key_accidental_temp->accidental=xmlGetProp(temp_cur,attributes->name);
                 }
                 attributes=attributes->next;
             }          
@@ -1008,8 +1026,8 @@ struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
         if(!xmlStrcmp(attributes->name,(const xmlChar*)"visible")){
             value->visibile=xmlGetProp(cur,attributes->name);
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-            //value->spine_ref=xmlGetProp(cur,attributes->name);
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+            value->event_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
@@ -1066,8 +1084,8 @@ struct barline* loadBarlineValue(xmlNodePtr cur){
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"extension")){
             value->extension=xmlGetProp(cur,attributes->name);
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-           //value->spine_ref=xmlGetProp(cur,attributes->name);
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+           value->event_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }
@@ -1108,7 +1126,7 @@ struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
                     string_temp->string_pitch=xmlGetProp(temp_cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_accidental")){
-                    //string_temp->accidental=xmlGetProp(temp_cur,attributes->name);
+                    string_temp->string_accidental=xmlGetProp(temp_cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_octave")){
                     string_temp->string_octave=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
@@ -1165,7 +1183,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
     attributes=cur->properties;
     while(attributes!=NULL){
         if(!xmlStrcmp(cur->name,(const xmlChar*)"voice_item_ref")){
-            //value->voice_item_ref=xmlGetProp(cur,attributes->name);
+            value->voice_item_ref=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(cur->name,(const xmlChar*)"ossia")){
             value->ossia=xmlGetProp(cur,attributes->name);
@@ -1198,11 +1216,11 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
                 if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                     rest_temp->id=xmlGetProp(temp_cur,attributes->name);
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //rest_temp->spine_ref=xmlGetProp(temp_cur,attributes->name);
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    rest_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-                    //rest_temp->staff_ref=xmlGetProp(temp_cur,attributes->name);
+                    rest_temp->staff_ref=xmlGetProp(temp_cur,attributes->name);
 
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"hidden")){
@@ -1253,8 +1271,8 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
                 if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
                     tablature_symbol_temp->id=xmlGetProp(temp_cur,attributes->name);
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //tablature_symbol_temp->spine_ref=xmlGetProp(temp_cur,attributes->name);
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    tablature_symbol_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"stem_direction")){
                     tablature_symbol_temp->stem_direction=xmlGetProp(temp_cur,attributes->name);
@@ -1341,8 +1359,8 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
                 else if(!xmlStrcmp(cur->name,(const xmlChar*)"mora")){
                     gregorian_symbol_temp->mora=xmlGetProp(cur,attributes->name);
                 }
-                else if(!xmlStrcmp(cur->name,(const xmlChar*)"spine_ref")){
-                    //gregorian_symbol_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                else if(!xmlStrcmp(cur->name,(const xmlChar*)"event_ref")){
+                    gregorian_symbol_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }           
                 attributes=attributes->next;
             }
@@ -1415,8 +1433,8 @@ struct chord* loadChordValue(xmlNodePtr cur){
         if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
             value->id=xmlGetProp(cur,attributes->name);
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-            //value->spine_ref=xmlGetProp(cur,attributes->name);
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+            value->event_ref=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"stem_direction")){
             value->stem_direction=xmlGetProp(cur,attributes->name);
@@ -1514,7 +1532,7 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
             value->id=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-            //value->staff_ref=xmlGetProp(cur,attributes->name);
+            value->staff_ref=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
             value->style=xmlGetProp(cur,attributes->name);
@@ -1534,7 +1552,7 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
                     value->pitch.octave=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"actual_accidental")){
-                    //value->pitch.actual_accidental=xmlGetProp(temp_cur,attributes->name);
+                    value->pitch.actual_accidental=xmlGetProp(temp_cur,attributes->name);
                 }
                 attributes=attributes->next;
             }
@@ -1674,7 +1692,7 @@ struct key* loadKeyValue(xmlNodePtr cur){
             value->id=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-            //value->staff_ref=xmlGetProp(cur,attributes->name);
+            value->staff_ref=xmlGetProp(cur,attributes->name);
         }
         attributes=attributes->next;
     }

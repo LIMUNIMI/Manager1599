@@ -187,7 +187,7 @@ extern "C" {
 
     struct mpeg4_spine_event{
         int line_number;//REQUIRED
-        //spine_ref
+        char* event_ref;
 
         struct mpeg4_spine_event* next_mpeg4_spine_event;
     };

@@ -127,8 +127,8 @@ struct graphic_instance* loadGraphicInstance(xmlNodePtr cur){
 
             attributes=cur->properties;
             while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //graphic_event_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    graphic_event_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"upper_left_x")){
                     //graphic_event_temp->upper_left_x=xmlCharToInt(xmlGetProp(cur,attributes->name));   
@@ -289,8 +289,8 @@ struct notation_instance* loadNotationInstance(xmlNodePtr cur){
             
             attributes=cur->properties;
             while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //notation_event_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    notation_event_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_position")){
                     notation_event_temp->start_position=xmlGetProp(cur,attributes->name);   

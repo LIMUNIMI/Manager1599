@@ -33,7 +33,7 @@ struct event{//EMPTY
 //Los
 struct agogic{
     char* bracketed;//(yes,no) default no
-    //spine-ref
+    char* event_ref;
     
     char* agogic_value;
     

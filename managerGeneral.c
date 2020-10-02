@@ -262,12 +262,12 @@ void loadRelatedFiles(){
                         temp->notes=xmlGetProp(cur,attributes->name);
  
                     }  
-                    /*else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                        temp->start_event_ref=xmlGetProp(cur,attributes->name);
                     }
                      else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
-                    }*/
+                        temp->end_event_ref=xmlGetProp(cur,attributes->name);
+                    }
                     attributes=attributes->next;                     
                 }  
                 temp->next_file=NULL;

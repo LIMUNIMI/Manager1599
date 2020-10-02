@@ -77,7 +77,8 @@ extern "C" {
     struct track_region{
         char* name;//REQUIRED
         char* description;
-        //spine_start_end_ref
+        char* start_event_ref;
+        char* end_event_ref;
         
         struct track_region* next_track_region;
     };

@@ -198,8 +198,8 @@ void loadLos(){
                     if(!xmlStrcmp(attributes->name,(const xmlChar*)"bracketed")){
                         agogic_temp->bracketed=xmlGetProp(cur,attributes->name); 
                     }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                        //agogic_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                        agogic_temp->event_ref=xmlGetProp(cur,attributes->name);
                     }                
                     attributes=attributes->next;                     
                 }  
@@ -258,8 +258,8 @@ void loadLos(){
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"dots")){
                         metronomic_indication_temp->dots=xmlCharToInt(xmlGetProp(cur,attributes->name));
                     }  
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                        //metronomic_indication_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                        metronomic_indication_temp->event_ref=xmlGetProp(cur,attributes->name);
                     }  
                     attributes=attributes->next;                     
                 }  
@@ -610,10 +610,10 @@ void loadLos(){
                         attributes=temp_cur->properties;
                         while(attributes!=NULL){
                             if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                                //lyrics_temp->part_ref=xmlGetProp(temp_cur,attributes->name);
+                                syllable_temp->start_event_ref=xmlGetProp(temp_cur,attributes->name);
                             }
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                                //lyrics_temp->voice_ref=xmlGetProp(temp_cur,attributes->name);
+                                syllable_temp->end_event_ref=xmlGetProp(temp_cur,attributes->name);
                             } 
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"hyphen")){
                                 syllable_temp->hyphen=xmlGetProp(temp_cur,attributes->name);
@@ -796,7 +796,7 @@ void loadLayout(){
                                         layout_staff_temp->id=xmlGetProp(temp_cur,attributes->name);
                                     }
                                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-                                        //layout_staff_temp->staff_ref=xmlGetProp(temp_cur,attributes->name);
+                                        layout_staff_temp->staff_ref=xmlGetProp(temp_cur,attributes->name);
                                     }
                                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"vertical_offset")){
                                         layout_staff_temp->vertical_offset=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));

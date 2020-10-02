@@ -28,7 +28,7 @@ enum neumes {punctum,virga,punctum_inclinatum,quilisma,apostrofa,oriscus,podatus
 struct string{
     int string_number;//REQUIRED
     char* string_pitch;//(A,B,C,D,E,F,G) REQUIRED
-    //accidental string_accidental
+    char* string_accidental;
     int string_octave;//REQUIRED
     
     struct string* next_string;
@@ -73,7 +73,7 @@ struct time_signature{
 
 struct key_accidental{
     char* step;//REQUIRED (A,B,C,D,E,F,G)
-    //accidental accidental
+    char* accidental;
     struct key_accidental* next_key_accidental;
 };
 
@@ -127,7 +127,7 @@ struct printed_accidental{
 struct pitch{
     char* step;//REQUIRED (A,B,C,D,E,F,G,none)
     int octave;//REQUIRED
-    //accidental actual_accidental
+    char* actual_accidental;
 };
 
 struct notehead{
@@ -443,7 +443,7 @@ struct percussion_beater{
     char* percussion_beater_value;
     char* id;
     char* type;//REQUIRED (bow,snare_stick,snare_stick_plastic,spoon_shaped,guiro,triangle,knitting_needle,hand,hammer,metal_hammer,wooden_timpani_mallet,light_timpani_mallet,medium_timpani_mallet,heavy_timpani_mallet,light_vibraphone_mallet,medium_vibraphone_mallet,heavy_vibraphone_mallet,light_bassdrum_mallet,medium_bassdrum_mallet,heavy_bassdrum_mallet,steel_core_bassdrum_mallet,coin,brush,nails)
-    char* start_evenet_ref;
+    char* start_event_ref;
     char* end_event_ref;
 };
 
@@ -516,7 +516,7 @@ struct bend{
     char* event_ref;
     char* type;//(single,double) default single
     char* to_pitch;//REQUIRED (A,B,C,D,E,F,G,up,down)
-    //accidental to_accidental;
+    char* to_accidental;
     int to_octave;
 };
 
@@ -559,13 +559,14 @@ struct turn{
     char* event_ref;
     char* type;//REQUIRED (over,after)
     char* style;//REQUIRED (normal,inverted,cut,vertical)
-    //accidental upper_accidental
-    //accidental lower_accidental
+    char* upper_accidental;
+    char* lower_accidental;
 };
 
 struct trill{
     char* id;
     char* event_ref;
+    char* accidental;
     char* style;//(t,tr,tr-,plus,double_slash,caesura_double_slash,slur_double_slash,mordent,double_mordent
     char* start_hook;//(none,up,down)
     char* end_hook;//(none,up,down)
@@ -583,7 +584,7 @@ struct mordent{
     char* event_ref;
     char* type;//(upper,lower) default upper
     char* length;//(normal,double) default normal
-    //accidental accidental; default none
+    char* accidental;// default none
     char*style;//(normal,up_hook,down_hook) default normal
 };
 

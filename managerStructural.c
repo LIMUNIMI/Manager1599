@@ -315,8 +315,8 @@ struct segmentation loadSegmentation(xmlNodePtr cur){
                     
                     attributes=temp_cur->properties;
                     while(attributes!=NULL){
-                        if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                            //segment_event_temp->spine_ref=xmlGetProp(temp_cur,attributes->name);
+                        if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                            segment_event_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                         }
                         attributes=attributes->next;
                     } 

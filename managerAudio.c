@@ -302,8 +302,11 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
                     track_region_temp->description=xmlGetProp(cur,attributes->name);
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_start_end_ref")){
-                    //track_region_temp->spine_start_end_ref=xmlGetProp(cur,attributes->name);
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
+                    track_region_temp->start_event_ref=xmlGetProp(cur,attributes->name);
+                }
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
+                    track_region_temp->end_event_ref=xmlGetProp(cur,attributes->name);
                 }
                 attributes=attributes->next;
             }
@@ -331,8 +334,8 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_time")){
                     track_event_temp->end_time=xmlGetProp(cur,attributes->name);
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"spine_ref")){
-                    //track_region_temp->spine_ref=xmlGetProp(cur,attributes->name);
+                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
+                    track_event_temp->event_ref=xmlGetProp(cur,attributes->name);
                 }
                 else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
                     track_event_temp->description=xmlGetProp(cur,attributes->name);
