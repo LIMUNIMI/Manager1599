@@ -165,7 +165,7 @@ extern "C" {
     };
     
     struct segment_event{
-        //spine_ref
+        char* event_ref;
         
         struct segment_event* next_segment_event;
     };

@@ -22,7 +22,7 @@ extern "C" {
     
 //MIDI Instance
     struct sys_ex{//(SysEx)
-       //spine_ref;
+       char* event_ref;
 
         //struct SysEx SysEx;
 
@@ -33,7 +33,7 @@ extern "C" {
         int n_MIDIChannelMessages;
 
         char* timing;//REQUIRED
-        //spine_ref;
+        char* event_ref;
 
         //struct MIDIChannelMessage* MIDIChannelMessages;
 
@@ -81,7 +81,7 @@ extern "C" {
     
 //CSound Instance	
     struct csound_spine_ref{
-        //spine_ref
+        char* event_ref;
 
         struct csound_spine_ref* next_csound_spine_ref;
     };
@@ -120,7 +120,7 @@ extern "C" {
 
     struct csound_spine_event{
         int line_number;//REQUIRED
-        //spine_ref
+        char* event_ref;
 
         struct csound_spine_event* next_csound_spine_event;
     };
@@ -148,7 +148,7 @@ extern "C" {
     
 //Mpeg4 Instance
     struct mpeg4_spine_ref{
-        //spine_ref
+        char* event_ref;
 
         struct mpeg4_spine_ref* next_mpeg4_spine_ref;
     };

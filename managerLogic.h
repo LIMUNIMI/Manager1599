@@ -42,9 +42,10 @@ struct agogic{
 
 struct text_field{
     char* text_field_value;
-    //extension_line_to
+    char* extension_line_to;
     char* extension_line_shape;//(normal,dotted,slashed)
-    //spine_ref
+    char* event_ref;
+    
     struct text_field* next_text_field;
 };
 
@@ -53,7 +54,8 @@ struct metronomic_indication{//EMPTY
     int den;//REQUIRED
     int value;//REQUIRED
     int dots;
-    //spine_ref
+    char* event_ref;
+    
     struct metronomic_indication* next_metronomic_indication;
 };
 
@@ -68,8 +70,8 @@ struct ornament_list{
 };
 
 struct syllable{
-    //start_event_ref
-    //end_event_ref
+    char* start_event_ref;
+    char* end_event_ref;
     char* hyphen;//(yes,no) default no
     
     char* syllable_value;
@@ -182,7 +184,7 @@ struct layout_images{
 
 struct layout_staff{
     char* id;
-    //staff_ref REQUIRED
+    char* staff_ref;//REQUIRED
     int vertical_offset;//REQUIRED
     int height;//REQUIRED
     char* show_key_signature;//(yes,no) default yes

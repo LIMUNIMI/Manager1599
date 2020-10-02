@@ -22,7 +22,7 @@ extern "C" {
 
 //Graphic Instance Group
     struct graphic_event{
-        //spine_ref
+        char* event_ref;
         char* upper_left_x;//REQUIRED
         char* upper_left_y;//REQUIRED
         char* lower_right_x;//REQUIRED
@@ -61,7 +61,7 @@ extern "C" {
 
 //Notation Instance Group
     struct notation_event{
-        //spine_ref
+        char* event_ref;
         char* start_position;//REQUIRED
         char* end_position;//REQUIRED
         char* description;

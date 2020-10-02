@@ -68,7 +68,7 @@ extern "C" {
     struct track_event{
         char* start_time;//REQUIRED
 	char* end_time;
-        //spine_ref;
+        char* event_ref;
  	char* description;
         
         struct track_event* next_track_event;

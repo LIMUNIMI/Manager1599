@@ -46,7 +46,7 @@ struct tablature_tuning{
 struct barline{
     char* style;//REQUIRED (dashed,double,final,invisibile,staandard,medium,short)
     char* extension;//REQUIRED (single_staff,staff_group,all_stave,mensurstrich
-    //spine_ref
+    char* event_ref;
     
     struct barline* next_barline;
 };
@@ -64,7 +64,7 @@ struct time_signature{
     int n_time_indications;
     
     char* visibile;//(yes,no) default no
-    //spine_ref   
+    char* event_ref;
     
     struct time_indication* time_indications;//+
     
@@ -80,16 +80,18 @@ struct key_accidental{
 struct custom_key_signature{
     int n_key_accidentals;
     
-    //spine_ref
+    char* event_ref;
+    
     struct key_accidental* key_accidentals;//+
     
     struct custom_key_signature* next_custom_key_signature;
 };
 
 struct key_signature{
-    //spine_ref
+    char* event_ref;
    
     char* num_type;//REQUIRED(flat_num,sharp_num)
+    
     int number;//REQUIRED (0,1,2,3,4,5,6,7)
     
     struct key_signature* next_key_signature;
@@ -99,7 +101,7 @@ struct clef{
     char* shape;//REQUIRED (G,F,C,gregorian_F,gregorian_C,percussion,doubleG,tabguitar)
     char* staff_step;//REQUIRED
     int octave_num;//(0,8,-8,15,-15) default 0
-    //spine_ref
+    char* event_ref;
     
     struct clef* next_clef;
 };
@@ -132,7 +134,7 @@ struct notehead{
     int n_printed_accidentals;
     
     char* id;
-    //staff_ref
+    char* staff_ref;
     char* style;//(normal,harmonic,unpitched,cymbal,parenthesis,circled,squared)
     
     struct pitch pitch;
@@ -145,7 +147,7 @@ struct notehead{
 };
 
 struct notehead_ref{
-    //spine_ref
+    char* event_ref;
     
     struct notehead_ref* next_notehead_ref;
 };
@@ -167,7 +169,7 @@ struct gregorian_symbol{
     char* subpunctis;//(no,praepunctis,subpunctis,subbipunctis,subtripunctis,subquadripunctis,subquinquipunctis) default no
     char* interpretative_mark;//(no,vertical_episema,horizontal_episema,liquescens) default no
     char* mora;//(yes,no) default no
-    //spine_ref
+    char* event_ref;
     
     struct notehead* notehead;
     
@@ -194,7 +196,8 @@ struct key{
     int tie;//? yes=,no=0
     struct tablature_fingering tablature_fingering;//?
     char* id;
-    //staff_ref
+    char* staff_ref;
+    
     struct key* next_key;
 };
 
@@ -220,7 +223,7 @@ struct tablature_symbol{
     int n_keys;
     
     char* id;
-    //spine_ref
+    char* event_ref;
     char* stem_direction;//(up,down,none)
     char* beam_before;//(yes,no) default no
     char* beam_after;//(yes,no) default no
@@ -234,8 +237,8 @@ struct tablature_symbol{
 
 struct rest{
     char* id;
-    //spine_ref
-    //staff_ref
+    char* event_ref;
+    char* staff_ref;
     char* hidden;//(yes,no)
     
     struct duration duration;
@@ -249,7 +252,7 @@ struct chord{
     int n_articulations;
     
     char* id;
-    //spine_ref
+    char* event_ref;
     char* stem_direction;//(up,down,none)
     char* beam_before;//(yes,no) default no
     char* beam_after;//(yes,no) default no
@@ -272,7 +275,7 @@ struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
     int n_tablature_symbols;
     int n_gregorian_symbols;
     
-    //voice_item_ref REQUIRED
+    char* voice_item_ref;//REQUIRED
     char* ossia;//(yes,no) default no
     
     struct chord* chords;
@@ -285,12 +288,12 @@ struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
 
 struct measure_repeat{
     int number_of_measures;//REQUIRED
-    //event_ref
+    char* event_ref;
 };
 
 struct multiple_rest{
     int number_of_measures;//REQUIRED
-    //event_ref
+    char* event_ref;
 };
 
 struct measure{
@@ -311,7 +314,7 @@ struct measure{
 
 struct voice_item{
     char* id;//REQUIRED
-    //staff_ref REQUIRED
+    char* staff_ref;//REQUIRED
     char* notation_style;///(normal,rhythmic,slash,blank))
     
     struct voice_item* next_voice_item;
@@ -322,15 +325,16 @@ struct voice_item{
 struct custom_hsymbol{
     //svg
     char* id;
-    //start_event_ref REQUIRED
-    //end_event_ref
+    char* start_event_ref;//REQUIRED
+    char* end_event_ref;
 };    
 
 struct multiple_ending{
     char* id;
     int number;//REQUIRED
-    //spine_start_end_ref
-    //return_to IDREF
+    char* start_event_ref;
+    char* end_event_ref;
+    char* return_to;
     
     struct multiple_ending* next_multiple_ending;
 };
@@ -343,42 +347,42 @@ struct multiple_endings{//+
 
 struct fine{
     char* id;
-    //spine_ref
+    char* event_ref;
     
     char* fine_value;
 };
 
 struct coda{
     char* id;
-    //spine_ref
+    char* event_ref;
 
     char* coda_value;
 };
 
 struct segno{
     char* id;
-    //spine_ref
+    char* event_ref;
     
     char* segno_value;
 };
 
 struct jump_to{
     char* id;
-    //spine_ref
+    char* event_ref;
     
     struct jump_to* next_jump_to;
 };
 
 struct end{
     char* id;
-    //spine_ref
+    char* event_ref;
     
     struct end* next_end;
 };
 
 struct repeat{
     char* id;
-    //spine_ref
+    char* event_ref;
     
     char* repeat_text;//?
     struct jump_to* jump_tos;//(jump_to,end?)+
@@ -403,7 +407,7 @@ struct tablature_element{
 
 struct tablature_hsymbol{//(tablature_element|barre)+
     char *id;
-    //spine_ref
+    char* event_ref;
     int string_number;//REQUIRED
     char* start_fret;//REQUIRED
     int fret_number;//REQUIRED
@@ -422,7 +426,8 @@ struct special_beam{//(notehead_ref+)
 
 struct slur{//(svg?)
     char* id;
-    //spine_start_end_ref
+    char* start_event_ref;
+    char* end_event_ref;
     char* shape;//(normal,dasched,dotted) default normal
     char* bracketed;//(yes,no) default no
 };
@@ -430,7 +435,7 @@ struct slur{//(svg?)
 struct percussion_special{
     char* percussion_special_value;
     char* id;
-    //spine_ref
+    char* event_ref;
     char* type;//REQUIRED (play_on_border,stop_drumhead,muffle_with_harmonics,muffle,rub,shake)
 };
 
@@ -438,43 +443,45 @@ struct percussion_beater{
     char* percussion_beater_value;
     char* id;
     char* type;//REQUIRED (bow,snare_stick,snare_stick_plastic,spoon_shaped,guiro,triangle,knitting_needle,hand,hammer,metal_hammer,wooden_timpani_mallet,light_timpani_mallet,medium_timpani_mallet,heavy_timpani_mallet,light_vibraphone_mallet,medium_vibraphone_mallet,heavy_vibraphone_mallet,light_bassdrum_mallet,medium_bassdrum_mallet,heavy_bassdrum_mallet,steel_core_bassdrum_mallet,coin,brush,nails)
-    //strat_evenet_ref
-    //end_event_ref
+    char* start_evenet_ref;
+    char* end_event_ref;
 };
 
 struct pedal_end{
     char* id;
-    //spine_ref
+    char* event_ref;
 };
 
 struct pedal_start{
     char* id;
-    //spine_ref
+    char* event_ref;
 };
 
 struct octave_bracket{
     char* id;
     char* type;//REQUIRED (8va,8vb,15ma,15mb)
-    //REQUIRED staff_ref 
-    //spine_start_end_ref
+    char* staff_ref;//REQUIRED
+    char* start_event_ref;
+    char* end_event_ref;
 };
 
 struct hairpin{
     char* id;
     char* type;//REQUIRED (crescendo,diminuendo)
-    //staff_ref
-    //spine_start_end_ref
+    char* staff_ref;
+    char* start_event_ref;
+    char* end_event_ref;
 };
 
 struct glissando{
     char* id;
-    //start_event_ref
-    //end_event_ref
+    char* start_event_ref;
+    char* end_event_ref;
 };
 
 struct fermata{
     char* id;
-    //spine_ref
+    char* event_ref;
     
     int fermata_value;
 };
@@ -491,7 +498,7 @@ struct dynamic{
 
 struct chord_symbol{
     char* id;
-    //spine_ref
+    char* event_ref;
     
     char* chord_symbol_value;
 };
@@ -499,13 +506,14 @@ struct chord_symbol{
 struct breath_mark{
     char* id;
     char* type;//REQUIRED (comma,caesura)
-    //staff_ref
-    //spine_start_end_ref
+    char* staff_ref;
+    char* start_event_ref;
+    char* end_event_ref;
 };
 
 struct bend{
     char* id;
-    //spine_ref
+    char* event_ref;
     char* type;//(single,double) default single
     char* to_pitch;//REQUIRED (A,B,C,D,E,F,G,up,down)
     //accidental to_accidental;
@@ -548,7 +556,7 @@ typedef union{
 //Ornaments START
 struct turn{
     char* id;
-    //spine_ref
+    char* event_ref;
     char* type;//REQUIRED (over,after)
     char* style;//REQUIRED (normal,inverted,cut,vertical)
     //accidental upper_accidental
@@ -557,7 +565,7 @@ struct turn{
 
 struct trill{
     char* id;
-    //spine_ref
+    char* event_ref;
     char* style;//(t,tr,tr-,plus,double_slash,caesura_double_slash,slur_double_slash,mordent,double_mordent
     char* start_hook;//(none,up,down)
     char* end_hook;//(none,up,down)
@@ -565,13 +573,14 @@ struct trill{
 
 struct tremolo{
     char* id;
-    //spine_start_end_ref
+    char* start_event_ref;
+    char* end_event_ref;
     int tremolo_lines;//REQUIRED (1,2,3,4,5,6(
 };
 
 struct mordent{
     char* id;
-    //spine_ref
+    char* event_ref;
     char* type;//(upper,lower) default upper
     char* length;//(normal,double) default normal
     //accidental accidental; default none
@@ -580,13 +589,13 @@ struct mordent{
 
 struct baroque_appoggiatura{
     char* id;
-    //spine_ref;
+    char* event_ref;
     char* style;//REQUIRED (hairpin,plus,salsh,backslash,pipe,double_slup,up_hook,down_hook) 
 };
 
 struct appoggiatura{//(chord+)
     char* id;
-    //spine_ref
+    char* event_ref;
     char* slur;//(yes,no) default no
     
     struct chord* chords;
@@ -594,13 +603,13 @@ struct appoggiatura{//(chord+)
 
 struct baroque_acciaccatura{
     char *id;
-    //spine_ref
+    char* event_ref;
     char* style;//REQUIRED (vertical_turn,mordent,flatte,tierce_coulee,slash,backslash)
 };
 
 struct acciaccatura{//(chord+)
     char* id;
-    //spine_ref
+    char* event_ref;
     char* slur;//(yes,no) default no
     
     struct chord* chords;

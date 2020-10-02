@@ -62,8 +62,8 @@ struct related_file{//EMPTY
   char* description;
   char* copyright;
   char* notes;
-  //start_event_ref;
-  //end_event_ref;
+  char* start_event_ref;
+  char* end_event_ref;
   struct related_file *next_file;
 };
 

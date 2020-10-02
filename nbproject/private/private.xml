@@ -9,13 +9,11 @@
         <group>
             <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/common.c</file>
             <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerDocument.h</file>
-            <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerPerformance.h</file>
             <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerDocument.c</file>
             <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/main.c</file>
-            <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerNotational.c</file>
-            <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerPerformance.c</file>
+            <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerAudio.h</file>
             <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/common.h</file>
-            <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerNotational.h</file>
+            <file>file:/C:/Users/Ale/Documents/NetBeansProjects/Manager1599/managerAudio.c</file>
         </group>
     </open-files>
 </project-private>
