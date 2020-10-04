@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/common.o \
+	${OBJECTDIR}/fileChooser.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/managerAudio.o \
 	${OBJECTDIR}/managerDocument.o \
@@ -75,6 +76,11 @@ ${OBJECTDIR}/common.o: common.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/common.o common.c
+
+${OBJECTDIR}/fileChooser.o: fileChooser.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fileChooser.o fileChooser.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}

@@ -1,4 +1,5 @@
-build/Debug/Cygwin-Windows/main.o: main.c common.h \
+build/Debug/Cygwin-Windows/fileChooser.o: fileChooser.c fileChooser.h \
+ common.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xpath.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlversion.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlexports.h \
@@ -19,10 +20,9 @@ build/Debug/Cygwin-Windows/main.o: main.c common.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/SAX2.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xlink.h \
  ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h \
- ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h \
- managerDocument.h managerGeneral.h managerLogic.h managerLosElements.h \
- managerNotational.h managerStructural.h managerPerformance.h \
- managerAudio.h fileChooser.h
+ ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h
+
+fileChooser.h:
 
 common.h:
 
@@ -67,21 +67,3 @@ common.h:
 ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/xmlmemory.h:
 
 ../../../../../Program\ Files/cygwin64/usr/include/libxml2/libxml/threads.h:
-
-managerDocument.h:
-
-managerGeneral.h:
-
-managerLogic.h:
-
-managerLosElements.h:
-
-managerNotational.h:
-
-managerStructural.h:
-
-managerPerformance.h:
-
-managerAudio.h:
-
-fileChooser.h:

@@ -39,8 +39,8 @@ struct genre{//?
 };
     
 xmlChar *docname;
-xmlChar *file_name;
 xmlDocPtr doc;
+char* file_name;
 char* encoding;
 
 xmlDocPtr getDoc(xmlChar *file_name);

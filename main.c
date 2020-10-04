@@ -13,25 +13,34 @@
 
 #include "common.h"
 #include "managerDocument.h"
+#include "fileChooser.h"
 
 int main(int argc, char **argv) {
-
-    encoding="ISO-8859-1";
-    file_name="File/gottes_macht.xml";
-    //scelta file
     
-    doc=getDoc(file_name);
+    int confirm=0;
+    
     //encoding check
-    //validate DTD
+    encoding="ISO-8859-1";
     
-    if(doc!=NULL){
-        fprintf(stdout,"Loaded %s\n",file_name);
-        
-        loadDocument();
-        printDocument();  
-    }
-    xmlFreeDoc(doc);
-    xmlCleanupParser();
+    do{
+        //scelta file
+        file_name=chooseFile();
+        doc=getDoc((xmlChar*)file_name);
+
+        //validate DTD
+
+        if(doc!=NULL){
+            fprintf(stdout,"Loaded %s\n",file_name);
+
+            loadDocument();
+            printDocument();  
+        }
+        xmlFreeDoc(doc);
+        xmlCleanupParser();
+
+        printf("\nContinue? [yes=1,No=0]\n");
+        scanf("%i",&confirm);
+    }while(confirm==1);
     
     return (EXIT_SUCCESS);
 }
