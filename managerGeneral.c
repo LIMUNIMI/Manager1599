@@ -6,12 +6,16 @@
 
 #include "managerGeneral.h"
 
-void loadGeneral(){ 
+static struct general general_layer;
+
+struct general loadGeneral(){ 
     //inizializzare general_layer
     loadDescription();
     loadRelatedFiles();
     loadAnalogMedia();
     loadNotes();   
+    
+    return general_layer;
 }
 
 void printGeneral(){

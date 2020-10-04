@@ -6,7 +6,9 @@
 
 #include "managerAudio.h"
 
-void loadAudio(){
+static struct audio audio_layer;
+
+struct audio loadAudio(){
     xmlChar *xpath;
     xmlXPathObjectPtr result;
     xmlNodeSetPtr nodeset;
@@ -73,6 +75,8 @@ void loadAudio(){
         }
         audio_layer.tracks=track_head;
     }
+    
+    return audio_layer;
 }
 
 struct track_general loadTrackGeneral(xmlNodePtr cur){

@@ -88,10 +88,10 @@ struct general{
 };
 
 //Variables
-struct general general_layer;
+//static struct general general_layer;
 
 //Prototypes
-void loadGeneral();
+struct general loadGeneral();
 void loadDescription();
 void loadRelatedFiles();
 void loadAnalogMedia();

@@ -241,10 +241,10 @@ extern "C" {
     };
 
 //Variables
-    struct structural structural_layer;
+    
     
 //Prototypes
-    void loadStructural();
+    struct structural loadStructural();
     void loadChordGrid();
     void loadAnalysis();
     void loadPetriNets();

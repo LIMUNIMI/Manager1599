@@ -256,10 +256,10 @@ struct logic{
 };
 
 //Variables
-struct logic logic_layer;
+
 
 //Prototypes
-void loadLogic();
+struct logic loadLogic();
 void loadSpine();
 void loadLos();
 void loadLayout();

@@ -6,9 +6,13 @@
 
 #include "managerNotational.h"
 
-void loadNotational(){
+static struct notational notational_layer;
+
+struct notational loadNotational(){
     loadGraphicInstanceGroup();
     loadNotationInstanceGroup();
+    
+    return notational_layer;
 }
 
 void loadGraphicInstanceGroup(){
@@ -253,7 +257,7 @@ struct notation_instance* loadNotationInstance(xmlNodePtr cur){
     struct notation_instance* value=(struct notation_instance*)malloc(sizeof(struct notation_instance));
     value=calloc(1, sizeof(struct notation_instance*));;
     xmlAttr* attributes;
-    
+        
     struct notation_event* notation_event_temp=NULL;
     struct notation_event* notation_event_head=NULL;
     struct notation_event* notation_event_p=NULL;

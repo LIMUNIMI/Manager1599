@@ -34,18 +34,12 @@ void loadDocument(){
         fprintf(stderr,"Can't find root element");
     }
     
-    loadGeneral();
-    ieee1599_document.general_layer=general_layer;
-    loadLogic();
-    ieee1599_document.logic_layer=logic_layer;
-    loadStructural();
-    ieee1599_document.structural_layer=structural_layer;
-    loadNotational();
-    ieee1599_document.notational_layer=notational_layer;
-    loadPerformance();
-    ieee1599_document.performance_layer=performance_layer;
-    loadAudio();
-    ieee1599_document.audio_layer=audio_layer;
+    ieee1599_document.general_layer=loadGeneral();
+    ieee1599_document.logic_layer=loadLogic();
+    ieee1599_document.structural_layer=loadStructural();
+    ieee1599_document.notational_layer=loadNotational();
+    ieee1599_document.performance_layer=loadPerformance();
+    ieee1599_document.audio_layer=loadAudio();
     
 }
 

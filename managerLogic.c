@@ -6,11 +6,15 @@
 
 #include "managerLogic.h"
 
-void loadLogic(){ 
+static struct logic logic_layer;
+
+struct logic loadLogic(){ 
     //inizializzare logic_layer 
     loadSpine();
     loadLos();
     loadLayout();
+    
+    return logic_layer;
 }
 
 void printLogic(){  

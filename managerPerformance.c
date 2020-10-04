@@ -6,10 +6,14 @@
 
 #include "managerPerformance.h"
 
-void loadPerformance(){
+static struct performance performance_layer;
+
+struct performance loadPerformance(){
     loadMidiInstance();
     loadCsoundInstance();
     loadMpeg4Instance();
+    
+    return performance_layer;
 }
 
 void loadMidiInstance(){

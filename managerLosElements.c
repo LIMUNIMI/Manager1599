@@ -818,7 +818,7 @@ struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
             value->id=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-            value.staff_ref=xmlGetProp(cur,attributes->name);
+            value->staff_ref=xmlGetProp(cur,attributes->name);
         }
         else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notation_style")){
             value->notation_style=xmlGetProp(cur,attributes->name);

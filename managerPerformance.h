@@ -225,10 +225,10 @@ extern "C" {
     };
 
 //Variables
-    struct performance performance_layer;
+    
     
 //Prototypes
-    void loadPerformance();
+    struct performance loadPerformance();
     void loadMidiInstance();
     void loadCsoundInstance();
     void loadMpeg4Instance();

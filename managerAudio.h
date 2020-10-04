@@ -113,10 +113,10 @@ extern "C" {
     };
 
 //Variables
-    struct audio audio_layer;
+
     
 //Prototypes
-    void loadAudio();
+    struct audio loadAudio();
     struct track_general loadTrackGeneral(xmlNodePtr cur);
     struct track_indexing loadTrackIndexing(xmlNodePtr cur);    
     

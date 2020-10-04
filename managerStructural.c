@@ -6,11 +6,15 @@
 
 #include "managerStructural.h"
 
-void loadStructural(){
+static struct structural structural_layer;
+
+struct structural loadStructural(){
     loadChordGrid();
     loadAnalysis();
     loadPetriNets();
     loadMir();
+    
+    return structural_layer;
 }
 
 void loadChordGrid(){

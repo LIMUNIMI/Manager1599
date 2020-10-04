@@ -104,10 +104,10 @@ extern "C" {
     };
 
 //Variables
-    struct notational notational_layer;
+    
     
 //Prototypes
-    void loadNotational();
+    struct notational loadNotational();
     void loadGraphicInstanceGroup();
     void loadNotationInstanceGroup();
     
