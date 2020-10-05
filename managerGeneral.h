@@ -88,7 +88,6 @@ struct general{
 };
 
 //Variables
-//static struct general general_layer;
 
 //Prototypes
 struct general loadGeneral();

@@ -296,7 +296,7 @@ struct multiple_rest{
     char* event_ref;
 };
 
-struct measure{
+struct measure{//(voice+ | multiple_rest | measure_repeat?)
     int n_voices;
     
     int number;//REQUIRED
@@ -304,7 +304,6 @@ struct measure{
     char* show_number;//(yes,no)
     char* numbering_style;//(arabic_numbers,roman_numbers,small_letter,capital_letters)
     
-    //(voice+ | multiple_rest | measure_repeat?)
     struct voice* voices;//+
     struct multiple_rest multiple_rest;//1
     struct measure_repeat measure_repeat;//?    

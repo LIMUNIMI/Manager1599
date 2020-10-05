@@ -96,7 +96,7 @@ struct part{
     char* id;//REQUIRED
     int performes_number;//default unknown
     char* transposition_pitch;//(A,B,C,D,E,F,G)
-    //accidental transposition_accidental
+    char* transposition_accidental;
     int octave_offset;
   
     struct voice_item* voice_list;

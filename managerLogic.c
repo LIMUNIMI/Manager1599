@@ -480,7 +480,7 @@ void loadLos(){
                         part_temp->transposition_pitch=xmlGetProp(cur,attributes->name);
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"transposition_accidental")){
-                        //part_temp->transposition_accidental=xmlGetProp(cur,attributes->name);
+                        part_temp->transposition_accidental=xmlGetProp(cur,attributes->name);
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"octave_offset")){
                         part_temp->octave_offset=xmlCharToInt(xmlGetProp(cur,attributes->name));

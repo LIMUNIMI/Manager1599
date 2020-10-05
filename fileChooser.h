@@ -25,6 +25,7 @@ extern "C" {
     char* rootFolderPath;
     
     void setRootFolderPath(char* path);
+    char* getRootFolderPath();
     char* chooseFile();
     int showFiles();
     char* readFileName(int choice);

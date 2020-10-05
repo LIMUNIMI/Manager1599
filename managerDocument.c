@@ -45,7 +45,16 @@ void loadDocument(){
 
 void printDocument(){
     
-    printf("[version=%s creator=%s]\n",ieee1599_document.version,ieee1599_document.creator);
+    if(ieee1599_document.version!=NULL || ieee1599_document.creator!=NULL){
+        printf("[");
+        if(ieee1599_document.version!=NULL)
+            printf("version=%s",ieee1599_document.version);
+        if(ieee1599_document.version!=NULL && ieee1599_document.creator!=NULL)
+            printf(" ");
+        if(ieee1599_document.creator!=NULL)
+            printf("creator=%s",ieee1599_document.creator);
+        printf("]\n");
+    }
     printGeneral();
     printLogic();
     printStructural();

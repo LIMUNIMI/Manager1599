@@ -18,11 +18,11 @@ char* chooseFile(){
         printf("Choose File [0 to exit]:\n");
         showFiles();
         scanf("%i",&choice);
-        if(choice>0)
+        if(choice>0){
             file_name=readFileName(choice);
-    }
-    
-    file_name=concat(rootFolderPath,file_name);
+            file_name=concat(rootFolderPath,file_name);
+        }
+    }  
     
     return file_name;
 }
@@ -85,7 +85,7 @@ char* readFileName(int choice){
     return (char*)"";
 }
 
-const char *getExtension(const char *file_name) {
+const char* getExtension(const char *file_name) {
     const char *dot = strrchr(file_name, '.');
     if(!dot || dot == file_name) return "";
     return dot + 1;
@@ -93,4 +93,10 @@ const char *getExtension(const char *file_name) {
 
 void setRootFolderPath(char* path){
     rootFolderPath="File/";
+}
+
+char* getRootFolderPath(){
+    char* value=rootFolderPath;
+    
+    return value;
 }
