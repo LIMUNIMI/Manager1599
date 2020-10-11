@@ -22,13 +22,13 @@ extern "C" {
 
 //Graphic Instance Group
     struct graphic_event{
-        char* event_ref;
-        char* upper_left_x;//REQUIRED
-        char* upper_left_y;//REQUIRED
-        char* lower_right_x;//REQUIRED
-        char* lower_right_y;//REQUIRED
-        char* highlight_color;
-        char* description;
+        xmlChar* event_ref;
+        xmlChar* upper_left_x;//REQUIRED
+        xmlChar* upper_left_y;//REQUIRED
+        xmlChar* lower_right_x;//REQUIRED
+        xmlChar* lower_right_y;//REQUIRED
+        xmlChar* highlight_color;
+        xmlChar* description;
 
         struct graphic_event* next_graphic_event;
     };
@@ -36,12 +36,12 @@ extern "C" {
     struct graphic_instance{//(graphic_event+,rights?)
         int n_graphic_events;
 
-        char* description;
+        xmlChar* description;
         int position_in_group;//REQUIRED
-        char* file_name;//REQUIRED
-        char* file_format;//REQUIRED
-        char* encoding_format;//REQUIRED
-        char* measurement_unit;//REQUIRED
+        xmlChar* file_name;//REQUIRED
+        xmlChar* file_format;//REQUIRED
+        xmlChar* encoding_format;//REQUIRED
+        xmlChar* measurement_unit;//REQUIRED
 
         struct graphic_event* graphic_event;
         struct rights rights;
@@ -52,7 +52,7 @@ extern "C" {
     struct graphic_instance_group{//(graphic_instance+)
         int n_graphic_instances;
 
-        char* description;//REQUIRED
+        xmlChar* description;//REQUIRED
 
         struct graphic_instance* graphic_instances;
 
@@ -61,10 +61,10 @@ extern "C" {
 
 //Notation Instance Group
     struct notation_event{
-        char* event_ref;
-        char* start_position;//REQUIRED
-        char* end_position;//REQUIRED
-        char* description;
+        xmlChar* event_ref;
+        xmlChar* start_position;//REQUIRED
+        xmlChar* end_position;//REQUIRED
+        xmlChar* description;
 
         struct notation_event* next_notation_event;
     };
@@ -72,11 +72,11 @@ extern "C" {
     struct notation_instance{//(notation_event+,rights?)
         int n_notation_events;
 
-        char* description;
+        xmlChar* description;
         int position_in_group;//REQUIRED
-        char* file_name;//REQUIRED
-        char* format;//REQUIRED
-        char* measurement_unit;//REQUIRED
+        xmlChar* file_name;//REQUIRED
+        xmlChar* format;//REQUIRED
+        xmlChar* measurement_unit;//REQUIRED
 
         struct notation_event* notation_events;
         struct rights rights;
@@ -87,7 +87,7 @@ extern "C" {
     struct notation_instance_group{//(notation_instance+)
         int n_notation_instances;
 
-        char* description;//REQUIRED
+        xmlChar* description;//REQUIRED
 
         struct notation_instance* notation_instances;
 

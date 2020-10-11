@@ -22,19 +22,19 @@ extern "C" {
 
 //Description
 struct author{
-    char* name;
-    char* type;
+    xmlChar* name;
+    xmlChar* type;
     struct author* next_author;
 };
 
 struct other_title{
-    char* title_value;
+    xmlChar* title_value;
     struct other_title *next_title;
  };
  
  struct date{
-    char* date_value;
-    char* type;
+    xmlChar* date_value;
+    xmlChar* type;
     struct date* next_date;
  };
 
@@ -44,10 +44,10 @@ struct description{
   int n_dates;
   int n_genres;
   
-  char* main_title;//1
-  char* number;//?
-  char* work_title;//?
-  char* work_number;//?
+  xmlChar* main_title;//1
+  xmlChar* number;//?
+  xmlChar* work_title;//?
+  xmlChar* work_number;//?
   struct author* authors;//*
   struct other_title* other_titles;//*
   struct date* dates;//*
@@ -56,22 +56,22 @@ struct description{
 
 //Realted Files
 struct related_file{//EMPTY
-  char* file_name;//REQUIRED
-  char* file_format;//REQUIRED
-  char* encoding_format;//REQUIRED
-  char* description;
-  char* copyright;
-  char* notes;
-  char* start_event_ref;
-  char* end_event_ref;
+  xmlChar* file_name;//REQUIRED
+  xmlChar* file_format;//REQUIRED
+  xmlChar* encoding_format;//REQUIRED
+  xmlChar* description;
+  xmlChar* copyright;
+  xmlChar* notes;
+  xmlChar* start_event_ref;
+  xmlChar* end_event_ref;
   struct related_file *next_file;
 };
 
 //Analog Media
 struct analog_medium{//EMPTY
-    char* description;//REQUIRED
-    char* copyright;
-    char* notes;
+    xmlChar* description;//REQUIRED
+    xmlChar* copyright;
+    xmlChar* notes;
     struct analog_medium* next_medium;
 };
 
@@ -84,7 +84,7 @@ struct general{
     struct description description;
     struct related_file* related_files;
     struct analog_medium* analog_media;
-    char* notes;
+    xmlChar* notes;
 };
 
 //Variables

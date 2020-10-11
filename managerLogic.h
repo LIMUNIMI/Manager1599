@@ -23,28 +23,28 @@ extern "C" {
     
 //Spine
 struct event{//EMPTY
-    char* id;//required
-    char* timing;//null
-    char* hpos;//null
+    xmlChar* id;//required
+    xmlChar* timing;//null
+    xmlChar* hpos;//null
     
     struct event* next_event;
 };
 
 //Los
 struct agogic{
-    char* bracketed;//(yes,no) default no
-    char* event_ref;
+    xmlChar* bracketed;//(yes,no) default no
+    xmlChar* event_ref;
     
-    char* agogic_value;
+    xmlChar* agogic_value;
     
     struct agogic* next_agogic;
 };
 
 struct text_field{
-    char* text_field_value;
-    char* extension_line_to;
-    char* extension_line_shape;//(normal,dotted,slashed)
-    char* event_ref;
+    xmlChar* text_field_value;
+    xmlChar* extension_line_to;
+    xmlChar* extension_line_shape;//(normal,dotted,slashed)
+    xmlChar* event_ref;
     
     struct text_field* next_text_field;
 };
@@ -54,7 +54,7 @@ struct metronomic_indication{//EMPTY
     int den;//REQUIRED
     int value;//REQUIRED
     int dots;
-    char* event_ref;
+    xmlChar* event_ref;
     
     struct metronomic_indication* next_metronomic_indication;
 };
@@ -70,11 +70,11 @@ struct ornament_list{
 };
 
 struct syllable{
-    char* start_event_ref;
-    char* end_event_ref;
-    char* hyphen;//(yes,no) default no
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
+    xmlChar* hyphen;//(yes,no) default no
     
-    char* syllable_value;
+    xmlChar* syllable_value;
     
     struct syllable* next_syllable;
 };
@@ -83,8 +83,8 @@ struct lyrics{//(syllable+)
     int n_syllables;
     
     struct syllable* syllables;
-    char* part_ref;
-    char* voice_ref;
+    xmlChar* part_ref;
+    xmlChar* voice_ref;
     
     struct lyrics* next_lyrics;
 };
@@ -93,10 +93,10 @@ struct part{
     int n_voice_items;
     int n_measures;
     
-    char* id;//REQUIRED
+    xmlChar* id;//REQUIRED
     int performes_number;//default unknown
-    char* transposition_pitch;//(A,B,C,D,E,F,G)
-    char* transposition_accidental;
+    xmlChar* transposition_pitch;//(A,B,C,D,E,F,G)
+    xmlChar* transposition_accidental;
     int octave_offset;
   
     struct voice_item* voice_list;
@@ -106,9 +106,9 @@ struct part{
 };
 
 struct brackets{
-    char* marker;//REQUIRED (start_of_staff_group|end_of_staff_group)
+    xmlChar* marker;//REQUIRED (start_of_staff_group|end_of_staff_group)
     int group_number;//REQUIRED
-    char* shape;//REQUIRED (square,rounded_square,brace,vertical_bar,none)
+    xmlChar* shape;//REQUIRED (square,rounded_square,brace,vertical_bar,none)
     
     struct brackets* next_brackets;
 };
@@ -121,10 +121,10 @@ struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline
     int n_barlines;
     int n_tablature_tunings;
     
-    char* id;
+    xmlChar* id;
     int line_number;//default 5
-    char* ossia;//(yes,no) default no
-    char* tablature;//(none,french,german,italian)
+    xmlChar* ossia;//(yes,no) default no
+    xmlChar* tablature;//(none,french,german,italian)
     
     struct clef* clefs;
     struct key_signature* key_signatures;
@@ -170,27 +170,27 @@ struct layout_shapes{
 };
 
 struct layout_images{
-    char* file_name;//#REQUIRED
-    char* file_format;//REQUIRED
-    char* encoding_format;//REQUIRED
+    xmlChar* file_name;//#REQUIRED
+    xmlChar* file_format;//REQUIRED
+    xmlChar* encoding_format;//REQUIRED
     int horizontal_offset;//#REQUIRED
     int vertical_offset;//#REQUIRED
-    char* description;
-    char* copyright; 
-    char* notes;   
+    xmlChar* description;
+    xmlChar* copyright; 
+    xmlChar* notes;   
     
     struct layout_images* next_layout_images;
 };
 
 struct layout_staff{
-    char* id;
-    char* staff_ref;//REQUIRED
+    xmlChar* id;
+    xmlChar* staff_ref;//REQUIRED
     int vertical_offset;//REQUIRED
     int height;//REQUIRED
-    char* show_key_signature;//(yes,no) default yes
-    char* show_clef;//(yes,no) default yes
-    char* show_time_signature;//(yes,no) default no
-    char* ossia;//(yes,no) default no
+    xmlChar* show_key_signature;//(yes,no) default yes
+    xmlChar* show_clef;//(yes,no) default yes
+    xmlChar* show_time_signature;//(yes,no) default no
+    xmlChar* ossia;//(yes,no) default no
 
     struct layout_staff* next_layout_staff;
 };
@@ -198,7 +198,7 @@ struct layout_staff{
 struct layout_system{
     int n_layout_staves;
     
-    char* id;
+    xmlChar* id;
     int upper_left_x;//REQUIRED
     int upper_left_y;//REQUIRED
     int lower_right_x;//REQUIRED
@@ -215,7 +215,7 @@ struct custom_page_format{
 };
 
 struct standard_page_format{
-    char* format;//REQUIRED (a0,a1,a2,a3,a4,a5,a6,a7,a8,b0,b1,b2,b3,b4,b5,b6,b7,b8,c0,c1,c2,c3,c4,c5,c6,c7,c8,ansi_a,ansi_b,ansi_c,ansi_d,ansi_e,arch_a,arch_b,arch_c,arch_e,arch_e1,quarto,foolscap,executive,monarch,government_letter,letter,legal,ledger,tabloid,post,crown,large_post,demy,medium,royal,elephant,double_demy,quad_demy,statement) 
+    xmlChar* format;//REQUIRED (a0,a1,a2,a3,a4,a5,a6,a7,a8,b0,b1,b2,b3,b4,b5,b6,b7,b8,c0,c1,c2,c3,c4,c5,c6,c7,c8,ansi_a,ansi_b,ansi_c,ansi_d,ansi_e,arch_a,arch_b,arch_c,arch_e,arch_e1,quarto,foolscap,executive,monarch,government_letter,letter,legal,ledger,tabloid,post,crown,large_post,demy,medium,royal,elephant,double_demy,quad_demy,statement) 
 };
 
 struct page{//((standard_page_format | custom_page_format), layout_system*, layout_images*, layout_shapes*)
@@ -223,7 +223,7 @@ struct page{//((standard_page_format | custom_page_format), layout_system*, layo
     int n_layout_images;
     int n_layout_shapes;
     
-    char* id;//REQUIRED
+    xmlChar* id;//REQUIRED
     int number;
     
     struct standard_page_format standard_page_formats;
@@ -239,11 +239,11 @@ struct layout{//(page+, text_font?, music_font?)
     int n_pages;
     
     int hpos_per_unit;//REQUIRED
-    char* measurement_unit;//REQUIRED (centimeters,millimeters,inches,decimal_inches,points,picas,pixels,twips)
+    xmlChar* measurement_unit;//REQUIRED (centimeters,millimeters,inches,decimal_inches,points,picas,pixels,twips)
     
     struct page* pages;//+
-    char* text_font;
-    char* music_font;
+    xmlChar* text_font;
+    xmlChar* music_font;
 };
 
 //Logic

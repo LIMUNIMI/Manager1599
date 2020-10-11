@@ -56,9 +56,11 @@
       </toolsSet>
       <compileType>
         <cTool>
+          <developmentMode>0</developmentMode>
           <incDir>
             <pElem>../../../../../Program Files/cygwin64/usr/include/libxml2</pElem>
           </incDir>
+          <warningLevel>2</warningLevel>
         </cTool>
         <linkerTool>
           <commandLine>-l xml2</commandLine>

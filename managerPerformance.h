@@ -22,7 +22,7 @@ extern "C" {
     
 //MIDI Instance
     struct sys_ex{//(SysEx)
-       char* event_ref;
+       xmlChar* event_ref;
 
         //struct SysEx SysEx;
 
@@ -32,8 +32,8 @@ extern "C" {
     struct midi_event{//(%MIDIChannelMessage;)*
         int n_MIDIChannelMessages;
 
-        char* timing;//REQUIRED
-        char* event_ref;
+        xmlChar* timing;//REQUIRED
+        xmlChar* event_ref;
 
         //struct MIDIChannelMessage* MIDIChannelMessages;
 
@@ -44,9 +44,9 @@ extern "C" {
         int n_midi_events;
         int n_sys_exs;
 
-        char* division_type;//REQUIRED
-        char* division_value;//REQUIRED NMTOKEN
-        char* measurement_unit;//REQUIRED
+        xmlChar* division_type;//REQUIRED
+        xmlChar* division_value;//REQUIRED NMTOKEN
+        xmlChar* measurement_unit;//REQUIRED
 
         struct midi_event* midi_events;
         struct sys_ex* sys_exs;
@@ -57,10 +57,10 @@ extern "C" {
     struct midi_mapping{//(midi_event_sequence+)
         int n_midi_event_sequences;
 
-        char* part_ref;//REQUIRED
-        char* voice_ref;
-        char* track;//REQUIRED
-        char* channel;//REQUIRED
+        xmlChar* part_ref;//REQUIRED
+        xmlChar* voice_ref;
+        xmlChar* track;//REQUIRED
+        xmlChar* channel;//REQUIRED
 
         struct midi_event_sequence* midi_event_sequences;
 
@@ -70,8 +70,8 @@ extern "C" {
     struct midi_instance{// (midi_mapping+, rights?)
         int n_midi_mappings;
 
-        char* file_name;//REQUIRED
-        char* format;//REQUIRED
+        xmlChar* file_name;//REQUIRED
+        xmlChar* format;//REQUIRED
 
         struct rights rights;
         struct midi_mapping* midi_mappings;
@@ -81,13 +81,13 @@ extern "C" {
     
 //CSound Instance	
     struct csound_spine_ref{
-        char* event_ref;
+        xmlChar* event_ref;
 
         struct csound_spine_ref* next_csound_spine_ref;
     };
 
     struct csound_part_ref{
-        char* part_ref;//REQUIRED
+        xmlChar* part_ref;//REQUIRED
 
         struct csound_part_ref* next_csound_part_ref;
     };
@@ -99,7 +99,7 @@ extern "C" {
         int instrument_number;//REQUIRED
         int start_line;
         int end_line;
-        char* pnml_file;
+        xmlChar* pnml_file;
 
         struct csound_part_ref* csound_part_refs;
         struct csound_spine_ref* csound_spine_refs;
@@ -110,7 +110,7 @@ extern "C" {
     struct csound_orchestra{//(csound_instrument_mapping*, rights?)
         int n_csound_instrument_mappings;
 
-        char* file_name;//REQUIRED
+        xmlChar* file_name;//REQUIRED
 
         struct csound_instrument_mapping* csound_instrument_mappings;
         struct rights rights;
@@ -120,7 +120,7 @@ extern "C" {
 
     struct csound_spine_event{
         int line_number;//REQUIRED
-        char* event_ref;
+        xmlChar* event_ref;
 
         struct csound_spine_event* next_csound_spine_event;
     };
@@ -128,7 +128,7 @@ extern "C" {
     struct csound_score{//(csound_spine_event+, rights?)
         int n_csound_spine_events;
 
-        char* file_name;//REQUIRED
+        xmlChar* file_name;//REQUIRED
 
         struct csound_spine_event* csound_spine_events;
         struct rights rights;
@@ -148,13 +148,13 @@ extern "C" {
     
 //Mpeg4 Instance
     struct mpeg4_spine_ref{
-        char* event_ref;
+        xmlChar* event_ref;
 
         struct mpeg4_spine_ref* next_mpeg4_spine_ref;
     };
 
     struct mpeg4_part_ref{
-        char* part_ref;//REQUIRED
+        xmlChar* part_ref;//REQUIRED
 
         struct mpeg4_part_ref* next_mpeg4_part_ref;
     };
@@ -163,10 +163,10 @@ extern "C" {
         int n_mpeg4_part_refs;
         int n_mpeg4_spine_refs;
 
-        char* instrument_name;//REQUIRED
+        xmlChar* instrument_name;//REQUIRED
         int start_line;
         int end_line;
-        char* pnml_file;
+        xmlChar* pnml_file;
 
         struct mpeg4_part_ref* mpeg4_part_refs;
         struct mpeg4_spine_ref* mpeg4_spine_refs;
@@ -177,7 +177,7 @@ extern "C" {
     struct mpeg4_orchestra{//(mpeg4_instrument_mapping*, rights?)
         int n_mpeg4_instrument_mappings;
 
-        char* file_name;//REQUIRED
+        xmlChar* file_name;//REQUIRED
 
         struct mpeg4_instrument_mapping* mpeg4_instrument_mappings;
         struct rights rights;
@@ -187,7 +187,7 @@ extern "C" {
 
     struct mpeg4_spine_event{
         int line_number;//REQUIRED
-        char* event_ref;
+        xmlChar* event_ref;
 
         struct mpeg4_spine_event* next_mpeg4_spine_event;
     };
@@ -195,7 +195,7 @@ extern "C" {
     struct mpeg4_score{//(mpeg4_spine_event+, rights?)
         int n_mpeg4_spine_events;
 
-        char* file_name;//REQUIRED
+        xmlChar* file_name;//REQUIRED
 
         struct mpeg4_spine_event* mpeg4_spine_events;
         struct rights rights;

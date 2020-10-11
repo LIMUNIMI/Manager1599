@@ -26,10 +26,10 @@ extern "C" {
 #include "managerAudio.h"
     
 struct ieee1599{
-    char* file_name;
+    xmlChar* file_name;
 
-    char* version;
-    char* creator;
+    xmlChar* version;
+    xmlChar* creator;
 
     struct general general_layer;
     struct logic logic_layer;

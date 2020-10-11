@@ -522,7 +522,7 @@ struct petri_net* loadPetriNet(xmlNodePtr cur){
             }
             
             place_temp->next_place=NULL;
-            if(place_head=NULL)
+            if(place_head==NULL)
                 place_head=place_temp;
             else{
                 place_p=place_head;
@@ -548,7 +548,7 @@ struct petri_net* loadPetriNet(xmlNodePtr cur){
             }
             
             transition_temp->next_transition=NULL;
-            if(transition_head=NULL)
+            if(transition_head==NULL)
                 transition_head=transition_temp;
             else{
                 transition_p=transition_head;

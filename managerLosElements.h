@@ -27,8 +27,8 @@ enum neumes {punctum,virga,punctum_inclinatum,quilisma,apostrofa,oriscus,podatus
 //Staff Eelements START
 struct string{
     int string_number;//REQUIRED
-    char* string_pitch;//(A,B,C,D,E,F,G) REQUIRED
-    char* string_accidental;
+    xmlChar* string_pitch;//(A,B,C,D,E,F,G) REQUIRED
+    xmlChar* string_accidental;
     int string_octave;//REQUIRED
     
     struct string* next_string;
@@ -37,16 +37,16 @@ struct string{
 struct tablature_tuning{
     int n_strings;
     
-    char* type;//(D,E,G,A,baroque,flat_french,other)
+    xmlChar* type;//(D,E,G,A,baroque,flat_french,other)
     struct string* strings;
     
     struct tablature_tuning* next_tablature_tuning;
 };
 
 struct barline{
-    char* style;//REQUIRED (dashed,double,final,invisibile,staandard,medium,short)
-    char* extension;//REQUIRED (single_staff,staff_group,all_stave,mensurstrich
-    char* event_ref;
+    xmlChar* style;//REQUIRED (dashed,double,final,invisibile,staandard,medium,short)
+    xmlChar* extension;//REQUIRED (single_staff,staff_group,all_stave,mensurstrich
+    xmlChar* event_ref;
     
     struct barline* next_barline;
 };
@@ -54,7 +54,7 @@ struct barline{
 struct time_indication{
     int num;//REQUIRED
     int den;//REQUIRED
-    char* abbreviation;//(yes,no) default no
+    xmlChar* abbreviation;//(yes,no) default no
     int vtu_amount;
     
     struct time_indication* next_time_indication;
@@ -63,8 +63,8 @@ struct time_indication{
 struct time_signature{
     int n_time_indications;
     
-    char* visibile;//(yes,no) default no
-    char* event_ref;
+    xmlChar* visibile;//(yes,no) default no
+    xmlChar* event_ref;
     
     struct time_indication* time_indications;//+
     
@@ -72,15 +72,15 @@ struct time_signature{
 };
 
 struct key_accidental{
-    char* step;//REQUIRED (A,B,C,D,E,F,G)
-    char* accidental;
+    xmlChar* step;//REQUIRED (A,B,C,D,E,F,G)
+    xmlChar* accidental;
     struct key_accidental* next_key_accidental;
 };
 
 struct custom_key_signature{
     int n_key_accidentals;
     
-    char* event_ref;
+    xmlChar* event_ref;
     
     struct key_accidental* key_accidentals;//+
     
@@ -88,9 +88,9 @@ struct custom_key_signature{
 };
 
 struct key_signature{
-    char* event_ref;
+    xmlChar* event_ref;
    
-    char* num_type;//REQUIRED(flat_num,sharp_num)
+    xmlChar* num_type;//REQUIRED(flat_num,sharp_num)
     
     int number;//REQUIRED (0,1,2,3,4,5,6,7)
     
@@ -98,10 +98,10 @@ struct key_signature{
 };
 
 struct clef{
-    char* shape;//REQUIRED (G,F,C,gregorian_F,gregorian_C,percussion,doubleG,tabguitar)
-    char* staff_step;//REQUIRED
+    xmlChar* shape;//REQUIRED (G,F,C,gregorian_F,gregorian_C,percussion,doubleG,tabguitar)
+    xmlChar* staff_step;//REQUIRED
     int octave_num;//(0,8,-8,15,-15) default 0
-    char* event_ref;
+    xmlChar* event_ref;
     
     struct clef* next_clef;
 };
@@ -117,29 +117,29 @@ struct fingering{
 };
 
 struct printed_accidental{  
-    char* parenthesis;//(yes,no) default no
+    xmlChar* parenthesis;//(yes,no) default no
     
-    char* printed_accidental_type;
+    xmlChar* printed_accidental_type;
     
     struct printed_accidental* next_printed_accidental;
 };
 
 struct pitch{
-    char* step;//REQUIRED (A,B,C,D,E,F,G,none)
+    xmlChar* step;//REQUIRED (A,B,C,D,E,F,G,none)
     int octave;//REQUIRED
-    char* actual_accidental;
+    xmlChar* actual_accidental;
 };
 
 struct notehead{
     int n_printed_accidentals;
     
-    char* id;
-    char* staff_ref;
-    char* style;//(normal,harmonic,unpitched,cymbal,parenthesis,circled,squared)
+    xmlChar* id;
+    xmlChar* staff_ref;
+    xmlChar* style;//(normal,harmonic,unpitched,cymbal,parenthesis,circled,squared)
     
     struct pitch pitch;
     struct printed_accidental* printed_accidentals;//? and +
-    char* printed_accidentals_shape;
+    xmlChar* printed_accidentals_shape;
     int tie;//? yes=1,no=0
     struct fingering fingering;//?
     
@@ -147,13 +147,13 @@ struct notehead{
 };
 
 struct notehead_ref{
-    char* event_ref;
+    xmlChar* event_ref;
     
     struct notehead_ref* next_notehead_ref;
 };
 
 struct articulation{
-    char* articulation_sign;
+    xmlChar* articulation_sign;
     
     //svg per custom_articulation
     
@@ -163,13 +163,13 @@ struct articulation{
 struct gregorian_symbol{
     int n_noteheads;
     
-    char* id;
-    char* neume;//REQUIRED
-    char* inflexion;//(no,resupinus,fleux) default no
-    char* subpunctis;//(no,praepunctis,subpunctis,subbipunctis,subtripunctis,subquadripunctis,subquinquipunctis) default no
-    char* interpretative_mark;//(no,vertical_episema,horizontal_episema,liquescens) default no
-    char* mora;//(yes,no) default no
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* neume;//REQUIRED
+    xmlChar* inflexion;//(no,resupinus,fleux) default no
+    xmlChar* subpunctis;//(no,praepunctis,subpunctis,subbipunctis,subtripunctis,subquadripunctis,subquinquipunctis) default no
+    xmlChar* interpretative_mark;//(no,vertical_episema,horizontal_episema,liquescens) default no
+    xmlChar* mora;//(yes,no) default no
+    xmlChar* event_ref;
     
     struct notehead* notehead;
     
@@ -177,12 +177,12 @@ struct gregorian_symbol{
 };
 
 struct tablature_fingering{
-    char* tablature_fingering_value;
-    char* shape;//REQUIRED (number,dot,other)
+    xmlChar* tablature_fingering_value;
+    xmlChar* shape;//REQUIRED (number,dot,other)
 };
 
 struct tablature_articulation{
-    char* shape;//REQUIRED (cross,tie,other)
+    xmlChar* shape;//REQUIRED (cross,tie,other)
 };
 
 struct tablature_pitch{
@@ -195,8 +195,8 @@ struct key{
     struct tablature_articulation tablature_articulation;//?
     int tie;//? yes=,no=0
     struct tablature_fingering tablature_fingering;//?
-    char* id;
-    char* staff_ref;
+    xmlChar* id;
+    xmlChar* staff_ref;
     
     struct key* next_key;
 };
@@ -222,11 +222,11 @@ struct duration{
 struct tablature_symbol{
     int n_keys;
     
-    char* id;
-    char* event_ref;
-    char* stem_direction;//(up,down,none)
-    char* beam_before;//(yes,no) default no
-    char* beam_after;//(yes,no) default no
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* stem_direction;//(up,down,none)
+    xmlChar* beam_before;//(yes,no) default no
+    xmlChar* beam_after;//(yes,no) default no
     
     struct duration duration;
     struct augmentation_dots augmentation_dots;//?
@@ -236,10 +236,10 @@ struct tablature_symbol{
 };
 
 struct rest{
-    char* id;
-    char* event_ref;
-    char* staff_ref;
-    char* hidden;//(yes,no)
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* staff_ref;
+    xmlChar* hidden;//(yes,no)
     
     struct duration duration;
     struct augmentation_dots augmentation_dots;//?
@@ -251,13 +251,13 @@ struct chord{
     int n_noteheads;
     int n_articulations;
     
-    char* id;
-    char* event_ref;
-    char* stem_direction;//(up,down,none)
-    char* beam_before;//(yes,no) default no
-    char* beam_after;//(yes,no) default no
-    char* cue;//(yes,no) default no
-    char* tremolo_lines;//(no,1,2,3,4,5,6)    
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* stem_direction;//(up,down,none)
+    xmlChar* beam_before;//(yes,no) default no
+    xmlChar* beam_after;//(yes,no) default no
+    xmlChar* cue;//(yes,no) default no
+    xmlChar* tremolo_lines;//(no,1,2,3,4,5,6)    
     
     struct duration duration;
     struct augmentation_dots augmentation_dots;//?
@@ -275,8 +275,8 @@ struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
     int n_tablature_symbols;
     int n_gregorian_symbols;
     
-    char* voice_item_ref;//REQUIRED
-    char* ossia;//(yes,no) default no
+    xmlChar* voice_item_ref;//REQUIRED
+    xmlChar* ossia;//(yes,no) default no
     
     struct chord* chords;
     struct rest* rests;
@@ -288,21 +288,21 @@ struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
 
 struct measure_repeat{
     int number_of_measures;//REQUIRED
-    char* event_ref;
+    xmlChar* event_ref;
 };
 
 struct multiple_rest{
     int number_of_measures;//REQUIRED
-    char* event_ref;
+    xmlChar* event_ref;
 };
 
 struct measure{//(voice+ | multiple_rest | measure_repeat?)
     int n_voices;
     
     int number;//REQUIRED
-    char* id;
-    char* show_number;//(yes,no)
-    char* numbering_style;//(arabic_numbers,roman_numbers,small_letter,capital_letters)
+    xmlChar* id;
+    xmlChar* show_number;//(yes,no)
+    xmlChar* numbering_style;//(arabic_numbers,roman_numbers,small_letter,capital_letters)
     
     struct voice* voices;//+
     struct multiple_rest multiple_rest;//1
@@ -312,9 +312,9 @@ struct measure{//(voice+ | multiple_rest | measure_repeat?)
 };
 
 struct voice_item{
-    char* id;//REQUIRED
-    char* staff_ref;//REQUIRED
-    char* notation_style;///(normal,rhythmic,slash,blank))
+    xmlChar* id;//REQUIRED
+    xmlChar* staff_ref;//REQUIRED
+    xmlChar* notation_style;///(normal,rhythmic,slash,blank))
     
     struct voice_item* next_voice_item;
 };
@@ -323,92 +323,92 @@ struct voice_item{
 //Horizontal Symbols START
 struct custom_hsymbol{
     //svg
-    char* id;
-    char* start_event_ref;//REQUIRED
-    char* end_event_ref;
+    xmlChar* id;
+    xmlChar* start_event_ref;//REQUIRED
+    xmlChar* end_event_ref;
 };    
 
 struct multiple_ending{
-    char* id;
+    xmlChar* id;
     int number;//REQUIRED
-    char* start_event_ref;
-    char* end_event_ref;
-    char* return_to;
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
+    xmlChar* return_to;
     
     struct multiple_ending* next_multiple_ending;
 };
 
 struct multiple_endings{//+
-    char* id;
+    xmlChar* id;
 
     struct multiple_ending* multiple_ending;
 };
 
 struct fine{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
     
-    char* fine_value;
+    xmlChar* fine_value;
 };
 
 struct coda{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
 
-    char* coda_value;
+    xmlChar* coda_value;
 };
 
 struct segno{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
     
-    char* segno_value;
+    xmlChar* segno_value;
 };
 
 struct jump_to{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
     
     struct jump_to* next_jump_to;
 };
 
 struct end{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
     
     struct end* next_end;
 };
 
 struct repeat{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
     
-    char* repeat_text;//?
+    xmlChar* repeat_text;//?
     struct jump_to* jump_tos;//(jump_to,end?)+
     struct end* ends;//
 };
 
 struct barre{
-    char* start_string_position;//REQUIRED
-    char* end_string_position;//REQUIRED
-    char* fret_position;//REQUIRED
+    xmlChar* start_string_position;//REQUIRED
+    xmlChar* end_string_position;//REQUIRED
+    xmlChar* fret_position;//REQUIRED
     
     struct barre* next_barre;
 };
 
 struct tablature_element{
-    char* shape;//REQUIRED (empty_circle,full_circle,cross,rhombus,1,2,3,4,T)
-    char* string_position;//REQUIRED
-    char* fret_position;//REQUIRED
+    xmlChar* shape;//REQUIRED (empty_circle,full_circle,cross,rhombus,1,2,3,4,T)
+    xmlChar* string_position;//REQUIRED
+    xmlChar* fret_position;//REQUIRED
     
     struct tablature_element* next_tablature_element;
 };
 
 struct tablature_hsymbol{//(tablature_element|barre)+
-    char *id;
-    char* event_ref;
+    xmlChar *id;
+    xmlChar* event_ref;
     int string_number;//REQUIRED
-    char* start_fret;//REQUIRED
+    xmlChar* start_fret;//REQUIRED
     int fret_number;//REQUIRED
     
     struct barre* barres;
@@ -416,112 +416,112 @@ struct tablature_hsymbol{//(tablature_element|barre)+
 };
 
 struct special_beam{//(notehead_ref+)
-    char* id;
-    char* fanned_from;
-    char* fanned_to;
+    xmlChar* id;
+    xmlChar* fanned_from;
+    xmlChar* fanned_to;
     
     struct notehead_ref* notehead_ref;//+
 };
 
 struct slur{//(svg?)
-    char* id;
-    char* start_event_ref;
-    char* end_event_ref;
-    char* shape;//(normal,dasched,dotted) default normal
-    char* bracketed;//(yes,no) default no
+    xmlChar* id;
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
+    xmlChar* shape;//(normal,dasched,dotted) default normal
+    xmlChar* bracketed;//(yes,no) default no
 };
 
 struct percussion_special{
-    char* percussion_special_value;
-    char* id;
-    char* event_ref;
-    char* type;//REQUIRED (play_on_border,stop_drumhead,muffle_with_harmonics,muffle,rub,shake)
+    xmlChar* percussion_special_value;
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* type;//REQUIRED (play_on_border,stop_drumhead,muffle_with_harmonics,muffle,rub,shake)
 };
 
 struct percussion_beater{
-    char* percussion_beater_value;
-    char* id;
-    char* type;//REQUIRED (bow,snare_stick,snare_stick_plastic,spoon_shaped,guiro,triangle,knitting_needle,hand,hammer,metal_hammer,wooden_timpani_mallet,light_timpani_mallet,medium_timpani_mallet,heavy_timpani_mallet,light_vibraphone_mallet,medium_vibraphone_mallet,heavy_vibraphone_mallet,light_bassdrum_mallet,medium_bassdrum_mallet,heavy_bassdrum_mallet,steel_core_bassdrum_mallet,coin,brush,nails)
-    char* start_event_ref;
-    char* end_event_ref;
+    xmlChar* percussion_beater_value;
+    xmlChar* id;
+    xmlChar* type;//REQUIRED (bow,snare_stick,snare_stick_plastic,spoon_shaped,guiro,triangle,knitting_needle,hand,hammer,metal_hammer,wooden_timpani_mallet,light_timpani_mallet,medium_timpani_mallet,heavy_timpani_mallet,light_vibraphone_mallet,medium_vibraphone_mallet,heavy_vibraphone_mallet,light_bassdrum_mallet,medium_bassdrum_mallet,heavy_bassdrum_mallet,steel_core_bassdrum_mallet,coin,brush,nails)
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
 };
 
 struct pedal_end{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
 };
 
 struct pedal_start{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
 };
 
 struct octave_bracket{
-    char* id;
-    char* type;//REQUIRED (8va,8vb,15ma,15mb)
-    char* staff_ref;//REQUIRED
-    char* start_event_ref;
-    char* end_event_ref;
+    xmlChar* id;
+    xmlChar* type;//REQUIRED (8va,8vb,15ma,15mb)
+    xmlChar* staff_ref;//REQUIRED
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
 };
 
 struct hairpin{
-    char* id;
-    char* type;//REQUIRED (crescendo,diminuendo)
-    char* staff_ref;
-    char* start_event_ref;
-    char* end_event_ref;
+    xmlChar* id;
+    xmlChar* type;//REQUIRED (crescendo,diminuendo)
+    xmlChar* staff_ref;
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
 };
 
 struct glissando{
-    char* id;
-    char* start_event_ref;
-    char* end_event_ref;
+    xmlChar* id;
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
 };
 
 struct fermata{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
     
     int fermata_value;
 };
 
 struct dynamic{
-    char* id;
-    char* extension_line_to;
-    char* extension_line_shape;// (normal,dotted,dashed)
-    char* staff_ref;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* extension_line_to;
+    xmlChar* extension_line_shape;// (normal,dotted,dashed)
+    xmlChar* staff_ref;
+    xmlChar* event_ref;
     
-    char* dynamic_value;
+    xmlChar* dynamic_value;
 };
 
 struct chord_symbol{
-    char* id;
-    char* event_ref;
+    xmlChar* id;
+    xmlChar* event_ref;
     
-    char* chord_symbol_value;
+    xmlChar* chord_symbol_value;
 };
 
 struct breath_mark{
-    char* id;
-    char* type;//REQUIRED (comma,caesura)
-    char* staff_ref;
-    char* start_event_ref;
-    char* end_event_ref;
+    xmlChar* id;
+    xmlChar* type;//REQUIRED (comma,caesura)
+    xmlChar* staff_ref;
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
 };
 
 struct bend{
-    char* id;
-    char* event_ref;
-    char* type;//(single,double) default single
-    char* to_pitch;//REQUIRED (A,B,C,D,E,F,G,up,down)
-    char* to_accidental;
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* type;//(single,double) default single
+    xmlChar* to_pitch;//REQUIRED (A,B,C,D,E,F,G,up,down)
+    xmlChar* to_accidental;
     int to_octave;
 };
 
 struct arpeggio{
-    char* shape;//REQUIRED (wavy,line,no_arpeggio)
-    char* direction;//(up,down) default=down
+    xmlChar* shape;//REQUIRED (wavy,line,no_arpeggio)
+    xmlChar* direction;//(up,down) default=down
     
     struct notehead_ref* notehead_ref;//+
 };
@@ -554,63 +554,63 @@ typedef union{
 
 //Ornaments START
 struct turn{
-    char* id;
-    char* event_ref;
-    char* type;//REQUIRED (over,after)
-    char* style;//REQUIRED (normal,inverted,cut,vertical)
-    char* upper_accidental;
-    char* lower_accidental;
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* type;//REQUIRED (over,after)
+    xmlChar* style;//REQUIRED (normal,inverted,cut,vertical)
+    xmlChar* upper_accidental;
+    xmlChar* lower_accidental;
 };
 
 struct trill{
-    char* id;
-    char* event_ref;
-    char* accidental;
-    char* style;//(t,tr,tr-,plus,double_slash,caesura_double_slash,slur_double_slash,mordent,double_mordent
-    char* start_hook;//(none,up,down)
-    char* end_hook;//(none,up,down)
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* accidental;
+    xmlChar* style;//(t,tr,tr-,plus,double_slash,caesura_double_slash,slur_double_slash,mordent,double_mordent
+    xmlChar* start_hook;//(none,up,down)
+    xmlChar* end_hook;//(none,up,down)
 };
 
 struct tremolo{
-    char* id;
-    char* start_event_ref;
-    char* end_event_ref;
+    xmlChar* id;
+    xmlChar* start_event_ref;
+    xmlChar* end_event_ref;
     int tremolo_lines;//REQUIRED (1,2,3,4,5,6(
 };
 
 struct mordent{
-    char* id;
-    char* event_ref;
-    char* type;//(upper,lower) default upper
-    char* length;//(normal,double) default normal
-    char* accidental;// default none
-    char*style;//(normal,up_hook,down_hook) default normal
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* type;//(upper,lower) default upper
+    xmlChar* length;//(normal,double) default normal
+    xmlChar* accidental;// default none
+    xmlChar*style;//(normal,up_hook,down_hook) default normal
 };
 
 struct baroque_appoggiatura{
-    char* id;
-    char* event_ref;
-    char* style;//REQUIRED (hairpin,plus,salsh,backslash,pipe,double_slup,up_hook,down_hook) 
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* style;//REQUIRED (hairpin,plus,salsh,backslash,pipe,double_slup,up_hook,down_hook) 
 };
 
 struct appoggiatura{//(chord+)
-    char* id;
-    char* event_ref;
-    char* slur;//(yes,no) default no
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* slur;//(yes,no) default no
     
     struct chord* chords;
 };
 
 struct baroque_acciaccatura{
-    char *id;
-    char* event_ref;
-    char* style;//REQUIRED (vertical_turn,mordent,flatte,tierce_coulee,slash,backslash)
+    xmlChar *id;
+    xmlChar* event_ref;
+    xmlChar* style;//REQUIRED (vertical_turn,mordent,flatte,tierce_coulee,slash,backslash)
 };
 
 struct acciaccatura{//(chord+)
-    char* id;
-    char* event_ref;
-    char* slur;//(yes,no) default no
+    xmlChar* id;
+    xmlChar* event_ref;
+    xmlChar* slur;//(yes,no) default no
     
     struct chord* chords;
 };

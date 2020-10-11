@@ -75,57 +75,57 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manager1599.exe: ${OBJECTFILES}
 ${OBJECTDIR}/common.o: common.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/common.o common.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/common.o common.c
 
 ${OBJECTDIR}/fileChooser.o: fileChooser.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fileChooser.o fileChooser.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fileChooser.o fileChooser.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
 ${OBJECTDIR}/managerAudio.o: managerAudio.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerAudio.o managerAudio.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerAudio.o managerAudio.c
 
 ${OBJECTDIR}/managerDocument.o: managerDocument.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerDocument.o managerDocument.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerDocument.o managerDocument.c
 
 ${OBJECTDIR}/managerGeneral.o: managerGeneral.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerGeneral.o managerGeneral.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerGeneral.o managerGeneral.c
 
 ${OBJECTDIR}/managerLogic.o: managerLogic.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLogic.o managerLogic.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLogic.o managerLogic.c
 
 ${OBJECTDIR}/managerLosElements.o: managerLosElements.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLosElements.o managerLosElements.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerLosElements.o managerLosElements.c
 
 ${OBJECTDIR}/managerNotational.o: managerNotational.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerNotational.o managerNotational.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerNotational.o managerNotational.c
 
 ${OBJECTDIR}/managerPerformance.o: managerPerformance.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerPerformance.o managerPerformance.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerPerformance.o managerPerformance.c
 
 ${OBJECTDIR}/managerStructural.o: managerStructural.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerStructural.o managerStructural.c
+	$(COMPILE.c) -Wall -I../../../../../Program\ Files/cygwin64/usr/include/libxml2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/managerStructural.o managerStructural.c
 
 # Subprojects
 .build-subprojects:

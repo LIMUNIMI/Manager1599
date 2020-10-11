@@ -22,29 +22,29 @@ extern "C" {
 
 //Track General
     struct recording{
-        char* date;//REQUIRED
-        char* recorded_part;
-        char* studio_name;
-        char* studio_address;
+        xmlChar* date;//REQUIRED
+        xmlChar* recorded_part;
+        xmlChar* studio_name;
+        xmlChar* studio_address;
 
         struct recording* next_recording;
     };
     
     struct album{
-        char* title;//REQUIRED
+        xmlChar* title;//REQUIRED
         int track_number;//REQUIRED
-        char* carrier_type;
-        char* catalogue_number;
+        xmlChar* carrier_type;
+        xmlChar* catalogue_number;
         int number_of_tracks;
-        char* publication_date;
-        char* label;
+        xmlChar* publication_date;
+        xmlChar* label;
 
         struct album* next_album;
     };
     
     struct performer{
-        char* name;//REQUIRED
-        char* type;//REQUIRED
+        xmlChar* name;//REQUIRED
+        xmlChar* type;//REQUIRED
         
         struct performer* next_performer;
     };
@@ -55,30 +55,30 @@ extern "C" {
         int n_albums;
         int n_performers;
         
-        char* geographical_region;
-        char* lyrics_language;
+        xmlChar* geographical_region;
+        xmlChar* lyrics_language;
         
         struct recording* recordings;
         struct genre* genres;
         struct album* albums;
         struct performer* performers;
-        char* notes;
+        xmlChar* notes;
     };
 //Track Indexing
     struct track_event{
-        char* start_time;//REQUIRED
-	char* end_time;
-        char* event_ref;
- 	char* description;
+        xmlChar* start_time;//REQUIRED
+	xmlChar* end_time;
+        xmlChar* event_ref;
+ 	xmlChar* description;
         
         struct track_event* next_track_event;
     };
     
     struct track_region{
-        char* name;//REQUIRED
-        char* description;
-        char* start_event_ref;
-        char* end_event_ref;
+        xmlChar* name;//REQUIRED
+        xmlChar* description;
+        xmlChar* start_event_ref;
+        xmlChar* end_event_ref;
         
         struct track_region* next_track_region;
     };
@@ -87,17 +87,17 @@ extern "C" {
         int n_track_regions;
         int n_track_events;
         
-        char* timing_type;//REQUIRED
+        xmlChar* timing_type;//REQUIRED
         
         struct track_region* track_regions;
         struct track_event* track_events;
     };
 //Audio
     struct track{//(track_general?, track_indexing?, rights?)
-        char* file_name;//REQUIRED
-        char* file_format;//REQUIRED
-        char* encoding_format;//REQUIRED
-        char* md5;
+        xmlChar* file_name;//REQUIRED
+        xmlChar* file_format;//REQUIRED
+        xmlChar* encoding_format;//REQUIRED
+        xmlChar* md5;
         
         struct track_general track_general;
         struct track_indexing track_indexing;

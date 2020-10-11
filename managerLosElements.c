@@ -909,7 +909,6 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
 
 struct clef* loadClefValue(xmlNodePtr cur){
     xmlAttr* attributes;
-    xmlNodePtr temp_cur;
     struct clef* value=(struct clef*)malloc(sizeof(struct clef));
     value=calloc(1,sizeof(struct clef));
     value->next_clef=NULL;
@@ -950,8 +949,8 @@ struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
     temp_cur=cur->xmlChildrenNode;
     while(temp_cur!=NULL){
         if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"sharp_num")||!xmlStrcmp(temp_cur->name,(const xmlChar*)"flat_num")){
-            value->num_type=(char*)temp_cur->name;
-            value->number=xmlCharToInt(xmlGetProp(temp_cur,"number"));
+            value->num_type=(xmlChar*)temp_cur->name;
+            value->number=xmlCharToInt(xmlGetProp(temp_cur,(const xmlChar*)"number"));
         }
         temp_cur=temp_cur->next;
     }
@@ -1007,6 +1006,8 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
         temp_cur=temp_cur->next;
     }
     value->key_accidentals=key_accidental_head;
+    
+    return value;
 }
 
 struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
@@ -1571,8 +1572,8 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
                 if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
                     printed_accidental_temp=(struct printed_accidental*)malloc(sizeof(struct printed_accidental));
                     printed_accidental_temp=calloc(1,sizeof(struct printed_accidental));
-                    printed_accidental_temp->printed_accidental_type=(char*)temp_cur->name;
-                    printed_accidental_temp->parenthesis=xmlGetProp(temp_cur,"parenthesis");
+                    printed_accidental_temp->printed_accidental_type=(xmlChar*)temp_cur->name;
+                    printed_accidental_temp->parenthesis=xmlGetProp(temp_cur,(const xmlChar*)"parenthesis");
                     printed_accidental_temp->next_printed_accidental=NULL;
                     
                     if(printed_accidental_head==NULL)
@@ -1744,7 +1745,7 @@ struct articulation* loadArticulationValue(xmlNodePtr cur){
     value=calloc(1,sizeof(struct articulation));
     value->next_articulation=NULL;  
     
-    value->articulation_sign=(char*)cur->name;
+    value->articulation_sign=(xmlChar*)cur->name;
     //if custom_articulation > child contains svg
     
     return value;

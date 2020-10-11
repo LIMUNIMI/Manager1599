@@ -27,13 +27,13 @@ extern "C" {
 #include <string.h>
 
 struct rights{
-    char* file_name;
+    xmlChar* file_name;
 };
 
 struct genre{//?
-     char* name;//REQUIRED
-     char* description;
-     char* weight;
+     xmlChar* name;//REQUIRED
+     xmlChar* description;
+     xmlChar* weight;
 
      struct genre* next_genre;
 };
@@ -43,7 +43,7 @@ xmlDocPtr doc;
 char* file_name;
 char* encoding;
 
-xmlDocPtr getDoc(xmlChar *file_name);
+xmlDocPtr getDoc(xmlChar* docpath);
 xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
 char* concat(const char *s1, const char *s2);  
 int xmlCharToInt(xmlChar* string);
