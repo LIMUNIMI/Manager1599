@@ -776,6 +776,8 @@ struct mir_object* loadMirObject(xmlNodePtr cur){
         cur=cur->next;
     }
     value->mir_features=mir_feature_head;
+    
+    return value;
 }
 
 struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
@@ -888,6 +890,7 @@ struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
     }
     value->mir_features=mir_feature_head;
  
+    return value;
 }
 
 struct mir_feature* loadMirFeature(xmlNodePtr cur){

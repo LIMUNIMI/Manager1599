@@ -762,9 +762,9 @@ void loadLayout(){
                         layout_system_temp=(struct layout_system*)malloc(sizeof(struct layout_system));
                         layout_system_temp=calloc(1,sizeof(struct layout_system));
                         
-                        struct layout_staff* layout_staff_temp;
-                        struct layout_staff* layout_staff_head;
-                        struct layout_staff* layout_staff_p;
+                        struct layout_staff* layout_staff_temp = NULL;
+                        struct layout_staff* layout_staff_head = NULL;
+                        struct layout_staff* layout_staff_p = NULL;
                         layout_system_temp->n_layout_staves=0;
                         
                         attributes=temp_cur->properties;
