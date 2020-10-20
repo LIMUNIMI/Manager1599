@@ -5,6 +5,11 @@
  */
 #include "common.h"
 
+xmlChar *docname;
+xmlDocPtr doc;
+char* file_name;
+char* encoding;
+
 xmlDocPtr getDoc(xmlChar* docpath){
 
     xmlDocPtr doc;

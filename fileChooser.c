@@ -6,6 +6,8 @@
 
 #include "fileChooser.h"
 
+char* rootFolderPath;
+
 char* chooseFile(){
     char* file_name;
     int choice=-1;

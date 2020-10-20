@@ -6,6 +6,8 @@
 
 #include "managerDocument.h"
 
+struct ieee1599 ieee1599_document;
+
 void loadDocument(){
     
     xmlChar *xpath;

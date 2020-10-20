@@ -38,10 +38,10 @@ struct genre{//?
      struct genre* next_genre;
 };
     
-xmlChar *docname;
-xmlDocPtr doc;
-char* file_name;
-char* encoding;
+extern xmlChar *docname;
+extern xmlDocPtr doc;
+extern char* file_name;
+extern char* encoding;
 
 xmlDocPtr getDoc(xmlChar* docpath);
 xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);

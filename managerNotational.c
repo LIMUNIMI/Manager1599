@@ -33,7 +33,6 @@ void loadGraphicInstanceGroup(){
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning graphic_instance_groups 
-
             graphic_instance_group_temp=(struct graphic_instance_group*)malloc(sizeof(struct graphic_instance_group));
             graphic_instance_group_temp=calloc(1,sizeof(struct graphic_instance_group));
             cur=nodeset->nodeTab[i];
@@ -176,7 +175,7 @@ struct graphic_instance* loadGraphicInstance(xmlNodePtr cur){
         cur=cur->next;
     }
     value->graphic_event=graphic_event_head;
-    
+
     return value;
 }
 

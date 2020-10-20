@@ -38,7 +38,8 @@ struct ieee1599{
     struct performance performance_layer;
     struct audio audio_layer;
 };
-struct ieee1599 ieee1599_document;
+
+extern struct ieee1599 ieee1599_document;
 
 void loadDocument();
 void printDocument();

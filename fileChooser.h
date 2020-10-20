@@ -22,7 +22,7 @@ extern "C" {
     #include <dirent.h>
     #include <sys/stat.h>
 
-    char* rootFolderPath;
+    extern char* rootFolderPath;
     
     void setRootFolderPath(char* path);
     char* getRootFolderPath();

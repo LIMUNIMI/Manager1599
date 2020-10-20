@@ -16,7 +16,7 @@
 #include "fileChooser.h"
 
 int main(int argc, char **argv) {
-    
+     
     int confirm=1;
     
     //encoding check
@@ -35,11 +35,12 @@ int main(int argc, char **argv) {
                 loadDocument();
                 printDocument();  
             }
-            xmlFreeDoc(doc);
-            xmlCleanupParser();
 
             printf("\nContinue? [yes=1,No=0]\n");
             scanf("%i",&confirm);  
+            
+            xmlFreeDoc(doc);
+            xmlCleanupParser();
         }
         else confirm=0;
     }
