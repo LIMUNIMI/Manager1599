@@ -47,6 +47,7 @@ xmlDocPtr getDoc(xmlChar* docpath);
 xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
 char* concat(const char *s1, const char *s2);  
 int xmlCharToInt(xmlChar* string);
+//double xmlCharToDouble(xmlChar* string);
 
 struct rights loadRights(xmlNodePtr cur);
 struct genre* loadGenre(xmlNodePtr cur);

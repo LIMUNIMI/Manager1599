@@ -24,8 +24,8 @@ extern "C" {
 //Spine
 struct event{//EMPTY
     xmlChar* id;//required
-    xmlChar* timing;//null
-    xmlChar* hpos;//null
+    int timing;//null
+    int hpos;//null
     
     struct event* next_event;
 };

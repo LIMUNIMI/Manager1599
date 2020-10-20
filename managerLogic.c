@@ -55,11 +55,17 @@ void loadSpine(){
                         temp->id=xmlGetProp(cur,attributes->name); 
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"timing")){
-                        temp->timing=xmlGetProp(cur,attributes->name);
+                        if(!xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"null"))
+                            temp->timing=-1;
+                        else
+                            temp->timing=xmlCharToInt(xmlGetProp(cur,attributes->name));
 
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"hpos")){
-                        temp->hpos=xmlGetProp(cur,attributes->name);
+                        if(!xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"null"))
+                            temp->hpos=-1;
+                        else
+                            temp->hpos=xmlCharToInt(xmlGetProp(cur,attributes->name));
 
                     }                   
                     attributes=attributes->next;                     
@@ -92,7 +98,7 @@ void printSpine(){
     p=NULL;
     p=logic_layer.spine;
     while(p!=NULL){
-       printf("Event: %s %s %s\n",p->id,p->timing,p->hpos);
+       printf("Event: %s %i %i\n",p->id,p->timing,p->hpos);
        p=p->next_event;
     }
 }
