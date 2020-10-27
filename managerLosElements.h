@@ -54,7 +54,7 @@ struct barline{
 struct time_indication{
     int num;//REQUIRED
     int den;//REQUIRED
-    xmlChar* abbreviation;//(yes,no) default no
+    int abbreviation;//(yes,no) default no
     int vtu_amount;
     
     struct time_indication* next_time_indication;
@@ -63,7 +63,7 @@ struct time_indication{
 struct time_signature{
     int n_time_indications;
     
-    xmlChar* visibile;//(yes,no) default no
+    int visible;//(yes,no) default yes
     xmlChar* event_ref;
     
     struct time_indication* time_indications;//+
@@ -117,7 +117,7 @@ struct fingering{
 };
 
 struct printed_accidental{  
-    xmlChar* parenthesis;//(yes,no) default no
+    int parenthesis;//(yes,no) default no
     
     xmlChar* printed_accidental_type;
     
@@ -168,7 +168,7 @@ struct gregorian_symbol{
     xmlChar* inflexion;//(no,resupinus,fleux) default no
     xmlChar* subpunctis;//(no,praepunctis,subpunctis,subbipunctis,subtripunctis,subquadripunctis,subquinquipunctis) default no
     xmlChar* interpretative_mark;//(no,vertical_episema,horizontal_episema,liquescens) default no
-    xmlChar* mora;//(yes,no) default no
+    int mora;//(yes,no) default no
     xmlChar* event_ref;
     
     struct notehead* notehead;
@@ -225,8 +225,8 @@ struct tablature_symbol{
     xmlChar* id;
     xmlChar* event_ref;
     xmlChar* stem_direction;//(up,down,none)
-    xmlChar* beam_before;//(yes,no) default no
-    xmlChar* beam_after;//(yes,no) default no
+    int beam_before;//(yes,no) default no
+    int beam_after;//(yes,no) default no
     
     struct duration duration;
     struct augmentation_dots augmentation_dots;//?
@@ -239,7 +239,7 @@ struct rest{
     xmlChar* id;
     xmlChar* event_ref;
     xmlChar* staff_ref;
-    xmlChar* hidden;//(yes,no)
+    int hidden;//(no,yes)
     
     struct duration duration;
     struct augmentation_dots augmentation_dots;//?
@@ -254,10 +254,10 @@ struct chord{
     xmlChar* id;
     xmlChar* event_ref;
     xmlChar* stem_direction;//(up,down,none)
-    xmlChar* beam_before;//(yes,no) default no
-    xmlChar* beam_after;//(yes,no) default no
-    xmlChar* cue;//(yes,no) default no
-    xmlChar* tremolo_lines;//(no,1,2,3,4,5,6)    
+    int beam_before;//(yes,no) default no
+    int beam_after;//(yes,no) default no
+    int cue;//(yes,no) default no
+    int tremolo_lines;//(no,1,2,3,4,5,6)    
     
     struct duration duration;
     struct augmentation_dots augmentation_dots;//?
@@ -276,7 +276,7 @@ struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
     int n_gregorian_symbols;
     
     xmlChar* voice_item_ref;//REQUIRED
-    xmlChar* ossia;//(yes,no) default no
+    int ossia;//(yes,no) default no
     
     struct chord* chords;
     struct rest* rests;
@@ -301,7 +301,7 @@ struct measure{//(voice+ | multiple_rest | measure_repeat?)
     
     int number;//REQUIRED
     xmlChar* id;
-    xmlChar* show_number;//(yes,no)
+    int show_number;//(yes,no)
     xmlChar* numbering_style;//(arabic_numbers,roman_numbers,small_letter,capital_letters)
     
     struct voice* voices;//+
@@ -428,7 +428,7 @@ struct slur{//(svg?)
     xmlChar* start_event_ref;
     xmlChar* end_event_ref;
     xmlChar* shape;//(normal,dasched,dotted) default normal
-    xmlChar* bracketed;//(yes,no) default no
+    int bracketed;//(yes,no) default no
 };
 
 struct percussion_special{
@@ -596,7 +596,7 @@ struct baroque_appoggiatura{
 struct appoggiatura{//(chord+)
     xmlChar* id;
     xmlChar* event_ref;
-    xmlChar* slur;//(yes,no) default no
+    int slur;//(yes,no) default no
     
     struct chord* chords;
 };
@@ -610,7 +610,7 @@ struct baroque_acciaccatura{
 struct acciaccatura{//(chord+)
     xmlChar* id;
     xmlChar* event_ref;
-    xmlChar* slur;//(yes,no) default no
+    int slur;//(yes,no) default no
     
     struct chord* chords;
 };

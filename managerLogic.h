@@ -31,13 +31,13 @@ struct event{//EMPTY
 };
 
 //Los
-struct agogic{
-    xmlChar* bracketed;//(yes,no) default no
+struct agogics{
+    int bracketed;//(yes,no) default no
     xmlChar* event_ref;
     
-    xmlChar* agogic_value;
+    xmlChar* agogics_value;
     
-    struct agogic* next_agogic;
+    struct agogics* next_agogics;
 };
 
 struct text_field{
@@ -72,7 +72,7 @@ struct ornament_list{
 struct syllable{
     xmlChar* start_event_ref;
     xmlChar* end_event_ref;
-    xmlChar* hyphen;//(yes,no) default no
+    int hyphen;//(yes,no) default no
     
     xmlChar* syllable_value;
     
@@ -123,7 +123,7 @@ struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline
     
     xmlChar* id;
     int line_number;//default 5
-    xmlChar* ossia;//(yes,no) default no
+    int ossia;//(yes,no) default no
     xmlChar* tablature;//(none,french,german,italian)
     
     struct clef* clefs;
@@ -152,7 +152,7 @@ struct los{//?
     struct brackets* staff_list_brackets;
     struct horizontal_symbol_list* horizontal_symbols;//?
     struct ornament_list* ornaments;//?    
-    struct agogic* agogics;
+    struct agogics* agogics;
     struct text_field* text_field;
     struct metronomic_indication* metronomic_indication;
     struct lyrics* lyrics;
@@ -187,10 +187,10 @@ struct layout_staff{
     xmlChar* staff_ref;//REQUIRED
     int vertical_offset;//REQUIRED
     int height;//REQUIRED
-    xmlChar* show_key_signature;//(yes,no) default yes
-    xmlChar* show_clef;//(yes,no) default yes
-    xmlChar* show_time_signature;//(yes,no) default no
-    xmlChar* ossia;//(yes,no) default no
+    int show_key_signature;//(yes,no) default yes
+    int show_clef;//(yes,no) default yes
+    int show_time_signature;//(yes,no) default no
+    int ossia;//(yes,no) default no
 
     struct layout_staff* next_layout_staff;
 };

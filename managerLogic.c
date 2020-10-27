@@ -111,9 +111,9 @@ void loadLos(){
     xmlNodePtr temp_cur;
     xmlAttr *attributes;
     
-    struct agogic *agogic_head=NULL;
-    struct agogic *agogic_temp=NULL;
-    struct agogic *agogic_p=NULL;
+    struct agogics *agogics_head=NULL;
+    struct agogics *agogics_temp=NULL;
+    struct agogics *agogics_p=NULL;
     
     struct text_field *text_field_head=NULL;
     struct text_field *text_field_temp=NULL;
@@ -200,28 +200,31 @@ void loadLos(){
         cur=cur->xmlChildrenNode;
         while(cur!=NULL){//scan los children
             if(!xmlStrcmp(cur->name,(const xmlChar*)"agogics")){
-                agogic_temp=(struct agogic*)malloc(sizeof(struct agogic));
-                agogic_temp=calloc(1,sizeof(struct agogic));
-                agogic_temp->agogic_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
+                agogics_temp=(struct agogics*)malloc(sizeof(struct agogics));
+                agogics_temp=calloc(1,sizeof(struct agogics));
+                agogics_temp->agogics_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
                 attributes=cur->properties;
                 while(attributes!=NULL){
                     if(!xmlStrcmp(attributes->name,(const xmlChar*)"bracketed")){
-                        agogic_temp->bracketed=xmlGetProp(cur,attributes->name); 
+                        if(!xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"yes"))
+                            agogics_temp->bracketed=1; 
+                        else 
+                            agogics_temp->bracketed=0;
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                        agogic_temp->event_ref=xmlGetProp(cur,attributes->name);
+                        agogics_temp->event_ref=xmlGetProp(cur,attributes->name);
                     }                
                     attributes=attributes->next;                     
                 }  
-                agogic_temp->next_agogic=NULL;
-                if(agogic_head==NULL){
-                    agogic_head=agogic_temp;
+                agogics_temp->next_agogics=NULL;
+                if(agogics_head==NULL){
+                    agogics_head=agogics_temp;
                 }
                 else{
-                    agogic_p=agogic_head;
-                    while(agogic_p->next_agogic!=NULL)
-                        agogic_p=agogic_p->next_agogic;
-                    agogic_p->next_agogic=agogic_temp;
+                    agogics_p=agogics_head;
+                    while(agogics_p->next_agogics!=NULL)
+                        agogics_p=agogics_p->next_agogics;
+                    agogics_p->next_agogics=agogics_temp;
                 }
                 logic_layer.los.n_agogics++;                                           
             }
@@ -334,7 +337,11 @@ void loadLos(){
                                 staff_temp->line_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                             }
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"ossia")){
-                                staff_temp->ossia=xmlGetProp(temp_cur,attributes->name);
+                                if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
+                                    staff_temp->ossia=1;
+                                else
+                                    staff_temp->ossia=0;
+                                    
                             }
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"tablature")){
                                 staff_temp->tablature=xmlGetProp(temp_cur,attributes->name);
@@ -626,7 +633,10 @@ void loadLos(){
                                 syllable_temp->end_event_ref=xmlGetProp(temp_cur,attributes->name);
                             } 
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"hyphen")){
-                                syllable_temp->hyphen=xmlGetProp(temp_cur,attributes->name);
+                                if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
+                                    syllable_temp->hyphen=1;
+                                else
+                                    syllable_temp->hyphen=0;
                             } 
                             attributes=attributes->next;                     
                         }
@@ -661,7 +671,7 @@ void loadLos(){
             cur=cur->next;//next los children
         }//end while (los children)
         
-        logic_layer.los.agogics=agogic_head;
+        logic_layer.los.agogics=agogics_head;
         logic_layer.los.text_field=text_field_head;
         logic_layer.los.metronomic_indication=metronomic_indication_head;
         logic_layer.los.staff_list=staff_head;
@@ -800,6 +810,9 @@ void loadLayout(){
                                 layout_staff_temp=(struct layout_staff*)malloc(sizeof(struct layout_staff));
                                 layout_staff_temp=calloc(1,sizeof(struct layout_staff));
                                 
+                                layout_staff_temp->show_key_signature=1;
+                                layout_staff_temp->show_clef=1;
+                                
                                 attributes=temp_cur->properties;
                                 while(attributes!=NULL){
                                     if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -815,16 +828,28 @@ void loadLayout(){
                                         layout_staff_temp->height=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                                     }
                                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"show_key_signature")){
-                                        layout_staff_temp->show_key_signature=xmlGetProp(temp_cur,attributes->name);
+                                        if (!xmlStrcmp(xmlGetProp(temp_cur, attributes->name), (const xmlChar*) "yes"))
+                                            layout_staff_temp->show_key_signature=1;
+                                        else
+                                            layout_staff_temp->show_key_signature=0;
                                     }
                                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"show_clef")){
-                                        layout_staff_temp->show_clef=xmlGetProp(temp_cur,attributes->name);
+                                        if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
+                                            layout_staff_temp->show_clef=1;
+                                        else
+                                            layout_staff_temp->show_clef=0;
                                     }
                                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"show_time_signature")){
-                                        layout_staff_temp->show_time_signature=xmlGetProp(temp_cur,attributes->name);
+                                        if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
+                                            layout_staff_temp->show_time_signature=1;
+                                        else
+                                            layout_staff_temp->show_time_signature=0;
                                     }
                                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"ossia")){
-                                        layout_staff_temp->ossia=xmlGetProp(temp_cur,attributes->name);
+                                        if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
+                                            layout_staff_temp->ossia=1;
+                                        else
+                                            layout_staff_temp->ossia=0;
                                     }
                                     attributes=attributes->next; 
                                 }
