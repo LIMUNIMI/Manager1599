@@ -41,9 +41,9 @@ struct genre{//?
 extern xmlChar *docname;
 extern xmlDocPtr doc;
 extern char* file_name;
-extern char* encoding;
 
 xmlDocPtr getDoc(xmlChar* docpath);
+int validate(xmlDocPtr doc);
 xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
 char* concat(const char *s1, const char *s2);  
 int xmlCharToInt(xmlChar* string);

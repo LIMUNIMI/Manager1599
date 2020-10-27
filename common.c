@@ -8,7 +8,15 @@
 xmlChar *docname;
 xmlDocPtr doc;
 char* file_name;
-char* encoding;
+
+int validate(xmlDocPtr doc){
+    
+    xmlValidCtxtPtr ctxt=xmlNewValidCtxt();
+    xmlDtdPtr dtd = xmlParseDTD(NULL,(const xmlChar*) "File/ieee1599.dtd");
+    int res=xmlValidateDtd(ctxt,doc,dtd);
+    
+    return res;
+}
 
 xmlDocPtr getDoc(xmlChar* docpath){
 
