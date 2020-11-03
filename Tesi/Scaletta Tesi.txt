@@ -1,0 +1,27 @@
+FIX PROGETTO
+
+Spezzando le funzioni in sotto-funzioni e rendendo il codice più modulare (ad esempio creando una funzione per il parsing di ogni singolo oggetto).
+VTU, event-> timing e hpos int o stirng visto che c’è null, usare -1 al posto di null
+Start e end position possono essere double in notation event
+Nullable type C
+Tag tutti minuscoli
+
+TESI
+
+Test
+Conclusione e sviluppi futuri
+
+Custom_articulation, custom_hsymbol,slur svg ignorare
+Sys_ex, midi_event ignorare
+Feature_object ignorare
+Riga 970
+
+Parameter entity
+Xml in a nutshell
+Layer piú usati: general logic audio notational
+
+Language Binding, SWIG, FFI
+cos'é una libreria
+
+
+

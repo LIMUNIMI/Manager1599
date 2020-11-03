@@ -20,10 +20,6 @@ extern "C" {
 
 #include "common.h"
  
-enum accidentals {double_sharp,sharp_and_a_half,sharp,demisharp,natural,demiflat,flat,flat_and_a_half,double_flat};
-enum articulation_signs {normal_accent,staccatissimo,staccato,strong_accent,tenuto,stopped_note,snap_pizzicato,natural_harmonic,up_bow,down_bow,open_mute,close_mute,custom_articulation};
-enum neumes {punctum,virga,punctum_inclinatum,quilisma,apostrofa,oriscus,podatus,pes,clivis,flexa,epiphonus,cephalicus,bistropha,bivirga,trigon,torculus,porrectus,scandicus,salicus,climacus,tristropha,trivirga,strophicus,pressus,custos};
-
 //Staff Eelements START
 struct string{
     int string_number;//REQUIRED
@@ -191,12 +187,13 @@ struct tablature_pitch{
 };
 
 struct key{
-    struct tablature_pitch tablature_pitch;
-    struct tablature_articulation tablature_articulation;//?
-    int tie;//? yes=,no=0
-    struct tablature_fingering tablature_fingering;//?
     xmlChar* id;
     xmlChar* staff_ref;
+
+    struct tablature_pitch tablature_pitch;
+    struct tablature_articulation tablature_articulation;//?
+    int tie;//? yes=1,no=0
+    struct tablature_fingering tablature_fingering;//?
     
     struct key* next_key;
 };
@@ -208,6 +205,9 @@ struct tuplet_ratio{//(tuplet_ratio)
     int in_num;//REQUIRED
     int in_den;//REQUIRED
     int in_dots;
+	
+    struct tuplet_ratio* tuplet_ratio;
+
     struct tuplet_ratio* next_tuplet_ratio;
 };
 
@@ -566,7 +566,7 @@ struct trill{
     xmlChar* id;
     xmlChar* event_ref;
     xmlChar* accidental;
-    xmlChar* style;//(t,tr,tr-,plus,double_slash,caesura_double_slash,slur_double_slash,mordent,double_mordent
+    xmlChar* style;//(t,tr,tr-,plus,double_slash,caesura_double_slash,slur_double_slash,mordent,double_mordent)
     xmlChar* start_hook;//(none,up,down)
     xmlChar* end_hook;//(none,up,down)
 };

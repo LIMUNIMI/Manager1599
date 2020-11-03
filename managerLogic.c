@@ -487,7 +487,8 @@ void loadLos(){
                         part_temp->id=xmlGetProp(cur,attributes->name);
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"performers_number")){
-                        part_temp->performes_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
+			if(xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"unknown"))
+                            part_temp->performes_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
                     }
                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"transposition_pitch")){
                         part_temp->transposition_pitch=xmlGetProp(cur,attributes->name);

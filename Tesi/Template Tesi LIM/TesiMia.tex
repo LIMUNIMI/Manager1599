@@ -1,0 +1,306 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                         %
+%			TEMPLATE LATEX PER TESI                                       %
+%			______________                                                %
+%                                                                         %
+%           Ultima revisione: 24 giugno 2019                              %
+%           Revisori: G.Presti; L.A.Ludovico; F. Avanzini                 %
+%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,italian]{report}
+\usepackage{tesi}
+
+%
+%			INFORMAZIONI SULLA TESI
+%			DA COMPILARE!
+%
+
+% CORSO DI LAUREA:
+\def\myCDL{Corso di Laurea triennale in\\Informatica Musicale}
+
+% TITOLO TESI:
+\def\myTitle{Una libreria C per il caricamento e la manipolazione di documenti IEEE 1599}
+
+% AUTORE:
+\def\myName{Alessandro Talamona}
+\def\myMat{Matr. Nr. 895744}
+
+% RELATORE E CORRELATORE:
+\def\myRefereeA{Prof. Federico Simonetta}
+\def\myRefereeB{Prof. Luca Andrea Ludovico}
+
+% ANNO ACCADEMICO
+\def\myYY{2019-2020}
+
+% Il seguente comando introduce un elenco delle figure dopo l'indice (facoltativo)
+%\figurespagetrue
+
+% Il seguente comando introduce un elenco delle tabelle dopo l'indice (facoltativo)
+%\tablespagetrue
+
+%
+%			PREAMBOLO
+%			Inserire qui eventuali package da includere o definizioni di comandi personalizzati
+%
+
+% Package di formato
+\usepackage[a4paper]{geometry}		% Formato del foglio
+\usepackage[italian]{babel}			% Supporto per l'italiano
+\usepackage[utf8]{inputenc}			% Supporto per UTF-8
+%\usepackage[a-1b]{pdfx}			% File conforme allo standard PDF-A (obbligatorio per la consegna)
+
+% Package per la grafica
+\usepackage{graphicx}				% Funzioni avanzate per le immagini
+\graphicspath{ {./immagini} }
+\usepackage{hologo}					% Bibtex logo with \hologo{BibTeX}
+%\usepackage{epsfig}				% Permette immagini in EPS
+%\usepackage{xcolor}				% Gestione avanzata dei colori
+
+% Package tipografici
+\usepackage{amssymb,amsmath,amsthm} % Simboli matematici
+\usepackage{listings}				% Scrittura di codice
+
+% Package ipertesto
+\usepackage{url}					% Visualizza e rendere interattii gli URL
+\usepackage{hyperref}				% Rende interattivi i collegamenti interni
+
+
+\begin{document}
+
+% Creazione automatica del frontespizio
+\frontespizio
+\beforepreface
+
+% 
+%			PAGINA DI DEDICA E/O CITAZIONE
+%			facoltativa, questa è l'unica cosa che dovete formattare a mano, un po' come vi pare
+%
+        
+% 
+%			PREFAZIONE (facoltativa)
+%
+
+%\prefacesection{Prefazione}
+%Le prefazioni non sono molto comuni, tuttavia a volte capita che qualcuno voglia dire qualcosa che esuli dal lavoro in s\'e (come un meta-commento sull'elaborato), o voglia fornire informazioni riguardanti l'eventuale progetto entro cui la tesi si colloca (in questo caso \`e probabile che sia il relatore a scrivere questa parte).
+
+%
+%			RINGRAZIAMENTI (facoltativi)
+%
+
+%\prefacesection{Ringraziamenti}
+
+%
+%			Creazione automatica dell'indice
+%
+
+\afterpreface
+
+% 
+%			CAPITOLO 1: Introduzione o Abstract
+% 
+
+\chapter{Introduzione}
+\label{cap1}
+
+Il presente lavoro \`{e} organizzato come segue: nel Capitolo 1 \dots
+
+\section{Scopo Del Software}
+\label{sec:scopodelsoftware}
+Lo scopo di questo elaborato  \`e quello di costruire una libreria che consenta il caricamento e quindi la manipolazione dei dati contenuti in documenti che rispettino lo standard IEEE 1599, un formato per la rappresentazione musicale sviluppato dal Laboratorio di Infrmatica Musicale (LIM) nel 2008, del quale verranno descritte le caratteristiche di interesse nelle successive sezioni.
+In particolare si vogliono creare le strutture dati per contenere ogni tipo di informazione ottenibile da tali documenti e le funzioni che permettano il caricamento di tali strutture.
+Ulteriore obbiettivo  \`e quello di consentire l’utilizzo di questa libreria da diversi linguaggi attraverso le Foreign Function Interface (FFI).
+
+\section{IEEE 1599}
+\label{sec:ieee1599}
+
+IEEE1599  \`e un formato basato su XML che descrive contenuti musicali eterogenei in modo completo. In un unico file, simboli musicali, spartiti, tracce audio, performance computer-driven, metadati per la catalogazione, testi e contenuti grafici relativi a una particolare brano musicale vengono collegati e  sincronizzati reciprocamente all'interno della stessa struttura. Contenuti eterogenei vengono organizzati in una struttura multi-livello che supporta diversi formati di codifica e un numero di elementi digitali per ogni livello.~\cite{ludovico2008key}
+
+I livelli definiti dal formato sono:~\cite{barate2010tecnologie}
+\begin{itemize}
+	\item General, che contiene i metadati relativi al brano in oggetto, tra cui le informazioni catalografiche su titolo dell’opera, autori e genere;
+	\item Logic, vero nucleo del formato, destinato alla descrizione simbolica dei contenuti musicali;
+	\item Structural, che identifica gli oggetti musicali su cui il brano \`e costruito e permette di evidenziarne i mutui rapporti;
+	\item Notational, che contiene le differenti rappresentazioni grafiche della partitura, ad esempio riferibili a diverse edizioni o trascrizioni;
+	\item Performance, che  \`e dedicato ai formati per la generazione di esecuzioni sintetiche da parte dell’elaboratore;
+	\item Audio, che consente di legare al brano in oggetto le esecuzioni audio/video della partitura.
+\end{itemize}
+
+\begin{center}
+	\includegraphics{unimi}
+\end{center}
+
+\section{Language Binding}
+\label{sec:languagebinding}
+
+Con language binding si intende \dots
+
+
+% 
+%			CAPITOLO 2: Tecnologie utilizzate
+% 
+
+\chapter{Tecnologie utilizzate}
+\label{cap2}
+
+In questo capitolo vengono presentate le tecnologie utilizzate per lo sviluppo del software. 
+
+\section{C}
+\label{sec:c}
+
+Il linguaggio di programmazione scelto è il C in modo da favorire futuri language binding, visto che molti dei linguaggi di alto livello piú utilizzati sono basati su questo linguaggio, come per esempio Python, C++, Java, Javascript e Perl.
+
+Una delle funzionalit\`a piú utilizzate del linguaggio é stata la possibilit\`a di creare tipi di dati strutturati, o strutture, attraverso la parola chiave \textit{struct}. Queste permettono l’aggregazione di pi\`u variabili, ma, a differenza degli array, non in modo ordinato e omogeneo poich\'e una struttura può contenere variabili di tipo diverso.
+
+\'{E} possibile definire nuovi tipi di dato anteponendo la parola chiave \textit{typedef} anteposta alla dichiarazione di una struttura e specificando il nome con cui riferircisi. 
+Agli elementi del tipo di dato cos\`i creato si puó accedere tramite l'oeratore \verb|``| . \verb|''| 
+
+\begin{center}
+typedef struct elemento { int informazione; } nome\textunderscore tipo;
+\end{center}
+
+Tra i concetti fondamentali del linguaggio C  c'\`e quello di \textit{puntatore}, perché permette, tra le altre cose, di poter astrarre in modo semplice strutture dati complesse. Un puntatore \`e una variabile che contiene l'indirizzo di memoria di un'altra variabile e si dichiara anteponendo il carattere \textit{*} al nome della variabile. L'asterisco é anche l'operatore di indirezione, cio\`e restituisce l'oggetto puntato dal puntatore. L'operatore \textit{\&}, davanti a un nome di variabile, restituisce invece l'indirizzo di quest'ultima.
+
+I puntatori sono strumenti necessari anche per la gestione delle \textit{liste}, collezioni di un numero di elementi omogenei di cui non si conosce a priori la numerosit\`a che pu\`o anche variare nel tempo. Inoltre, al contrario di quanto accade per gli array, tali elementi non occupano posizioni contigue in memoria.
+Una lista, in C, pu\'o essere vista come una struttura che contiene campi di informazioni e almeno un puntatore a cui viene legato l'elemento successivo.
+
+\begin{center}
+struct elemento { int informazione; struct elemento *puntatore; } \footnote{\url{https://www.html.it/pag/15418/introduzione-alle-liste/}}
+\end{center}
+
+Il C permette di gestire l'allocazione della memoria in modo dinamico, assegnando alle variabili solamente la quantitá di memoria necessaria. Per fare ci\'o, esistono funzioni come \textit{malloc} e \textit{calloc}, adibite all'allocazione della memoria , \textit{realloc}, per consentire la modifica di spazi di memoria precedemtemente allocati, e \textit{free} per liberare la memoria allocata.
+
+Nel capitolo relativo allo sviluppo del software verranno discussi alcuni esempi in cui verranno utilizzate tutte queste funzionalit\'a.
+
+\section{XML}
+\label{sec:xml}
+
+Extensible Markup Language (XML) \`e un linguaggio di markup per documenti che contengono informazioni strutturate, quindi definite non solo dal contenuto, ma anche dal ruolo occupato da tale contenuto.
+I linguaggi di markup sono insiemi di regole che definiscono dei meccanismi attraverso i quali é possibile identificare una struttura in un documento. ~\cite{walsh1998xml}
+Applicato al nostro caso, ci\`o vale a dire che la struttura di un documento IEEE1599 come presentata nell'introduzione di questo lavoro corrisponderebe a: 
+\begin{lstlisting}[language=XML]
+<ieee1599>
+	<general>...<\general>
+	<logic>...<\logic>
+	<structural>...<\structural>
+	<notational>...<\notational>
+	<performance>...<\performance>
+	<audio>...<\\audio>
+</ieee1599>
+\end{lstlisting}
+
+\subsection{DTD}
+\label{subsec:dtd}
+
+Un Document Type Definition (DTD) definisce la struttura di un documento XML, specificando quali elementi e attributi sono ammessi e come devono essere organizzati. 
+Un documento XML, per essere \textit{valido}, deve rispettare le regole del DTD relativo oltre a dover essere ben formato, ovvero rispettante le regole di sintassi di XML.
+Il DTD che definisce la struttura dei documenti IEEE 1599, sul quale si basano le scelte di programmazione effettuate per questo elaborato, è disponibile sul sito ufficiale del Computer Society of the Institute of Electrical
+and Electronics Engineers \footnote{\url{https://standards-ieee-org.pros.lib.unimi.it/downloads.html}}, attualmente alla versione del 2008.
+Il DTD é dichiarato all'interno del documento XML nel tag vuoto \textit{DOCTYPE}. Solitamente \`e definito in un file esterno e nei documenti viene espresso come riferimento a una risorsa esterna, come mostrato nell'esempio seguente.
+\begin{lstlisting}[language=XML]
+<!DOCTYPE ieee1599 SYSTEM "http://standards.ieee.org/downloads/1599/1599-2008/ieee1599.dtd">
+\end{lstlisting}
+
+\section{XPath}
+\label{sec:xpath}
+
+\section{Libxml2}
+\label{sec:libxml2}
+
+Il software creato si appoggia sulla libreria libxml2 \footnote{\url{http://www.xmlsoft.org/}} per il parsing dei file XML generici. Sul sito è presente un tutorial \footnote{\url{http://xmlsoft.org/tutorial/}} su come utilizzare i metodi principali del linguaggio dal quale sono state estrapolate alcuni algoritmi ricorrenti per le operazioni di parsing.
+Questa libreria, tra le varie disponibili, è una tra le piú utilizzate perché puó facilitare la programmazione basandosi sulla creazione in memoria di un albero a partire dal document XML, Supporta XPath e permette la validazione tramite DTD durante il parsing.
+
+
+% 
+%			CAPITOLO 3: Il Software
+% 
+
+\chapter{Il Software}
+\label{cap3}
+
+In questo capitolo viene descritto il metodo con cui \`e stato sviluppato il software, \dots
+
+\section{Gestione Del Documento}
+\label{sec:gestionedeldocumento}
+
+\subsection{Controllo Degli Input}
+\label{subsec:controllodegliinput}
+
+Per prima cosa bisogna analizzare le caratteristiche del tipo di documento su cui bisogna lavorare. Il software deve ricevere in input un file XML e ci sar\`a quindi bisogno di controllare che il file sia ben formato, ma visto che si ha a disposizione un DTD, sarebbe ancora meglio lavorare su un file valido. 
+
+La libreria libxml2 mette a disposizione il metodo xmlValidateDTD per verificare che un documento XML sia valido e su questa funzione \`e stata sviluppata una parte di codice, contenuta in common.c, che controlla la validit\'a del documento IEEE 1599. 
+
+Un altro controllo richiesto da libxml2 per poter operare sui documenti XML \`e quello di verificare che i caratteri usati all'interno del documento si basino sulla codifica UTF-8. Anche per questo controllo \'e stata sviluppata una parte di codice in common.c, basandosi sull'algoritmo d'esempio disponibile direttamene sul tutorial ufficiale di libxml2 relativo a questo argomento.
+ 
+\subsection{Funzioni Generali}
+\label{subsec:funzionigenerali}
+
+Le due funzioni di base, sviluppate sull'utilizzo di libxml2, sono quelle per il caricamento del documento in memoria e per la navigazione di tale documento tramite XPath e sono contenute nel file common.c.
+
+La funzione getDoc, ricevendo come input il percorso al documento ieee1599 da elaborare, utilizza la funzione xmlParseFile per creare in memoria una struttura ad albero che rispecchia quella del documento XML e fornisce l'indirizzo del puntatore alla radice di tale nodo. Questa funzione viene utilizzate dal main del programma ogni qual volta l'utente sceglie un file da caricare.
+
+La funzione getNodeset, avendo giá un documento caricato in memoria, permette di estrapolare un contesto a partirte da un'espressione XPath.
+
+Entrambe queste funzioni utilizzano algoritmi e funzioni di libreria ampiamente documentati sul sito libxml2, nello specifico sono stati utili gli esempi del tutorial di base.
+
+
+Altre funzioni utili contenute in common.c sono concat, che permette di concatenare due stringhe, xmlCharToInt e xmlCharToDouble. Le ultime due vegono utilizzate ogniqualvolta ci sia il bisogno di caricare valori numerici contenuti nel documento XML da caricare. In caso di sviluppi futuri, qui \`e dove sarebbe meglio introdurre nuovi funzioni di conversione per altri tipi, anche complessi.
+
+
+Il modulo fileChooser.c contiene tutte le funzioni che permettono all'utente di scegliere il documento da caricare. All'utente vengono mostrati tutti i file XML presenti nella cartella File presente nella cartella del programma e viene richiesto di scegliere il file su cui lavorare. Al termine dell'elaborazione si pu\`o scegliere se terminare l'esecuzione o continuare con un altro documento.
+
+\section{Gestione Dei Livelli}
+\label{subsec:gestionedeilivelli}
+
+Si \`e deciso di tradurre ogni elemento presente nella gerarchia XML in una struct il cui contenuto sono i suoi attributi. [esempio]
+Non tutte le Entity citate nel DTD sono state trasformate in struct: spesso \`e stato possibile sostituire un elemento con una lista di suoi figli. [esempio] 
+Le struct impostate come liste sono state utilizzate anche per tutti quegli elementi che possono comparire pi\`u volte come figli di un dato elemento. [esempio]
+
+I tipi di dato utilizzati all’interno delle struct sono per la maggior parte stringhe, dato che la natura delle informazioni contenute nei documenti XML non \`e definibile a priori. In alcuni casi, invece, altri tipi di dato pi\`u adatti, per esempio sono stati utilizzati tipi numerici dove i valori non potevano che essere valori su cui era possibile fare operazioni: un esempio sono num e den che rappresentano le frazioni indicanti la durata delle note, oppure il timing degli event espresso in VTU. [esempio]
+
+Analizzando i valori ammessi dal DTD per alcuni attributi,\`e stato possibile definire alcune enumerazioni utilizzabili per sviluppi futuri del software: per esempio possono rivelarsi utili per i controlli relativi all’input di certi valori, limitando la scelta ai soli valori enumerati, se si decide di sviluppare funzioni che permettono di modificare le strutture caricate.
+
+Lo scheletro del software \`e stato modellato suddividendo il codice in diversi moduli per rispecchiare la struttura ad albero definita dal DTD. 
+Partendo dalla radice del documento arrivando fino all’ultimo elemento, \`e stato possibile costruire una gerarchia di strutture ad albero che rispecchia la struttura definita dal DTD. La struct radice, chiamata ieee1599 contiene le strutture general, logical, structural, notational, performance e audio, come mostrato dal seguente schema. [schema]
+Data la mole di informazioni possibili contenuto nel layer logical e in particolare nella componente LOS,\`e stato deciso di suddividere ulteriormente il codice per contenere gli elementi di 
+quest’ultima (managerLosElements).
+
+
+Moduli dei layer
+Definiti gli header per i moduli dei livelli,\`e stato possibile definire le funzioni per il caricamento delle strutture. Ogni layer ha la sua funzione loadNomeLayer che, utilizzando xPath, recupera il nodeset contenente tutti gli elementi appartenenti a tale layer. 
+Il nodeset viene scandito elemento per elemento e ogni volta che un elemento potrebbe contenerne altri viene fatta la scansione dei suo figli, fino a quando si arriva a una foglia, dopodich\`e si torna indietro. [cercare nome dell’algoritmo] 
+[codice ]
+La struttura del codice di cui sopra \`e comune a quella utilizzata per eseguire tale operazione per tutti gli elementi del documento, adattata a seconda della presenza di pi\`u o meno attributi, pi\`u o meno elementi figli e livelli di profondit\`a da analizzare.
+
+\section{Problemi Riscontrati}
+\label{sec:problemiriscontrati}
+
+Il formato IEEE1599 utilizza i DTD esterni per SVG e MIDI. 
+
+Problema SVG
+Nel LOS del livello logical, gli elementi custom\_articulation, custom\_hsymbol e slur contengono SVG.\dots
+Problema MIDI
+Nel livello perofmrance, gli elementi sys\_ex e midi\_event contengono sysex e midi channel message \dots
+Inoltre nel livello structural, gli elementi feature\_object contengono added\_feature\_object\_class.\dots
+
+\section{Panoramica del progetto}
+
+Prima di addentrarsi nei dettagli è bene fornire una panoramica (anche molto schematica, corredata da un diagramma) del lavoro svolto, in modo che il lettore abbia una mappa concettuale con cui orientarsi.
+
+
+%
+%			BIBLIOGRAFIA
+%
+
+\bibliographystyle{unsrt}
+\bibliography{bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografia}
+
+
+% Pagina dichiusura del LIM
+\closingpage
+
+\end{document}
+
+
+ 

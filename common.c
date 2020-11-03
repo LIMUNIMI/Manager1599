@@ -12,7 +12,7 @@ char* file_name;
 int validate(xmlDocPtr doc){
     
     xmlValidCtxtPtr ctxt=xmlNewValidCtxt();
-    xmlDtdPtr dtd = xmlParseDTD(NULL,(const xmlChar*) "File/ieee1599.dtd");
+    xmlDtdPtr dtd = xmlParseDTD(NULL,(const xmlChar*) "File/DTD/ieee1599.dtd");
     int res=xmlValidateDtd(ctxt,doc,dtd);
     
     return res;

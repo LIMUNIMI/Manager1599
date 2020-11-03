@@ -165,7 +165,8 @@ ornament loadOrnamentValue(xmlNodePtr cur){
                 value.tremolo.end_event_ref=xmlGetProp(cur,attributes->name);
             }
             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"tremolo_lines")){
-                value.tremolo.tremolo_lines=xmlCharToInt(xmlGetProp(cur,attributes->name));                
+		if(xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"no"))
+                	value.tremolo.tremolo_lines=xmlCharToInt(xmlGetProp(cur,attributes->name));                
             }
             attributes=attributes->next;
         }
@@ -1706,6 +1707,9 @@ struct duration loadDurationValue(xmlNodePtr cur){
                 }
                 attributes=attributes->next;
             }
+		
+            //read tuplet_ratio 
+
             tuplet_ratio_temp->next_tuplet_ratio=NULL;
             if(tuplet_ratio_head==NULL){
                 tuplet_ratio_head=tuplet_ratio_temp;
