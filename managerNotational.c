@@ -89,7 +89,7 @@ void loadGraphicInstanceGroup(){
 
 struct graphic_instance* loadGraphicInstance(xmlNodePtr cur){
     struct graphic_instance* value=(struct graphic_instance*)malloc(sizeof(struct graphic_instance));
-    value=calloc(1, sizeof(struct graphic_instance*));
+    value=calloc(1, sizeof(struct graphic_instance));
     xmlAttr* attributes;
 
     struct graphic_event* graphic_event_temp=NULL;
@@ -126,7 +126,7 @@ struct graphic_instance* loadGraphicInstance(xmlNodePtr cur){
     while(cur!=NULL){
         if(!xmlStrcmp(cur->name,(const xmlChar*)"graphic_event")){
             graphic_event_temp=(struct graphic_event*)malloc(sizeof(struct graphic_event));
-            graphic_event_temp=calloc(1, sizeof(struct graphic_event*));
+            graphic_event_temp=calloc(1, sizeof(struct graphic_event));
 
             attributes=cur->properties;
             while(attributes!=NULL){

@@ -9,12 +9,15 @@ xmlChar *docname;
 xmlDocPtr doc;
 char* file_name;
 
-int validate(xmlDocPtr doc){
-    
-    xmlValidCtxtPtr ctxt=xmlNewValidCtxt();
-    xmlDtdPtr dtd = xmlParseDTD(NULL,(const xmlChar*) "File/DTD/ieee1599.dtd");
-    int res=xmlValidateDtd(ctxt,doc,dtd);
-    
+int validate(xmlDocPtr doc) {
+
+    int res = 0;
+    xmlValidCtxtPtr ctxt = xmlNewValidCtxt();
+    xmlNodePtr dtd= xmlParseDTD(NULL, (const xmlChar*)"./File/DTD/ieee1599.dtd");
+    if (dtd == NULL)
+        fprintf(stderr, "Cant't load DTD\n");
+    else
+        res=xmlValidateDtd(ctxt,doc,dtd);
     return res;
 }
 
@@ -51,13 +54,13 @@ xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath){
 
     context=xmlXPathNewContext(doc);
     if(context==NULL){
-        fprintf(stderr,"Error in xmlXPathNewContext - getNodeset\n");
+       fprintf(stderr,"Error in xmlXPathNewContext - getNodeset\n");
         return NULL;
     }
     result=xmlXPathEvalExpression(xpath, context);
     xmlXPathFreeContext(context);
     if(result==NULL){
-        fprintf(stderr,"Error in xpath evaluation - getNodeset\n");
+       fprintf(stderr,"Error in xpath evaluation - getNodeset\n");
         return NULL;
     }
 
@@ -72,7 +75,7 @@ char* concat(const char* s1, const char* s2)
     // in real code you would check for errors in malloc here
     if (result != 0){
         strcpy(result,s1);
-    strcat(result,s2);
+        strcat(result,s2);
     }
 
     return result;
@@ -84,7 +87,7 @@ int xmlCharToInt(xmlChar* string){
 
     for(int i=xmlStrlen(string)-1;i>=0;i--){
         if (string[i]>='0'&&string[i]<='9'){
-            value+=pow(10,xmlStrlen(string)-1-i)*((int)string[i]-48);
+            value+=(int)pow(10,xmlStrlen(string)-(int)1-i)*((int)string[i]-(int)48);
         }
         else{error=1;}
     }
