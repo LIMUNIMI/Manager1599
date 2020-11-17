@@ -20,7 +20,7 @@
 
 <!ENTITY % ChannelRequired "#REQUIRED">
 
-<!ENTITY % midixml SYSTEM "midixml.dtd" >
+<!ENTITY % midixml SYSTEM "MIDIEvents10.dtd" >
 %midixml;
 
 
