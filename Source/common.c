@@ -83,18 +83,18 @@ char* concat(const char* s1, const char* s2)
 
 int xmlCharToInt(xmlChar* string){
     int value=0;
-    int error=0;
+    
+    if(string!=NULL)
+        value = atoi((const char*)string);//return 0 if not valid string
 
-    for(int i=xmlStrlen(string)-1;i>=0;i--){
-        if (string[i]>='0'&&string[i]<='9'){
-            value+=(int)pow(10,xmlStrlen(string)-(int)1-i)*((int)string[i]-(int)48);
-        }
-        else{error=1;}
-    }
-    if(error){
-        value=-1;
-        fprintf(stderr,"Can't convert string '%s' to integer\n",string);
-    }
+    return value;
+}
+
+double xmlCharToDouble(xmlChar* string){
+    double value = 0;
+    
+    if (string != NULL)
+        value = atof((const char*)string);// retrun 0 if not valid string
 
     return value;
 }
