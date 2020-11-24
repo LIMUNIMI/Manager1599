@@ -1,6 +1,6 @@
 #Tutorial Compilazione Libreria C/C++ in Visual Studio 2019
 
-Impostare il progetto di lavoro come descritto nella guida di installazione e seguire e seguire la seguente procedura:
+Impostare il progetto di lavoro come descritto nel file * *Tutorial Installazione Libreria* *. Fatto ciò, seguire la seguente procedura:
 
 1. Nelle Proprietá di configurazone del progetto:
   - In `Proprietà di configurazione > Generale > Tipo di configurazione` scegliere * *Libreria dinamica (.dll)* *.
