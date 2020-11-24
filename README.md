@@ -13,6 +13,7 @@ Una libreria C per il caricamento e la manipolazione di documenti IEEE 1599
 
 1. Installare **dirent** con **NuGet**.
 2. Scaricare le cartelle * *Libraries* * e * *DLL* *. Spostare il contenuto della seconda cartella nella root direcotry del progetto, insieme ai file sorgente.
+     - Libraries contiene le librerie **libxml2**, **iconv** e **zlib1**. I file nella cartella * *DLL* * sono gli stessi contenuti nelle loro cartelle * *bin* *.
 3. Scaricare la cartella * *File* e spostarla nella root directory del progetto, insieme ai file sorgente.
 4. Scaricare le cartelle * *Source* * e * *Header* * e posizionare i file al loro interno nella root directory del progetto.
 
