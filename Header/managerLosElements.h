@@ -199,6 +199,8 @@ struct key{
 };
 
 struct tuplet_ratio{//(tuplet_ratio)
+    int n_tuplet_ratios;
+
     int enter_num;//REQUIRED
     int enter_den;//REQUIRED
     int enter_dots;
@@ -212,7 +214,6 @@ struct tuplet_ratio{//(tuplet_ratio)
 };
 
 struct duration{
-    int n_tuplet_ratios;
     
     int num;//REQUIRED
     int den;//REQUIRED
@@ -646,6 +647,7 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur);
 struct duration loadDurationValue(xmlNodePtr cur);
 struct key* loadKeyValue(xmlNodePtr cur);
 struct articulation* loadArticulationValue(xmlNodePtr cur);
+struct tuplet_ratio* loadTupletRatio(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

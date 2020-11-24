@@ -134,21 +134,17 @@ struct graphic_instance* loadGraphicInstance(xmlNodePtr cur){
                     if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
                         graphic_event_temp->event_ref = xmlGetProp(cur, attributes->name);
                     }
-                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"upper_left_x")) {
-                        //graphic_event_temp->upper_left_x=xmlCharToInt(xmlGetProp(cur,attributes->name));   
-                        graphic_event_temp->upper_left_x = xmlGetProp(cur, attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"upper_left_x")) { 
+                        graphic_event_temp->upper_left_x = xmlCharToDouble(xmlGetProp(cur, attributes->name));
                     }
                     else if (!xmlStrcmp(attributes->name, (const xmlChar*)"upper_left_y")) {
-                        //graphic_event_temp->upper_left_y=xmlCharToInt(xmlGetProp(cur,attributes->name)); 
-                        graphic_event_temp->upper_left_y = xmlGetProp(cur, attributes->name);
+                        graphic_event_temp->upper_left_y = xmlCharToDouble(xmlGetProp(cur, attributes->name));
                     }
-                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"lower_right_x")) {
-                        //graphic_event_temp->lower_right_x=xmlCharToInt(xmlGetProp(cur,attributes->name));   
-                        graphic_event_temp->lower_right_x = xmlGetProp(cur, attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"lower_right_x")) {  
+                        graphic_event_temp->lower_right_x = xmlCharToDouble(xmlGetProp(cur, attributes->name));
                     }
-                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"lower_right_y")) {
-                        //graphic_event_temp->lower_right_y=xmlCharToInt(xmlGetProp(cur,attributes->name));   
-                        graphic_event_temp->lower_right_y = xmlGetProp(cur, attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"lower_right_y")) {  
+                        graphic_event_temp->lower_right_y = xmlCharToDouble(xmlGetProp(cur, attributes->name));
                     }
                     else if (!xmlStrcmp(attributes->name, (const xmlChar*)"highlight_color")) {
                         graphic_event_temp->highlight_color = xmlGetProp(cur, attributes->name);
@@ -301,10 +297,10 @@ struct notation_instance* loadNotationInstance(xmlNodePtr cur){
                             notation_event_temp->event_ref = xmlGetProp(cur, attributes->name);
                         }
                         else if (!xmlStrcmp(attributes->name, (const xmlChar*)"start_position")) {
-                            notation_event_temp->start_position = xmlGetProp(cur, attributes->name);
+                            notation_event_temp->start_position = xmlCharToDouble(xmlGetProp(cur, attributes->name));
                         }
                         else if (!xmlStrcmp(attributes->name, (const xmlChar*)"end_position")) {
-                            notation_event_temp->end_position = xmlGetProp(cur, attributes->name);
+                            notation_event_temp->end_position = xmlCharToDouble(xmlGetProp(cur, attributes->name));
                         }
                         else if (!xmlStrcmp(attributes->name, (const xmlChar*)"description")) {
                             notation_event_temp->description = xmlGetProp(cur, attributes->name);

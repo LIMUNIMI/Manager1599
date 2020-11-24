@@ -1749,7 +1749,6 @@ struct duration loadDurationValue(xmlNodePtr cur){
         struct tuplet_ratio* tuplet_ratio_temp = NULL;
         struct tuplet_ratio* tuplet_ratio_head = NULL;
         struct tuplet_ratio* tuplet_ratio_p = NULL;
-        value->n_tuplet_ratios = 0;
 
         attributes = cur->properties;
         while (attributes != NULL) {
@@ -1791,6 +1790,72 @@ struct duration loadDurationValue(xmlNodePtr cur){
                         attributes = attributes->next;
                     }
 
+                    tuplet_ratio_temp->tuplet_ratio = loadTupletRatio(temp_cur);
+
+                    tuplet_ratio_temp->next_tuplet_ratio = NULL;
+                    tuplet_ratio_head = tuplet_ratio_temp;
+
+                    temp_cur = temp_cur->next;
+                }
+                else {}
+            }
+            else {
+                temp_cur = temp_cur->next;
+            }
+        }
+        value->tuplet_ratio = tuplet_ratio_head;
+    }
+    else {}
+    
+    return (value ? (*value) : ((struct duration){0,0,0}));
+}
+
+struct tuplet_ratio* loadTupletRatio(xmlNodePtr cur) {
+
+    struct tuplet_ratio* value = (struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
+    value = calloc(1, sizeof(struct tuplet_ratio));
+    xmlAttr* attributes;
+    xmlNodePtr temp_cur;
+
+    if (value) {
+        struct tuplet_ratio* tuplet_ratio_temp = NULL;
+        struct tuplet_ratio* tuplet_ratio_head = NULL;
+        struct tuplet_ratio* tuplet_ratio_p = NULL;
+        value->n_tuplet_ratios = 0;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"enter_num")) {
+                value->enter_num = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"enter_den")) {
+                value->enter_den = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"enter_dots")) {
+                value->enter_dots = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"in_num")) {
+                value->in_num = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"in_den")) {
+                value->in_den = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"in_dots")) {
+                value->in_dots = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            attributes = attributes->next;
+        }
+
+        temp_cur = cur->xmlChildrenNode;
+        while (temp_cur != NULL) {
+            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tuplet_ratio")) {
+                tuplet_ratio_temp = (struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
+                tuplet_ratio_temp = calloc(1, sizeof(struct tuplet_ratio));
+
+                tuplet_ratio_temp = loadTupletRatio(temp_cur);
+                if (tuplet_ratio_temp) {
+                    tuplet_ratio_temp->next_tuplet_ratio = NULL;
+                    tuplet_ratio_head = tuplet_ratio_temp;
                     tuplet_ratio_temp->next_tuplet_ratio = NULL;
                     if (tuplet_ratio_head == NULL) {
                         tuplet_ratio_head = tuplet_ratio_temp;
@@ -1802,7 +1867,7 @@ struct duration loadDurationValue(xmlNodePtr cur){
                         tuplet_ratio_p->next_tuplet_ratio = tuplet_ratio_temp;
                     }
                     value->n_tuplet_ratios++;
-                    temp_cur = temp_cur->xmlChildrenNode;//read tuplet_ratio recursive
+                    temp_cur = temp_cur->next;
                 }
                 else {}
             }
@@ -1811,11 +1876,11 @@ struct duration loadDurationValue(xmlNodePtr cur){
             }
         }
         value->tuplet_ratio = tuplet_ratio_head;
-
     }
     else {}
-    
-    return (value ? (*value) : ((struct duration){0,0,0}));
+
+    return value;
+
 }
 
 struct key* loadKeyValue(xmlNodePtr cur){

@@ -67,9 +67,9 @@ extern "C" {
 //Track Indexing
     struct track_event{
         xmlChar* start_time;//REQUIRED
-	xmlChar* end_time;
+	    xmlChar* end_time;
         xmlChar* event_ref;
- 	xmlChar* description;
+ 	    xmlChar* description;
         
         struct track_event* next_track_event;
     };

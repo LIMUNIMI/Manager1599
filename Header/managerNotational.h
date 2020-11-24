@@ -23,10 +23,10 @@ extern "C" {
 //Graphic Instance Group
     struct graphic_event{
         xmlChar* event_ref;
-        xmlChar* upper_left_x;//REQUIRED
-        xmlChar* upper_left_y;//REQUIRED
-        xmlChar* lower_right_x;//REQUIRED
-        xmlChar* lower_right_y;//REQUIRED
+        double upper_left_x;//REQUIRED
+        double upper_left_y;//REQUIRED
+        double lower_right_x;//REQUIRED
+        double lower_right_y;//REQUIRED
         xmlChar* highlight_color;
         xmlChar* description;
 
@@ -62,8 +62,8 @@ extern "C" {
 //Notation Instance Group
     struct notation_event{
         xmlChar* event_ref;
-        xmlChar* start_position;//REQUIRED
-        xmlChar* end_position;//REQUIRED
+        double start_position;//REQUIRED
+        double end_position;//REQUIRED
         xmlChar* description;
 
         struct notation_event* next_notation_event;
