@@ -50,19 +50,19 @@ Per non dover copiare manualmente i file necessari al funzionamento della librer
         `
         echo Packing library files...
 
-        mkdir "..\managerieee1599\bin"
+        mkdir "..\Library\managerieee1599\bin"
 
-        mkdir "..\managerieee1599\lib"
+        mkdir "..\Library\managerieee1599\lib"
 
-        mkdir "..\managerieee1599\include"
-
-
-        copy "..\Debug\*.dll" "..\managerieee1599\bin"
-
-        copy "..\Debug\*.lib" "..\managerieee1599\lib"
-
-        copy "*.h" "..\managerieee1599\include"
+        mkdir "..\Library\managerieee1599\include"
 
 
-        copy  "..\managerieee1599\bin\*.dll" $PATH_NEW_PROJECT
+        copy "..\Debug\*.dll" "..\Library\managerieee1599\bin"
+
+        copy "..\Debug\*.lib" "..\Library\managerieee1599\lib"
+
+        copy "*.h" "..\Library\managerieee1599\include"
+
+
+        copy  "..\Library\managerieee1599\bin\*.dll" $PATH_NEW_PROJECT
         `
