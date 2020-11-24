@@ -549,6 +549,7 @@ typedef union{
     struct fine fine;
     struct multiple_endings multiple_endings;
     struct custom_hsymbol custom_hsymbol;    
+    int empty;
 }horizontal_symbol;
 //Horizontal Symbols END
 
@@ -624,6 +625,7 @@ typedef union{
     struct tremolo tremolo;
     struct trill trill;
     struct turn turn;
+    int empty;
 }ornament;
 //Ornaments END
 

@@ -39,10 +39,12 @@ struct ieee1599{
     struct audio audio_layer;
 };
 
-extern struct ieee1599 ieee1599_document;
+extern struct ieee1599 ieee1599_root;
 
-void loadDocument();
-void printDocument();
+MANAGERIEEE1599_API void loadDocument();
+MANAGERIEEE1599_API void printDocument();
+
+MANAGERIEEE1599_API struct ieee1599 getIEEE1599Root();
 
 #ifdef __cplusplus
 }

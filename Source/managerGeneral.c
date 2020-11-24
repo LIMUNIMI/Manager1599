@@ -81,64 +81,76 @@ void loadDescription(){
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"author")){
                 author_temp=(struct author*)malloc(sizeof(struct author));
                 author_temp=calloc(1,sizeof(struct author));
-                attributes=cur->properties;
-                author_temp->name=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
-                        author_temp->type=xmlGetProp(cur,attributes->name);
+
+                if (author_temp) {
+                    attributes = cur->properties;
+                    author_temp->name = xmlNodeListGetString(doc, cur->xmlChildrenNode, 1);
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"type")) {
+                            author_temp->type = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
                     }
-                    attributes=attributes->next;
+                    author_temp->next_author = NULL;
+                    if (author_head == NULL) {
+                        author_head = author_temp;
+                    }
+                    else {
+                        author_p = author_head;
+                        while (author_p->next_author != NULL)
+                            author_p = author_p->next_author;
+                        author_p->next_author = author_temp;
+                    }
+                    general_layer.description.n_authors++;
                 }
-                author_temp->next_author=NULL;
-                if(author_head==NULL){
-                    author_head=author_temp;
-                }
-                else{
-                    author_p=author_head;
-                    while(author_p->next_author!=NULL)
-                        author_p=author_p->next_author;
-                    author_p->next_author=author_temp;
-                }
-                general_layer.description.n_authors++;
+                else {}
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"other_title")){
                 other_title_temp=(struct other_title*)malloc(sizeof(struct other_title));
                 other_title_temp=calloc(1,sizeof(struct other_title));
-                other_title_temp->title_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
-                other_title_temp->next_title=NULL;
-                if(other_title_head==NULL){
-                    other_title_head=other_title_temp;
+
+                if (other_title_temp) {
+                    other_title_temp->title_value = xmlNodeListGetString(doc, cur->xmlChildrenNode, 1);
+                    other_title_temp->next_title = NULL;
+                    if (other_title_head == NULL) {
+                        other_title_head = other_title_temp;
+                    }
+                    else {
+                        other_title_p = other_title_head;
+                        while (other_title_p->next_title != NULL)
+                            other_title_p = other_title_p->next_title;
+                        other_title_p->next_title = other_title_temp;
+                    }
+                    general_layer.description.n_other_titles++;
                 }
-                else{
-                    other_title_p=other_title_head;
-                    while(other_title_p->next_title!=NULL)
-                        other_title_p=other_title_p->next_title;
-                    other_title_p->next_title=other_title_temp;
-                }
-                general_layer.description.n_other_titles++;
+                else {}
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"date")){
                 date_temp=(struct date*)malloc(sizeof(struct date));
                 date_temp=calloc(1,sizeof(struct date));
-                attributes=cur->properties;
-                date_temp->date_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
-                        date_temp->type=xmlGetProp(cur,attributes->name);
+
+                if (date_temp) {
+                    attributes = cur->properties;
+                    date_temp->date_value = xmlNodeListGetString(doc, cur->xmlChildrenNode, 1);
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"type")) {
+                            date_temp->type = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
                     }
-                    attributes=attributes->next;
+                    date_temp->next_date = NULL;
+                    if (date_head == NULL) {
+                        date_head = date_temp;
+                    }
+                    else {
+                        date_p = date_head;
+                        while (date_p->next_date != NULL)
+                            date_p = date_p->next_date;
+                        date_p->next_date = date_temp;
+                    }
+                    general_layer.description.n_dates++;
                 }
-                date_temp->next_date=NULL;
-                if(date_head==NULL){
-                    date_head=date_temp;
-                }
-                else{
-                    date_p=date_head;
-                    while(date_p->next_date!=NULL)
-                        date_p=date_p->next_date;
-                    date_p->next_date=date_temp;
-                }
-                general_layer.description.n_dates++;
+                else {}
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"genres")){
                 temp_cur=cur;
@@ -168,11 +180,11 @@ void loadDescription(){
             }
             cur=cur->next;
         }
-        general_layer.description.authors=author_head;
-        general_layer.description.other_titles=other_title_head;
-        general_layer.description.dates=date_head;
-        general_layer.description.genres=genre_head;
     }
+    general_layer.description.authors = author_head;
+    general_layer.description.other_titles = other_title_head;
+    general_layer.description.dates = date_head;
+    general_layer.description.genres = genre_head;
 }
 
 void printDescription(){
@@ -238,57 +250,60 @@ void loadRelatedFiles(){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){
             cur=nodeset->nodeTab[i];
-            if(!xmlStrcmp(cur->name,(const xmlChar*)"related_file")){
-                temp=(struct related_file*)malloc(sizeof(struct related_file));
-                temp=calloc(1,sizeof(struct related_file));
-                attributes=cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
-                        temp->file_name=xmlGetProp(cur,attributes->name); 
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"related_file")) {
+                temp = (struct related_file*)malloc(sizeof(struct related_file));
+                temp = calloc(1, sizeof(struct related_file));
+
+                if(temp){
+                attributes = cur->properties;
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"file_name")) {
+                        temp->file_name = xmlGetProp(cur, attributes->name);
                     }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_format")){
-                        temp->file_format=xmlGetProp(cur,attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"file_format")) {
+                        temp->file_format = xmlGetProp(cur, attributes->name);
 
                     }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"encoding_format")){
-                        temp->encoding_format=xmlGetProp(cur,attributes->name);
-
-                    }                   
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-                        temp->description=xmlGetProp(cur,attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"encoding_format")) {
+                        temp->encoding_format = xmlGetProp(cur, attributes->name);
 
                     }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"copyright")){
-                        temp->copyright=xmlGetProp(cur,attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"description")) {
+                        temp->description = xmlGetProp(cur, attributes->name);
 
                     }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
- 
-                    }  
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                        temp->start_event_ref=xmlGetProp(cur,attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"copyright")) {
+                        temp->copyright = xmlGetProp(cur, attributes->name);
+
                     }
-                     else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                        temp->end_event_ref=xmlGetProp(cur,attributes->name);
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"notes")) {
+                        temp->notes = xmlGetProp(cur, attributes->name);
+
                     }
-                    attributes=attributes->next;                     
-                }  
-                temp->next_file=NULL;
-                if(head==NULL){
-                    head=temp;
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"start_event_ref")) {
+                        temp->start_event_ref = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"end_event_ref")) {
+                        temp->end_event_ref = xmlGetProp(cur, attributes->name);
+                    }
+                    attributes = attributes->next;
                 }
-                else{
-                    p=head;
-                    while(p->next_file!=NULL)
-                        p=p->next_file;
-                    p->next_file=temp;
+                temp->next_file = NULL;
+                if (head == NULL) {
+                    head = temp;
+                }
+                else {
+                    p = head;
+                    while (p->next_file != NULL)
+                        p = p->next_file;
+                    p->next_file = temp;
                 }
                 general_layer.n_related_files++;
             }
+            }
         }
-        general_layer.related_files=head;
     }   
+    general_layer.related_files = head;
 }
 
 void printRelatedFiles(){
@@ -328,34 +343,38 @@ void loadAnalogMedia(){
             if(!xmlStrcmp(cur->name,(const xmlChar*)"analog_media")){
                 temp=(struct  analog_medium*)malloc(sizeof(struct analog_medium));
                 temp=calloc(1,sizeof(struct analog_medium));
-                attributes=cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-                        temp->description=xmlGetProp(cur,attributes->name);
+
+                if (temp) {
+                    attributes = cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"description")) {
+                            temp->description = xmlGetProp(cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"copyright")) {
+                            temp->copyright = xmlGetProp(cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"notes")) {
+                            temp->notes = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
                     }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"copyright")){
-                        temp->copyright=xmlGetProp(cur,attributes->name);
+                    temp->next_medium = NULL;
+                    if (head == NULL) {
+                        head = temp;
                     }
-                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notes")){
-                        temp->notes=xmlGetProp(cur,attributes->name);
+                    else {
+                        p = head;
+                        while (p->next_medium != NULL)
+                            p = p->next_medium;
+                        p->next_medium = temp;
                     }
-                    attributes=attributes->next;
+                    general_layer.n_analog_media++;
                 }
-                temp->next_medium=NULL;
-                if(head==NULL){
-                    head=temp;
-                }
-                else{
-                    p=head;
-                    while(p->next_medium!=NULL)
-                        p=p->next_medium;
-                    p->next_medium=temp;
-                }
-                general_layer.n_analog_media++;
+                else {}
             }
         }
-        general_layer.analog_media=head;
-    }       
+    }   
+    general_layer.analog_media = head;
 }
 
 void printAnalogMedia(){

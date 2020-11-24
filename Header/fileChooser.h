@@ -24,13 +24,13 @@ extern "C" {
 
     extern char* rootFolderPath;
     
-    void setRootFolderPath(char* path);
-    char* getRootFolderPath();
-    char* chooseFile();
-    int showFiles();
+    MANAGERIEEE1599_API void setRootFolderPath(char* path);
+    MANAGERIEEE1599_API char* getRootFolderPath();
+    MANAGERIEEE1599_API char* chooseFile();
+    MANAGERIEEE1599_API int showFiles();
+    MANAGERIEEE1599_API const char* getExtension(const char *file_name);
     char* readFileName(int choice);
-    const char* getExtension(const char *file_name);
-    
+
 #ifdef __cplusplus
 }
 #endif

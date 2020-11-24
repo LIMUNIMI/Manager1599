@@ -259,15 +259,15 @@ struct logic{
 
 
 //Prototypes
-struct logic loadLogic();
-void loadSpine();
-void loadLos();
-void loadLayout();
+MANAGERIEEE1599_API struct logic loadLogic();
+MANAGERIEEE1599_API void loadSpine();
+MANAGERIEEE1599_API void loadLos();
+MANAGERIEEE1599_API void loadLayout();
     
-void printLogic();
-void printSpine();
-void printLos();
-void printLayout();
+MANAGERIEEE1599_API void printLogic();
+MANAGERIEEE1599_API void printSpine();
+MANAGERIEEE1599_API void printLos();
+MANAGERIEEE1599_API void printLayout();
 
 #ifdef __cplusplus
 }

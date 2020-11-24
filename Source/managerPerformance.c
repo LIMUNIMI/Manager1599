@@ -91,8 +91,8 @@ void loadMidiInstance(){
             }
             performance_layer.n_midi_instances++;
         }
-        performance_layer.midi_instance=midi_instance_head;
     }	
+    performance_layer.midi_instance = midi_instance_head;
 }
 
 struct midi_mapping* loadMidiMapping(xmlNodePtr cur){
@@ -100,52 +100,55 @@ struct midi_mapping* loadMidiMapping(xmlNodePtr cur){
     value=calloc(1,sizeof(struct midi_mapping));
     xmlAttr* attributes;
 
-    struct midi_event_sequence* midi_event_sequence_temp=NULL;
-    struct midi_event_sequence* midi_event_sequence_head=NULL;
-    struct midi_event_sequence* midi_event_sequence_p=NULL;
-    value->n_midi_event_sequences=0;
+    if (value) {
+        struct midi_event_sequence* midi_event_sequence_temp = NULL;
+        struct midi_event_sequence* midi_event_sequence_head = NULL;
+        struct midi_event_sequence* midi_event_sequence_p = NULL;
+        value->n_midi_event_sequences = 0;
 
-    value->next_midi_mapping=NULL;
+        value->next_midi_mapping = NULL;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"part_ref")){
-            value->part_ref=xmlGetProp(cur,attributes->name);
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"part_ref")){
-            value->part_ref =xmlGetProp(cur,attributes->name);   
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"track")){
-            value->track=xmlGetProp(cur,attributes->name);        
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"channel")){
-            value->channel=xmlGetProp(cur,attributes->name);        
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"midi_event_sequence")){
-            midi_event_sequence_temp=(struct midi_event_sequence*)malloc(sizeof(struct midi_event_sequence));
-            midi_event_sequence_temp=calloc(1, sizeof(struct midi_event_sequence*));
-
-            midi_event_sequence_temp=loadMidiEventSequence(cur); 
-                        
-            midi_event_sequence_temp->next_midi_event_sequence=NULL;
-            if(midi_event_sequence_head==NULL)
-                midi_event_sequence_head=midi_event_sequence_temp;
-            else{
-                midi_event_sequence_p=midi_event_sequence_head;
-                while(midi_event_sequence_p->next_midi_event_sequence!=NULL)
-                    midi_event_sequence_p=midi_event_sequence_p->next_midi_event_sequence;
-                midi_event_sequence_p->next_midi_event_sequence=midi_event_sequence_temp;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"part_ref")) {
+                value->part_ref = xmlGetProp(cur, attributes->name);
             }
-            value->n_midi_event_sequences++;
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"part_ref")) {
+                value->part_ref = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"track")) {
+                value->track = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"channel")) {
+                value->channel = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        cur=cur->next;
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"midi_event_sequence")) {
+                midi_event_sequence_temp = (struct midi_event_sequence*)malloc(sizeof(struct midi_event_sequence));
+                midi_event_sequence_temp = calloc(1, sizeof(struct midi_event_sequence));
+
+                midi_event_sequence_temp = loadMidiEventSequence(cur);
+
+                midi_event_sequence_temp->next_midi_event_sequence = NULL;
+                if (midi_event_sequence_head == NULL)
+                    midi_event_sequence_head = midi_event_sequence_temp;
+                else {
+                    midi_event_sequence_p = midi_event_sequence_head;
+                    while (midi_event_sequence_p->next_midi_event_sequence != NULL)
+                        midi_event_sequence_p = midi_event_sequence_p->next_midi_event_sequence;
+                    midi_event_sequence_p->next_midi_event_sequence = midi_event_sequence_temp;
+                }
+                value->n_midi_event_sequences++;
+            }
+            cur = cur->next;
+        }
+        value->midi_event_sequences = midi_event_sequence_head;
     }
-    value->midi_event_sequences=midi_event_sequence_head;
+    else {}
     
     return value;
 }
@@ -155,95 +158,102 @@ struct midi_event_sequence* loadMidiEventSequence(xmlNodePtr cur){
     value=calloc(1,sizeof(struct midi_event_sequence));
     xmlAttr* attributes;
 
-    struct midi_event* midi_event_temp=NULL;
-    struct midi_event* midi_event_head=NULL;
-    struct midi_event* midi_event_p=NULL;
-    value->n_midi_events=0;
-    
-    struct sys_ex* sys_ex_temp=NULL;
-    struct sys_ex* sys_ex_head=NULL;
-    struct sys_ex* sys_ex_p=NULL;
-    value->n_sys_exs=0;
+    if (value) {
+        struct midi_event* midi_event_temp = NULL;
+        struct midi_event* midi_event_head = NULL;
+        struct midi_event* midi_event_p = NULL;
+        value->n_midi_events = 0;
 
-    value->next_midi_event_sequence=NULL;
+        struct sys_ex* sys_ex_temp = NULL;
+        struct sys_ex* sys_ex_head = NULL;
+        struct sys_ex* sys_ex_p = NULL;
+        value->n_sys_exs = 0;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"division_type")){
-            value->division_type=xmlGetProp(cur,attributes->name);
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"division_value")){
-            value->division_value =xmlGetProp(cur,attributes->name);   
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"measurement_unit")){
-            value->measurement_unit=xmlGetProp(cur,attributes->name);        
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"midi_event")){
-            midi_event_temp=(struct midi_event*)malloc(sizeof(struct midi_event));
-            midi_event_temp=calloc(1, sizeof(struct midi_event*));
+        value->next_midi_event_sequence = NULL;
 
-            midi_event_temp=loadMidiEvent(cur); 
-                        
-            midi_event_temp->next_midi_event=NULL;
-            if(midi_event_head==NULL)
-                midi_event_head=midi_event_temp;
-            else{
-                midi_event_p=midi_event_head;
-                while(midi_event_p->next_midi_event!=NULL)
-                    midi_event_p=midi_event_p->next_midi_event;
-                midi_event_p->next_midi_event=midi_event_temp;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"division_type")) {
+                value->division_type = xmlGetProp(cur, attributes->name);
             }
-            value->n_midi_events++;
-        }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"sys_ex")){
-            sys_ex_temp=(struct sys_ex*)malloc(sizeof(struct sys_ex));
-            sys_ex_temp=calloc(1, sizeof(struct sys_ex*));
-
-            sys_ex_temp=loadSysEx(cur); 
-                        
-            sys_ex_temp->next_sys_ex=NULL;
-            if(sys_ex_head==NULL)
-                sys_ex_head=sys_ex_temp;
-            else{
-                sys_ex_p=sys_ex_head;
-                while(sys_ex_p->next_sys_ex!=NULL)
-                    sys_ex_p=sys_ex_p->next_sys_ex;
-                sys_ex_p->next_sys_ex=sys_ex_temp;
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"division_value")) {
+                value->division_value = xmlGetProp(cur, attributes->name);
             }
-            value->n_sys_exs++;
-        }  
-        cur=cur->next;
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"measurement_unit")) {
+                value->measurement_unit = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
+        }
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"midi_event")) {
+                midi_event_temp = (struct midi_event*)malloc(sizeof(struct midi_event));
+                midi_event_temp = calloc(1, sizeof(struct midi_event));
+
+                midi_event_temp = loadMidiEvent(cur);
+
+                midi_event_temp->next_midi_event = NULL;
+                if (midi_event_head == NULL)
+                    midi_event_head = midi_event_temp;
+                else {
+                    midi_event_p = midi_event_head;
+                    while (midi_event_p->next_midi_event != NULL)
+                        midi_event_p = midi_event_p->next_midi_event;
+                    midi_event_p->next_midi_event = midi_event_temp;
+                }
+                value->n_midi_events++;
+            }
+            else if (!xmlStrcmp(cur->name, (const xmlChar*)"sys_ex")) {
+                sys_ex_temp = (struct sys_ex*)malloc(sizeof(struct sys_ex));
+                sys_ex_temp = calloc(1, sizeof(struct sys_ex));
+
+                sys_ex_temp = loadSysEx(cur);
+
+                sys_ex_temp->next_sys_ex = NULL;
+                if (sys_ex_head == NULL)
+                    sys_ex_head = sys_ex_temp;
+                else {
+                    sys_ex_p = sys_ex_head;
+                    while (sys_ex_p->next_sys_ex != NULL)
+                        sys_ex_p = sys_ex_p->next_sys_ex;
+                    sys_ex_p->next_sys_ex = sys_ex_temp;
+                }
+                value->n_sys_exs++;
+            }
+            cur = cur->next;
+        }
+        value->midi_events = midi_event_head;
+        value->sys_exs = sys_ex_head;
     }
-    value->midi_events=midi_event_head;
-    value->sys_exs=sys_ex_head;
+    else {}
     
     return value;
 }
 
-struct midi_event* loadMidiEvent(xmlNodePtr cur){
-    struct midi_event* value=(struct midi_event*)malloc(sizeof(struct midi_event));
-    value=calloc(1,sizeof(struct midi_event));
+struct midi_event* loadMidiEvent(xmlNodePtr cur) {
+    struct midi_event* value = (struct midi_event*)malloc(sizeof(struct midi_event));
+    value = calloc(1, sizeof(struct midi_event));
     xmlAttr* attributes;
-    
-    value->next_midi_event=NULL;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"timing")){
-            value->timing=xmlGetProp(cur,attributes->name);
+    if (value) {
+        value->next_midi_event = NULL;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"timing")) {
+                value->timing = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                value->event_ref = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-            value->event_ref =xmlGetProp(cur,attributes->name);   
-        }
-        attributes=attributes->next;
+
+        //loading (%MIDIChannelMessage;)*
+
     }
-    
-    //caricamento (%MIDIChannelMessage;)*
+    else {}
     
     return value;
 }
@@ -253,18 +263,21 @@ struct sys_ex* loadSysEx(xmlNodePtr cur){
     value=calloc(1,sizeof(struct sys_ex));
     xmlAttr* attributes;
     
-    value->next_sys_ex=NULL;
+    if (value) {
+        value->next_sys_ex = NULL;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-            value->event_ref =xmlGetProp(cur,attributes->name);   
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                value->event_ref = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        attributes=attributes->next;
+
+        //caricamento (SysEx)
     }
-    
-    //caricamento (SysEx)
-    
+    else {}
+
     return value;
 }
 
@@ -290,71 +303,74 @@ void loadCsoundInstance(){
             csound_instance_temp=calloc(1,sizeof(struct csound_instance));
             cur=nodeset->nodeTab[i];
 
-            //load csound_instance elements
-            struct csound_score* csound_score_temp=NULL;
-            struct csound_score* csound_score_head=NULL;
-            struct csound_score* csound_score_p=NULL;
-            csound_instance_temp->n_csound_scores=0;
-            
-            struct csound_orchestra* csound_orchestra_temp=NULL;
-            struct csound_orchestra* csound_orchestra_head=NULL;
-            struct csound_orchestra* csound_orchestra_p=NULL;
-            csound_instance_temp->n_csound_orchestras=0;
-            
-            temp_cur=cur->xmlChildrenNode;
-            while(temp_cur!=NULL){
-                if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"csound_score")){
-                    csound_score_temp=(struct csound_score*)malloc(sizeof(struct csound_score));
-                    csound_score_temp=calloc(1,sizeof(struct csound_score));
+            if (csound_instance_temp) {
+                //load csound_instance elements
+                struct csound_score* csound_score_temp = NULL;
+                struct csound_score* csound_score_head = NULL;
+                struct csound_score* csound_score_p = NULL;
+                csound_instance_temp->n_csound_scores = 0;
 
-                    csound_score_temp=loadCsoundScore(temp_cur);
-                                     
-                    csound_score_temp->next_csound_score=NULL;
-                    if(csound_score_head==NULL)
-                        csound_score_head=csound_score_temp;
-                    else{
-                        csound_score_p=csound_score_head;
-                        while(csound_score_p->next_csound_score!=NULL)
-                            csound_score_p=csound_score_p->next_csound_score;
-                        csound_score_p->next_csound_score=csound_score_temp;
-                    }
-                    csound_instance_temp->n_csound_scores++;
-                }
-                else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"csound_orchestra")){
-                    csound_orchestra_temp=(struct csound_orchestra*)malloc(sizeof(struct csound_orchestra));
-                    csound_orchestra_temp=calloc(1,sizeof(struct csound_orchestra));
+                struct csound_orchestra* csound_orchestra_temp = NULL;
+                struct csound_orchestra* csound_orchestra_head = NULL;
+                struct csound_orchestra* csound_orchestra_p = NULL;
+                csound_instance_temp->n_csound_orchestras = 0;
 
-                    csound_orchestra_temp=loadCsoundOrchestra(temp_cur);
-                                     
-                    csound_orchestra_temp->next_csound_orchestra=NULL;
-                    if(csound_orchestra_head==NULL)
-                        csound_orchestra_head=csound_orchestra_temp;
-                    else{
-                        csound_orchestra_p=csound_orchestra_head;
-                        while(csound_orchestra_p->next_csound_orchestra!=NULL)
-                            csound_orchestra_p=csound_orchestra_p->next_csound_orchestra;
-                        csound_orchestra_p->next_csound_orchestra=csound_orchestra_temp;
+                temp_cur = cur->xmlChildrenNode;
+                while (temp_cur != NULL) {
+                    if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"csound_score")) {
+                        csound_score_temp = (struct csound_score*)malloc(sizeof(struct csound_score));
+                        csound_score_temp = calloc(1, sizeof(struct csound_score));
+
+                        csound_score_temp = loadCsoundScore(temp_cur);
+
+                        csound_score_temp->next_csound_score = NULL;
+                        if (csound_score_head == NULL)
+                            csound_score_head = csound_score_temp;
+                        else {
+                            csound_score_p = csound_score_head;
+                            while (csound_score_p->next_csound_score != NULL)
+                                csound_score_p = csound_score_p->next_csound_score;
+                            csound_score_p->next_csound_score = csound_score_temp;
+                        }
+                        csound_instance_temp->n_csound_scores++;
                     }
-                    csound_instance_temp->n_csound_orchestras++;
+                    else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"csound_orchestra")) {
+                        csound_orchestra_temp = (struct csound_orchestra*)malloc(sizeof(struct csound_orchestra));
+                        csound_orchestra_temp = calloc(1, sizeof(struct csound_orchestra));
+
+                        csound_orchestra_temp = loadCsoundOrchestra(temp_cur);
+
+                        csound_orchestra_temp->next_csound_orchestra = NULL;
+                        if (csound_orchestra_head == NULL)
+                            csound_orchestra_head = csound_orchestra_temp;
+                        else {
+                            csound_orchestra_p = csound_orchestra_head;
+                            while (csound_orchestra_p->next_csound_orchestra != NULL)
+                                csound_orchestra_p = csound_orchestra_p->next_csound_orchestra;
+                            csound_orchestra_p->next_csound_orchestra = csound_orchestra_temp;
+                        }
+                        csound_instance_temp->n_csound_orchestras++;
+                    }
+                    temp_cur = temp_cur->next;
                 }
-                temp_cur=temp_cur->next;
+                csound_instance_temp->csound_scores = csound_score_head;
+                csound_instance_temp->csound_orchestras = csound_orchestra_head;
+
+                csound_instance_temp->next_csound_instance = NULL;
+                if (csound_instance_head == NULL)
+                    csound_instance_head = csound_instance_temp;
+                else {
+                    csound_instance_p = csound_instance_head;
+                    while (csound_instance_p->next_csound_instance != NULL)
+                        csound_instance_p = csound_instance_p->next_csound_instance;
+                    csound_instance_p->next_csound_instance = csound_instance_temp;
+                }
+                performance_layer.n_csound_instances++;
             }
-            csound_instance_temp->csound_scores=csound_score_head;
-            csound_instance_temp->csound_orchestras=csound_orchestra_head;
-                    
-            csound_instance_temp->next_csound_instance=NULL;
-            if(csound_instance_head==NULL)
-                csound_instance_head=csound_instance_temp;
-            else{
-                csound_instance_p=csound_instance_head;
-                while(csound_instance_p->next_csound_instance!=NULL)
-                    csound_instance_p=csound_instance_p->next_csound_instance;
-                csound_instance_p->next_csound_instance=csound_instance_temp;
-            }
-            performance_layer.n_csound_instances++;
+            else {}
         }
-        performance_layer.csound_instance=csound_instance_head;
-    }	
+    }
+    performance_layer.csound_instance = csound_instance_head;
 }
 
 struct csound_score* loadCsoundScore(xmlNodePtr cur){
@@ -362,55 +378,61 @@ struct csound_score* loadCsoundScore(xmlNodePtr cur){
     value=calloc(1,sizeof(struct csound_score));
     xmlAttr* attributes;
 
-    struct csound_spine_event* csound_spine_event_temp=NULL;
-    struct csound_spine_event* csound_spine_event_head=NULL;
-    struct csound_spine_event* csound_spine_event_p=NULL;
-    value->n_csound_spine_events=0;
+    if (value) {
+        struct csound_spine_event* csound_spine_event_temp = NULL;
+        struct csound_spine_event* csound_spine_event_head = NULL;
+        struct csound_spine_event* csound_spine_event_p = NULL;
+        value->n_csound_spine_events = 0;
 
-    value->next_csound_score=NULL;
+        value->next_csound_score = NULL;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
-            value->file_name=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"csound_spine_event")){
-            csound_spine_event_temp=(struct csound_spine_event*)malloc(sizeof(struct csound_spine_event));
-            csound_spine_event_temp=calloc(1, sizeof(struct csound_spine_event*));
-            
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"line_number")){
-                    csound_spine_event_temp->line_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    csound_spine_event_temp->event_ref=xmlGetProp(cur,attributes->name);
-                }
-                attributes=attributes->next;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"file_name")) {
+                value->file_name = xmlGetProp(cur, attributes->name);
             }
-                        
-            csound_spine_event_temp->next_csound_spine_event=NULL;
-            if(csound_spine_event_head==NULL)
-                csound_spine_event_head=csound_spine_event_temp;
-            else{
-                csound_spine_event_p=csound_spine_event_head;
-                while(csound_spine_event_p->next_csound_spine_event!=NULL)
-                    csound_spine_event_p=csound_spine_event_p->next_csound_spine_event;
-                csound_spine_event_p->next_csound_spine_event=csound_spine_event_temp;
-            }
-            value->n_csound_spine_events++;
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"rights")){
-            value->rights=loadRights(cur);
-        }  
-        cur=cur->next;
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_spine_event")) {
+                csound_spine_event_temp = (struct csound_spine_event*)malloc(sizeof(struct csound_spine_event));
+                csound_spine_event_temp = calloc(1, sizeof(struct csound_spine_event));
+
+                if (csound_spine_event_temp) {
+                    attributes = cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"line_number")) {
+                            csound_spine_event_temp->line_number = xmlCharToInt(xmlGetProp(cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                            csound_spine_event_temp->event_ref = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
+                    }
+
+                    csound_spine_event_temp->next_csound_spine_event = NULL;
+                    if (csound_spine_event_head == NULL)
+                        csound_spine_event_head = csound_spine_event_temp;
+                    else {
+                        csound_spine_event_p = csound_spine_event_head;
+                        while (csound_spine_event_p->next_csound_spine_event != NULL)
+                            csound_spine_event_p = csound_spine_event_p->next_csound_spine_event;
+                        csound_spine_event_p->next_csound_spine_event = csound_spine_event_temp;
+                    }
+                    value->n_csound_spine_events++;
+                }
+                else {}
+            }
+            else if (!xmlStrcmp(cur->name, (const xmlChar*)"rights")) {
+                value->rights = loadRights(cur);
+            }
+            cur = cur->next;
+        }
+        value->csound_spine_events = csound_spine_event_head;
     }
-    value->csound_spine_events=csound_spine_event_head;
+    else {}
     
     return value;
 }
@@ -420,46 +442,49 @@ struct csound_orchestra* loadCsoundOrchestra(xmlNodePtr cur){
     value=calloc(1,sizeof(struct csound_orchestra));
     xmlAttr* attributes;
 
-    struct csound_instrument_mapping* csound_instrument_mapping_temp=NULL;
-    struct csound_instrument_mapping* csound_instrument_mapping_head=NULL;
-    struct csound_instrument_mapping* csound_instrument_mapping_p=NULL;
-    value->n_csound_instrument_mappings=0;
+    if (value) {
+        struct csound_instrument_mapping* csound_instrument_mapping_temp = NULL;
+        struct csound_instrument_mapping* csound_instrument_mapping_head = NULL;
+        struct csound_instrument_mapping* csound_instrument_mapping_p = NULL;
+        value->n_csound_instrument_mappings = 0;
 
-    value->next_csound_orchestra=NULL;
+        value->next_csound_orchestra = NULL;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
-            value->file_name=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"csound_instrument_mapping")){
-            csound_instrument_mapping_temp=(struct csound_instrument_mapping*)malloc(sizeof(struct csound_instrument_mapping));
-            csound_instrument_mapping_temp=calloc(1, sizeof(struct csound_instrument_mapping*));
-            
-            csound_instrument_mapping_temp=loadCsoundInstrumentMapping(cur);
-                        
-            csound_instrument_mapping_temp->next_csound_instrument_mapping=NULL;
-            if(csound_instrument_mapping_head==NULL)
-                csound_instrument_mapping_head=csound_instrument_mapping_temp;
-            else{
-                csound_instrument_mapping_p=csound_instrument_mapping_head;
-                while(csound_instrument_mapping_p->next_csound_instrument_mapping!=NULL)
-                    csound_instrument_mapping_p=csound_instrument_mapping_p->next_csound_instrument_mapping;
-                csound_instrument_mapping_p->next_csound_instrument_mapping=csound_instrument_mapping_temp;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"file_name")) {
+                value->file_name = xmlGetProp(cur, attributes->name);
             }
-            value->n_csound_instrument_mappings++;
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"rights")){
-            value->rights=loadRights(cur);
-        }  
-        cur=cur->next;
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_instrument_mapping")) {
+                csound_instrument_mapping_temp = (struct csound_instrument_mapping*)malloc(sizeof(struct csound_instrument_mapping));
+                csound_instrument_mapping_temp = calloc(1, sizeof(struct csound_instrument_mapping));
+
+                csound_instrument_mapping_temp = loadCsoundInstrumentMapping(cur);
+
+                csound_instrument_mapping_temp->next_csound_instrument_mapping = NULL;
+                if (csound_instrument_mapping_head == NULL)
+                    csound_instrument_mapping_head = csound_instrument_mapping_temp;
+                else {
+                    csound_instrument_mapping_p = csound_instrument_mapping_head;
+                    while (csound_instrument_mapping_p->next_csound_instrument_mapping != NULL)
+                        csound_instrument_mapping_p = csound_instrument_mapping_p->next_csound_instrument_mapping;
+                    csound_instrument_mapping_p->next_csound_instrument_mapping = csound_instrument_mapping_temp;
+                }
+                value->n_csound_instrument_mappings++;
+            }
+            else if (!xmlStrcmp(cur->name, (const xmlChar*)"rights")) {
+                value->rights = loadRights(cur);
+            }
+            cur = cur->next;
+        }
+        value->csound_instrument_mappings = csound_instrument_mapping_head;
     }
-    value->csound_instrument_mappings=csound_instrument_mapping_head;
+    else {}
     
     return value;
 }
@@ -469,88 +494,97 @@ struct csound_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr cur){
     value=calloc(1,sizeof(struct csound_instrument_mapping));
     xmlAttr* attributes;
 
-    struct csound_part_ref* csound_part_ref_temp=NULL;
-    struct csound_part_ref* csound_part_ref_head=NULL;
-    struct csound_part_ref* csound_part_ref_p=NULL;
-    value->n_csound_part_refs=0;
-    
-    struct csound_spine_ref* csound_spine_ref_temp=NULL;
-    struct csound_spine_ref* csound_spine_ref_head=NULL;
-    struct csound_spine_ref* csound_spine_ref_p=NULL;
-    value->n_csound_spine_refs=0;
+    if (value) {
+        struct csound_part_ref* csound_part_ref_temp = NULL;
+        struct csound_part_ref* csound_part_ref_head = NULL;
+        struct csound_part_ref* csound_part_ref_p = NULL;
+        value->n_csound_part_refs = 0;
 
-    value->next_csound_instrument_mapping=NULL;
+        struct csound_spine_ref* csound_spine_ref_temp = NULL;
+        struct csound_spine_ref* csound_spine_ref_head = NULL;
+        struct csound_spine_ref* csound_spine_ref_p = NULL;
+        value->n_csound_spine_refs = 0;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"instrument_number")){
-            value->instrument_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
+        value->next_csound_instrument_mapping = NULL;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"instrument_number")) {
+                value->instrument_number = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"start_line")) {
+                value->start_line = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"end_line")) {
+                value->end_line = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"pnml_file")) {
+                value->pnml_file = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_line")){
-            value->start_line=xmlCharToInt(xmlGetProp(cur,attributes->name));
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_line")){
-            value->end_line=xmlCharToInt(xmlGetProp(cur,attributes->name));
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"pnml_file")){
-            value->pnml_file=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"csound_part_ref")){
-            csound_part_ref_temp=(struct csound_part_ref*)malloc(sizeof(struct csound_part_ref));
-            csound_part_ref_temp=calloc(1, sizeof(struct csound_part_ref*));
-            
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"part_ref")){
-                    csound_part_ref_temp->part_ref=xmlGetProp(cur,attributes->name);
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_part_ref")) {
+                csound_part_ref_temp = (struct csound_part_ref*)malloc(sizeof(struct csound_part_ref));
+                csound_part_ref_temp = calloc(1, sizeof(struct csound_part_ref));
+
+                if (csound_part_ref_temp) {
+                    attributes = cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"part_ref")) {
+                            csound_part_ref_temp->part_ref = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
+                    }
+
+                    csound_part_ref_temp->next_csound_part_ref = NULL;
+                    if (csound_part_ref_head == NULL)
+                        csound_part_ref_head = csound_part_ref_temp;
+                    else {
+                        csound_part_ref_p = csound_part_ref_head;
+                        while (csound_part_ref_p->next_csound_part_ref != NULL)
+                            csound_part_ref_p = csound_part_ref_p->next_csound_part_ref;
+                        csound_part_ref_p->next_csound_part_ref = csound_part_ref_temp;
+                    }
+                    value->n_csound_part_refs++;
                 }
-                attributes=attributes->next;
+                else {}
             }
-                        
-            csound_part_ref_temp->next_csound_part_ref=NULL;
-            if(csound_part_ref_head==NULL)
-                csound_part_ref_head=csound_part_ref_temp;
-            else{
-                csound_part_ref_p=csound_part_ref_head;
-                while(csound_part_ref_p->next_csound_part_ref!=NULL)
-                    csound_part_ref_p=csound_part_ref_p->next_csound_part_ref;
-                csound_part_ref_p->next_csound_part_ref=csound_part_ref_temp;
-            }
-            value->n_csound_part_refs++;
-        }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"csound_spine_ref")){
-            csound_spine_ref_temp=(struct csound_spine_ref*)malloc(sizeof(struct csound_spine_ref));
-            csound_spine_ref_temp=calloc(1, sizeof(struct csound_spine_ref*));
-            
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    csound_spine_ref_temp->event_ref=xmlGetProp(cur,attributes->name);
+            else if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_spine_ref")) {
+                csound_spine_ref_temp = (struct csound_spine_ref*)malloc(sizeof(struct csound_spine_ref));
+                csound_spine_ref_temp = calloc(1, sizeof(struct csound_spine_ref));
+
+                if (csound_spine_ref_temp) {
+                    attributes = cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                            csound_spine_ref_temp->event_ref = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
+                    }
+
+                    csound_spine_ref_temp->next_csound_spine_ref = NULL;
+                    if (csound_spine_ref_head == NULL)
+                        csound_spine_ref_head = csound_spine_ref_temp;
+                    else {
+                        csound_spine_ref_p = csound_spine_ref_head;
+                        while (csound_spine_ref_p->next_csound_spine_ref != NULL)
+                            csound_spine_ref_p = csound_spine_ref_p->next_csound_spine_ref;
+                        csound_spine_ref_p->next_csound_spine_ref = csound_spine_ref_temp;
+                    }
+                    value->n_csound_spine_refs++;
                 }
-                attributes=attributes->next;
+                else {}
             }
-                        
-            csound_spine_ref_temp->next_csound_spine_ref=NULL;
-            if(csound_spine_ref_head==NULL)
-                csound_spine_ref_head=csound_spine_ref_temp;
-            else{
-                csound_spine_ref_p=csound_spine_ref_head;
-                while(csound_spine_ref_p->next_csound_spine_ref!=NULL)
-                    csound_spine_ref_p=csound_spine_ref_p->next_csound_spine_ref;
-                csound_spine_ref_p->next_csound_spine_ref=csound_spine_ref_temp;
-            }
-            value->n_csound_spine_refs++;
-        }  
-        cur=cur->next;
+            cur = cur->next;
+        }
+        value->csound_part_refs = csound_part_ref_head;
+        value->csound_spine_refs = csound_spine_ref_head;
     }
-    value->csound_part_refs=csound_part_ref_head;
-    value->csound_spine_refs=csound_spine_ref_head;
-    
+    else {}
+
     return value;
 }
     
@@ -576,71 +610,74 @@ void loadMpeg4Instance(){
             mpeg4_instance_temp=calloc(1,sizeof(struct mpeg4_instance));
             cur=nodeset->nodeTab[i];
 
-            //load mpeg4_instance elements
-            struct mpeg4_score* mpeg4_score_temp=NULL;
-            struct mpeg4_score* mpeg4_score_head=NULL;
-            struct mpeg4_score* mpeg4_score_p=NULL;
-            mpeg4_instance_temp->n_mpeg4_scores=0;
-            
-            struct mpeg4_orchestra* mpeg4_orchestra_temp=NULL;
-            struct mpeg4_orchestra* mpeg4_orchestra_head=NULL;
-            struct mpeg4_orchestra* mpeg4_orchestra_p=NULL;
-            mpeg4_instance_temp->mpeg4_orchestras=0;
-            
-            temp_cur=cur->xmlChildrenNode;
-            while(temp_cur!=NULL){
-                if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"mpeg4_score")){
-                    mpeg4_score_temp=(struct mpeg4_score*)malloc(sizeof(struct mpeg4_score));
-                    mpeg4_score_temp=calloc(1,sizeof(struct mpeg4_score));
+            if (mpeg4_instance_temp) {
+                //load mpeg4_instance elements
+                struct mpeg4_score* mpeg4_score_temp = NULL;
+                struct mpeg4_score* mpeg4_score_head = NULL;
+                struct mpeg4_score* mpeg4_score_p = NULL;
+                mpeg4_instance_temp->n_mpeg4_scores = 0;
 
-                    mpeg4_score_temp=loadMpeg4Score(temp_cur);
-                                     
-                    mpeg4_score_temp->next_mpeg4_score=NULL;
-                    if(mpeg4_score_head==NULL)
-                        mpeg4_score_head=mpeg4_score_temp;
-                    else{
-                        mpeg4_score_p=mpeg4_score_head;
-                        while(mpeg4_score_p->next_mpeg4_score!=NULL)
-                            mpeg4_score_p=mpeg4_score_p->next_mpeg4_score;
-                        mpeg4_score_p->next_mpeg4_score=mpeg4_score_temp;
-                    }
-                    mpeg4_instance_temp->n_mpeg4_scores++;
-                }
-                else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"mpeg4_orchestra")){
-                    mpeg4_orchestra_temp=(struct mpeg4_orchestra*)malloc(sizeof(struct mpeg4_orchestra));
-                    mpeg4_orchestra_temp=calloc(1,sizeof(struct mpeg4_orchestra));
+                struct mpeg4_orchestra* mpeg4_orchestra_temp = NULL;
+                struct mpeg4_orchestra* mpeg4_orchestra_head = NULL;
+                struct mpeg4_orchestra* mpeg4_orchestra_p = NULL;
+                mpeg4_instance_temp->mpeg4_orchestras = 0;
 
-                    mpeg4_orchestra_temp=loadMpeg4Orchestra(temp_cur);
-                                     
-                    mpeg4_orchestra_temp->next_mpeg4_orchestra=NULL;
-                    if(mpeg4_orchestra_head==NULL)
-                        mpeg4_orchestra_head=mpeg4_orchestra_temp;
-                    else{
-                        mpeg4_orchestra_p=mpeg4_orchestra_head;
-                        while(mpeg4_orchestra_p->next_mpeg4_orchestra!=NULL)
-                            mpeg4_orchestra_p=mpeg4_orchestra_p->next_mpeg4_orchestra;
-                        mpeg4_orchestra_p->next_mpeg4_orchestra=mpeg4_orchestra_temp;
+                temp_cur = cur->xmlChildrenNode;
+                while (temp_cur != NULL) {
+                    if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"mpeg4_score")) {
+                        mpeg4_score_temp = (struct mpeg4_score*)malloc(sizeof(struct mpeg4_score));
+                        mpeg4_score_temp = calloc(1, sizeof(struct mpeg4_score));
+
+                        mpeg4_score_temp = loadMpeg4Score(temp_cur);
+
+                        mpeg4_score_temp->next_mpeg4_score = NULL;
+                        if (mpeg4_score_head == NULL)
+                            mpeg4_score_head = mpeg4_score_temp;
+                        else {
+                            mpeg4_score_p = mpeg4_score_head;
+                            while (mpeg4_score_p->next_mpeg4_score != NULL)
+                                mpeg4_score_p = mpeg4_score_p->next_mpeg4_score;
+                            mpeg4_score_p->next_mpeg4_score = mpeg4_score_temp;
+                        }
+                        mpeg4_instance_temp->n_mpeg4_scores++;
                     }
-                    mpeg4_instance_temp->n_mpeg4_orchestras++;
+                    else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"mpeg4_orchestra")) {
+                        mpeg4_orchestra_temp = (struct mpeg4_orchestra*)malloc(sizeof(struct mpeg4_orchestra));
+                        mpeg4_orchestra_temp = calloc(1, sizeof(struct mpeg4_orchestra));
+
+                        mpeg4_orchestra_temp = loadMpeg4Orchestra(temp_cur);
+
+                        mpeg4_orchestra_temp->next_mpeg4_orchestra = NULL;
+                        if (mpeg4_orchestra_head == NULL)
+                            mpeg4_orchestra_head = mpeg4_orchestra_temp;
+                        else {
+                            mpeg4_orchestra_p = mpeg4_orchestra_head;
+                            while (mpeg4_orchestra_p->next_mpeg4_orchestra != NULL)
+                                mpeg4_orchestra_p = mpeg4_orchestra_p->next_mpeg4_orchestra;
+                            mpeg4_orchestra_p->next_mpeg4_orchestra = mpeg4_orchestra_temp;
+                        }
+                        mpeg4_instance_temp->n_mpeg4_orchestras++;
+                    }
+                    temp_cur = temp_cur->next;
                 }
-                temp_cur=temp_cur->next;
+                mpeg4_instance_temp->mpeg4_scores = mpeg4_score_head;
+                mpeg4_instance_temp->mpeg4_orchestras = mpeg4_orchestra_head;
+
+                mpeg4_instance_temp->next_mpeg4_instance = NULL;
+                if (mpeg4_instance_head == NULL)
+                    mpeg4_instance_head = mpeg4_instance_temp;
+                else {
+                    mpeg4_instance_p = mpeg4_instance_head;
+                    while (mpeg4_instance_p->next_mpeg4_instance != NULL)
+                        mpeg4_instance_p = mpeg4_instance_p->next_mpeg4_instance;
+                    mpeg4_instance_p->next_mpeg4_instance = mpeg4_instance_temp;
+                }
+                performance_layer.n_mpeg4_instances++;
             }
-            mpeg4_instance_temp->mpeg4_scores=mpeg4_score_head;
-            mpeg4_instance_temp->mpeg4_orchestras=mpeg4_orchestra_head;
-                    
-            mpeg4_instance_temp->next_mpeg4_instance=NULL;
-            if(mpeg4_instance_head==NULL)
-                mpeg4_instance_head=mpeg4_instance_temp;
-            else{
-                mpeg4_instance_p=mpeg4_instance_head;
-                while(mpeg4_instance_p->next_mpeg4_instance!=NULL)
-                    mpeg4_instance_p=mpeg4_instance_p->next_mpeg4_instance;
-                mpeg4_instance_p->next_mpeg4_instance=mpeg4_instance_temp;
-            }
-            performance_layer.n_mpeg4_instances++;
+            else {}
         }
-        performance_layer.mpeg4_instance=mpeg4_instance_head;
     }
+    performance_layer.mpeg4_instance = mpeg4_instance_head;
 }
 
 struct mpeg4_score* loadMpeg4Score(xmlNodePtr cur){
@@ -648,55 +685,61 @@ struct mpeg4_score* loadMpeg4Score(xmlNodePtr cur){
     value=calloc(1,sizeof(struct mpeg4_score));
     xmlAttr* attributes;
 
-    struct mpeg4_spine_event* mpeg4_spine_event_temp=NULL;
-    struct mpeg4_spine_event* mpeg4_spine_event_head=NULL;
-    struct mpeg4_spine_event* mpeg4_spine_event_p=NULL;
-    value->n_mpeg4_spine_events=0;
+    if (value) {
+        struct mpeg4_spine_event* mpeg4_spine_event_temp = NULL;
+        struct mpeg4_spine_event* mpeg4_spine_event_head = NULL;
+        struct mpeg4_spine_event* mpeg4_spine_event_p = NULL;
+        value->n_mpeg4_spine_events = 0;
 
-    value->next_mpeg4_score=NULL;
+        value->next_mpeg4_score = NULL;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
-            value->file_name=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"mpeg4_spine_event")){
-            mpeg4_spine_event_temp=(struct mpeg4_spine_event*)malloc(sizeof(struct mpeg4_spine_event));
-            mpeg4_spine_event_temp=calloc(1, sizeof(struct mpeg4_spine_event*));
-            
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"line_number")){
-                    mpeg4_spine_event_temp->line_number=xmlCharToInt(xmlGetProp(cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    mpeg4_spine_event_temp->event_ref=xmlGetProp(cur,attributes->name);
-                }
-                attributes=attributes->next;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"file_name")) {
+                value->file_name = xmlGetProp(cur, attributes->name);
             }
-                        
-            mpeg4_spine_event_temp->next_mpeg4_spine_event=NULL;
-            if(mpeg4_spine_event_head==NULL)
-                mpeg4_spine_event_head=mpeg4_spine_event_temp;
-            else{
-                mpeg4_spine_event_p=mpeg4_spine_event_head;
-                while(mpeg4_spine_event_p->next_mpeg4_spine_event!=NULL)
-                    mpeg4_spine_event_p=mpeg4_spine_event_p->next_mpeg4_spine_event;
-                mpeg4_spine_event_p->next_mpeg4_spine_event=mpeg4_spine_event_temp;
-            }
-            value->n_mpeg4_spine_events++;
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"rights")){
-            value->rights=loadRights(cur);
-        }  
-        cur=cur->next;
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_spine_event")) {
+                mpeg4_spine_event_temp = (struct mpeg4_spine_event*)malloc(sizeof(struct mpeg4_spine_event));
+                mpeg4_spine_event_temp = calloc(1, sizeof(struct mpeg4_spine_event));
+
+                if (mpeg4_spine_event_temp) {
+                    attributes = cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"line_number")) {
+                            mpeg4_spine_event_temp->line_number = xmlCharToInt(xmlGetProp(cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                            mpeg4_spine_event_temp->event_ref = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
+                    }
+
+                    mpeg4_spine_event_temp->next_mpeg4_spine_event = NULL;
+                    if (mpeg4_spine_event_head == NULL)
+                        mpeg4_spine_event_head = mpeg4_spine_event_temp;
+                    else {
+                        mpeg4_spine_event_p = mpeg4_spine_event_head;
+                        while (mpeg4_spine_event_p->next_mpeg4_spine_event != NULL)
+                            mpeg4_spine_event_p = mpeg4_spine_event_p->next_mpeg4_spine_event;
+                        mpeg4_spine_event_p->next_mpeg4_spine_event = mpeg4_spine_event_temp;
+                    }
+                    value->n_mpeg4_spine_events++;
+                }
+                else {}
+            }
+            else if (!xmlStrcmp(cur->name, (const xmlChar*)"rights")) {
+                value->rights = loadRights(cur);
+            }
+            cur = cur->next;
+        }
+        value->mpeg4_spine_events = mpeg4_spine_event_head;
     }
-    value->mpeg4_spine_events=mpeg4_spine_event_head;
+    else {}
     
     return value;
 }
@@ -706,46 +749,49 @@ struct mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur){
     value=calloc(1,sizeof(struct mpeg4_orchestra));
     xmlAttr* attributes;
 
-    struct mpeg4_instrument_mapping* mpeg4_instrument_mapping_temp=NULL;
-    struct mpeg4_instrument_mapping* mpeg4_instrument_mapping_head=NULL;
-    struct mpeg4_instrument_mapping* mpeg4_instrument_mapping_p=NULL;
-    value->n_mpeg4_instrument_mappings=0;
+    if (value) {
+        struct mpeg4_instrument_mapping* mpeg4_instrument_mapping_temp = NULL;
+        struct mpeg4_instrument_mapping* mpeg4_instrument_mapping_head = NULL;
+        struct mpeg4_instrument_mapping* mpeg4_instrument_mapping_p = NULL;
+        value->n_mpeg4_instrument_mappings = 0;
 
-    value->next_mpeg4_orchestra=NULL;
+        value->next_mpeg4_orchestra = NULL;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"file_name")){
-            value->file_name=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"mpeg4_instrument_mapping")){
-            mpeg4_instrument_mapping_temp=(struct mpeg4_instrument_mapping*)malloc(sizeof(struct mpeg4_instrument_mapping));
-            mpeg4_instrument_mapping_temp=calloc(1, sizeof(struct mpeg4_instrument_mapping*));
-            
-            mpeg4_instrument_mapping_temp=loadMpeg4InstrumentMapping(cur);
-                        
-            mpeg4_instrument_mapping_temp->next_mpeg4_instrument_mapping=NULL;
-            if(mpeg4_instrument_mapping_head==NULL)
-                mpeg4_instrument_mapping_head=mpeg4_instrument_mapping_temp;
-            else{
-                mpeg4_instrument_mapping_p=mpeg4_instrument_mapping_head;
-                while(mpeg4_instrument_mapping_p->next_mpeg4_instrument_mapping!=NULL)
-                    mpeg4_instrument_mapping_p=mpeg4_instrument_mapping_p->next_mpeg4_instrument_mapping;
-                mpeg4_instrument_mapping_p->next_mpeg4_instrument_mapping=mpeg4_instrument_mapping_temp;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"file_name")) {
+                value->file_name = xmlGetProp(cur, attributes->name);
             }
-            value->n_mpeg4_instrument_mappings++;
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"rights")){
-            value->rights=loadRights(cur);
-        }  
-        cur=cur->next;
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_instrument_mapping")) {
+                mpeg4_instrument_mapping_temp = (struct mpeg4_instrument_mapping*)malloc(sizeof(struct mpeg4_instrument_mapping));
+                mpeg4_instrument_mapping_temp = calloc(1, sizeof(struct mpeg4_instrument_mapping));
+
+                mpeg4_instrument_mapping_temp = loadMpeg4InstrumentMapping(cur);
+
+                mpeg4_instrument_mapping_temp->next_mpeg4_instrument_mapping = NULL;
+                if (mpeg4_instrument_mapping_head == NULL)
+                    mpeg4_instrument_mapping_head = mpeg4_instrument_mapping_temp;
+                else {
+                    mpeg4_instrument_mapping_p = mpeg4_instrument_mapping_head;
+                    while (mpeg4_instrument_mapping_p->next_mpeg4_instrument_mapping != NULL)
+                        mpeg4_instrument_mapping_p = mpeg4_instrument_mapping_p->next_mpeg4_instrument_mapping;
+                    mpeg4_instrument_mapping_p->next_mpeg4_instrument_mapping = mpeg4_instrument_mapping_temp;
+                }
+                value->n_mpeg4_instrument_mappings++;
+            }
+            else if (!xmlStrcmp(cur->name, (const xmlChar*)"rights")) {
+                value->rights = loadRights(cur);
+            }
+            cur = cur->next;
+        }
+        value->mpeg4_instrument_mappings = mpeg4_instrument_mapping_head;
     }
-    value->mpeg4_instrument_mappings=mpeg4_instrument_mapping_head;
+    else {}
     
     return value;
 }
@@ -755,87 +801,98 @@ struct mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cur){
     value=calloc(1,sizeof(struct mpeg4_instrument_mapping));
     xmlAttr* attributes;
 
-    struct mpeg4_part_ref* mpeg4_part_ref_temp=NULL;
-    struct mpeg4_part_ref* mpeg4_part_ref_head=NULL;
-    struct mpeg4_part_ref* mpeg4_part_ref_p=NULL;
-    value->n_mpeg4_part_refs=0;
-    
-    struct mpeg4_spine_ref* mpeg4_spine_ref_temp=NULL;
-    struct mpeg4_spine_ref* mpeg4_spine_ref_head=NULL;
-    struct mpeg4_spine_ref* mpeg4_spine_ref_p=NULL;
-    value->n_mpeg4_spine_refs=0;
+    if (value) {
+        struct mpeg4_part_ref* mpeg4_part_ref_temp = NULL;
+        struct mpeg4_part_ref* mpeg4_part_ref_head = NULL;
+        struct mpeg4_part_ref* mpeg4_part_ref_p = NULL;
+        value->n_mpeg4_part_refs = 0;
 
-    value->next_mpeg4_instrument_mapping=NULL;
+        struct mpeg4_spine_ref* mpeg4_spine_ref_temp = NULL;
+        struct mpeg4_spine_ref* mpeg4_spine_ref_head = NULL;
+        struct mpeg4_spine_ref* mpeg4_spine_ref_p = NULL;
+        value->n_mpeg4_spine_refs = 0;
 
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"instrument_name")){
-            value->instrument_name=xmlGetProp(cur,attributes->name);
+        value->next_mpeg4_instrument_mapping = NULL;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"instrument_name")) {
+                value->instrument_name = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"start_line")) {
+                value->start_line = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"end_line")) {
+                value->end_line = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"pnml_file")) {
+                value->pnml_file = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_line")){
-            value->start_line=xmlCharToInt(xmlGetProp(cur,attributes->name));
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_line")){
-            value->end_line=xmlCharToInt(xmlGetProp(cur,attributes->name));
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"pnml_file")){
-            value->pnml_file=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    
-    cur=cur->xmlChildrenNode;
-    while(cur!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"mpeg4_part_ref")){
-            mpeg4_part_ref_temp=(struct mpeg4_part_ref*)malloc(sizeof(struct mpeg4_part_ref));
-            mpeg4_part_ref_temp=calloc(1, sizeof(struct mpeg4_part_ref*));
-            
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"part_ref")){
-                    mpeg4_part_ref_temp->part_ref=xmlGetProp(cur,attributes->name);
+
+        cur = cur->xmlChildrenNode;
+        while (cur != NULL) {
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_part_ref")) {
+                mpeg4_part_ref_temp = (struct mpeg4_part_ref*)malloc(sizeof(struct mpeg4_part_ref));
+                mpeg4_part_ref_temp = calloc(1, sizeof(struct mpeg4_part_ref));
+
+                if (mpeg4_part_ref_temp) {
+                    attributes = cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"part_ref")) {
+                            mpeg4_part_ref_temp->part_ref = xmlGetProp(cur, attributes->name);
+                        }
+                        attributes = attributes->next;
+                    }
+
+                    mpeg4_part_ref_temp->next_mpeg4_part_ref = NULL;
+                    if (mpeg4_part_ref_head == NULL)
+                        mpeg4_part_ref_head = mpeg4_part_ref_temp;
+                    else {
+                        mpeg4_part_ref_p = mpeg4_part_ref_head;
+                        while (mpeg4_part_ref_p->next_mpeg4_part_ref != NULL)
+                            mpeg4_part_ref_p = mpeg4_part_ref_p->next_mpeg4_part_ref;
+                        mpeg4_part_ref_p->next_mpeg4_part_ref = mpeg4_part_ref_temp;
+                    }
+                    value->n_mpeg4_part_refs++;
                 }
-                attributes=attributes->next;
+                else {}
             }
-                        
-            mpeg4_part_ref_temp->next_mpeg4_part_ref=NULL;
-            if(mpeg4_part_ref_head==NULL)
-                mpeg4_part_ref_head=mpeg4_part_ref_temp;
-            else{
-                mpeg4_part_ref_p=mpeg4_part_ref_head;
-                while(mpeg4_part_ref_p->next_mpeg4_part_ref!=NULL)
-                    mpeg4_part_ref_p=mpeg4_part_ref_p->next_mpeg4_part_ref;
-                mpeg4_part_ref_p->next_mpeg4_part_ref=mpeg4_part_ref_temp;
-            }
-            value->n_mpeg4_part_refs++;
-        }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"mpeg4_spine_ref")){
-            mpeg4_spine_ref_temp=(struct mpeg4_spine_ref*)malloc(sizeof(struct mpeg4_spine_ref));
-            mpeg4_spine_ref_temp=calloc(1, sizeof(struct mpeg4_spine_ref*));
-            
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    mpeg4_spine_ref_temp->event_ref=xmlGetProp(cur,attributes->name);
+            else if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_spine_ref")) {
+                mpeg4_spine_ref_temp = (struct mpeg4_spine_ref*)malloc(sizeof(struct mpeg4_spine_ref));
+                mpeg4_spine_ref_temp = calloc(1, sizeof(struct mpeg4_spine_ref));
+
+                if (mpeg4_spine_ref_temp) {
+                    if (mpeg4_spine_ref_temp) {
+                        attributes = cur->properties;
+                        while (attributes != NULL) {
+                            if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                                mpeg4_spine_ref_temp->event_ref = xmlGetProp(cur, attributes->name);
+                            }
+                            attributes = attributes->next;
+                        }
+
+                        mpeg4_spine_ref_temp->next_mpeg4_spine_ref = NULL;
+                        if (mpeg4_spine_ref_head == NULL)
+                            mpeg4_spine_ref_head = mpeg4_spine_ref_temp;
+                        else {
+                            mpeg4_spine_ref_p = mpeg4_spine_ref_head;
+                            while (mpeg4_spine_ref_p->next_mpeg4_spine_ref != NULL)
+                                mpeg4_spine_ref_p = mpeg4_spine_ref_p->next_mpeg4_spine_ref;
+                            mpeg4_spine_ref_p->next_mpeg4_spine_ref = mpeg4_spine_ref_temp;
+                        }
+                        value->n_mpeg4_spine_refs++;
+                    }
                 }
-                attributes=attributes->next;
+                else {}
             }
-                        
-            mpeg4_spine_ref_temp->next_mpeg4_spine_ref=NULL;
-            if(mpeg4_spine_ref_head==NULL)
-                mpeg4_spine_ref_head=mpeg4_spine_ref_temp;
-            else{
-                mpeg4_spine_ref_p=mpeg4_spine_ref_head;
-                while(mpeg4_spine_ref_p->next_mpeg4_spine_ref!=NULL)
-                    mpeg4_spine_ref_p=mpeg4_spine_ref_p->next_mpeg4_spine_ref;
-                mpeg4_spine_ref_p->next_mpeg4_spine_ref=mpeg4_spine_ref_temp;
-            }
-            value->n_mpeg4_spine_refs++;
-        }  
-        cur=cur->next;
+            cur = cur->next;
+        }
+        value->mpeg4_part_refs = mpeg4_part_ref_head;
+        value->mpeg4_spine_refs = mpeg4_spine_ref_head;
     }
-    value->mpeg4_part_refs=mpeg4_part_ref_head;
-    value->mpeg4_spine_refs=mpeg4_spine_ref_head;
+    else {}
     
     return value;
 }

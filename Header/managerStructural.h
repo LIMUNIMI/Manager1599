@@ -200,7 +200,7 @@ extern "C" {
         xmlChar* author;
         xmlChar* description;
         
-        struct segmentation segmentation;
+        struct segmentation* segmentation;
         struct relationship* relationships;//(relationship+)
         struct feature_object_relationship* feature_object_relationships;
         
@@ -244,15 +244,15 @@ extern "C" {
     
     
 //Prototypes
-    struct structural loadStructural();
-    void loadChordGrid();
-    void loadAnalysis();
-    void loadPetriNets();
-    void loadMir();
+    MANAGERIEEE1599_API struct structural loadStructural();
+    MANAGERIEEE1599_API void loadChordGrid();
+    MANAGERIEEE1599_API void loadAnalysis();
+    MANAGERIEEE1599_API void loadPetriNets();
+    MANAGERIEEE1599_API void loadMir();
     
-    struct segmentation loadSegmentation(xmlNodePtr cur);
+    struct segmentation* loadSegmentation(xmlNodePtr cur);
     struct feature_object* loadFeatureObject(xmlNodePtr cur);
-    
+	
     struct petri_net* loadPetriNet(xmlNodePtr cur);
     
     struct mir_model* loadMirModel(xmlNodePtr cur);
@@ -261,11 +261,11 @@ extern "C" {
     struct mir_subobject* loadMirSubobject(xmlNodePtr cur);
     struct mir_feature* loadMirFeature(xmlNodePtr cur);
 
-    void printStructural();
-    void printChordGrid();
-    void printAnalysis();
-    void printPetriNet();
-    void printMir();
+    MANAGERIEEE1599_API void printStructural();
+    MANAGERIEEE1599_API void printChordGrid();
+    MANAGERIEEE1599_API void printAnalysis();
+    MANAGERIEEE1599_API void printPetriNet();
+    MANAGERIEEE1599_API void printMir();
 
 #ifdef __cplusplus
 }

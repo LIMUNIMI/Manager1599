@@ -6,10 +6,10 @@
 
 #include "managerDocument.h"
 
-struct ieee1599 ieee1599_document;
+struct ieee1599 ieee1599_root;
 
 void loadDocument(){
-    
+
     xmlChar *xpath;
     xmlXPathObjectPtr result;
     xmlNodeSetPtr nodeset;
@@ -24,37 +24,37 @@ void loadDocument(){
          attributes=cur->properties;
          while(attributes!=NULL){
              if(!xmlStrcmp(attributes->name,(const xmlChar*)"version")){
-                 ieee1599_document.version=xmlGetProp(cur,attributes->name);
+                 ieee1599_root.version=xmlGetProp(cur,attributes->name);
              }
              else if(!xmlStrcmp(attributes->name,(const xmlChar*)"creator")){
-                 ieee1599_document.creator=xmlGetProp(cur,attributes->name);
+                 ieee1599_root.creator=xmlGetProp(cur,attributes->name);
              }
              attributes=attributes->next;
          }
     }
     else{
-        fprintf(stderr,"Can't find root element");
+        fprintf(stderr,"Can't find root element\n");
     }
     
-    ieee1599_document.general_layer=loadGeneral();
-    ieee1599_document.logic_layer=loadLogic();
-    ieee1599_document.structural_layer=loadStructural();
-    ieee1599_document.notational_layer=loadNotational();
-    ieee1599_document.performance_layer=loadPerformance();
-    ieee1599_document.audio_layer=loadAudio();
+    ieee1599_root.general_layer=loadGeneral();
+    ieee1599_root.logic_layer=loadLogic();
+    ieee1599_root.structural_layer=loadStructural();
+    ieee1599_root.notational_layer=loadNotational();
+    ieee1599_root.performance_layer=loadPerformance();
+    ieee1599_root.audio_layer=loadAudio();
     
 }
 
 void printDocument(){
     
-    if(ieee1599_document.version!=NULL || ieee1599_document.creator!=NULL){
+    if(ieee1599_root.version!=NULL || ieee1599_root.creator!=NULL){
         printf("[");
-        if(ieee1599_document.version!=NULL)
-            printf("version=%s",ieee1599_document.version);
-        if(ieee1599_document.version!=NULL && ieee1599_document.creator!=NULL)
+        if(ieee1599_root.version!=NULL)
+            printf("version=%s", ieee1599_root.version);
+        if(ieee1599_root.version!=NULL && ieee1599_root.creator!=NULL)
             printf(" ");
-        if(ieee1599_document.creator!=NULL)
-            printf("creator=%s",ieee1599_document.creator);
+        if(ieee1599_root.creator!=NULL)
+            printf("creator=%s", ieee1599_root.creator);
         printf("]\n");
     }
     printGeneral();
@@ -63,4 +63,8 @@ void printDocument(){
     printNotational();
     printPerformance();
     printAudio();
+}
+
+struct ieee1599 getIEEE1599Root() {
+    return ieee1599_root;
 }

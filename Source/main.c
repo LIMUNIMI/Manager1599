@@ -17,32 +17,27 @@
 
 int main(int argc, char **argv) {
      
-    int confirm=1;
+    int confirm = 1;
 
-    while(confirm==1){
-        file_name=chooseFile();
-        if(strcmp(file_name,(const char*)"")){
-            doc=getDoc((xmlChar*)file_name);
-            if(doc!=NULL)
-                if(validate(doc)){
-                    if(doc!=NULL){
-                        fprintf(stdout,"Loaded %s\n",file_name);
+    while (confirm == 1) {
+        setFileName(chooseFile());
+        if (strcmp(getFileName(), (const char*)"")) {
+            if (getDoc((xmlChar*)(getFileName())) == 1) {
+                fprintf(stdout, "Loaded %s\n", getFileName());
 
-                        loadDocument();
-                        printDocument();
-                    }
-                }
-                else{
-                    fprintf(stdout,"%s is not Valid\n",file_name);
-                }
+                loadDocument();
+                printDocument();
 
-            printf("\nContinue? [yes=1,No=0]\n");
-            scanf("%i",&confirm);  
-            
-            xmlFreeDoc(doc);
-            xmlCleanupParser();
+            }
+
+            do { 
+                printf("\nContinue? [yes=1,No=0]\n"); 
+            }
+            while(!scanf("%i", &confirm));
+
+            clean();
         }
-        else confirm=0;
+        else confirm = 0;
     }
             
     return (EXIT_SUCCESS);

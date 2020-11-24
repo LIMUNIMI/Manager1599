@@ -116,13 +116,13 @@ extern "C" {
 
     
 //Prototypes
-    struct audio loadAudio();
+    MANAGERIEEE1599_API struct audio loadAudio();
     struct track_general loadTrackGeneral(xmlNodePtr cur);
     struct track_indexing loadTrackIndexing(xmlNodePtr cur);    
     
-    void printAudio();
-    void printTrackGeneral(struct track_general cur);
-    void printTrackIndexing(struct track_indexing cur);
+    MANAGERIEEE1599_API void printAudio();
+    MANAGERIEEE1599_API void printTrackGeneral(struct track_general cur);
+    MANAGERIEEE1599_API void printTrackIndexing(struct track_indexing cur);
 
 #ifdef __cplusplus
 }

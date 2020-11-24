@@ -32,7 +32,7 @@ struct other_title{
     struct other_title *next_title;
  };
  
- struct date{
+struct date{
     xmlChar* date_value;
     xmlChar* type;
     struct date* next_date;
@@ -64,6 +64,7 @@ struct related_file{//EMPTY
   xmlChar* notes;
   xmlChar* start_event_ref;
   xmlChar* end_event_ref;
+  
   struct related_file *next_file;
 };
 
@@ -72,6 +73,7 @@ struct analog_medium{//EMPTY
     xmlChar* description;//REQUIRED
     xmlChar* copyright;
     xmlChar* notes;
+	
     struct analog_medium* next_medium;
 };
 
@@ -90,17 +92,17 @@ struct general{
 //Variables
 
 //Prototypes
-struct general loadGeneral();
-void loadDescription();
-void loadRelatedFiles();
-void loadAnalogMedia();
-void loadNotes();
+MANAGERIEEE1599_API struct general loadGeneral();
+MANAGERIEEE1599_API void loadDescription();
+MANAGERIEEE1599_API void loadRelatedFiles();
+MANAGERIEEE1599_API void loadAnalogMedia();
+MANAGERIEEE1599_API void loadNotes();
 
-void printGeneral();
-void printDescription();
-void printRelatedFiles();
-void printAnalogMedia();
-void printNotes();
+MANAGERIEEE1599_API void printGeneral();
+MANAGERIEEE1599_API void printDescription();
+MANAGERIEEE1599_API void printRelatedFiles();
+MANAGERIEEE1599_API void printAnalogMedia();
+MANAGERIEEE1599_API void printNotes();
 
 
 #ifdef __cplusplus

@@ -17,12 +17,13 @@ char* chooseFile(){
     file_name=(char*)"";
 
     while(!strcmp(file_name,(const char*)"") && choice!=0){
-        printf("Choose File [0 to exit]:\n");
-        showFiles();
-        scanf("%i",&choice);
+        do {
+            printf("Choose File [0 to exit]:\n");
+            showFiles();
+        } while (!scanf("%i", &choice));
         if(choice>0){
             file_name=readFileName(choice);
-            file_name=concat(rootFolderPath,file_name);
+            file_name=concat(getRootFolderPath(),file_name);
         }
     }  
     
@@ -35,10 +36,10 @@ int showFiles(){
     struct stat filestat;
     int i=0;
     
-    if ((dir=opendir(rootFolderPath))!=NULL){
+    if ((dir=opendir(getRootFolderPath()))!=NULL){
         /* print every contained file */
         while((ent=readdir(dir))!=NULL){
-            stat(concat(rootFolderPath,ent->d_name),&filestat);
+            stat(concat(getRootFolderPath(),ent->d_name),&filestat);
             if(!S_ISDIR(filestat.st_mode)){  
                 if(!strcmp(getExtension(ent->d_name),(const char*)"xml")){
                     i++;
@@ -49,7 +50,7 @@ int showFiles(){
         closedir(dir);
      }
     else{
-        fprintf(stderr,"Can't open direcotry %s\n",rootFolderPath);
+        fprintf(stderr,"Can't open direcotry %s\n", getRootFolderPath());
         return 0;
     }
     
@@ -63,10 +64,10 @@ char* readFileName(int choice){
     int i=0;
     char* file_name;
     
-    if ((dir=opendir(rootFolderPath))!=NULL){
+    if ((dir=opendir(getRootFolderPath()))!=NULL){
         /* print every contained file */
         while((ent=readdir(dir))!=NULL){
-            stat(concat(rootFolderPath,ent->d_name),&filestat);
+            stat(concat(getRootFolderPath(),ent->d_name),&filestat);
             if(!S_ISDIR(filestat.st_mode)){  
                 if(!strcmp(getExtension(ent->d_name),(const char*)"xml")){
                     i++;
@@ -80,7 +81,7 @@ char* readFileName(int choice){
         closedir(dir);
     }
     else{
-        fprintf(stderr,"Can't open direcotry %s\n",rootFolderPath);
+        fprintf(stderr,"Can't open direcotry %s\n", getRootFolderPath());
         return 0;
     }
 

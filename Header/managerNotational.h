@@ -107,16 +107,16 @@ extern "C" {
     
     
 //Prototypes
-    struct notational loadNotational();
-    void loadGraphicInstanceGroup();
-    void loadNotationInstanceGroup();
+    MANAGERIEEE1599_API struct notational loadNotational();
+    MANAGERIEEE1599_API void loadGraphicInstanceGroup();
+    MANAGERIEEE1599_API void loadNotationInstanceGroup();
     
     struct graphic_instance* loadGraphicInstance(xmlNodePtr cur);
     struct notation_instance* loadNotationInstance(xmlNodePtr cur);
 
-    void printNotational();
-    void printGraphicInstanceGroup();
-    void printNotationInstanceGroup();
+    MANAGERIEEE1599_API void printNotational();
+    MANAGERIEEE1599_API void printGraphicInstanceGroup();
+    MANAGERIEEE1599_API void printNotationInstanceGroup();
 
 #ifdef __cplusplus
 }

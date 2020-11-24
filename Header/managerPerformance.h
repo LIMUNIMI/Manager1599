@@ -228,10 +228,10 @@ extern "C" {
     
     
 //Prototypes
-    struct performance loadPerformance();
-    void loadMidiInstance();
-    void loadCsoundInstance();
-    void loadMpeg4Instance();
+    MANAGERIEEE1599_API struct performance loadPerformance();
+    MANAGERIEEE1599_API void loadMidiInstance();
+    MANAGERIEEE1599_API void loadCsoundInstance();
+    MANAGERIEEE1599_API void loadMpeg4Instance();
     
     struct midi_mapping* loadMidiMapping(xmlNodePtr cur);
     struct midi_event_sequence* loadMidiEventSequence(xmlNodePtr cur);
@@ -246,10 +246,10 @@ extern "C" {
     struct mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur);
     struct mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cur);
     
-    void printPerformance();
-    void printMidiInstance();
-    void printCsoundInstance();
-    void printMpeg4Instance();
+    MANAGERIEEE1599_API void printPerformance();
+    MANAGERIEEE1599_API void printMidiInstance();
+    MANAGERIEEE1599_API void printCsoundInstance();
+    MANAGERIEEE1599_API void printMpeg4Instance();
     
 #ifdef __cplusplus
 }

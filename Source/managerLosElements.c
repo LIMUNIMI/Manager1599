@@ -7,7 +7,7 @@
 #include "managerLosElements.h"
 
 ornament loadOrnamentValue(xmlNodePtr cur){
-    ornament value;
+    ornament value = {0};
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
     
@@ -224,7 +224,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
 }
 
 horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
-    horizontal_symbol value;
+    horizontal_symbol value = { 0 };
     xmlAttr *attributes;
     xmlNodePtr temp_cur;
     
@@ -658,48 +658,56 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"jump_to")){
                 jump_to_temp=(struct jump_to*)malloc(sizeof(struct jump_to));
                 jump_to_temp=calloc(1,sizeof(struct jump_to));
-                attributes=temp_cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"id")){
-                        jump_to_temp->id=xmlGetProp(temp_cur,attributes->name);
+
+                if (jump_to_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"id")) {
+                            jump_to_temp->id = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"event_ref")) {
+                            jump_to_temp->event_ref = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        attributes = attributes->next;
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
-                        jump_to_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
+                    jump_to_temp->next_jump_to = NULL;
+                    if (jump_to_head == NULL)
+                        jump_to_head = jump_to_temp;
+                    else {
+                        jump_to_p = jump_to_head;
+                        while (jump_to_p->next_jump_to != NULL)
+                            jump_to_p = jump_to_p->next_jump_to;
+                        jump_to_p = jump_to_temp;
                     }
-                    attributes=attributes->next;
                 }
-                jump_to_temp->next_jump_to=NULL;
-                if(jump_to_head==NULL)
-                    jump_to_head=jump_to_temp;
-                else{
-                    jump_to_p=jump_to_head;
-                    while(jump_to_p->next_jump_to!=NULL)
-                        jump_to_p=jump_to_p->next_jump_to;
-                    jump_to_p=jump_to_temp;
-                }
+                else {}
             } 
             else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"end")){
                 end_temp=(struct end*)malloc(sizeof(struct end));
                 end_temp=calloc(1,sizeof(struct end));
-                attributes=temp_cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"id")){
-                        end_temp->id=xmlGetProp(temp_cur,attributes->name);
+
+                if (end_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"id")) {
+                            end_temp->id = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"event_ref")) {
+                            end_temp->event_ref = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        attributes = attributes->next;
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
-                        end_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
+                    end_temp->next_end = NULL;
+                    if (end_head == NULL)
+                        end_head = end_temp;
+                    else {
+                        end_p = end_head;
+                        while (end_p->next_end != NULL)
+                            end_p = end_p->next_end;
+                        end_p = end_temp;
                     }
-                    attributes=attributes->next;
                 }
-                end_temp->next_end=NULL;
-                if(end_head==NULL)
-                    end_head=end_temp;
-                else{
-                    end_p=end_head;
-                    while(end_p->next_end!=NULL)
-                        end_p=end_p->next_end;
-                    end_p=end_temp;
-                }
+                else {}
             }   
         }
         value.repeat.jump_tos=jump_to_head;
@@ -761,34 +769,38 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"multiple_ending")){
                 multiple_ending_temp=(struct multiple_ending*)malloc(sizeof(struct multiple_ending));
                 multiple_ending_temp=calloc(1,sizeof(struct multiple_ending));
-                attributes=temp_cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"id")){
-                        multiple_ending_temp->id=xmlGetProp(temp_cur,attributes->name);
+
+                if (multiple_ending_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"id")) {
+                            multiple_ending_temp->id = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"number")) {
+                            multiple_ending_temp->number = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"start_event_ref")) {
+                            multiple_ending_temp->start_event_ref = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"end_event_ref")) {
+                            multiple_ending_temp->end_event_ref = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"return_to")) {
+                            multiple_ending_temp->return_to = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        attributes = attributes->next;
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"number")){
-                        multiple_ending_temp->number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                    multiple_ending_temp->next_multiple_ending = NULL;
+                    if (multiple_ending_head == NULL)
+                        multiple_ending_head = multiple_ending_temp;
+                    else {
+                        multiple_ending_p = multiple_ending_head;
+                        while (multiple_ending_p->next_multiple_ending != NULL)
+                            multiple_ending_p = multiple_ending_p->next_multiple_ending;
+                        multiple_ending_p = multiple_ending_temp;
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"start_event_ref")){
-                        multiple_ending_temp->start_event_ref=xmlGetProp(temp_cur,attributes->name);
-                    }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"end_event_ref")){
-                        multiple_ending_temp->end_event_ref=xmlGetProp(temp_cur,attributes->name);
-                    }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"return_to")){
-                        multiple_ending_temp->return_to=xmlGetProp(temp_cur,attributes->name);
-                    }
-                    attributes=attributes->next;
                 }
-                multiple_ending_temp->next_multiple_ending=NULL;
-                if(multiple_ending_head==NULL)
-                    multiple_ending_head=multiple_ending_temp;
-                else{
-                    multiple_ending_p=multiple_ending_head;
-                    while(multiple_ending_p->next_multiple_ending!=NULL)
-                        multiple_ending_p=multiple_ending_p->next_multiple_ending;
-                    multiple_ending_p=multiple_ending_temp;
-                }
+                else {}
             }  
         }
         value.multiple_endings.multiple_ending=multiple_ending_head;
@@ -820,21 +832,25 @@ struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
     xmlAttr* attributes;
     struct voice_item* value=(struct voice_item*)malloc(sizeof(struct voice_item));
     value=calloc(1,sizeof(struct voice_item));
-    value->next_voice_item=NULL;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
-            value->id=xmlGetProp(cur,attributes->name);
+
+    if (value) {
+        value->next_voice_item = NULL;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"id")) {
+                value->id = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"staff_ref")) {
+                value->staff_ref = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"notation_style")) {
+                value->notation_style = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-            value->staff_ref=xmlGetProp(cur,attributes->name);
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"notation_style")){
-            value->notation_style=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
     }
+    else {}
     
     return value;
 }
@@ -924,24 +940,29 @@ struct clef* loadClefValue(xmlNodePtr cur){
     xmlAttr* attributes;
     struct clef* value=(struct clef*)malloc(sizeof(struct clef));
     value=calloc(1,sizeof(struct clef));
-    value->next_clef=NULL;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
-            value->shape=xmlGetProp(cur,attributes->name);
+
+    if (value) {
+        value->next_clef = NULL;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"shape")) {
+                value->shape = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"staff_step")) {
+                value->staff_step = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"octave_num")) {
+                value->octave_num = xmlCharToInt(xmlGetProp(cur, attributes->name));
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                value->event_ref = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_step")){
-            value->staff_step=xmlGetProp(cur,attributes->name);
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"octave_num")){
-            value->octave_num=xmlCharToInt(xmlGetProp(cur,attributes->name));
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-            value->event_ref=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
     }
+    else {}
+
     return value;
 }
 
@@ -950,23 +971,27 @@ struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct key_signature* value=(struct key_signature*)malloc(sizeof(struct key_signature));
     value=calloc(1,sizeof(struct key_signature));
-    value->next_key_signature=NULL;
     
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-            value->event_ref=xmlGetProp(cur,attributes->name);
+    if (value) {
+        value->next_key_signature = NULL;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                value->event_ref = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        attributes=attributes->next;
-    }
-    temp_cur=cur->xmlChildrenNode;
-    while(temp_cur!=NULL){
-        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"sharp_num")||!xmlStrcmp(temp_cur->name,(const xmlChar*)"flat_num")){
-            value->num_type=(xmlChar*)temp_cur->name;
-            value->number=xmlCharToInt(xmlGetProp(temp_cur,(const xmlChar*)"number"));
+        temp_cur = cur->xmlChildrenNode;
+        while (temp_cur != NULL) {
+            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"sharp_num") || !xmlStrcmp(temp_cur->name, (const xmlChar*)"flat_num")) {
+                value->num_type = (xmlChar*)temp_cur->name;
+                value->number = xmlCharToInt(xmlGetProp(temp_cur, (const xmlChar*)"number"));
+            }
+            temp_cur = temp_cur->next;
         }
-        temp_cur=temp_cur->next;
     }
+    else {}
     
     return value;
 }
@@ -976,49 +1001,57 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct custom_key_signature* value=(struct custom_key_signature*)malloc(sizeof(struct custom_key_signature));
     value=calloc(1,sizeof(struct custom_key_signature));
-    value->next_custom_key_signature=NULL;
-    
-    struct key_accidental* key_accidental_temp=NULL;
-    struct key_accidental* key_accidental_head=NULL;
-    struct key_accidental* key_accidental_p=NULL;
-    value->n_key_accidentals= 0;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-            value->event_ref=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    temp_cur=cur->xmlChildrenNode;
-    while(temp_cur!=NULL){
-        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"key_accidental")){
-            key_accidental_temp=(struct key_accidental*)malloc(sizeof(struct key_accidental));
-            key_accidental_temp=calloc(1,sizeof(struct key_accidental));
-            attributes=temp_cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"step")){
-                    key_accidental_temp->step=xmlGetProp(temp_cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"accidental")){
-                    key_accidental_temp->accidental=xmlGetProp(temp_cur,attributes->name);
-                }
-                attributes=attributes->next;
-            }          
-            key_accidental_temp->next_key_accidental=NULL;
-            if(key_accidental_head==NULL)
-                key_accidental_head=key_accidental_temp;
-            else{
-                key_accidental_p=key_accidental_head;
-                while(key_accidental_p->next_key_accidental!=NULL)
-                    key_accidental_p=key_accidental_p->next_key_accidental;
-                key_accidental_p->next_key_accidental=key_accidental_temp;
+
+    if (value) {
+        value->next_custom_key_signature = NULL;
+
+        struct key_accidental* key_accidental_temp = NULL;
+        struct key_accidental* key_accidental_head = NULL;
+        struct key_accidental* key_accidental_p = NULL;
+        value->n_key_accidentals = 0;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                value->event_ref = xmlGetProp(cur, attributes->name);
             }
-            value->n_key_accidentals++;
+            attributes = attributes->next;
         }
-        temp_cur=temp_cur->next;
+        temp_cur = cur->xmlChildrenNode;
+        while (temp_cur != NULL) {
+            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"key_accidental")) {
+                key_accidental_temp = (struct key_accidental*)malloc(sizeof(struct key_accidental));
+                key_accidental_temp = calloc(1, sizeof(struct key_accidental));
+
+                if (key_accidental_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"step")) {
+                            key_accidental_temp->step = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"accidental")) {
+                            key_accidental_temp->accidental = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        attributes = attributes->next;
+                    }
+                    key_accidental_temp->next_key_accidental = NULL;
+                    if (key_accidental_head == NULL)
+                        key_accidental_head = key_accidental_temp;
+                    else {
+                        key_accidental_p = key_accidental_head;
+                        while (key_accidental_p->next_key_accidental != NULL)
+                            key_accidental_p = key_accidental_p->next_key_accidental;
+                        key_accidental_p->next_key_accidental = key_accidental_temp;
+                    }
+                    value->n_key_accidentals++;
+                }
+                else {}
+            }
+            temp_cur = temp_cur->next;
+        }
+        value->key_accidentals = key_accidental_head;
     }
-    value->key_accidentals=key_accidental_head;
+    else {}
     
     return value;
 }
@@ -1028,65 +1061,73 @@ struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct time_signature* value=(struct time_signature*)malloc(sizeof(struct time_signature));
     value=calloc(1,sizeof(struct time_signature));
-    value->next_time_signature=NULL;
-    
-    struct time_indication* time_indication_temp=NULL;
-    struct time_indication* time_indication_head=NULL;
-    struct time_indication* time_indication_p=NULL;
-    value->n_time_indications= 0;
-    value->visible= 1;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"visible")){
-            if(!xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"yes"))
-                value->visible= 1;
-            else
-                value->visible= 0;
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-            value->event_ref=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    temp_cur=cur->xmlChildrenNode;
-    while(temp_cur!=NULL){
-        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"time_indication")){
-            time_indication_temp=(struct time_indication*)malloc(sizeof(struct time_indication));
-            time_indication_temp=calloc(1,sizeof(struct time_indication));
-            attributes=temp_cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"num")){
-                    time_indication_temp->num=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"den")){
-                    time_indication_temp->den=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"abbreviation")){
-                    if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
-                        time_indication_temp->abbreviation= 1;
-                    else
-                        time_indication_temp->abbreviation= 0;
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"vtu_amount")){
-                    time_indication_temp->vtu_amount=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                attributes=attributes->next;
-            }          
-            time_indication_temp->next_time_indication=NULL;
-            if(time_indication_head==NULL)
-                time_indication_head=time_indication_temp;
-            else{
-                time_indication_p=time_indication_head;
-                while(time_indication_p->next_time_indication!=NULL)
-                    time_indication_p=time_indication_p->next_time_indication;
-                time_indication_p->next_time_indication=time_indication_temp;
+
+    if (value) {
+        value->next_time_signature = NULL;
+
+        struct time_indication* time_indication_temp = NULL;
+        struct time_indication* time_indication_head = NULL;
+        struct time_indication* time_indication_p = NULL;
+        value->n_time_indications = 0;
+        value->visible = 1;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"visible")) {
+                if (!xmlStrcmp(xmlGetProp(cur, attributes->name), (const xmlChar*)"yes"))
+                    value->visible = 1;
+                else
+                    value->visible = 0;
             }
-            value->n_time_indications++;
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                value->event_ref = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        temp_cur=temp_cur->next;
+        temp_cur = cur->xmlChildrenNode;
+        while (temp_cur != NULL) {
+            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"time_indication")) {
+                time_indication_temp = (struct time_indication*)malloc(sizeof(struct time_indication));
+                time_indication_temp = calloc(1, sizeof(struct time_indication));
+
+                if (time_indication_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"num")) {
+                            time_indication_temp->num = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"den")) {
+                            time_indication_temp->den = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"abbreviation")) {
+                            if (!xmlStrcmp(xmlGetProp(temp_cur, attributes->name), (const xmlChar*)"yes"))
+                                time_indication_temp->abbreviation = 1;
+                            else
+                                time_indication_temp->abbreviation = 0;
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"vtu_amount")) {
+                            time_indication_temp->vtu_amount = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        attributes = attributes->next;
+                    }
+                    time_indication_temp->next_time_indication = NULL;
+                    if (time_indication_head == NULL)
+                        time_indication_head = time_indication_temp;
+                    else {
+                        time_indication_p = time_indication_head;
+                        while (time_indication_p->next_time_indication != NULL)
+                            time_indication_p = time_indication_p->next_time_indication;
+                        time_indication_p->next_time_indication = time_indication_temp;
+                    }
+                    value->n_time_indications++;
+                }
+                else {}
+            }
+            temp_cur = temp_cur->next;
+        }
+        value->time_indications = time_indication_head;
     }
-    value->time_indications=time_indication_head;
+    else {}
     
     return value;
 }
@@ -1095,21 +1136,25 @@ struct barline* loadBarlineValue(xmlNodePtr cur){
     xmlAttr* attributes;
     struct barline* value=(struct barline*)malloc(sizeof(struct barline));
     value=calloc(1,sizeof(struct barline));
-    value->next_barline=NULL;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"style")){
-            value->style=xmlGetProp(cur,attributes->name);
+
+    if (value) {
+        value->next_barline = NULL;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"style")) {
+                value->style = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"extension")) {
+                value->extension = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                value->event_ref = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"extension")){
-            value->extension=xmlGetProp(cur,attributes->name);
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-           value->event_ref=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
     }
+    else {}
   
     return value;
 }
@@ -1119,56 +1164,64 @@ struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct tablature_tuning* value=(struct tablature_tuning*)malloc(sizeof(struct tablature_tuning));
     value=calloc(1,sizeof(struct tablature_tuning));
-    value->next_tablature_tuning=NULL;
-    
-    struct string* string_temp=NULL;
-    struct string* string_head=NULL;
-    struct string* string_p=NULL;
-    value->n_strings= 0;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
-            value->type=xmlGetProp(cur,attributes->name);
+
+    if (value) {
+        value->next_tablature_tuning = NULL;
+
+        struct string* string_temp = NULL;
+        struct string* string_head = NULL;
+        struct string* string_p = NULL;
+        value->n_strings = 0;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"type")) {
+                value->type = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        attributes=attributes->next;
-    }
-    temp_cur=cur->xmlChildrenNode;
-    while(temp_cur!=NULL){
-        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"string")){
-            string_temp=(struct string*)malloc(sizeof(struct string));
-            string_temp=calloc(1,sizeof(struct string));
-            attributes=temp_cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_number")){
-                    string_temp->string_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+        temp_cur = cur->xmlChildrenNode;
+        while (temp_cur != NULL) {
+            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"string")) {
+                string_temp = (struct string*)malloc(sizeof(struct string));
+                string_temp = calloc(1, sizeof(struct string));
+
+                if (string_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"string_number")) {
+                            string_temp->string_number = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"string_pitch")) {
+                            string_temp->string_pitch = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"string_accidental")) {
+                            string_temp->string_accidental = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"string_octave")) {
+                            string_temp->string_octave = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        attributes = attributes->next;
+                    }
+                    string_temp->next_string = NULL;
+                    if (string_head == NULL) {
+                        string_head = string_temp;
+                    }
+                    else {
+                        string_p = string_head;
+                        while (string_p->next_string != NULL)
+                            string_p = string_p->next_string;
+                        string_p->next_string = string_temp;
+                    }
+                    value->n_strings++;
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_pitch")){
-                    string_temp->string_pitch=xmlGetProp(temp_cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_accidental")){
-                    string_temp->string_accidental=xmlGetProp(temp_cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_octave")){
-                    string_temp->string_octave=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                attributes=attributes->next;
+                else {}
             }
-            string_temp->next_string=NULL;
-            if(string_head==NULL){
-                string_head=string_temp;
-            }
-            else{
-                string_p=string_head;
-                while(string_p->next_string!=NULL)
-                    string_p=string_p->next_string;
-                string_p->next_string=string_temp;
-            }
-            value->n_strings++;
+            temp_cur = temp_cur->next;
         }
-        temp_cur=temp_cur->next;
+        value->strings = string_head;
     }
-    value->strings=string_head;
+    else {}
 
     return value;
 }
@@ -1289,153 +1342,167 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
             tablature_symbol_temp=(struct tablature_symbol*)malloc(sizeof(struct tablature_symbol));
             tablature_symbol_temp=calloc(1,sizeof(struct tablature_symbol));
             
-            struct key* key_temp=NULL;
-            struct key* key_head=NULL;
-            struct key* key_p=NULL;
-            tablature_symbol_temp->n_keys= 0;
-            
-            attributes=temp_cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
-                    tablature_symbol_temp->id=xmlGetProp(temp_cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    tablature_symbol_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"stem_direction")){
-                    tablature_symbol_temp->stem_direction=xmlGetProp(temp_cur,attributes->name);
+            if (tablature_symbol_temp) {
+                struct key* key_temp = NULL;
+                struct key* key_head = NULL;
+                struct key* key_p = NULL;
+                tablature_symbol_temp->n_keys = 0;
 
+                attributes = temp_cur->properties;
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"id")) {
+                        tablature_symbol_temp->id = xmlGetProp(temp_cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                        tablature_symbol_temp->event_ref = xmlGetProp(temp_cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"stem_direction")) {
+                        tablature_symbol_temp->stem_direction = xmlGetProp(temp_cur, attributes->name);
+
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"beam_before")) {
+                        if (!xmlStrcmp(xmlGetProp(temp_cur, attributes->name), (const xmlChar*)"yes"))
+                            tablature_symbol_temp->beam_before = 1;
+                        else
+                            tablature_symbol_temp->beam_before = 0;
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"beam_after")) {
+                        if (!xmlStrcmp(xmlGetProp(temp_cur, attributes->name), (const xmlChar*)"yes"))
+                            tablature_symbol_temp->beam_after = 1;
+                        else
+                            tablature_symbol_temp->beam_after = 0;
+                    }
+                    attributes = attributes->next;
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"beam_before")){
-                    if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
-                                    tablature_symbol_temp->beam_before= 1;
-                    else
-                        tablature_symbol_temp->beam_before= 0;
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"beam_after")){
-                    if(!xmlStrcmp(xmlGetProp(temp_cur,attributes->name),(const xmlChar*)"yes"))
-                                    tablature_symbol_temp->beam_after=1;
-                    else
-                        tablature_symbol_temp->beam_after= 0;
-                }
-                attributes=attributes->next;
-            }
-            if(temp_cur->xmlChildrenNode!=NULL){
-                temp_cur=temp_cur->xmlChildrenNode;
-                if(temp_cur!=NULL){
-                    do{
-                        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"duration")){
-                           tablature_symbol_temp->duration=loadDurationValue(temp_cur);
-                        }
-                        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"augmentation_dots")){
-                           tablature_symbol_temp->augmentation_dots=(struct augmentation_dots){1};
-                           if(xmlGetProp(temp_cur,(const xmlChar*)"number")!=NULL)
-                            tablature_symbol_temp->augmentation_dots=(struct augmentation_dots){ xmlCharToInt(xmlGetProp(temp_cur,(const xmlChar*)"augmentation_dots"))};
-                        }
-                        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"key")){
-                            key_temp=loadKeyValue(temp_cur);
-                            key_temp->next_key=NULL;
-                            if(key_head==NULL){
-                                key_head=key_temp;
+                if (temp_cur->xmlChildrenNode != NULL) {
+                    temp_cur = temp_cur->xmlChildrenNode;
+                    if (temp_cur != NULL) {
+                        int last = 0;
+                        do {
+                            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"duration")) {
+                                tablature_symbol_temp->duration = loadDurationValue(temp_cur);
                             }
-                            else{
-                                key_p=key_head;
-                                while(key_p->next_key!=NULL)
-                                    key_p=key_p->next_key;
-                                key_p->next_key=key_temp;
+                            else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"augmentation_dots")) {
+                                tablature_symbol_temp->augmentation_dots = (struct augmentation_dots){ 1 };
+                                if (xmlGetProp(temp_cur, (const xmlChar*)"number") != NULL)
+                                    tablature_symbol_temp->augmentation_dots = (struct augmentation_dots){ xmlCharToInt(xmlGetProp(temp_cur,(const xmlChar*)"augmentation_dots")) };
                             }
-                            tablature_symbol_temp->n_keys++;
-                        }
-                        temp_cur=temp_cur->next;
-                    }while(temp_cur->next!=NULL);
+                            else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"key")) {
+                                key_temp = loadKeyValue(temp_cur);
+                                key_temp->next_key = NULL;
+                                if (key_head == NULL) {
+                                    key_head = key_temp;
+                                }
+                                else {
+                                    key_p = key_head;
+                                    while (key_p->next_key != NULL)
+                                        key_p = key_p->next_key;
+                                    key_p->next_key = key_temp;
+                                }
+                                tablature_symbol_temp->n_keys++;
+                            }
+                            if (temp_cur->next != NULL)
+                                temp_cur = temp_cur->next;
+                            else
+                                last = 1;
+                        } while (!last);
+                    }
+                    temp_cur = temp_cur->parent;
                 }
-                temp_cur=temp_cur->parent;
+                tablature_symbol_temp->keys = key_head;
+                tablature_symbol_temp->next_tablature_symbol = NULL;
+                if (tablature_symbol_head == NULL) {
+                    tablature_symbol_head = tablature_symbol_temp;
+                }
+                else {
+                    tablature_symbol_p = tablature_symbol_head;
+                    while (tablature_symbol_p->next_tablature_symbol != NULL)
+                        tablature_symbol_p = tablature_symbol_p->next_tablature_symbol;
+                    tablature_symbol_p->next_tablature_symbol = tablature_symbol_temp;
+                }
+                value->n_tablature_symbols++;
             }
-            tablature_symbol_temp->keys=key_head;
-            tablature_symbol_temp->next_tablature_symbol=NULL;
-            if(tablature_symbol_head==NULL){
-                tablature_symbol_head=tablature_symbol_temp;
-            }
-            else{
-                tablature_symbol_p=tablature_symbol_head;
-                while(tablature_symbol_p->next_tablature_symbol!=NULL)
-                    tablature_symbol_p=tablature_symbol_p->next_tablature_symbol;
-                tablature_symbol_p->next_tablature_symbol=tablature_symbol_temp;
-            }
-            value->n_tablature_symbols++;
+            else {}
         }
         else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"gregorian_symbol")){
             gregorian_symbol_temp=(struct gregorian_symbol*)malloc(sizeof(struct gregorian_symbol));
             gregorian_symbol_temp=calloc(1,sizeof(struct gregorian_symbol));
             
-            struct notehead* notehead_temp=NULL;
-            struct notehead* notehead_head=NULL;
-            struct notehead* notehead_p=NULL;
-            gregorian_symbol_temp->n_noteheads= 0;
-            
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(cur->name,(const xmlChar*)"id")){
-                    gregorian_symbol_temp->id=xmlGetProp(cur,attributes->name);
+            if (gregorian_symbol_temp) {
+                struct notehead* notehead_temp = NULL;
+                struct notehead* notehead_head = NULL;
+                struct notehead* notehead_p = NULL;
+                gregorian_symbol_temp->n_noteheads = 0;
+
+                attributes = cur->properties;
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(cur->name, (const xmlChar*)"id")) {
+                        gregorian_symbol_temp->id = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"neume")) {
+                        gregorian_symbol_temp->neume = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"inflexion")) {
+                        gregorian_symbol_temp->inflexion = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"subpunctis")) {
+                        gregorian_symbol_temp->subpunctis = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"interpretative_mark")) {
+                        gregorian_symbol_temp->interpretative_mark = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"mora")) {
+                        if (!xmlStrcmp(xmlGetProp(cur, attributes->name), (const xmlChar*)"yes"))
+                            gregorian_symbol_temp->mora = 1;
+                        else
+                            gregorian_symbol_temp->mora = 0;
+                    }
+                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"event_ref")) {
+                        gregorian_symbol_temp->event_ref = xmlGetProp(cur, attributes->name);
+                    }
+                    attributes = attributes->next;
                 }
-                else if(!xmlStrcmp(cur->name,(const xmlChar*)"neume")){
-                    gregorian_symbol_temp->neume=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(cur->name,(const xmlChar*)"inflexion")){
-                    gregorian_symbol_temp->inflexion=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(cur->name,(const xmlChar*)"subpunctis")){
-                    gregorian_symbol_temp->subpunctis=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(cur->name,(const xmlChar*)"interpretative_mark")){
-                    gregorian_symbol_temp->interpretative_mark=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(cur->name,(const xmlChar*)"mora")){
-                    if(!xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"yes"))
-                        gregorian_symbol_temp->mora= 1;
-                    else
-                        gregorian_symbol_temp->mora= 0;
-                }
-                else if(!xmlStrcmp(cur->name,(const xmlChar*)"event_ref")){
-                    gregorian_symbol_temp->event_ref=xmlGetProp(cur,attributes->name);
-                }           
-                attributes=attributes->next;
-            }
-            if(temp_cur->xmlChildrenNode!=NULL){
-                temp_cur=temp_cur->xmlChildrenNode;
-                if(temp_cur!=NULL){
-                    do{
-                        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"notehead")){
-                            notehead_temp=loadNoteheadValue(temp_cur);
-                            notehead_temp->next_notehead=NULL;
-                            if(notehead_head==NULL){
-                                notehead_head=notehead_temp;
+                if (temp_cur->xmlChildrenNode != NULL) {
+                    temp_cur = temp_cur->xmlChildrenNode;
+                    if (temp_cur != NULL) {
+                        int last = 0;
+                        do {
+                            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"notehead")) {
+                                notehead_temp = loadNoteheadValue(temp_cur);
+                                notehead_temp->next_notehead = NULL;
+                                if (notehead_head == NULL) {
+                                    notehead_head = notehead_temp;
+                                }
+                                else {
+                                    notehead_p = notehead_head;
+                                    while (notehead_p->next_notehead != NULL)
+                                        notehead_p = notehead_p->next_notehead;
+                                    notehead_p->next_notehead = notehead_temp;
+                                }
+                                gregorian_symbol_temp->n_noteheads++;
                             }
-                            else{
-                                notehead_p=notehead_head;
-                                while(notehead_p->next_notehead!=NULL)
-                                    notehead_p=notehead_p->next_notehead;
-                                notehead_p->next_notehead=notehead_temp;
-                            }
-                            gregorian_symbol_temp->n_noteheads++;
-                        }
-                        temp_cur=temp_cur->next;
-                    }while(temp_cur->next!=NULL);
+                            if (temp_cur->next != NULL)
+                                temp_cur = temp_cur->next;
+                            else
+                                last = 1;
+                        } while (!last);
+                    }
+                    temp_cur = temp_cur->parent;
                 }
-                temp_cur=temp_cur->parent;
+                gregorian_symbol_temp->notehead = notehead_head;
+                gregorian_symbol_temp->next_gregorian_symbol = NULL;
+                if (gregorian_symbol_head == NULL) {
+                    gregorian_symbol_head = gregorian_symbol_temp;
+                }
+                else {
+                    gregorian_symbol_p = gregorian_symbol_head;
+                    while (gregorian_symbol_p->next_gregorian_symbol != NULL)
+                        gregorian_symbol_p = gregorian_symbol_p->next_gregorian_symbol;
+                    gregorian_symbol_p->next_gregorian_symbol = gregorian_symbol_temp;
+                }
+                value->n_gregorian_symbols++;
             }
-            gregorian_symbol_temp->notehead=notehead_head;
-            gregorian_symbol_temp->next_gregorian_symbol=NULL;
-            if(gregorian_symbol_head==NULL){
-                gregorian_symbol_head=gregorian_symbol_temp;
-            }
-            else{
-                gregorian_symbol_p=gregorian_symbol_head;
-                while(gregorian_symbol_p->next_gregorian_symbol!=NULL)
-                    gregorian_symbol_p=gregorian_symbol_p->next_gregorian_symbol;
-                gregorian_symbol_p->next_gregorian_symbol=gregorian_symbol_temp;
-            }
-            value->n_gregorian_symbols++;
+            else {}
         }
         temp_cur=temp_cur->next;
     }
@@ -1533,6 +1600,7 @@ struct chord* loadChordValue(xmlNodePtr cur){
             if(temp_cur->xmlChildrenNode!=NULL){
                 temp_cur=temp_cur->xmlChildrenNode;
                 if(temp_cur!=NULL){
+                    int last = 0;
                     do{
                         if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
                             articulation_temp=loadArticulationValue(temp_cur);
@@ -1548,8 +1616,11 @@ struct chord* loadChordValue(xmlNodePtr cur){
                             }
                             value->n_articulations++; 
                         }
-                        temp_cur=temp_cur->next;
-                    }while(temp_cur->next!=NULL);
+                        if (temp_cur->next != NULL)
+                            temp_cur = temp_cur->next;
+                        else
+                            last = 1;
+                    } while (!last);
                 }
                 temp_cur=temp_cur->parent;
             }
@@ -1616,29 +1687,37 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
             }
             //printed_accidental children is REQUIRED
             temp_cur=temp_cur->xmlChildrenNode;
+            int last = 0;
             do{
                 if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
                     printed_accidental_temp=(struct printed_accidental*)malloc(sizeof(struct printed_accidental));
                     printed_accidental_temp=calloc(1,sizeof(struct printed_accidental));
-                    printed_accidental_temp->printed_accidental_type=(xmlChar*)temp_cur->name;
-                    if(!xmlStrcmp(xmlGetProp(temp_cur,(const xmlChar*)"parenthesis"),(const xmlChar*)"yes"))
-                        printed_accidental_temp->parenthesis= 1;
-                    else
-                        printed_accidental_temp->parenthesis= 0;
-                    printed_accidental_temp->next_printed_accidental=NULL;
-                    
-                    if(printed_accidental_head==NULL)
-                        printed_accidental_head=printed_accidental_temp;
-                    else{
-                        printed_accidental_p=printed_accidental_head;
-                        while(printed_accidental_p->next_printed_accidental!=NULL)
-                            printed_accidental_p=printed_accidental_p->next_printed_accidental;
-                        printed_accidental_p->next_printed_accidental=printed_accidental_temp;
+
+                    if (printed_accidental_temp) {
+                        printed_accidental_temp->printed_accidental_type = (xmlChar*)temp_cur->name;
+                        if (!xmlStrcmp(xmlGetProp(temp_cur, (const xmlChar*)"parenthesis"), (const xmlChar*)"yes"))
+                            printed_accidental_temp->parenthesis = 1;
+                        else
+                            printed_accidental_temp->parenthesis = 0;
+                        printed_accidental_temp->next_printed_accidental = NULL;
+
+                        if (printed_accidental_head == NULL)
+                            printed_accidental_head = printed_accidental_temp;
+                        else {
+                            printed_accidental_p = printed_accidental_head;
+                            while (printed_accidental_p->next_printed_accidental != NULL)
+                                printed_accidental_p = printed_accidental_p->next_printed_accidental;
+                            printed_accidental_p->next_printed_accidental = printed_accidental_temp;
+                        }
+                        value->n_printed_accidentals++;
                     }
-                    value->n_printed_accidentals++;
+                    else {}
                 }
-                temp_cur=temp_cur->next;
-            }while(temp_cur->next!=NULL);
+                if (temp_cur->next != NULL)
+                    temp_cur = temp_cur->next;
+                else
+                    last = 1;
+            } while (!last);
             temp_cur=temp_cur->parent;
         }
         else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tie")){
@@ -1661,76 +1740,82 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
 }
 
 struct duration loadDurationValue(xmlNodePtr cur){
-    xmlAttr* attributes;
-    xmlNodePtr temp_cur;
     struct duration* value=(struct duration*)malloc(sizeof(struct duration));
     value=calloc(1,sizeof(struct duration));
+    xmlAttr* attributes;
+    xmlNodePtr temp_cur;
     
-    struct tuplet_ratio* tuplet_ratio_temp=NULL;
-    struct tuplet_ratio* tuplet_ratio_head=NULL;
-    struct tuplet_ratio* tuplet_ratio_p=NULL;
-    value->n_tuplet_ratios= 0;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"num")){
-            value->num=xmlCharToInt(xmlGetProp(cur,attributes->name));
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"den")){
-            value->den=xmlCharToInt(xmlGetProp(cur,attributes->name));
-        }
-        attributes=attributes->next;
-    }
-    temp_cur=cur->xmlChildrenNode;
-    while(temp_cur!=NULL){
-        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tuplet_ratio")){
-            tuplet_ratio_temp=(struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
-            tuplet_ratio_temp=calloc(1,sizeof(struct tuplet_ratio));
-            attributes=temp_cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"enter_num")){
-                    tuplet_ratio_temp->enter_num=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"enter_den")){
-                    tuplet_ratio_temp->enter_den=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"enter_dots")){
-                    tuplet_ratio_temp->enter_dots=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"in_num")){
-                    tuplet_ratio_temp->in_num=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"in_den")){
-                    tuplet_ratio_temp->in_den=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"in_dots")){
-                    tuplet_ratio_temp->in_dots=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                attributes=attributes->next;
-            }
-		
-            //read tuplet_ratio innest
+    if (value) {
+        struct tuplet_ratio* tuplet_ratio_temp = NULL;
+        struct tuplet_ratio* tuplet_ratio_head = NULL;
+        struct tuplet_ratio* tuplet_ratio_p = NULL;
+        value->n_tuplet_ratios = 0;
 
-            tuplet_ratio_temp->next_tuplet_ratio=NULL;
-            if(tuplet_ratio_head==NULL){
-                tuplet_ratio_head=tuplet_ratio_temp;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"num")) {
+                value->num = xmlCharToInt(xmlGetProp(cur, attributes->name));
             }
-            else{
-                tuplet_ratio_p=tuplet_ratio_head;
-                while(tuplet_ratio_p->next_tuplet_ratio!=NULL)
-                    tuplet_ratio_p=tuplet_ratio_p->next_tuplet_ratio;
-                tuplet_ratio_p->next_tuplet_ratio=tuplet_ratio_temp;
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"den")) {
+                value->den = xmlCharToInt(xmlGetProp(cur, attributes->name));
             }
-            value->n_tuplet_ratios++;
-            temp_cur=temp_cur->xmlChildrenNode;
+            attributes = attributes->next;
         }
-        else{
-            temp_cur=temp_cur->next;
+        temp_cur = cur->xmlChildrenNode;
+        while (temp_cur != NULL) {
+            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tuplet_ratio")) {
+                tuplet_ratio_temp = (struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
+                tuplet_ratio_temp = calloc(1, sizeof(struct tuplet_ratio));
+
+                if (tuplet_ratio_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"enter_num")) {
+                            tuplet_ratio_temp->enter_num = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"enter_den")) {
+                            tuplet_ratio_temp->enter_den = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"enter_dots")) {
+                            tuplet_ratio_temp->enter_dots = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"in_num")) {
+                            tuplet_ratio_temp->in_num = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"in_den")) {
+                            tuplet_ratio_temp->in_den = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"in_dots")) {
+                            tuplet_ratio_temp->in_dots = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                        }
+                        attributes = attributes->next;
+                    }
+
+                    tuplet_ratio_temp->next_tuplet_ratio = NULL;
+                    if (tuplet_ratio_head == NULL) {
+                        tuplet_ratio_head = tuplet_ratio_temp;
+                    }
+                    else {
+                        tuplet_ratio_p = tuplet_ratio_head;
+                        while (tuplet_ratio_p->next_tuplet_ratio != NULL)
+                            tuplet_ratio_p = tuplet_ratio_p->next_tuplet_ratio;
+                        tuplet_ratio_p->next_tuplet_ratio = tuplet_ratio_temp;
+                    }
+                    value->n_tuplet_ratios++;
+                    temp_cur = temp_cur->xmlChildrenNode;//read tuplet_ratio recursive
+                }
+                else {}
+            }
+            else {
+                temp_cur = temp_cur->next;
+            }
         }
+        value->tuplet_ratio = tuplet_ratio_head;
+
     }
-    value->tuplet_ratio=tuplet_ratio_head;
+    else {}
     
-    return *value;     
+    return (value ? (*value) : ((struct duration){0,0,0}));
 }
 
 struct key* loadKeyValue(xmlNodePtr cur){
@@ -1738,58 +1823,60 @@ struct key* loadKeyValue(xmlNodePtr cur){
     xmlNodePtr temp_cur;
     struct key* value=(struct key*)malloc(sizeof(struct key));
     value=calloc(1,sizeof(struct key));
-    value->next_key=NULL;
-    value->tie= 0;
-    
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"ïd")){
-            value->id=xmlGetProp(cur,attributes->name);
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"staff_ref")){
-            value->staff_ref=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
-    }
-    temp_cur=cur->xmlChildrenNode;
-    while(temp_cur!=NULL){
-        if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tablature_pitch")){
-            attributes=temp_cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_number")){
-                    value->tablature_pitch.string_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"key_number")){
-                    value->tablature_pitch.key_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                }
-                attributes=attributes->next;
+
+    if (value) {
+        value->next_key = NULL;
+        value->tie = 0;
+
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"ïd")) {
+                value->id = xmlGetProp(cur, attributes->name);
             }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"staff_ref")) {
+                value->staff_ref = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tablature_articulation")){
-            attributes=temp_cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
-                    value->tablature_articulation.shape=xmlGetProp(temp_cur,attributes->name);
+        temp_cur = cur->xmlChildrenNode;
+        while (temp_cur != NULL) {
+            if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tablature_pitch")) {
+                attributes = temp_cur->properties;
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"string_number")) {
+                        value->tablature_pitch.string_number = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"key_number")) {
+                        value->tablature_pitch.key_number = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                    }
+                    attributes = attributes->next;
                 }
-                attributes=attributes->next;
-            }        
-        }
-        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tie")){
-            value->tie= 1;
-        }
-        else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tablature_fingering")){
-            attributes=temp_cur->properties;
-            value->tablature_fingering.tablature_fingering_value=xmlNodeListGetString(doc,temp_cur->xmlChildrenNode,1);
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
-                    value->tablature_fingering.shape=xmlGetProp(temp_cur,attributes->name);
+            }
+            else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tablature_articulation")) {
+                attributes = temp_cur->properties;
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"shape")) {
+                        value->tablature_articulation.shape = xmlGetProp(temp_cur, attributes->name);
+                    }
+                    attributes = attributes->next;
                 }
-                attributes=attributes->next;
-            }          
+            }
+            else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tie")) {
+                value->tie = 1;
+            }
+            else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tablature_fingering")) {
+                attributes = temp_cur->properties;
+                value->tablature_fingering.tablature_fingering_value = xmlNodeListGetString(doc, temp_cur->xmlChildrenNode, 1);
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"shape")) {
+                        value->tablature_fingering.shape = xmlGetProp(temp_cur, attributes->name);
+                    }
+                    attributes = attributes->next;
+                }
+            }
+            temp_cur = temp_cur->next;
         }
-        temp_cur=temp_cur->next;
     }
-    
     
     return value;  
 }
@@ -1797,10 +1884,14 @@ struct key* loadKeyValue(xmlNodePtr cur){
 struct articulation* loadArticulationValue(xmlNodePtr cur){
     struct articulation* value=(struct articulation*)malloc(sizeof(struct articulation));
     value=calloc(1,sizeof(struct articulation));
-    value->next_articulation=NULL;  
-    
-    value->articulation_sign=(xmlChar*)cur->name;
-    //if custom_articulation > child contains svg
-    
+
+    if (value) {
+        value->next_articulation = NULL;
+
+        value->articulation_sign = (xmlChar*)cur->name;
+        //if custom_articulation > child contains svg
+    }
+    else {}
+
     return value;
 }

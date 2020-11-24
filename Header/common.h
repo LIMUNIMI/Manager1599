@@ -10,6 +10,13 @@
  *
  * Created on 26 agosto 2020, 22.08
  */
+#pragma once
+
+#ifdef MANAGERIEEE1599_EXPORTS
+#define MANAGERIEEE1599_API __declspec(dllexport)
+#else
+#define MANAGERIEEE1599_API __declspec(dllimport)
+#endif
 
 #ifndef COMMON_H
 #define COMMON_H
@@ -44,19 +51,21 @@ struct genre{//?
      struct genre* next_genre;
 };
     
-extern xmlChar *docname;
 extern xmlDocPtr doc;
 extern char* file_name;
 
-xmlDocPtr getDoc(xmlChar* docpath);
-int validate(xmlDocPtr doc);
-xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
-char* concat(const char *s1, const char *s2);  
-int xmlCharToInt(xmlChar* string);
-double xmlCharToDouble(xmlChar* string);
+MANAGERIEEE1599_API int getDoc(xmlChar* docpath);
+MANAGERIEEE1599_API int validate(xmlDocPtr doc);
+MANAGERIEEE1599_API xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
+MANAGERIEEE1599_API char* concat(const char *s1, const char *s2);
+MANAGERIEEE1599_API int xmlCharToInt(xmlChar* string);
+MANAGERIEEE1599_API double xmlCharToDouble(xmlChar* string);
+MANAGERIEEE1599_API void setFileName(char* new_file_name);
+MANAGERIEEE1599_API char* getFileName();
+MANAGERIEEE1599_API void clean();
 
-struct rights loadRights(xmlNodePtr cur);
-struct genre* loadGenre(xmlNodePtr cur);
+MANAGERIEEE1599_API struct rights loadRights(xmlNodePtr cur);
+MANAGERIEEE1599_API struct genre* loadGenre(xmlNodePtr cur);
 
 #ifdef __cplusplus
 }

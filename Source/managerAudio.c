@@ -124,33 +124,36 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
                     recording_temp=(struct recording*)malloc(sizeof(struct recording));
                     recording_temp=calloc(1,sizeof(struct recording));
                     
-                    attributes=temp_cur->properties;
-                    while(attributes!=NULL){
-                        if(!xmlStrcmp(attributes->name,(const xmlChar*)"date")){
-                            recording_temp->date=xmlGetProp(temp_cur,attributes->name);
+                    if (recording_temp) {
+                        attributes = temp_cur->properties;
+                        while (attributes != NULL) {
+                            if (!xmlStrcmp(attributes->name, (const xmlChar*)"date")) {
+                                recording_temp->date = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"recorded_part")) {
+                                recording_temp->recorded_part = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"studio_name")) {
+                                recording_temp->studio_name = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"studio_address")) {
+                                recording_temp->studio_address = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            attributes = attributes->next;
                         }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"recorded_part")){
-                            recording_temp->recorded_part=xmlGetProp(temp_cur,attributes->name);
+
+                        recording_temp->next_recording = NULL;
+                        if (recording_head == NULL)
+                            recording_head = recording_temp;
+                        else {
+                            recording_p = recording_head;
+                            while (recording_p->next_recording != NULL)
+                                recording_p = recording_p->next_recording;
+                            recording_p->next_recording = recording_temp;
                         }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"studio_name")){
-                            recording_temp->studio_name=xmlGetProp(temp_cur,attributes->name);
-                        }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"studio_address")){
-                            recording_temp->studio_address=xmlGetProp(temp_cur,attributes->name);
-                        }
-                        attributes=attributes->next;
+                        value.n_recordings++;
                     }
-                    
-                    recording_temp->next_recording=NULL;
-                    if(recording_head==NULL)
-                    recording_head=recording_temp;
-                    else{
-                        recording_p=recording_head;
-                        while(recording_p->next_recording!=NULL)
-                            recording_p=recording_p->next_recording;
-                        recording_p->next_recording=recording_temp;
-                    }
-                    value.n_recordings++;
+                    else {}
                 }
                 temp_cur=temp_cur->next;
             }
@@ -185,42 +188,45 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
                     album_temp=(struct album*)malloc(sizeof(struct album));
                     album_temp=calloc(1,sizeof(struct album));
                     
-                    attributes=temp_cur->properties;
-                    while(attributes!=NULL){
-                        if(!xmlStrcmp(attributes->name,(const xmlChar*)"title")){
-                            album_temp->title=xmlGetProp(temp_cur,attributes->name);
+                    if (album_temp) {
+                        attributes = temp_cur->properties;
+                        while (attributes != NULL) {
+                            if (!xmlStrcmp(attributes->name, (const xmlChar*)"title")) {
+                                album_temp->title = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"track_number")) {
+                                album_temp->track_number = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"carrier_type")) {
+                                album_temp->carrier_type = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"catalogue_number")) {
+                                album_temp->catalogue_number = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"number_of_tracks")) {
+                                album_temp->number_of_tracks = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"publication_date")) {
+                                album_temp->publication_date = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"label")) {
+                                album_temp->label = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            attributes = attributes->next;
                         }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"track_number")){
-                            album_temp->track_number=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+
+                        album_temp->next_album = NULL;
+                        if (album_head == NULL)
+                            album_head = album_temp;
+                        else {
+                            album_p = album_head;
+                            while (album_p->next_album != NULL)
+                                album_p = album_p->next_album;
+                            album_p->next_album = album_temp;
                         }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"carrier_type")){
-                            album_temp->carrier_type=xmlGetProp(temp_cur,attributes->name);
-                        }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"catalogue_number")){
-                            album_temp->catalogue_number=xmlGetProp(temp_cur,attributes->name);
-                        }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"number_of_tracks")){
-                            album_temp->number_of_tracks=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
-                        }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"publication_date")){
-                            album_temp->publication_date=xmlGetProp(temp_cur,attributes->name);
-                        }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"label")){
-                            album_temp->label=xmlGetProp(temp_cur,attributes->name);
-                        }
-                        attributes=attributes->next;
+                        value.n_albums++;
                     }
-                    
-                    album_temp->next_album=NULL;
-                    if(album_head==NULL)
-                    album_head=album_temp;
-                    else{
-                        album_p=album_head;
-                        while(album_p->next_album!=NULL)
-                            album_p=album_p->next_album;
-                        album_p->next_album=album_temp;
-                    }
-                    value.n_albums++;
+                    else {}
                 }
                 temp_cur=temp_cur->next;
             }
@@ -229,30 +235,33 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"performer")){
-                                        performer_temp=(struct performer*)malloc(sizeof(struct performer));
+                    performer_temp=(struct performer*)malloc(sizeof(struct performer));
                     performer_temp=calloc(1,sizeof(struct performer));
                     
-                    attributes=temp_cur->properties;
-                    while(attributes!=NULL){
-                        if(!xmlStrcmp(attributes->name,(const xmlChar*)"name")){
-                            performer_temp->name=xmlGetProp(temp_cur,attributes->name);
+                    if (performer_temp) {
+                        attributes = temp_cur->properties;
+                        while (attributes != NULL) {
+                            if (!xmlStrcmp(attributes->name, (const xmlChar*)"name")) {
+                                performer_temp->name = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"type")) {
+                                performer_temp->type = xmlGetProp(temp_cur, attributes->name);
+                            }
+                            attributes = attributes->next;
                         }
-                        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"type")){
-                            performer_temp->type=xmlGetProp(temp_cur,attributes->name);
+
+                        performer_temp->next_performer = NULL;
+                        if (performer_head == NULL)
+                            performer_head = performer_temp;
+                        else {
+                            performer_p = performer_head;
+                            while (performer_p->next_performer != NULL)
+                                performer_p = performer_p->next_performer;
+                            performer_p->next_performer = performer_temp;
                         }
-                        attributes=attributes->next;
+                        value.n_performers++;
                     }
-                    
-                    performer_temp->next_performer=NULL;
-                    if(performer_head==NULL)
-                    performer_head=performer_temp;
-                    else{
-                        performer_p=performer_head;
-                        while(performer_p->next_performer!=NULL)
-                            performer_p=performer_p->next_performer;
-                        performer_p->next_performer=performer_temp;
-                    }
-                    value.n_performers++;
+                    else {}
                 }
                 temp_cur=temp_cur->next;
             }
@@ -298,65 +307,72 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
             track_region_temp=(struct track_region*)malloc(sizeof(struct track_region));
             track_region_temp=calloc(1,sizeof(struct track_region));
 
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"name")){
-                    track_region_temp->name=xmlGetProp(cur,attributes->name);
+            if (track_region_temp) {
+                attributes = cur->properties;
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"name")) {
+                        track_region_temp->name = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"description")) {
+                        track_region_temp->description = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"start_event_ref")) {
+                        track_region_temp->start_event_ref = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"end_event_ref")) {
+                        track_region_temp->end_event_ref = xmlGetProp(cur, attributes->name);
+                    }
+                    attributes = attributes->next;
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-                    track_region_temp->description=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_event_ref")){
-                    track_region_temp->start_event_ref=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_event_ref")){
-                    track_region_temp->end_event_ref=xmlGetProp(cur,attributes->name);
-                }
-                attributes=attributes->next;
-            }
 
-            track_region_temp->next_track_region=NULL;
-            if(track_region_head==NULL)
-            track_region_head=track_region_temp;
-            else{
-                track_region_p=track_region_head;
-                while(track_region_p->next_track_region!=NULL)
-                    track_region_p=track_region_p->next_track_region;
-                track_region_p->next_track_region=track_region_temp;
+
+                track_region_temp->next_track_region = NULL;
+                if (track_region_head == NULL)
+                    track_region_head = track_region_temp;
+                else {
+                    track_region_p = track_region_head;
+                    while (track_region_p->next_track_region != NULL)
+                        track_region_p = track_region_p->next_track_region;
+                    track_region_p->next_track_region = track_region_temp;
+                }
+                value.n_track_regions++;
             }
-            value.n_track_regions++;
+            else {}
         }
         else if(!xmlStrcmp(cur->name,(const xmlChar*)"track_event")){
             track_event_temp=(struct track_event*)malloc(sizeof(struct track_event));
             track_event_temp=calloc(1,sizeof(struct track_event));
 
-            attributes=cur->properties;
-            while(attributes!=NULL){
-                if(!xmlStrcmp(attributes->name,(const xmlChar*)"start_time")){
-                    track_event_temp->start_time=xmlGetProp(cur,attributes->name);
+            if (track_event_temp) {
+                attributes = cur->properties;
+                while (attributes != NULL) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"start_time")) {
+                        track_event_temp->start_time = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"end_time")) {
+                        track_event_temp->end_time = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
+                        track_event_temp->event_ref = xmlGetProp(cur, attributes->name);
+                    }
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"description")) {
+                        track_event_temp->description = xmlGetProp(cur, attributes->name);
+                    }
+                    attributes = attributes->next;
                 }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"end_time")){
-                    track_event_temp->end_time=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
-                    track_event_temp->event_ref=xmlGetProp(cur,attributes->name);
-                }
-                else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-                    track_event_temp->description=xmlGetProp(cur,attributes->name);
-                }
-                attributes=attributes->next;
-            }
 
-            track_event_temp->next_track_event=NULL;
-            if(track_event_head==NULL)
-            track_event_head=track_event_temp;
-            else{
-                track_event_p=track_event_head;
-                while(track_event_p->next_track_event!=NULL)
-                    track_event_p=track_event_p->next_track_event;
-                track_event_p->next_track_event=track_event_temp;
+                track_event_temp->next_track_event = NULL;
+                if (track_event_head == NULL)
+                    track_event_head = track_event_temp;
+                else {
+                    track_event_p = track_event_head;
+                    while (track_event_p->next_track_event != NULL)
+                        track_event_p = track_event_p->next_track_event;
+                    track_event_p->next_track_event = track_event_temp;
+                }
+                value.n_track_events++;
             }
-            value.n_track_events++; 
+            else {}
         }
         cur=cur->next;
     }

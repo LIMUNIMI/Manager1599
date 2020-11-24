@@ -5,47 +5,55 @@
  */
 #include "common.h"
 
-xmlChar *docname;
 xmlDocPtr doc;
 char* file_name;
 
 int validate(xmlDocPtr doc) {
 
     int res = 0;
+
     xmlValidCtxtPtr ctxt = xmlNewValidCtxt();
-    xmlNodePtr dtd= xmlParseDTD(NULL, (const xmlChar*)"./File/DTD/ieee1599.dtd");
+    xmlDtdPtr dtd= xmlParseDTD(NULL, (const xmlChar*)"./File/DTD/ieee1599.dtd");
+
     if (dtd == NULL)
         fprintf(stderr, "Cant't load DTD\n");
     else
         res=xmlValidateDtd(ctxt,doc,dtd);
+
     return res;
 }
 
-xmlDocPtr getDoc(xmlChar* docpath){
+int getDoc(xmlChar* docpath){
 
-    xmlDocPtr doc;
+    int no_error = 1;
+
     xmlNodePtr cur;
 
     doc=xmlParseFile((char*)docpath);
     if(doc==NULL){
         fprintf(stderr,"Error during document parsing\n");
-        return NULL;
+        no_error=0;
+    }
+    else {
+        cur = xmlDocGetRootElement(doc);
+        if (cur == NULL) {
+            fprintf(stderr, "Empty document\n");
+            xmlFreeDoc(doc);
+            no_error = 0;
+        }
+        else if (xmlStrcmp(cur->name, (const xmlChar*)"ieee1599")) {
+            fprintf(stderr, "Document is not ieee1599\n");
+            xmlFreeDoc(doc);
+            no_error = 0;
+        }
+        else if (validate(doc) == 0) {
+            fprintf(stdout, "%s is not Valid\n", getFileName());
+            xmlFreeDoc(doc);
+            no_error = 0;
+        }
     }
 
-    cur=xmlDocGetRootElement(doc);
-    if(cur==NULL){
-        fprintf(stderr,"Empty document\n");
-        xmlFreeDoc(doc);
-        return NULL;
-    }
-
-    if(xmlStrcmp(cur->name,(const xmlChar*)"ieee1599")){
-        fprintf(stderr,"Document is not ieee1599\n");
-        xmlFreeDoc(doc);
-        return NULL;
-    }
-
-    return doc;
+    return no_error;
 }
 
 xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath){
@@ -99,8 +107,16 @@ double xmlCharToDouble(xmlChar* string){
     return value;
 }
 
+void setFileName(char* new_file_name) {
+    file_name = new_file_name;
+}
+
+char* getFileName() {
+    return file_name;
+}
+
 struct rights loadRights(xmlNodePtr cur){
-    struct rights value;
+    struct rights value = {""};
     xmlAttr* attributes;
 
     attributes=cur->properties;
@@ -119,20 +135,30 @@ struct genre* loadGenre(xmlNodePtr cur){
     value=calloc(1,sizeof(struct genre));
     xmlAttr* attributes;
 
-    value->next_genre=NULL;
-    attributes=cur->properties;
-    while(attributes!=NULL){
-        if(!xmlStrcmp(attributes->name,(const xmlChar*)"name")){
-            value->name=xmlGetProp(cur,attributes->name);
+    if (value) {
+        value->next_genre = NULL;
+        attributes = cur->properties;
+        while (attributes != NULL) {
+            if (!xmlStrcmp(attributes->name, (const xmlChar*)"name")) {
+                value->name = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"description")) {
+                value->description = xmlGetProp(cur, attributes->name);
+            }
+            else if (!xmlStrcmp(attributes->name, (const xmlChar*)"weight")) {
+                value->weight = xmlGetProp(cur, attributes->name);
+            }
+            attributes = attributes->next;
         }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"description")){
-            value->description=xmlGetProp(cur,attributes->name);
-        }
-        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"weight")){
-            value->weight=xmlGetProp(cur,attributes->name);
-        }
-        attributes=attributes->next;
     }
+    else {}
 
     return value;
+}
+
+void clean() {
+      
+    //xmlFreeDoc(doc);
+    xmlCleanupParser();
+
 }
