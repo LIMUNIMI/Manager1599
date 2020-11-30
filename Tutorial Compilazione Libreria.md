@@ -9,13 +9,16 @@ Impostare il progetto di lavoro come descritto nel file * *Tutorial Installazion
   - In `C/C++ > Avanzate > Compila come` scegliere * *Compila come codice C (/TC)* *.
   - In `Linker > Input > Dipendenza aggiuntive` aggiungere * *libxml2.lib* * e * *iconv.lib* *.
 2. Aggiungere all'inzio di **common.h** le seguenti istruzioni:
-      `#pragma once
+      ```
+      #pragma once
 
       #ifdef MANAGERIEEE1599_EXPORTS
       #define MANAGERIEEE1599_API __declspec(dllexport)
       #else
       #define MANAGERIEEE1599_API __declspec(dllimport)
-      #endif`
+      #endif
+      ```
+      
 3. Aggiungere la parola chiave * *MANAGERIEEE1599_API* * alle dichiarazioni delle variabili e funzioni che si vogliono esportare nella libreria.
 
 4. Compilare.
