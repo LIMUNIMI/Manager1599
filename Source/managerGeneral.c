@@ -103,7 +103,7 @@ void loadDescription(){
                     }
                     general_layer.description.n_authors++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'author' element\n"); }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"other_title")){
                 other_title_temp=(struct other_title*)malloc(sizeof(struct other_title));
@@ -123,7 +123,7 @@ void loadDescription(){
                     }
                     general_layer.description.n_other_titles++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'other_title' element\n"); }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"date")){
                 date_temp=(struct date*)malloc(sizeof(struct date));
@@ -150,7 +150,7 @@ void loadDescription(){
                     }
                     general_layer.description.n_dates++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'date' element\n"); }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"genres")){
                 temp_cur=cur;
@@ -300,6 +300,7 @@ void loadRelatedFiles(){
                 }
                 general_layer.n_related_files++;
             }
+                else { fprintf(stderr, "Memory allocation failed for 'related_file' element\n");  }
             }
         }
     }   
@@ -370,7 +371,7 @@ void loadAnalogMedia(){
                     }
                     general_layer.n_analog_media++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'analog_medium' element\n"); }
             }
         }
     }   

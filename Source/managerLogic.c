@@ -84,7 +84,7 @@ void loadSpine(){
                     }
                     logic_layer.n_events++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'event' element\n"); }
             }
             cur=cur->next;
         }
@@ -660,7 +660,7 @@ void loadLos(){
                             }
                             lyrics_temp->n_syllables++;
                         }
-                        else {}
+                        else { fprintf(stderr, "Memory allocation failed for 'syllable' element\n"); }
                     }
                     temp_cur=temp_cur->next;
                 }//end while syllable in lyrics
@@ -965,7 +965,7 @@ void loadLayout(){
                             }
                             page_temp->n_layout_shapes++;
                         }
-                        else {}
+                        else { fprintf(stderr, "Memory allocation failed for 'layout_shapes' element\n"); }
                     }                   
                     temp_cur=temp_cur->next;
                 }

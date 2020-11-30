@@ -680,7 +680,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                         jump_to_p = jump_to_temp;
                     }
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'jump_to' element\n"); }
             } 
             else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"end")){
                 end_temp=(struct end*)malloc(sizeof(struct end));
@@ -707,7 +707,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                         end_p = end_temp;
                     }
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'end' element\n"); }
             }   
         }
         value.repeat.jump_tos=jump_to_head;
@@ -800,7 +800,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                         multiple_ending_p = multiple_ending_temp;
                     }
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'multiple_ending' element\n"); }
             }  
         }
         value.multiple_endings.multiple_ending=multiple_ending_head;
@@ -850,7 +850,7 @@ struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
             attributes = attributes->next;
         }
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'voice_item' element\n"); }
     
     return value;
 }
@@ -961,7 +961,7 @@ struct clef* loadClefValue(xmlNodePtr cur){
             attributes = attributes->next;
         }
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'clef' element\n"); }
 
     return value;
 }
@@ -991,7 +991,7 @@ struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
             temp_cur = temp_cur->next;
         }
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'key_signature' element\n"); }
     
     return value;
 }
@@ -1045,13 +1045,13 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
                     }
                     value->n_key_accidentals++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'key_accidental' element\n"); }
             }
             temp_cur = temp_cur->next;
         }
         value->key_accidentals = key_accidental_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'custom_key_signature' element\n"); }
     
     return value;
 }
@@ -1121,13 +1121,13 @@ struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
                     }
                     value->n_time_indications++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'time_indication' element\n"); }
             }
             temp_cur = temp_cur->next;
         }
         value->time_indications = time_indication_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'time_signature' element\n"); }
     
     return value;
 }
@@ -1154,7 +1154,7 @@ struct barline* loadBarlineValue(xmlNodePtr cur){
             attributes = attributes->next;
         }
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'barline' element\n"); }
   
     return value;
 }
@@ -1215,13 +1215,13 @@ struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
                     }
                     value->n_strings++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'string' element\n"); }
             }
             temp_cur = temp_cur->next;
         }
         value->strings = string_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'tablature_tuning' element\n"); }
 
     return value;
 }
@@ -1422,7 +1422,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
                 }
                 value->n_tablature_symbols++;
             }
-            else {}
+            else { fprintf(stderr, "Memory allocation failed for 'tablature_symbol' element\n"); }
         }
         else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"gregorian_symbol")){
             gregorian_symbol_temp=(struct gregorian_symbol*)malloc(sizeof(struct gregorian_symbol));
@@ -1502,7 +1502,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
                 }
                 value->n_gregorian_symbols++;
             }
-            else {}
+            else { fprintf(stderr, "Memory allocation failed for 'gregorian_symbol' element\n"); }
         }
         temp_cur=temp_cur->next;
     }
@@ -1711,7 +1711,7 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
                         }
                         value->n_printed_accidentals++;
                     }
-                    else {}
+                    else { fprintf(stderr, "Memory allocation failed for 'printed_accidental' element\n"); }
                 }
                 if (temp_cur->next != NULL)
                     temp_cur = temp_cur->next;
@@ -1797,7 +1797,7 @@ struct duration loadDurationValue(xmlNodePtr cur){
 
                     temp_cur = temp_cur->next;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'tuplet_ratio' element\n"); }
             }
             else {
                 temp_cur = temp_cur->next;
@@ -1805,7 +1805,7 @@ struct duration loadDurationValue(xmlNodePtr cur){
         }
         value->tuplet_ratio = tuplet_ratio_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'duration' element\n"); }
     
     return (value ? (*value) : ((struct duration){0,0,0}));
 }
@@ -1869,7 +1869,7 @@ struct tuplet_ratio* loadTupletRatio(xmlNodePtr cur) {
                     value->n_tuplet_ratios++;
                     temp_cur = temp_cur->next;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'tuplet_ratio' element\n"); }
             }
             else {
                 temp_cur = temp_cur->next;
@@ -1877,7 +1877,7 @@ struct tuplet_ratio* loadTupletRatio(xmlNodePtr cur) {
         }
         value->tuplet_ratio = tuplet_ratio_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'tuplet_ratio' element\n"); }
 
     return value;
 
@@ -1956,7 +1956,7 @@ struct articulation* loadArticulationValue(xmlNodePtr cur){
         value->articulation_sign = (xmlChar*)cur->name;
         //if custom_articulation > child contains svg
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'articulation' element\n"); }
 
     return value;
 }

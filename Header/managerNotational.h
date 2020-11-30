@@ -6,7 +6,7 @@
 
 /* 
  * File:   managerNotational.h
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 5 settembre 2020, 17.34
  */

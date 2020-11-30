@@ -6,7 +6,7 @@
 
 /* 
  * File:   managerGeneral.h
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 31 agosto 2020, 17.36
  */

@@ -6,7 +6,7 @@
 
 /* 
  * File:   musicLang.h
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 3 settembre 2020, 2.17
  */

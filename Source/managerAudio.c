@@ -153,7 +153,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
                         }
                         value.n_recordings++;
                     }
-                    else {}
+                    else { fprintf(stderr, "Memory allocation failed for 'recording' element\n");  }
                 }
                 temp_cur=temp_cur->next;
             }
@@ -226,7 +226,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
                         }
                         value.n_albums++;
                     }
-                    else {}
+                    else { fprintf(stderr, "Memory allocation failed for 'album' element\n"); }
                 }
                 temp_cur=temp_cur->next;
             }
@@ -261,7 +261,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
                         }
                         value.n_performers++;
                     }
-                    else {}
+                    else { fprintf(stderr, "Memory allocation failed for 'performer' element\n");  }
                 }
                 temp_cur=temp_cur->next;
             }
@@ -337,7 +337,7 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
                 }
                 value.n_track_regions++;
             }
-            else {}
+            else { fprintf(stderr, "Memory allocation failed for 'track_region' element\n");  }
         }
         else if(!xmlStrcmp(cur->name,(const xmlChar*)"track_event")){
             track_event_temp=(struct track_event*)malloc(sizeof(struct track_event));
@@ -372,7 +372,7 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
                 }
                 value.n_track_events++;
             }
-            else {}
+            else { fprintf(stderr, "Memory allocation failed for 'track_event' element\n");  }
         }
         cur=cur->next;
     }

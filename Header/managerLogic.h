@@ -6,7 +6,7 @@
 
 /* 
  * File:   managerLogic.h
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 2 settembre 2020, 16.52
  */

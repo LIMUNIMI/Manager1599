@@ -87,7 +87,7 @@ void loadChordGrid(){
                         }
                         chord_grid_temp->n_chord_names++;
                     }
-                    else {}
+                    else { fprintf(stderr, "Memory allocation failed for 'chord_name' element\n");  }
                 }
                 temp_cur=temp_cur->next;
             }
@@ -205,7 +205,7 @@ void loadAnalysis(){
                                     }
                                     analysis_temp->n_relationships++;
                                 }
-                                else {}
+                                else { fprintf(stderr, "Memory allocation failed for 'relationship' element\n"); }
                             }
                             if (temp_cur->next != NULL)
                                 temp_cur=temp_cur->next;
@@ -248,7 +248,7 @@ void loadAnalysis(){
                                     }
                                     analysis_temp->n_feature_object_relationships++;
                                 }
-                                else {}
+                                else { fprintf(stderr, "Memory allocation failed for 'feature_object_relationship' element\n"); }
                             }
                             if (temp_cur->next != NULL)
                                 temp_cur = temp_cur->next;
@@ -355,7 +355,7 @@ struct segmentation* loadSegmentation(xmlNodePtr cur){
                                 }
                                 segment_temp->n_segment_events++;
                             }
-                            else {}
+                            else { fprintf(stderr, "Memory allocation failed for 'segment_event' element\n"); }
                         }
                         else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"feature_object")) {
                             feature_object_temp = (struct feature_object*)malloc(sizeof(struct feature_object));
@@ -390,13 +390,13 @@ struct segmentation* loadSegmentation(xmlNodePtr cur){
                     }
                     value->n_segments++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'segment' element\n"); }
             }
             cur = cur->next;
         }
         value->segment = segment_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'segmentation' element\n"); }
 
     return value;
 }
@@ -428,7 +428,7 @@ struct feature_object* loadFeatureObject(xmlNodePtr cur){
             cur = cur->next;
         }
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'feature_object' element\n"); }
     
     return value; 
 }
@@ -495,7 +495,7 @@ void loadPetriNets(){
                 }
                 structural_layer.n_petri_nets++;
             }
-            else {}
+            else { fprintf(stderr, "Memory allocation failed for 'ppetri_nets' element\n"); }
         }
     }
     structural_layer.petri_nets = petri_nets_head;
@@ -566,7 +566,7 @@ struct petri_net* loadPetriNet(xmlNodePtr cur){
                     }
                     value->n_places++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'place' element\n"); }
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"transition")) {
                 transition_temp = (struct transition*)malloc(sizeof(struct transition));
@@ -595,14 +595,14 @@ struct petri_net* loadPetriNet(xmlNodePtr cur){
                     }
                     value->n_transitions++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'transition' element\n"); }
             }
             cur = cur->next;
         }
         value->places = place_head;
         value->transitions = transition_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'petri_net' element\n"); }
     
     return value;
 }
@@ -669,7 +669,7 @@ void loadMir(){
                 }
                 structural_layer.n_mirs++;
             }
-            else {}
+            else { fprintf(stderr, "Memory allocation failed for 'mir' element\n"); }
         }
     }
     structural_layer.mir = mir_head;
@@ -748,7 +748,7 @@ struct mir_model* loadMirModel(xmlNodePtr cur){
         value->mir_objects = mir_object_head;
         value->mir_morphisms = mir_morphism_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'mir_model' element\n"); }
 
     return value;
 }
@@ -826,7 +826,7 @@ struct mir_object* loadMirObject(xmlNodePtr cur){
         }
         value->mir_features = mir_feature_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'mir_object' element\n"); }
 
     return value;
 }
@@ -884,7 +884,7 @@ struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
         }
         value->mir_features = mir_feature_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'mir_subobject' element\n"); }
     
     return value;
 }
@@ -945,7 +945,7 @@ struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
         }
         value->mir_features = mir_feature_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'mir_morphism' element\n"); }
  
     return value;
 }
@@ -972,7 +972,7 @@ struct mir_feature* loadMirFeature(xmlNodePtr cur){
             attributes = attributes->next;
         }
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'mir_feature' element\n"); }
     
     return value;
 }

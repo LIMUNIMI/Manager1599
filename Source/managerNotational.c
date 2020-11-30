@@ -166,7 +166,7 @@ struct graphic_instance* loadGraphicInstance(xmlNodePtr cur){
                 }
                 value->n_graphic_events++;
             }
-            else {}
+            else { fprintf(stderr, "Memory allocation failed for 'graphic_event' element\n"); }
         }
         else if(!xmlStrcmp(cur->name,(const xmlChar*)"rights")){
             value->rights=loadRights(cur);
@@ -319,7 +319,7 @@ struct notation_instance* loadNotationInstance(xmlNodePtr cur){
                     }
                     value->n_notation_events++;
                 }
-                else {}
+                else { fprintf(stderr, "Memory allocation failed for 'notation_event' element\n"); }
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"rights")) {
                 value->rights = loadRights(cur);
@@ -328,7 +328,7 @@ struct notation_instance* loadNotationInstance(xmlNodePtr cur){
         }
         value->notation_events = notation_event_head;
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'notation_instance' element\n"); }
     
     return value;
 }
