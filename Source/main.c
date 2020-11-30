@@ -6,12 +6,11 @@
 
 /* 
  * File:   main.c
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 28 luglio 2020, 23.09
  */
 
-#include "common.h"
 #include "managerDocument.h"
 #include "fileChooser.h"
 
@@ -24,10 +23,8 @@ int main(int argc, char **argv) {
         if (strcmp(getFileName(), (const char*)"")) {
             if (getDoc((xmlChar*)(getFileName())) == 1) {
                 fprintf(stdout, "Loaded %s\n", getFileName());
-
                 loadDocument();
                 printDocument();
-
             }
 
             do { 

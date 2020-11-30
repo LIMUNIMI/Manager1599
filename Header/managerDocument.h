@@ -6,7 +6,7 @@
 
 /* 
  * File:   managerDocument.h
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 10 settembre 2020, 1.14
  */
@@ -45,6 +45,9 @@ MANAGERIEEE1599_API void loadDocument();
 MANAGERIEEE1599_API void printDocument();
 
 MANAGERIEEE1599_API struct ieee1599 getIEEE1599Root();
+MANAGERIEEE1599_API void setFileName(xmlChar* file_name);
+MANAGERIEEE1599_API xmlChar* getFileName();
+
 
 #ifdef __cplusplus
 }

@@ -6,7 +6,7 @@
 
 /* 
  * File:   common.h
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 26 agosto 2020, 22.08
  */
@@ -52,6 +52,7 @@ enum layout_measurement_units { centimeters, millimeters, inches, decimal_inches
 enum standard_page_formats { a0, a1, a2, a3, a4, a5, a6, a7, a8, b0, b1, b2, b3, b4, b5, b6, b7, b8, c0, c1, c2, c3, c4, c5, c6, c7, c8, ansi_a, ansi_b, ansi_c, ansi_d, ansi_e, arch_a, arch_b, arch_c, arch_e, arch_e1, quarto, foolscap, executive, monarch, government_letter, letter, legal, ledger, tabloid, post, crown, large_post, demy, medium, royal, elephant, double_demy, quad_demy, statement };
 enum track_indexing_timing_type { samples, time, seconds, time_frames, frames, measures, smpte_24, smpte_25, smpte_2997, smpte_30 };
 
+
 struct rights{
     xmlChar* file_name;
 };
@@ -65,20 +66,25 @@ struct genre{//?
 };
     
 extern xmlDocPtr doc;
-extern char* file_name;
+extern xmlChar* fileRootFolder;
+extern xmlChar* dtdRootFolder;
+
 
 MANAGERIEEE1599_API int getDoc(xmlChar* docpath);
-MANAGERIEEE1599_API int validate(xmlDocPtr doc);
+MANAGERIEEE1599_API int isValid(xmlDocPtr doc);
 MANAGERIEEE1599_API xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
 MANAGERIEEE1599_API char* concat(const char *s1, const char *s2);
 MANAGERIEEE1599_API int xmlCharToInt(xmlChar* string);
 MANAGERIEEE1599_API double xmlCharToDouble(xmlChar* string);
-MANAGERIEEE1599_API void setFileName(char* new_file_name);
-MANAGERIEEE1599_API char* getFileName();
 MANAGERIEEE1599_API void clean();
 
 MANAGERIEEE1599_API struct rights loadRights(xmlNodePtr cur);
 MANAGERIEEE1599_API struct genre* loadGenre(xmlNodePtr cur);
+
+MANAGERIEEE1599_API void setFileRootFolder(xmlChar* file_root_folder);
+MANAGERIEEE1599_API void setDtdRootFolder(xmlChar* dtd_root_folder);
+MANAGERIEEE1599_API xmlChar* getFileRootFolder();
+MANAGERIEEE1599_API xmlChar* getDtdRootFolder();
 
 #ifdef __cplusplus
 }

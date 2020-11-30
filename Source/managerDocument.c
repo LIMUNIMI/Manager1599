@@ -18,6 +18,7 @@ void loadDocument(){
     
     xpath=(xmlChar *)"/ieee1599";
     result=getNodeset(doc,xpath);
+
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
          nodeset=result->nodesetval;
          cur=nodeset->nodeTab[0];
@@ -47,6 +48,8 @@ void loadDocument(){
 
 void printDocument(){
     
+    if (ieee1599_root.file_name != NULL)
+        printf("File name: %s\n", ieee1599_root.file_name);
     if(ieee1599_root.version!=NULL || ieee1599_root.creator!=NULL){
         printf("[");
         if(ieee1599_root.version!=NULL)
@@ -67,4 +70,12 @@ void printDocument(){
 
 struct ieee1599 getIEEE1599Root() {
     return ieee1599_root;
+}
+
+void setFileName(xmlChar* file_name) {
+    ieee1599_root.file_name = file_name;
+}
+
+xmlChar* getFileName() {
+    return ieee1599_root.file_name;
 }

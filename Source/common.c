@@ -6,14 +6,15 @@
 #include "common.h"
 
 xmlDocPtr doc;
-char* file_name;
+xmlChar* file_root_folder = "./File/";
+xmlChar* dtd_root_folder = "./File/DTD/";
 
-int validate(xmlDocPtr doc) {
+int isValid(xmlDocPtr doc) {// return 1 if document is valid
 
     int res = 0;
 
     xmlValidCtxtPtr ctxt = xmlNewValidCtxt();
-    xmlDtdPtr dtd= xmlParseDTD(NULL, (const xmlChar*)"./File/DTD/ieee1599.dtd");
+    xmlDtdPtr dtd= xmlParseDTD(NULL, (const xmlChar*)(concat((const char*)getDtdRootFolder(),(const char*)"ieee1599.dtd")));
 
     if (dtd == NULL)
         fprintf(stderr, "Cant't load DTD\n");
@@ -23,7 +24,7 @@ int validate(xmlDocPtr doc) {
     return res;
 }
 
-int getDoc(xmlChar* docpath){
+int getDoc(xmlChar* docpath){// return 1 if no errors occurred
 
     int no_error = 1;
 
@@ -46,8 +47,8 @@ int getDoc(xmlChar* docpath){
             xmlFreeDoc(doc);
             no_error = 0;
         }
-        else if (validate(doc) == 0) {
-            fprintf(stdout, "%s is not Valid\n", getFileName());
+        else if (isValid(doc) == 0) {
+            fprintf(stdout, "Document is not Valid\n");
             xmlFreeDoc(doc);
             no_error = 0;
         }
@@ -107,14 +108,6 @@ double xmlCharToDouble(xmlChar* string){
     return value;
 }
 
-void setFileName(char* new_file_name) {
-    file_name = new_file_name;
-}
-
-char* getFileName() {
-    return file_name;
-}
-
 struct rights loadRights(xmlNodePtr cur){
     struct rights value = {""};
     xmlAttr* attributes;
@@ -151,7 +144,7 @@ struct genre* loadGenre(xmlNodePtr cur){
             attributes = attributes->next;
         }
     }
-    else {}
+    else { fprintf(stderr, "Memory allocation failed for 'genre' element\n"); }
 
     return value;
 }
@@ -161,4 +154,17 @@ void clean() {
     //xmlFreeDoc(doc);
     xmlCleanupParser();
 
+}
+
+MANAGERIEEE1599_API void setFileRootFolder(xmlChar* new_file_root_folder) {
+    file_root_folder = new_file_root_folder;
+}
+MANAGERIEEE1599_API void setDtdRootFolder(xmlChar* new_dtd_root_folder) {
+    dtd_root_folder = new_dtd_root_folder;
+}
+MANAGERIEEE1599_API xmlChar* getFileRootFolder() {
+    return file_root_folder;
+}
+MANAGERIEEE1599_API xmlChar* getDtdRootFolder() {
+    return dtd_root_folder;
 }

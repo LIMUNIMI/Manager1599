@@ -5,15 +5,14 @@
  */
 
 #include "fileChooser.h"
+#include "managerDocument.h"
 
 char* rootFolderPath;
 
 char* chooseFile(){
     char* file_name;
     int choice=-1;
-    
-    setRootFolderPath("File/");
-    
+        
     file_name=(char*)"";
 
     while(!strcmp(file_name,(const char*)"") && choice!=0){
@@ -23,7 +22,7 @@ char* chooseFile(){
         } while (!scanf("%i", &choice));
         if(choice>0){
             file_name=readFileName(choice);
-            file_name=concat(getRootFolderPath(),file_name);
+            file_name=concat(getFileRootFolder(),file_name);
         }
     }  
     
@@ -36,10 +35,10 @@ int showFiles(){
     struct stat filestat;
     int i=0;
     
-    if ((dir=opendir(getRootFolderPath()))!=NULL){
+    if ((dir=opendir(getFileRootFolder()))!=NULL){
         /* print every contained file */
         while((ent=readdir(dir))!=NULL){
-            stat(concat(getRootFolderPath(),ent->d_name),&filestat);
+            stat(concat(getFileRootFolder(),ent->d_name),&filestat);
             if(!S_ISDIR(filestat.st_mode)){  
                 if(!strcmp(getExtension(ent->d_name),(const char*)"xml")){
                     i++;
@@ -50,7 +49,7 @@ int showFiles(){
         closedir(dir);
      }
     else{
-        fprintf(stderr,"Can't open direcotry %s\n", getRootFolderPath());
+        fprintf(stderr,"Can't open direcotry %s\n", getFileRootFolder());
         return 0;
     }
     
@@ -64,10 +63,10 @@ char* readFileName(int choice){
     int i=0;
     char* file_name;
     
-    if ((dir=opendir(getRootFolderPath()))!=NULL){
+    if ((dir=opendir(getFileRootFolder()))!=NULL){
         /* print every contained file */
         while((ent=readdir(dir))!=NULL){
-            stat(concat(getRootFolderPath(),ent->d_name),&filestat);
+            stat(concat(getFileRootFolder(),ent->d_name),&filestat);
             if(!S_ISDIR(filestat.st_mode)){  
                 if(!strcmp(getExtension(ent->d_name),(const char*)"xml")){
                     i++;
@@ -81,7 +80,7 @@ char* readFileName(int choice){
         closedir(dir);
     }
     else{
-        fprintf(stderr,"Can't open direcotry %s\n", getRootFolderPath());
+        fprintf(stderr,"Can't open direcotry %s\n", getFileRootFolder());
         return 0;
     }
 
@@ -94,12 +93,3 @@ const char* getExtension(const char *file_name) {
     return dot + 1;
 }
 
-void setRootFolderPath(char* path){
-    rootFolderPath="File/";
-}
-
-char* getRootFolderPath(){
-    char* value=rootFolderPath;
-    
-    return value;
-}

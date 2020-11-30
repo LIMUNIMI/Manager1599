@@ -6,7 +6,7 @@
 
 /* 
  * File:   managerPerformance.h
- * Author: Ale
+ * Author: Alessandro Talamona
  *
  * Created on 5 settembre 2020, 17.35
  */
@@ -79,138 +79,71 @@ extern "C" {
         struct midi_instance* next_midi_instance;
     };
     
-//CSound Instance	
-    struct csound_spine_ref{
+//CSound/Mpeg4 Instance	
+    struct csound_mpeg4_spine_ref{
         xmlChar* event_ref;
 
-        struct csound_spine_ref* next_csound_spine_ref;
+        struct csound_mpeg4_spine_ref* next_csound_mpeg4_spine_ref;
     };
 
-    struct csound_part_ref{
+    struct csound_mpeg4_part_ref{
         xmlChar* part_ref;//REQUIRED
 
-        struct csound_part_ref* next_csound_part_ref;
+        struct csound_mpeg4_part_ref* next_csound_mpeg4_part_ref;
     };
 
-    struct csound_instrument_mapping{//(csound_part_ref | csound_spine_ref)+
-        int n_csound_part_refs;
-        int n_csound_spine_refs;
+    struct csound_mpeg4_instrument_mapping{//(csound_part_ref | csound_spine_ref)+
+        int n_csound_mpeg4_part_refs;
+        int n_csound_mpeg4_spine_refs;
 
-        int instrument_number;//REQUIRED
+        xmlChar* instrument_info;//REQUIRED  replace instrument_name or instrument_number
         int start_line;
         int end_line;
         xmlChar* pnml_file;
 
-        struct csound_part_ref* csound_part_refs;
-        struct csound_spine_ref* csound_spine_refs;
+        struct csound_mpeg4_part_ref* csound_mpeg4_part_refs;
+        struct csound_mpeg4_spine_ref* csound_mpeg4_spine_refs;
 
-        struct csound_instrument_mapping* next_csound_instrument_mapping;
+        struct csound_mpeg4_instrument_mapping* next_csound_mpeg4_instrument_mapping;
     };
 
-    struct csound_orchestra{//(csound_instrument_mapping*, rights?)
-        int n_csound_instrument_mappings;
+    struct csound_mpeg4_orchestra{//(csound_instrument_mapping*, rights?)
+        int n_csound_mpeg4_instrument_mappings;
 
         xmlChar* file_name;//REQUIRED
 
-        struct csound_instrument_mapping* csound_instrument_mappings;
+        struct csound_mpeg4_instrument_mapping* csound_mpeg4_instrument_mappings;
         struct rights rights;
 
-        struct csound_orchestra* next_csound_orchestra;
+        struct csound_mpeg4_orchestra* next_csound_mpeg4_orchestra;
     };
 
-    struct csound_spine_event{
+    struct csound_mpeg4_spine_event{
         int line_number;//REQUIRED
         xmlChar* event_ref;
 
-        struct csound_spine_event* next_csound_spine_event;
+        struct csound_mpeg4_spine_event* next_csound_mpeg4_spine_event;
     };
 
-    struct csound_score{//(csound_spine_event+, rights?)
-        int n_csound_spine_events;
+    struct csound_mpeg4_score{//(csound_spine_event+, rights?)
+        int n_csound_mpeg4_spine_events;
 
         xmlChar* file_name;//REQUIRED
 
-        struct csound_spine_event* csound_spine_events;
+        struct csound_mpeg4_spine_event* csound_mpeg4_spine_events;
         struct rights rights;
 
-        struct csound_score* next_csound_score;
+        struct csound_mpeg4_score* next_csound_mpeg4_score;
     };
 
-    struct csound_instance{//(csound_score | csound_orchestra)+
-            int n_csound_scores;
-            int n_csound_orchestras;
+    struct csound_mpeg4_instance{//(csound_score | csound_orchestra)+ or (mpeg4_score | mpeg4_orchestra)
+            int n_csound_mpeg4_scores;
+            int n_csound_mpeg4_orchestras;
 
-            struct csound_score* csound_scores;
-            struct csound_orchestra* csound_orchestras;
+            struct csound_mpeg4_score* csound_mpeg4_scores;
+            struct csound_mpeg4_orchestra* csound_mpeg4_orchestras;
 
-            struct csound_instance* next_csound_instance;
-    };
-    
-//Mpeg4 Instance
-    struct mpeg4_spine_ref{
-        xmlChar* event_ref;
-
-        struct mpeg4_spine_ref* next_mpeg4_spine_ref;
-    };
-
-    struct mpeg4_part_ref{
-        xmlChar* part_ref;//REQUIRED
-
-        struct mpeg4_part_ref* next_mpeg4_part_ref;
-    };
-
-    struct mpeg4_instrument_mapping{//(mpeg4_part_ref | mpeg4_spine_ref)+
-        int n_mpeg4_part_refs;
-        int n_mpeg4_spine_refs;
-
-        xmlChar* instrument_name;//REQUIRED
-        int start_line;
-        int end_line;
-        xmlChar* pnml_file;
-
-        struct mpeg4_part_ref* mpeg4_part_refs;
-        struct mpeg4_spine_ref* mpeg4_spine_refs;
-
-        struct mpeg4_instrument_mapping* next_mpeg4_instrument_mapping;
-    };
-
-    struct mpeg4_orchestra{//(mpeg4_instrument_mapping*, rights?)
-        int n_mpeg4_instrument_mappings;
-
-        xmlChar* file_name;//REQUIRED
-
-        struct mpeg4_instrument_mapping* mpeg4_instrument_mappings;
-        struct rights rights;
-
-        struct mpeg4_orchestra* next_mpeg4_orchestra;
-    };
-
-    struct mpeg4_spine_event{
-        int line_number;//REQUIRED
-        xmlChar* event_ref;
-
-        struct mpeg4_spine_event* next_mpeg4_spine_event;
-    };
-
-    struct mpeg4_score{//(mpeg4_spine_event+, rights?)
-        int n_mpeg4_spine_events;
-
-        xmlChar* file_name;//REQUIRED
-
-        struct mpeg4_spine_event* mpeg4_spine_events;
-        struct rights rights;
-
-        struct mpeg4_score* next_mpeg4_score;
-    };
-	
-    struct mpeg4_instance{//(mpeg4_score | mpeg4_orchestra)+
-        int n_mpeg4_scores;
-        int n_mpeg4_orchestras;
-
-        struct mpeg4_score* mpeg4_scores;
-        struct mpeg4_orchestra* mpeg4_orchestras;
-
-        struct mpeg4_instance* next_mpeg4_instance;
+            struct csound_mpeg4_instance* next_csound_mpeg4_instance;
     };
     
 //Performance
@@ -220,8 +153,8 @@ extern "C" {
         int n_mpeg4_instances;
         
         struct midi_instance* midi_instance;
-        struct csound_instance* csound_instance;
-        struct mpeg4_instance* mpeg4_instance;
+        struct csound_mpeg4_instance* csound_instance;
+        struct csound_mpeg4_instance* mpeg4_instance;
     };
 
 //Variables
@@ -238,13 +171,13 @@ extern "C" {
     struct midi_event* loadMidiEvent(xmlNodePtr cur);
     struct sys_ex* loadSysEx(xmlNodePtr cur);
     
-    struct csound_score* loadCsoundScore(xmlNodePtr cur);
-    struct csound_orchestra* loadCsoundOrchestra(xmlNodePtr cur);
-    struct csound_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr cur);
+    struct csound_mpeg4_score* loadCsoundScore(xmlNodePtr cur);
+    struct csound_mpeg4_orchestra* loadCsoundOrchestra(xmlNodePtr cur);
+    struct csound_mpeg4_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr cur);
     
-    struct mpeg4_score* loadMpeg4Score(xmlNodePtr cur);
-    struct mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur);
-    struct mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cur);
+    struct csound_mpeg4_score* loadMpeg4Score(xmlNodePtr cur);
+    struct csound_mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur);
+    struct csound_mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cur);
     
     MANAGERIEEE1599_API void printPerformance();
     MANAGERIEEE1599_API void printMidiInstance();
