@@ -105,7 +105,6 @@ extern "C" {
 
 //Variables
     
-    
 //Prototypes
     MANAGERIEEE1599_API struct notational loadNotational();
     MANAGERIEEE1599_API void loadGraphicInstanceGroup();

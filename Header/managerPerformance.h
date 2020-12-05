@@ -159,7 +159,6 @@ extern "C" {
 
 //Variables
     
-    
 //Prototypes
     MANAGERIEEE1599_API struct performance loadPerformance();
     MANAGERIEEE1599_API void loadMidiInstance();

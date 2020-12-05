@@ -91,6 +91,7 @@ struct general{
 
 //Variables
 
+
 //Prototypes
 MANAGERIEEE1599_API struct general loadGeneral();
 MANAGERIEEE1599_API void loadDescription();

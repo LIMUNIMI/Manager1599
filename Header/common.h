@@ -65,6 +65,8 @@ struct genre{//?
      struct genre* next_genre;
 };
     
+extern const int N_DISPLAY;// number of same type elements displayed by print functions
+
 extern xmlDocPtr doc;
 extern xmlChar* fileRootFolder;
 extern xmlChar* dtdRootFolder;

@@ -18,7 +18,9 @@ int main(int argc, char **argv) {
      
     int confirm = 1;
 
+
     while (confirm == 1) {
+        clean();
         setFileName(chooseFile());
         if (strcmp(getFileName(), (const char*)"")) {
             if (getDoc((xmlChar*)(getFileName())) == 1) {
@@ -31,8 +33,6 @@ int main(int argc, char **argv) {
                 printf("\nContinue? [yes=1,No=0]\n"); 
             }
             while(!scanf("%i", &confirm));
-
-            clean();
         }
         else confirm = 0;
     }

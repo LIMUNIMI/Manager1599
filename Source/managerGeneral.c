@@ -9,17 +9,18 @@
 static struct general general_layer;
 
 struct general loadGeneral(){ 
-    //inizializzare general_layer
+
     loadDescription();
     loadRelatedFiles();
     loadAnalogMedia();
     loadNotes();   
-    
+
     return general_layer;
 }
 
 void printGeneral(){
     
+    printf("\n###General Layer###\n");
     printDescription();
     printRelatedFiles();
     printAnalogMedia();
@@ -32,6 +33,7 @@ void loadDescription(){
     xmlNodeSetPtr nodeset;
     xmlNodePtr cur;
     xmlAttr *attributes;
+    xmlNodePtr temp_cur;
 
     struct author *author_head=NULL;
     struct author *author_temp=NULL;
@@ -44,8 +46,6 @@ void loadDescription(){
     struct date *date_head=NULL;
     struct date *date_temp=NULL;
     struct date *date_p=NULL;
-    
-    xmlNodePtr temp_cur;
     
     struct genre *genre_head=NULL;
     struct genre *genre_temp=NULL;
@@ -79,8 +79,7 @@ void loadDescription(){
                 general_layer.description.work_number=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"author")){
-                author_temp=(struct author*)malloc(sizeof(struct author));
-                author_temp=calloc(1,sizeof(struct author));
+                author_temp= (struct author*)calloc(1, sizeof(struct author));
 
                 if (author_temp) {
                     attributes = cur->properties;
@@ -106,8 +105,7 @@ void loadDescription(){
                 else { fprintf(stderr, "Memory allocation failed for 'author' element\n"); }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"other_title")){
-                other_title_temp=(struct other_title*)malloc(sizeof(struct other_title));
-                other_title_temp=calloc(1,sizeof(struct other_title));
+                other_title_temp= (struct other_title*)calloc(1,sizeof(struct other_title));
 
                 if (other_title_temp) {
                     other_title_temp->title_value = xmlNodeListGetString(doc, cur->xmlChildrenNode, 1);
@@ -126,8 +124,7 @@ void loadDescription(){
                 else { fprintf(stderr, "Memory allocation failed for 'other_title' element\n"); }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"date")){
-                date_temp=(struct date*)malloc(sizeof(struct date));
-                date_temp=calloc(1,sizeof(struct date));
+                date_temp= (struct date*)calloc(1,sizeof(struct date));
 
                 if (date_temp) {
                     attributes = cur->properties;
@@ -157,8 +154,7 @@ void loadDescription(){
                 cur=cur->xmlChildrenNode; 
                 while(cur!=NULL){
                     if(!xmlStrcmp(cur->name,(const xmlChar*)"genre")){
-                        genre_temp=(struct genre*)malloc(sizeof(struct genre));
-                        genre_temp=calloc(1,sizeof(struct genre));
+                        genre_temp= (struct genre*)calloc(1,sizeof(struct genre));
                         
                         genre_temp=loadGenre(cur);
                         
@@ -193,6 +189,9 @@ void printDescription(){
     struct date* date_p=NULL;
     struct genre* genre_p=NULL;
     
+    int i = 0;
+    printf("\n#Description#\n");
+
     printf("Title: %s\n",general_layer.description.main_title);
     if(general_layer.description.number!=NULL) printf("Number: %s\n",general_layer.description.number);
     if(general_layer.description.work_title!=NULL) printf("Work Title: %s\n",general_layer.description.work_title);
@@ -200,34 +199,50 @@ void printDescription(){
     if(general_layer.description.authors!=NULL){
         author_p=general_layer.description.authors;
         printf("%i authors\n",general_layer.description.n_authors);
-        while(author_p!=NULL){
-            printf("%s: %s\n",author_p->type,author_p->name);
+        i = 0;
+        while(author_p!=NULL&&i<N_DISPLAY){
+            i++;
+            printf("name=%s: %s\n",author_p->type,author_p->name);
             author_p=author_p->next_author;
         }
+        if (general_layer.description.n_authors > N_DISPLAY) printf("...\n");
     }
     if(general_layer.description.other_titles!=NULL){
         other_title_p=general_layer.description.other_titles;
         printf("%i other titles\n",general_layer.description.n_other_titles);
-        while(other_title_p!=NULL){
+        i = 0;
+        while(other_title_p!=NULL&&i< N_DISPLAY){
+            i++;
             printf("Other title: %s\n",other_title_p->title_value);
             other_title_p=other_title_p->next_title;
         }
+        if (general_layer.description.n_other_titles > N_DISPLAY) printf("...\n");
     }
     if(general_layer.description.dates!=NULL){
         date_p=general_layer.description.dates;
         printf("%i dates\n",general_layer.description.n_dates);
+        i = 0;
         while(date_p!=NULL){
+            i++;
             printf("Date: %s\n",date_p->date_value);
             date_p=date_p->next_date;
         }
+        if (general_layer.description.n_dates > N_DISPLAY) printf("...\n");
     }
     if(general_layer.description.genres!=NULL){
         genre_p=general_layer.description.genres;
         printf("%i genres\n",general_layer.description.n_genres);
+        i = 0;
         while(genre_p!=NULL){
-            printf("Genre: %s %s %s\n",genre_p->name,genre_p->description,genre_p->weight);
+            i++;
+            printf("Genre: "); 
+            if (genre_p->name) printf("name=%s ", genre_p->name);
+            if (genre_p->description) printf("description=%s ", genre_p->description);
+            if (genre_p->weight) printf("weight=%s ", genre_p->weight);
+            printf("\n");
             genre_p=genre_p->next_genre;
         }
+        if (general_layer.description.n_genres > N_DISPLAY) printf("...\n");
     }
 }
 
@@ -251,8 +266,7 @@ void loadRelatedFiles(){
         for(int i=0;i<nodeset->nodeNr;i++){
             cur=nodeset->nodeTab[i];
             if (!xmlStrcmp(cur->name, (const xmlChar*)"related_file")) {
-                temp = (struct related_file*)malloc(sizeof(struct related_file));
-                temp = calloc(1, sizeof(struct related_file));
+                temp = (struct related_file*)calloc(1, sizeof(struct related_file));
 
                 if(temp){
                 attributes = cur->properties;
@@ -310,15 +324,34 @@ void loadRelatedFiles(){
 void printRelatedFiles(){
     struct related_file* p=NULL;
     
-    if(general_layer.n_related_files!=0){
-        printf("%i related files\n",general_layer.n_related_files);
-    }   
-    
-    p=NULL;
-    p=general_layer.related_files;
-    while(p!=NULL){
-       printf("File: %s %s %s %s %s %s\n",p->file_name,p->file_format,p->encoding_format,p->description,p->copyright,p->notes);
-       p=p->next_file;
+    if (general_layer.n_related_files != 0) {
+
+        int i = 0;
+        printf("\n#Related Files#\n");
+
+        printf("%i related files\n", general_layer.n_related_files);
+
+        p = NULL;
+        p = general_layer.related_files;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("File: ");
+            if(p->file_name)
+                printf("name=%s ",p->file_name);
+            if (p->file_format)
+                printf("format=%s ", p->file_format);
+            if (p->encoding_format)
+                printf("encoding=%s ", p->encoding_format);
+            if (p->description)
+                printf("description=%s ", p->description);
+            if (p->copyright)
+                printf("copyright=%s ", p->copyright);
+            if (p->notes)
+                printf("notes=%s ", p->notes);
+            printf("\n");
+            p = p->next_file;
+        }
+        if (general_layer.n_related_files > N_DISPLAY) printf("...\n");
     }
 }
 
@@ -342,8 +375,7 @@ void loadAnalogMedia(){
         for(int i=0;i<nodeset->nodeNr;i++){
             cur=nodeset->nodeTab[i];
             if(!xmlStrcmp(cur->name,(const xmlChar*)"analog_media")){
-                temp=(struct  analog_medium*)malloc(sizeof(struct analog_medium));
-                temp=calloc(1,sizeof(struct analog_medium));
+                temp= (struct  analog_medium*)calloc(1,sizeof(struct analog_medium));
 
                 if (temp) {
                     attributes = cur->properties;
@@ -380,15 +412,28 @@ void loadAnalogMedia(){
 
 void printAnalogMedia(){
     struct analog_medium *p=NULL;
-    
-    if(general_layer.n_analog_media!=0){
-        printf("%i analog media\n",general_layer.n_related_files);
-    }  
-    p=general_layer.analog_media;
-    while(p!=NULL){
-        printf("Medium: %s %s %s\n",p->copyright,p->description,p->notes);
-        p=p->next_medium;
-    }   
+
+    if (general_layer.n_analog_media != 0) {
+        int i = 0;
+        printf("\n#Analog Media#\n");
+
+        printf("%i analog media\n", general_layer.n_related_files);
+
+        p = general_layer.analog_media;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("Medium: ");
+            if(p->copyright)
+                printf("copyright=%s",p->copyright);
+            if (p->description)
+                printf("description=%s", p->description);
+            if (p->notes)
+                printf("notes=%s", p->notes);
+            printf("\n");
+            p = p->next_medium;
+        }
+        if (general_layer.n_analog_media > N_DISPLAY) printf("...\n");
+    }
 }
 
 void loadNotes(){  
@@ -416,6 +461,8 @@ void loadNotes(){
 }
 
 void printNotes(){ 
-    if(general_layer.notes!=NULL)
-        printf("Notes: %s\n",general_layer.notes);
+    if (general_layer.notes) {
+        printf("\n#Notes#\n");
+        printf("Notes: %s\n", general_layer.notes);
+    }
 }

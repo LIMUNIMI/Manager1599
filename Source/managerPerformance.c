@@ -35,8 +35,7 @@ void loadMidiInstance(){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning midi_instances 
 
-            midi_instance_temp=(struct midi_instance*)malloc(sizeof(struct midi_instance));
-            midi_instance_temp=calloc(1,sizeof(struct midi_instance));
+            midi_instance_temp=(struct midi_instance*)calloc(1,sizeof(struct midi_instance));
             cur=nodeset->nodeTab[i];
             attributes=cur->properties;         
             while(attributes!=NULL){
@@ -57,8 +56,7 @@ void loadMidiInstance(){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"midi_mapping")){
-                    midi_mapping_temp=(struct midi_mapping*)malloc(sizeof(struct midi_mapping));
-                    midi_mapping_temp=calloc(1,sizeof(struct midi_mapping));
+                    midi_mapping_temp=(struct midi_mapping*)calloc(1,sizeof(struct midi_mapping));
 
                     midi_mapping_temp=loadMidiMapping(temp_cur);
                                      
@@ -96,8 +94,7 @@ void loadMidiInstance(){
 }
 
 struct midi_mapping* loadMidiMapping(xmlNodePtr cur){
-    struct midi_mapping* value=(struct midi_mapping*)malloc(sizeof(struct midi_mapping));
-    value=calloc(1,sizeof(struct midi_mapping));
+    struct midi_mapping* value=(struct midi_mapping*)calloc(1,sizeof(struct midi_mapping));
     xmlAttr* attributes;
 
     if (value) {
@@ -128,8 +125,7 @@ struct midi_mapping* loadMidiMapping(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"midi_event_sequence")) {
-                midi_event_sequence_temp = (struct midi_event_sequence*)malloc(sizeof(struct midi_event_sequence));
-                midi_event_sequence_temp = calloc(1, sizeof(struct midi_event_sequence));
+                midi_event_sequence_temp = (struct midi_event_sequence*)calloc(1, sizeof(struct midi_event_sequence));
 
                 midi_event_sequence_temp = loadMidiEventSequence(cur);
 
@@ -154,8 +150,7 @@ struct midi_mapping* loadMidiMapping(xmlNodePtr cur){
 }
 
 struct midi_event_sequence* loadMidiEventSequence(xmlNodePtr cur){
-    struct midi_event_sequence* value=(struct midi_event_sequence*)malloc(sizeof(struct midi_event_sequence));
-    value=calloc(1,sizeof(struct midi_event_sequence));
+    struct midi_event_sequence* value=(struct midi_event_sequence*)calloc(1,sizeof(struct midi_event_sequence));
     xmlAttr* attributes;
 
     if (value) {
@@ -188,8 +183,7 @@ struct midi_event_sequence* loadMidiEventSequence(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"midi_event")) {
-                midi_event_temp = (struct midi_event*)malloc(sizeof(struct midi_event));
-                midi_event_temp = calloc(1, sizeof(struct midi_event));
+                midi_event_temp = (struct midi_event*) calloc(1, sizeof(struct midi_event));
 
                 midi_event_temp = loadMidiEvent(cur);
 
@@ -205,8 +199,7 @@ struct midi_event_sequence* loadMidiEventSequence(xmlNodePtr cur){
                 value->n_midi_events++;
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"sys_ex")) {
-                sys_ex_temp = (struct sys_ex*)malloc(sizeof(struct sys_ex));
-                sys_ex_temp = calloc(1, sizeof(struct sys_ex));
+                sys_ex_temp = (struct sys_ex*)calloc(1, sizeof(struct sys_ex));
 
                 sys_ex_temp = loadSysEx(cur);
 
@@ -232,8 +225,7 @@ struct midi_event_sequence* loadMidiEventSequence(xmlNodePtr cur){
 }
 
 struct midi_event* loadMidiEvent(xmlNodePtr cur) {
-    struct midi_event* value = (struct midi_event*)malloc(sizeof(struct midi_event));
-    value = calloc(1, sizeof(struct midi_event));
+    struct midi_event* value = (struct midi_event*) calloc(1, sizeof(struct midi_event));
     xmlAttr* attributes;
 
     if (value) {
@@ -259,8 +251,7 @@ struct midi_event* loadMidiEvent(xmlNodePtr cur) {
 }
 
 struct sys_ex* loadSysEx(xmlNodePtr cur){
-    struct sys_ex* value=(struct sys_ex*)malloc(sizeof(struct sys_ex));
-    value=calloc(1,sizeof(struct sys_ex));
+    struct sys_ex* value=(struct sys_ex*)calloc(1,sizeof(struct sys_ex));
     xmlAttr* attributes;
     
     if (value) {
@@ -299,8 +290,7 @@ void loadCsoundInstance(){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning csound_instance 
 
-            csound_instance_temp=(struct csound_mpeg4_instance*)malloc(sizeof(struct csound_mpeg4_instance));
-            csound_instance_temp=calloc(1,sizeof(struct csound_mpeg4_instance));
+            csound_instance_temp=(struct csound_mpeg4_instance*)calloc(1,sizeof(struct csound_mpeg4_instance));
             cur=nodeset->nodeTab[i];
 
             if (csound_instance_temp) {
@@ -318,8 +308,7 @@ void loadCsoundInstance(){
                 temp_cur = cur->xmlChildrenNode;
                 while (temp_cur != NULL) {
                     if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"csound_score")) {
-                        csound_score_temp = (struct csound_mpeg4_score*)malloc(sizeof(struct csound_mpeg4_score));
-                        csound_score_temp = calloc(1, sizeof(struct csound_mpeg4_score));
+                        csound_score_temp = (struct csound_mpeg4_score*) calloc(1, sizeof(struct csound_mpeg4_score));
 
                         csound_score_temp = loadCsoundScore(temp_cur);
 
@@ -335,8 +324,7 @@ void loadCsoundInstance(){
                         csound_instance_temp->n_csound_mpeg4_scores++;
                     }
                     else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"csound_orchestra")) {
-                        csound_orchestra_temp = (struct csound_mpeg4_orchestra*)malloc(sizeof(struct csound_mpeg4_orchestra));
-                        csound_orchestra_temp = calloc(1, sizeof(struct csound_mpeg4_orchestra));
+                        csound_orchestra_temp = (struct csound_mpeg4_orchestra*)calloc(1, sizeof(struct csound_mpeg4_orchestra));
 
                         csound_orchestra_temp = loadCsoundOrchestra(temp_cur);
 
@@ -374,8 +362,7 @@ void loadCsoundInstance(){
 }
 
 struct csound_mpeg4_score* loadCsoundScore(xmlNodePtr cur){
-    struct csound_mpeg4_score* value=(struct csound_mpeg4_score*)malloc(sizeof(struct csound_mpeg4_score));
-    value=calloc(1,sizeof(struct csound_mpeg4_score));
+    struct csound_mpeg4_score* value=(struct csound_mpeg4_score*)calloc(1,sizeof(struct csound_mpeg4_score));
     xmlAttr* attributes;
 
     if (value) {
@@ -397,8 +384,7 @@ struct csound_mpeg4_score* loadCsoundScore(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_spine_event")) {
-                csound_spine_event_temp = (struct csound_mpeg4_spine_event*)malloc(sizeof(struct csound_mpeg4_spine_event));
-                csound_spine_event_temp = calloc(1, sizeof(struct csound_mpeg4_spine_event));
+                csound_spine_event_temp = (struct csound_mpeg4_spine_event*)calloc(1, sizeof(struct csound_mpeg4_spine_event));
 
                 if (csound_spine_event_temp) {
                     attributes = cur->properties;
@@ -438,8 +424,7 @@ struct csound_mpeg4_score* loadCsoundScore(xmlNodePtr cur){
 }
 
 struct csound_mpeg4_orchestra* loadCsoundOrchestra(xmlNodePtr cur){
-    struct csound_mpeg4_orchestra* value=(struct csound_mpeg4_orchestra*)malloc(sizeof(struct csound_mpeg4_orchestra));
-    value=calloc(1,sizeof(struct csound_mpeg4_orchestra));
+    struct csound_mpeg4_orchestra* value=(struct csound_mpeg4_orchestra*)calloc(1,sizeof(struct csound_mpeg4_orchestra));
     xmlAttr* attributes;
 
     if (value) {
@@ -461,8 +446,7 @@ struct csound_mpeg4_orchestra* loadCsoundOrchestra(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_instrument_mapping")) {
-                csound_instrument_mapping_temp = (struct csound_mpeg4_instrument_mapping*)malloc(sizeof(struct csound_mpeg4_instrument_mapping));
-                csound_instrument_mapping_temp = calloc(1, sizeof(struct csound_mpeg4_instrument_mapping));
+                csound_instrument_mapping_temp = (struct csound_mpeg4_instrument_mapping*)calloc(1, sizeof(struct csound_mpeg4_instrument_mapping));
 
                 csound_instrument_mapping_temp = loadCsoundInstrumentMapping(cur);
 
@@ -490,8 +474,7 @@ struct csound_mpeg4_orchestra* loadCsoundOrchestra(xmlNodePtr cur){
 }
 
 struct csound_mpeg4_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr cur){
-    struct csound_mpeg4_instrument_mapping* value=(struct csound_mpeg4_instrument_mapping*)malloc(sizeof(struct csound_mpeg4_instrument_mapping));
-    value=calloc(1,sizeof(struct csound_mpeg4_instrument_mapping));
+    struct csound_mpeg4_instrument_mapping* value=(struct csound_mpeg4_instrument_mapping*)calloc(1,sizeof(struct csound_mpeg4_instrument_mapping));
     xmlAttr* attributes;
 
     if (value) {
@@ -527,8 +510,7 @@ struct csound_mpeg4_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr c
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_part_ref")) {
-                csound_part_ref_temp = (struct csound_mpeg4_part_ref*)malloc(sizeof(struct csound_mpeg4_part_ref));
-                csound_part_ref_temp = calloc(1, sizeof(struct csound_mpeg4_part_ref));
+                csound_part_ref_temp = (struct csound_mpeg4_part_ref*) calloc(1, sizeof(struct csound_mpeg4_part_ref));
 
                 if (csound_part_ref_temp) {
                     attributes = cur->properties;
@@ -553,8 +535,7 @@ struct csound_mpeg4_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr c
                 else { fprintf(stderr, "Memory allocation failed for 'csound_part_ref' element\n"); }
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"csound_spine_ref")) {
-                csound_spine_ref_temp = (struct csound_mpeg4_spine_ref*)malloc(sizeof(struct csound_mpeg4_spine_ref));
-                csound_spine_ref_temp = calloc(1, sizeof(struct csound_mpeg4_spine_ref));
+                csound_spine_ref_temp = (struct csound_mpeg4_spine_ref*)calloc(1, sizeof(struct csound_mpeg4_spine_ref));
 
                 if (csound_spine_ref_temp) {
                     attributes = cur->properties;
@@ -606,8 +587,7 @@ void loadMpeg4Instance(){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning mpeg4_instances 
 
-            mpeg4_instance_temp=(struct csound_mpeg4_instance*)malloc(sizeof(struct csound_mpeg4_instance));
-            mpeg4_instance_temp=calloc(1,sizeof(struct csound_mpeg4_instance));
+            mpeg4_instance_temp=(struct csound_mpeg4_instance*)calloc(1,sizeof(struct csound_mpeg4_instance));
             cur=nodeset->nodeTab[i];
 
             if (mpeg4_instance_temp) {
@@ -625,8 +605,7 @@ void loadMpeg4Instance(){
                 temp_cur = cur->xmlChildrenNode;
                 while (temp_cur != NULL) {
                     if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"mpeg4_score")) {
-                        mpeg4_score_temp = (struct csound_mpeg4_score*)malloc(sizeof(struct csound_mpeg4_score));
-                        mpeg4_score_temp = calloc(1, sizeof(struct csound_mpeg4_score));
+                        mpeg4_score_temp = (struct csound_mpeg4_score*) calloc(1, sizeof(struct csound_mpeg4_score));
 
                         mpeg4_score_temp = loadMpeg4Score(temp_cur);
 
@@ -642,8 +621,7 @@ void loadMpeg4Instance(){
                         mpeg4_instance_temp->n_csound_mpeg4_scores++;
                     }
                     else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"mpeg4_orchestra")) {
-                        mpeg4_orchestra_temp = (struct csound_mpeg4_orchestra*)malloc(sizeof(struct csound_mpeg4_orchestra));
-                        mpeg4_orchestra_temp = calloc(1, sizeof(struct csound_mpeg4_orchestra));
+                        mpeg4_orchestra_temp = (struct csound_mpeg4_orchestra*)calloc(1, sizeof(struct csound_mpeg4_orchestra));
 
                         mpeg4_orchestra_temp = loadMpeg4Orchestra(temp_cur);
 
@@ -681,8 +659,7 @@ void loadMpeg4Instance(){
 }
 
 struct csound_mpeg4_score* loadMpeg4Score(xmlNodePtr cur){
-    struct csound_mpeg4_score* value=(struct csound_mpeg4_score*)malloc(sizeof(struct csound_mpeg4_score));
-    value=calloc(1,sizeof(struct csound_mpeg4_score));
+    struct csound_mpeg4_score* value=(struct csound_mpeg4_score*)calloc(1,sizeof(struct csound_mpeg4_score));
     xmlAttr* attributes;
 
     if (value) {
@@ -704,8 +681,7 @@ struct csound_mpeg4_score* loadMpeg4Score(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_spine_event")) {
-                mpeg4_spine_event_temp = (struct csound_mpeg4_spine_event*)malloc(sizeof(struct csound_mpeg4_spine_event));
-                mpeg4_spine_event_temp = calloc(1, sizeof(struct csound_mpeg4_spine_event));
+                mpeg4_spine_event_temp = (struct csound_mpeg4_spine_event*) calloc(1, sizeof(struct csound_mpeg4_spine_event));
 
                 if (mpeg4_spine_event_temp) {
                     attributes = cur->properties;
@@ -745,8 +721,7 @@ struct csound_mpeg4_score* loadMpeg4Score(xmlNodePtr cur){
 }
 
 struct csound_mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur){
-    struct csound_mpeg4_orchestra* value=(struct csound_mpeg4_orchestra*)malloc(sizeof(struct csound_mpeg4_orchestra));
-    value=calloc(1,sizeof(struct csound_mpeg4_orchestra));
+    struct csound_mpeg4_orchestra* value=(struct csound_mpeg4_orchestra*)calloc(1,sizeof(struct csound_mpeg4_orchestra));
     xmlAttr* attributes;
 
     if (value) {
@@ -768,8 +743,7 @@ struct csound_mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_instrument_mapping")) {
-                mpeg4_instrument_mapping_temp = (struct csound_mpeg4_instrument_mapping*)malloc(sizeof(struct csound_mpeg4_instrument_mapping));
-                mpeg4_instrument_mapping_temp = calloc(1, sizeof(struct csound_mpeg4_instrument_mapping));
+                mpeg4_instrument_mapping_temp = (struct csound_mpeg4_instrument_mapping*)calloc(1, sizeof(struct csound_mpeg4_instrument_mapping));
 
                 mpeg4_instrument_mapping_temp = loadMpeg4InstrumentMapping(cur);
 
@@ -797,8 +771,7 @@ struct csound_mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur){
 }
 
 struct csound_mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cur){
-    struct csound_mpeg4_instrument_mapping* value=(struct csound_mpeg4_instrument_mapping*)malloc(sizeof(struct csound_mpeg4_instrument_mapping));
-    value=calloc(1,sizeof(struct csound_mpeg4_instrument_mapping));
+    struct csound_mpeg4_instrument_mapping* value=(struct csound_mpeg4_instrument_mapping*)calloc(1,sizeof(struct csound_mpeg4_instrument_mapping));
     xmlAttr* attributes;
 
     if (value) {
@@ -834,8 +807,7 @@ struct csound_mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cu
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_part_ref")) {
-                mpeg4_part_ref_temp = (struct csound_mpeg4_part_ref*)malloc(sizeof(struct csound_mpeg4_part_ref));
-                mpeg4_part_ref_temp = calloc(1, sizeof(struct csound_mpeg4_part_ref));
+                mpeg4_part_ref_temp = (struct csound_mpeg4_part_ref*)calloc(1, sizeof(struct csound_mpeg4_part_ref));
 
                 if (mpeg4_part_ref_temp) {
                     attributes = cur->properties;
@@ -860,8 +832,7 @@ struct csound_mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cu
                 else { fprintf(stderr, "Memory allocation failed for 'mpeg4_part_ref' element\n"); }
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"mpeg4_spine_ref")) {
-                mpeg4_spine_ref_temp = (struct csound_mpeg4_spine_ref*)malloc(sizeof(struct csound_mpeg4_spine_ref));
-                mpeg4_spine_ref_temp = calloc(1, sizeof(struct csound_mpeg4_spine_ref));
+                mpeg4_spine_ref_temp = (struct csound_mpeg4_spine_ref*)calloc(1, sizeof(struct csound_mpeg4_spine_ref));
 
                 if (mpeg4_spine_ref_temp) {
                     if (mpeg4_spine_ref_temp) {

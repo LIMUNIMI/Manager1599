@@ -5,6 +5,8 @@
  */
 #include "common.h"
 
+const int N_DISPLAY = 3;
+
 xmlDocPtr doc;
 xmlChar* file_root_folder = "./File/";
 xmlChar* dtd_root_folder = "./File/DTD/";
@@ -81,10 +83,13 @@ xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath){
 char* concat(const char* s1, const char* s2)
 {
     char* result = malloc(strlen(s1) + strlen(s2) + 1); // +1 for the null-terminator
-    // in real code you would check for errors in malloc here
+
     if (result != 0){
         strcpy(result,s1);
         strcat(result,s2);
+    }
+    else{
+        fprintf(stderr, "Error in allocating memory for string concatenation\n");
     }
 
     return result;
@@ -124,8 +129,7 @@ struct rights loadRights(xmlNodePtr cur){
 }
 
 struct genre* loadGenre(xmlNodePtr cur){
-    struct genre* value=(struct genre*)malloc(sizeof(struct genre));
-    value=calloc(1,sizeof(struct genre));
+    struct genre* value=(struct genre*)calloc(1,sizeof(struct genre));
     xmlAttr* attributes;
 
     if (value) {
@@ -150,10 +154,10 @@ struct genre* loadGenre(xmlNodePtr cur){
 }
 
 void clean() {
-      
-    //xmlFreeDoc(doc);
-    xmlCleanupParser();
-
+    if (doc) {
+        xmlFreeDoc(doc);
+        xmlCleanupParser();
+    }
 }
 
 MANAGERIEEE1599_API void setFileRootFolder(xmlChar* new_file_root_folder) {

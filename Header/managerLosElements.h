@@ -34,6 +34,7 @@ struct tablature_tuning{
     int n_strings;
     
     xmlChar* type;//(D,E,G,A,baroque,flat_french,other)
+
     struct string* strings;
     
     struct tablature_tuning* next_tablature_tuning;

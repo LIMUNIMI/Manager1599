@@ -241,8 +241,8 @@ extern "C" {
     };
 
 //Variables
-    
-    
+
+
 //Prototypes
     MANAGERIEEE1599_API struct structural loadStructural();
     MANAGERIEEE1599_API void loadChordGrid();

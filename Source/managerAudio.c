@@ -27,8 +27,7 @@ struct audio loadAudio(){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning tracks 
 
-            track_temp=(struct track*)malloc(sizeof(struct track));
-            track_temp=calloc(1,sizeof(struct track));
+            track_temp=(struct track*)calloc(1,sizeof(struct track));
             cur=nodeset->nodeTab[i];
             
             attributes=cur->properties;         
@@ -84,6 +83,10 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
 
+    value.notes = NULL;
+    value.geographical_region = NULL;
+    value.lyrics_language = NULL;
+
     struct recording* recording_temp=NULL;
     struct recording* recording_head=NULL;
     struct recording* recording_p=NULL;
@@ -121,8 +124,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"recording")){
-                    recording_temp=(struct recording*)malloc(sizeof(struct recording));
-                    recording_temp=calloc(1,sizeof(struct recording));
+                    recording_temp=(struct recording*)calloc(1,sizeof(struct recording));
                     
                     if (recording_temp) {
                         attributes = temp_cur->properties;
@@ -162,8 +164,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"genre")){
-                    genre_temp=(struct genre*)malloc(sizeof(struct genre));
-                    genre_temp=calloc(1,sizeof(struct genre));
+                    genre_temp=(struct genre*)calloc(1,sizeof(struct genre));
                     
                     genre_temp=loadGenre(temp_cur);
                     
@@ -185,8 +186,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"album")){
-                    album_temp=(struct album*)malloc(sizeof(struct album));
-                    album_temp=calloc(1,sizeof(struct album));
+                    album_temp=(struct album*)calloc(1,sizeof(struct album));
                     
                     if (album_temp) {
                         attributes = temp_cur->properties;
@@ -235,8 +235,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"performer")){
-                    performer_temp=(struct performer*)malloc(sizeof(struct performer));
-                    performer_temp=calloc(1,sizeof(struct performer));
+                    performer_temp=(struct performer*)calloc(1,sizeof(struct performer));
                     
                     if (performer_temp) {
                         attributes = temp_cur->properties;
@@ -283,6 +282,8 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
     struct track_indexing value;
     xmlAttr* attributes;
 
+    value.timing_type = NULL;
+
     struct track_region* track_region_temp=NULL;
     struct track_region* track_region_head=NULL;
     struct track_region* track_region_p=NULL;
@@ -304,8 +305,7 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
     cur=cur->xmlChildrenNode;
     while(cur!=NULL){
         if(!xmlStrcmp(cur->name,(const xmlChar*)"track_region")){
-            track_region_temp=(struct track_region*)malloc(sizeof(struct track_region));
-            track_region_temp=calloc(1,sizeof(struct track_region));
+            track_region_temp=(struct track_region*)calloc(1,sizeof(struct track_region));
 
             if (track_region_temp) {
                 attributes = cur->properties;
@@ -340,8 +340,7 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
             else { fprintf(stderr, "Memory allocation failed for 'track_region' element\n");  }
         }
         else if(!xmlStrcmp(cur->name,(const xmlChar*)"track_event")){
-            track_event_temp=(struct track_event*)malloc(sizeof(struct track_event));
-            track_event_temp=calloc(1,sizeof(struct track_event));
+            track_event_temp=(struct track_event*)calloc(1,sizeof(struct track_event));
 
             if (track_event_temp) {
                 attributes = cur->properties;
@@ -384,23 +383,180 @@ struct track_indexing loadTrackIndexing(xmlNodePtr cur){
 
 void printAudio(){
     if(audio_layer.n_tracks!=0){
-        printf("There are %i tracks\n",audio_layer.n_tracks);
-        //printf(audio_layer.tracks)
-        struct track* temp=audio_layer.tracks;
-        while(temp!=NULL){
-            printf("%s ",temp->file_name);
-            printTrackGeneral(temp->track_general);
-            printTrackIndexing(temp->track_indexing);
-            temp=temp->next_track;
+        int i = 0;
+        printf("\n###Audio Layer###\n");
+
+        printf("%i tracks\n",audio_layer.n_tracks);
+
+        i = 0;
+        struct track* p=audio_layer.tracks;
+        while(p!=NULL&&i<N_DISPLAY){
+            i++;
+            printf("%s\n",p->file_name);
+            printTrackGeneral(p->track_general);
+            printTrackIndexing(p->track_indexing);
+            if (p->rights.file_name)
+                printf("(%s)",p->rights.file_name);
+            p=p->next_track;
             printf("\n");
         }
+        if (audio_layer.n_tracks > N_DISPLAY) printf("...\n");
     }
 }
 
 void printTrackGeneral(struct track_general cur){
     
+    int i = 0;
+    printf("    Track General ");
+    if (cur.geographical_region || cur.lyrics_language) {
+        printf("( ");
+        if (cur.geographical_region) printf("region=%s ",cur.geographical_region);
+        if (cur.lyrics_language) printf("language=%s ", cur.lyrics_language);
+        printf(" )");
+    }
+    printf("\n");
+
+    if (cur.n_recordings != 0) {
+        printf("    -Recordings: ");
+        struct recording* p = cur.recordings;
+        i = 0;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("( ");
+            if(p->date)
+                printf("date=%s ",cur.recordings->date);
+            if (p->recorded_part)
+                printf("recorded part=%s ", p->recorded_part);
+            if (p->studio_name)
+                printf("studio=%s ",p->studio_name);
+            if (p->studio_address)
+                printf("address=%s ", p->studio_address);
+            printf(" ) ");
+            p = p->next_recording;
+        }
+        if (cur.n_recordings > N_DISPLAY) printf("...");
+        printf("\n");
+    }
+
+    if (cur.n_genres != 0) {
+        printf("    -Genres: ");
+        struct genre* p = cur.genres;
+        i = 0;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("( ");
+            if (p->name)
+                printf("name=%s ", p->name);
+            if (p->description)
+                printf("description=%s ", p->description);
+            if (p->weight)
+                printf("weight=%s ", p->weight);
+            printf(" ) ");
+            p = p->next_genre;
+        }
+        if (cur.n_genres > N_DISPLAY) printf("...");
+        printf("\n");
+    }
+
+    if (cur.n_albums != 0) {
+        printf("    -Albums: ");
+        struct album* p = cur.albums;
+        i = 0;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("( ");
+            if (p->title)
+                printf("title=%s ", p->title);
+            if (p->track_number)
+                printf("track=%i ", p->track_number);
+            if (p->carrier_type)
+                printf("carrier=%s ", p->carrier_type);
+            if (p->catalogue_number)
+                printf("catalog number=%s ", p->catalogue_number);
+            if (p->number_of_tracks)
+                printf("tracks=%i ", p->number_of_tracks);
+            if (p->publication_date)
+                printf("pubblication=%s ", p->publication_date);
+            if (p->label)
+                printf("label=%s ", p->label);
+            printf(" ) ");
+            p = p->next_album;
+        }
+        if (cur.n_albums > N_DISPLAY) printf("...");
+        printf("\n");
+    }
+
+    if (cur.n_performers != 0) {
+        printf("    -Performers: ");
+        struct performer* p = cur.performers;
+        i = 0;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("( ");
+            if (p->name)
+                printf("name=%s ", p->name);
+            if (p->type)
+                printf("type=%s ", p->type);
+            printf(" ) ");
+            p = p->next_performer;
+        }
+        if (cur.n_performers > N_DISPLAY) printf("...");
+        printf("\n");
+    }
+
+    if (cur.notes) {
+        printf("    -%s\n",cur.notes);
+    }
 }
 
 void printTrackIndexing(struct track_indexing cur){
+    int i = 0;
+    printf("    Track Indexing ");
+    if (cur.timing_type) printf("( %s )", cur.timing_type);
+    printf("\n");
+
+    if (cur.n_track_regions != 0) {
+        printf("    -Track Regions: ");
+        struct track_region* p = cur.track_regions;
+        i = 0;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("( ");
+            if (p->name)
+                printf("name=%s ", p->name);
+            if (p->description)
+                printf("description=%s ", p->description);
+            if (p->start_event_ref)
+                printf("start event ref=%s ", p->start_event_ref);
+            if (p->end_event_ref)
+                printf("end event ref=%s ", p->end_event_ref);
+            printf(" ) ");
+            p = p->next_track_region;
+        }
+        if (cur.n_track_regions > N_DISPLAY) printf("...");
+        printf("\n");
+    }
+
+    if (cur.n_track_events != 0) {
+        printf("    -Track Events: ");
+        struct track_event* p = cur.track_events;
+        i = 0;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("( ");
+            if (p->start_time)
+                printf("start time=%s ", p->start_time);
+            if (p->end_time)
+                printf("end time=%s ", p->end_time);
+            if (p->event_ref)
+                printf("event ref=%s ", p->event_ref);
+            if (p->description)
+                printf("description%s ", p->description);
+            printf(" ) ");
+            p = p->next_track_event;
+        }
+        if (cur.n_track_events > N_DISPLAY) printf("...");
+        printf("\n");
+    }
 
 }

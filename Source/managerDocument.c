@@ -43,13 +43,15 @@ void loadDocument(){
     ieee1599_root.notational_layer=loadNotational();
     ieee1599_root.performance_layer=loadPerformance();
     ieee1599_root.audio_layer=loadAudio();
-    
+
 }
 
-void printDocument(){
-    
-    if (ieee1599_root.file_name != NULL)
+void printDocument() {
+   
+    printf("\n###Document Info###\n");
+    if (ieee1599_root.file_name != NULL) {
         printf("File name: %s\n", ieee1599_root.file_name);
+    }
     if(ieee1599_root.version!=NULL || ieee1599_root.creator!=NULL){
         printf("[");
         if(ieee1599_root.version!=NULL)

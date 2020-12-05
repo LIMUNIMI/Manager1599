@@ -35,8 +35,7 @@ void loadChordGrid(){
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning chord_grids
-            chord_grid_temp=(struct chord_grid*)malloc(sizeof(struct chord_grid));
-            chord_grid_temp=calloc(1,sizeof(struct chord_grid));
+            chord_grid_temp=(struct chord_grid*)calloc(1,sizeof(struct chord_grid));
             cur=nodeset->nodeTab[i];
             attributes=cur->properties;
             while(attributes!=NULL){
@@ -61,8 +60,7 @@ void loadChordGrid(){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"chord_name")){
-                    chord_name_temp=(struct chord_name*)malloc(sizeof(struct chord_name));
-                    chord_name_temp=calloc(1,sizeof(struct chord_name));
+                    chord_name_temp=(struct chord_name*)calloc(1,sizeof(struct chord_name));
                     
 
                     if (chord_name_temp) {
@@ -126,8 +124,7 @@ void loadAnalysis(){
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning analysis
-            analysis_temp=(struct analysis*)malloc(sizeof(struct analysis));
-            analysis_temp=calloc(1,sizeof(struct analysis));
+            analysis_temp=(struct analysis*)calloc(1,sizeof(struct analysis));
             cur=nodeset->nodeTab[i];
             attributes=cur->properties;
             while(attributes!=NULL){
@@ -162,10 +159,10 @@ void loadAnalysis(){
                 else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"relationships")){
                     if(temp_cur->xmlChildrenNode!=NULL){
                         temp_cur=temp_cur->xmlChildrenNode;
+                        int last = 0;
                         do{
                             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"relationship")){
-                                relationship_temp=(struct relationship*)malloc(sizeof(struct relationship));
-                                relationship_temp=calloc(1,sizeof(struct relationship));
+                                relationship_temp=(struct relationship*)calloc(1,sizeof(struct relationship));
 
                                 if (relationship_temp) {
                                     attributes = temp_cur->properties;
@@ -208,8 +205,10 @@ void loadAnalysis(){
                                 else { fprintf(stderr, "Memory allocation failed for 'relationship' element\n"); }
                             }
                             if (temp_cur->next != NULL)
-                                temp_cur=temp_cur->next;
-                        }while(temp_cur->next!=NULL);
+                                temp_cur = temp_cur->next;
+                            else
+                                last = 1;
+                        }while(!last);
                         temp_cur=temp_cur->parent;
                     }
                 }
@@ -219,8 +218,7 @@ void loadAnalysis(){
                         int last = 0;
                         do{
                             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"feature_object_relationship")){
-                                feature_object_relationship_temp=(struct feature_object_relationship*)malloc(sizeof(struct feature_object_relationship));
-                                feature_object_relationship_temp=calloc(1,sizeof(struct feature_object_relationship));
+                                feature_object_relationship_temp=(struct feature_object_relationship*)calloc(1,sizeof(struct feature_object_relationship));
                                 
                                 if (feature_object_relationship_temp) {
                                     if (temp_cur->xmlChildrenNode != NULL) {
@@ -279,8 +277,7 @@ void loadAnalysis(){
 }
 
 struct segmentation* loadSegmentation(xmlNodePtr cur){
-    struct segmentation* value = (struct segmentation*)malloc(sizeof(struct segmentation));
-    value = calloc(1, sizeof(struct segmentation));
+    struct segmentation* value = (struct segmentation*)calloc(1, sizeof(struct segmentation));
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
     
@@ -307,8 +304,7 @@ struct segmentation* loadSegmentation(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {//scan segment+
             if (!xmlStrcmp(cur->name, (const xmlChar*)"segment")) {
-                segment_temp = (struct segment*)malloc(sizeof(struct segment));
-                segment_temp = calloc(1, sizeof(struct segment));
+                segment_temp = (struct segment*)calloc(1, sizeof(struct segment));
 
                 if (segment_temp) {
                     attributes = cur->properties;
@@ -332,8 +328,7 @@ struct segmentation* loadSegmentation(xmlNodePtr cur){
                     temp_cur = cur->xmlChildrenNode;
                     while (temp_cur != NULL) {
                         if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"segment_event")) {
-                            segment_event_temp = (struct segment_event*)malloc(sizeof(struct segment_event));
-                            segment_event_temp = calloc(1, sizeof(struct segment_event));
+                            segment_event_temp = (struct segment_event*)calloc(1, sizeof(struct segment_event));
 
                             if (segment_event_temp) {
                                 attributes = temp_cur->properties;
@@ -358,8 +353,7 @@ struct segmentation* loadSegmentation(xmlNodePtr cur){
                             else { fprintf(stderr, "Memory allocation failed for 'segment_event' element\n"); }
                         }
                         else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"feature_object")) {
-                            feature_object_temp = (struct feature_object*)malloc(sizeof(struct feature_object));
-                            feature_object_temp = calloc(1, sizeof(struct feature_object));
+                            feature_object_temp = (struct feature_object*)calloc(1, sizeof(struct feature_object));
 
                             feature_object_temp = loadFeatureObject(temp_cur);
 
@@ -402,8 +396,7 @@ struct segmentation* loadSegmentation(xmlNodePtr cur){
 }
 
 struct feature_object* loadFeatureObject(xmlNodePtr cur){
-    struct feature_object* value=(struct feature_object*)malloc(sizeof(struct feature_object));
-    value=calloc(1, sizeof(struct feature_object));
+    struct feature_object* value=(struct feature_object*)calloc(1, sizeof(struct feature_object));
     xmlAttr* attributes; 
     
     if (value) {
@@ -451,8 +444,7 @@ void loadPetriNets(){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning petri nets
             cur=nodeset->nodeTab[i];
-            petri_nets_temp = (struct petri_nets*)malloc(sizeof(struct petri_nets));
-            petri_nets_temp = calloc(1, sizeof(struct petri_nets));
+            petri_nets_temp = (struct petri_nets*)calloc(1, sizeof(struct petri_nets));
             
             if (petri_nets_temp) {
                 //load petri net list elements
@@ -464,8 +456,7 @@ void loadPetriNets(){
                 temp_cur = cur->xmlChildrenNode;
                 while (temp_cur != NULL) {
                     if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"petri_net")) {
-                        petri_net_temp = (struct petri_net*)malloc(sizeof(struct petri_net));
-                        petri_net_temp = calloc(1, sizeof(struct petri_net));
+                        petri_net_temp = (struct petri_net*)calloc(1, sizeof(struct petri_net));
 
                         petri_net_temp = loadPetriNet(temp_cur);
 
@@ -502,8 +493,7 @@ void loadPetriNets(){
 }
 
 struct petri_net* loadPetriNet(xmlNodePtr cur){
-    struct petri_net* value=(struct petri_net*)malloc(sizeof(struct petri_net));
-    value=calloc(1, sizeof(struct petri_net));
+    struct petri_net* value=(struct petri_net*)calloc(1, sizeof(struct petri_net));
 
     if (value) {
         xmlAttr* attributes;
@@ -540,8 +530,7 @@ struct petri_net* loadPetriNet(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"place")) {
-                place_temp = (struct place*)malloc(sizeof(struct place));
-                place_temp = calloc(1, sizeof(struct place));
+                place_temp = (struct place*)calloc(1, sizeof(struct place));
 
                 if (place_temp) {
                     attributes = cur->properties;
@@ -569,8 +558,7 @@ struct petri_net* loadPetriNet(xmlNodePtr cur){
                 else { fprintf(stderr, "Memory allocation failed for 'place' element\n"); }
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"transition")) {
-                transition_temp = (struct transition*)malloc(sizeof(struct transition));
-                transition_temp = calloc(1, sizeof(struct transition));
+                transition_temp = (struct transition*)calloc(1, sizeof(struct transition));
 
                 if (transition_temp) {
                     attributes = cur->properties;
@@ -624,8 +612,7 @@ void loadMir(){
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning mirs
-            mir_temp=(struct mir*)malloc(sizeof(struct mir));
-            mir_temp=calloc(1,sizeof(struct mir));
+            mir_temp=(struct mir*)calloc(1,sizeof(struct mir));
             cur=nodeset->nodeTab[i];
             
             if (mir_temp) {
@@ -638,8 +625,7 @@ void loadMir(){
                 temp_cur = cur->xmlChildrenNode;
                 while (temp_cur != NULL) {
                     if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"mir_model")) {
-                        mir_model_temp = (struct mir_model*)malloc(sizeof(struct mir_model));
-                        mir_model_temp = calloc(1, sizeof(struct mir_model));
+                        mir_model_temp = (struct mir_model*)calloc(1, sizeof(struct mir_model));
 
                         mir_model_temp = loadMirModel(temp_cur);
 
@@ -676,8 +662,7 @@ void loadMir(){
 }
 
 struct mir_model* loadMirModel(xmlNodePtr cur){
-    struct mir_model* value=(struct mir_model*)malloc(sizeof(struct mir_model));
-    value=calloc(1, sizeof(struct mir_model));
+    struct mir_model* value=(struct mir_model*)calloc(1, sizeof(struct mir_model));
     xmlAttr* attributes;
     
     if (value) {
@@ -710,8 +695,7 @@ struct mir_model* loadMirModel(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"mir_object")) {
-                mir_object_temp = (struct mir_object*)malloc(sizeof(struct mir_object));
-                mir_object_temp = calloc(1, sizeof(struct mir_object));
+                mir_object_temp = (struct mir_object*)calloc(1, sizeof(struct mir_object));
 
                 mir_object_temp = loadMirObject(cur);
 
@@ -727,8 +711,7 @@ struct mir_model* loadMirModel(xmlNodePtr cur){
                 value->n_mir_objects++;
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"mir_morphism")) {
-                mir_morphism_temp = (struct mir_morphism*)malloc(sizeof(struct mir_morphism));
-                mir_morphism_temp = calloc(1, sizeof(struct mir_morphism));
+                mir_morphism_temp = (struct mir_morphism*) calloc(1, sizeof(struct mir_morphism));
 
                 mir_morphism_temp = loadMirMorphism(cur);
 
@@ -754,8 +737,7 @@ struct mir_model* loadMirModel(xmlNodePtr cur){
 }
 
 struct mir_object* loadMirObject(xmlNodePtr cur){
-    struct mir_object* value=(struct mir_object*)malloc(sizeof(struct mir_object));
-    value=calloc(1, sizeof(struct mir_object));
+    struct mir_object* value=(struct mir_object*)calloc(1, sizeof(struct mir_object));
 
     if (value) {
         xmlAttr* attributes;
@@ -789,8 +771,7 @@ struct mir_object* loadMirObject(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"mir_subobject")) {
-                mir_subobject_temp = (struct mir_subobject*)malloc(sizeof(struct mir_subobject));
-                mir_subobject_temp = calloc(1, sizeof(struct mir_subobject));
+                mir_subobject_temp = (struct mir_subobject*)calloc(1, sizeof(struct mir_subobject));
 
                 mir_subobject_temp = loadMirSubobject(cur);
 
@@ -806,8 +787,7 @@ struct mir_object* loadMirObject(xmlNodePtr cur){
                 value->n_mir_subobjects++;
             }
             else if (!xmlStrcmp(cur->name, (const xmlChar*)"mir_feature")) {
-                mir_feature_temp = (struct mir_feature*)malloc(sizeof(struct mir_feature));
-                mir_feature_temp = calloc(1, sizeof(struct mir_feature));
+                mir_feature_temp = (struct mir_feature*)calloc(1, sizeof(struct mir_feature));
 
                 mir_feature_temp = loadMirFeature(cur);
 
@@ -832,8 +812,7 @@ struct mir_object* loadMirObject(xmlNodePtr cur){
 }
 
 struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
-    struct mir_subobject* value=(struct mir_subobject*)malloc(sizeof(struct mir_subobject));
-    value=calloc(1, sizeof(struct mir_subobject));
+    struct mir_subobject* value=(struct mir_subobject*)calloc(1, sizeof(struct mir_subobject));
     xmlAttr* attributes;
     
     if (value) {
@@ -864,8 +843,7 @@ struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"mir_feature")) {
-                mir_feature_temp = (struct mir_feature*)malloc(sizeof(struct mir_feature));
-                mir_feature_temp = calloc(1, sizeof(struct mir_feature));
+                mir_feature_temp = (struct mir_feature*) calloc(1, sizeof(struct mir_feature));
 
                 mir_feature_temp = loadMirFeature(cur);
 
@@ -890,8 +868,7 @@ struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
 }
 
 struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
-    struct mir_morphism* value=(struct mir_morphism*)malloc(sizeof(struct mir_morphism));
-    value=calloc(1, sizeof(struct mir_morphism));
+    struct mir_morphism* value=(struct mir_morphism*)calloc(1, sizeof(struct mir_morphism));
     xmlAttr* attributes;
 
     if (value) {
@@ -925,8 +902,7 @@ struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
         cur = cur->xmlChildrenNode;
         while (cur != NULL) {
             if (!xmlStrcmp(cur->name, (const xmlChar*)"mir_feature")) {
-                mir_feature_temp = (struct mir_feature*)malloc(sizeof(struct mir_feature));
-                mir_feature_temp = calloc(1, sizeof(struct mir_feature));
+                mir_feature_temp = (struct mir_feature*)calloc(1, sizeof(struct mir_feature));
 
                 mir_feature_temp = loadMirFeature(cur);
 
@@ -951,8 +927,7 @@ struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
 }
 
 struct mir_feature* loadMirFeature(xmlNodePtr cur){
-    struct mir_feature* value=(struct mir_feature*)malloc(sizeof(struct mir_feature));
-    value=calloc(1, sizeof(struct mir_feature));
+    struct mir_feature* value=(struct mir_feature*)calloc(1, sizeof(struct mir_feature));
     xmlAttr* attributes;
     
     if (value) {

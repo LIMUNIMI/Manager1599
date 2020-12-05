@@ -40,8 +40,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         temp_cur=cur->xmlChildrenNode;
         while(temp_cur!=NULL){
             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"chord")){
-                chord_temp=(struct chord*)malloc(sizeof(struct chord));
-                chord_temp=calloc(1,sizeof(struct chord));
+                chord_temp= (struct chord*)calloc(1,sizeof(struct chord));
                 chord_temp=loadChordValue(temp_cur);
                 chord_temp->next_chord=NULL;
                 if(chord_head==NULL)
@@ -97,8 +96,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         temp_cur=cur->xmlChildrenNode;
         while(temp_cur!=NULL){
             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"chord")){
-                chord_temp=(struct chord*)malloc(sizeof(struct chord));
-                chord_temp=calloc(1,sizeof(struct chord));
+                chord_temp= (struct chord*)calloc(1,sizeof(struct chord));
                 chord_temp=loadChordValue(temp_cur);
                 chord_temp->next_chord=NULL;
                 if(chord_head==NULL)
@@ -246,11 +244,10 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         temp_cur=cur->xmlChildrenNode;
         while(temp_cur!=NULL){//notehead_ref list in arpeggio
             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"notehead_ref")){
-                notehead_ref_temp=(struct notehead_ref*)malloc(sizeof(struct notehead_ref));
-                notehead_ref_temp=calloc(1,sizeof(struct notehead_ref));
+                notehead_ref_temp= (struct notehead_ref*)calloc(1,sizeof(struct notehead_ref));
                 attributes=temp_cur->properties;
                 while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"event_ref")){
                         notehead_ref_temp->event_ref=xmlGetProp(temp_cur,attributes->name);
                     }
                     attributes=attributes->next;
@@ -523,8 +520,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         temp_cur=cur->xmlChildrenNode;
         while(temp_cur!=NULL){//notehead_ref list in special_beam
             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"notehead_ref")){
-                notehead_ref_temp=(struct notehead_ref*)malloc(sizeof(struct notehead_ref));
-                notehead_ref_temp=calloc(1,sizeof(struct notehead_ref));
+                notehead_ref_temp= (struct notehead_ref*)calloc(1,sizeof(struct notehead_ref));
                 attributes=temp_cur->properties;
                 while(attributes!=NULL){
                     if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"event_ref")){
@@ -576,17 +572,16 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         temp_cur=cur->xmlChildrenNode;
         while(temp_cur!=NULL){
             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tablature_element")){
-                tablature_element_temp=(struct tablature_element*)malloc(sizeof(struct tablature_element));
-                tablature_element_temp=calloc(1,sizeof(struct tablature_element));
+                tablature_element_temp= (struct tablature_element*)calloc(1,sizeof(struct tablature_element));
                 attributes=temp_cur->properties;
                 while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"shape")){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
                         tablature_element_temp->shape=xmlGetProp(temp_cur,attributes->name);
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"string_position")){
+                    else if(!xmlStrcmp(attributes->name,(const xmlChar*)"string_position")){
                         tablature_element_temp->string_position=xmlGetProp(temp_cur,attributes->name);
                     }
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"fret_position")){
+                    if(!xmlStrcmp(attributes->name,(const xmlChar*)"fret_position")){
                         tablature_element_temp->fret_position=xmlGetProp(temp_cur,attributes->name);
                     }
                     attributes=attributes->next;
@@ -602,30 +597,33 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 }
             }  
             else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"barre")){
-                barre_temp=(struct barre*)malloc(sizeof(struct barre));
-                barre_temp=calloc(1,sizeof(struct barre));
-                attributes=temp_cur->properties;
-                while(attributes!=NULL){
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"start_string_position")){
-                        barre_temp->start_string_position=xmlGetProp(temp_cur,attributes->name);
+                barre_temp= (struct barre*)calloc(1,sizeof(struct barre));
+
+                if (barre_temp) {
+                    attributes = temp_cur->properties;
+                    while (attributes != NULL) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"start_string_position")) {
+                            barre_temp->start_string_position = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"end_string_position")) {
+                            barre_temp->end_string_position = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"fret_position")) {
+                            barre_temp->fret_position = xmlGetProp(temp_cur, attributes->name);
+                        }
+                        attributes = attributes->next;
                     }
-                    else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"end_string_position")){
-                        barre_temp->end_string_position=xmlGetProp(temp_cur,attributes->name);
+                    barre_temp->next_barre = NULL;
+                    if (barre_head == NULL)
+                        barre_head = barre_temp;
+                    else {
+                        barre_p = barre_head;
+                        while (barre_p->next_barre != NULL)
+                            barre_p = barre_p->next_barre;
+                        barre_p = barre_temp;
                     }
-                    if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"fret_position")){
-                        barre_temp->fret_position=xmlGetProp(temp_cur,attributes->name);
-                    }
-                    attributes=attributes->next;
                 }
-                barre_temp->next_barre=NULL;
-                if(barre_head==NULL)
-                    barre_head=barre_temp;
-                else{
-                    barre_p=barre_head;
-                    while(barre_p->next_barre!=NULL)
-                        barre_p=barre_p->next_barre;
-                    barre_p=barre_temp;
-                }
+                else { fprintf(stderr, "Memory allocation failed for 'barre' element\n"); }
             }   
         }
         value.tablature_hsymbol.tablature_elements=tablature_element_head;
@@ -656,16 +654,15 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 value.repeat.repeat_text=xmlNodeListGetString(doc,temp_cur->xmlChildrenNode,1);
             }  
             else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"jump_to")){
-                jump_to_temp=(struct jump_to*)malloc(sizeof(struct jump_to));
-                jump_to_temp=calloc(1,sizeof(struct jump_to));
+                jump_to_temp= (struct jump_to*)calloc(1,sizeof(struct jump_to));
 
                 if (jump_to_temp) {
                     attributes = temp_cur->properties;
                     while (attributes != NULL) {
-                        if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"id")) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"id")) {
                             jump_to_temp->id = xmlGetProp(temp_cur, attributes->name);
                         }
-                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"event_ref")) {
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
                             jump_to_temp->event_ref = xmlGetProp(temp_cur, attributes->name);
                         }
                         attributes = attributes->next;
@@ -683,16 +680,15 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                 else { fprintf(stderr, "Memory allocation failed for 'jump_to' element\n"); }
             } 
             else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"end")){
-                end_temp=(struct end*)malloc(sizeof(struct end));
-                end_temp=calloc(1,sizeof(struct end));
+                end_temp= (struct end*)calloc(1,sizeof(struct end));
 
                 if (end_temp) {
                     attributes = temp_cur->properties;
                     while (attributes != NULL) {
-                        if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"id")) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"id")) {
                             end_temp->id = xmlGetProp(temp_cur, attributes->name);
                         }
-                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"event_ref")) {
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"event_ref")) {
                             end_temp->event_ref = xmlGetProp(temp_cur, attributes->name);
                         }
                         attributes = attributes->next;
@@ -767,16 +763,15 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         temp_cur=cur->xmlChildrenNode;
         while(temp_cur!=NULL){
             if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"multiple_ending")){
-                multiple_ending_temp=(struct multiple_ending*)malloc(sizeof(struct multiple_ending));
-                multiple_ending_temp=calloc(1,sizeof(struct multiple_ending));
+                multiple_ending_temp= (struct multiple_ending*)calloc(1,sizeof(struct multiple_ending));
 
                 if (multiple_ending_temp) {
                     attributes = temp_cur->properties;
                     while (attributes != NULL) {
-                        if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"id")) {
+                        if (!xmlStrcmp(attributes->name, (const xmlChar*)"id")) {
                             multiple_ending_temp->id = xmlGetProp(temp_cur, attributes->name);
                         }
-                        else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"number")) {
+                        else if (!xmlStrcmp(attributes->name, (const xmlChar*)"number")) {
                             multiple_ending_temp->number = xmlCharToInt(xmlGetProp(temp_cur, attributes->name));
                         }
                         else if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"start_event_ref")) {
@@ -830,8 +825,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
 
 struct voice_item* loadVoiceItemValue(xmlNodePtr cur){   
     xmlAttr* attributes;
-    struct voice_item* value=(struct voice_item*)malloc(sizeof(struct voice_item));
-    value=calloc(1,sizeof(struct voice_item));
+    struct voice_item* value=(struct voice_item*)calloc(1,sizeof(struct voice_item));
 
     if (value) {
         value->next_voice_item = NULL;
@@ -858,8 +852,7 @@ struct voice_item* loadVoiceItemValue(xmlNodePtr cur){
 struct measure* loadMeasureValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct measure* value=(struct measure*)malloc(sizeof(struct measure));
-    value=calloc(1,sizeof(struct measure));
+    struct measure* value=(struct measure*)calloc(1,sizeof(struct measure));
     value->next_measure=NULL;
     
     struct voice* voice_temp=NULL;
@@ -890,8 +883,7 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
     temp_cur=cur->xmlChildrenNode;
     while(temp_cur!=NULL){
         if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"voice")){
-            voice_temp=(struct voice*)malloc(sizeof(struct voice));
-            voice_temp=calloc(1,sizeof(struct voice));
+            voice_temp= (struct voice*)calloc(1,sizeof(struct voice));
             voice_temp=loadVoiceValue(temp_cur);
             voice_temp->next_voice=NULL;
             if(voice_head==NULL){
@@ -938,8 +930,7 @@ struct measure* loadMeasureValue(xmlNodePtr cur){
 
 struct clef* loadClefValue(xmlNodePtr cur){
     xmlAttr* attributes;
-    struct clef* value=(struct clef*)malloc(sizeof(struct clef));
-    value=calloc(1,sizeof(struct clef));
+    struct clef* value=(struct clef*)calloc(1,sizeof(struct clef));
 
     if (value) {
         value->next_clef = NULL;
@@ -969,8 +960,7 @@ struct clef* loadClefValue(xmlNodePtr cur){
 struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct key_signature* value=(struct key_signature*)malloc(sizeof(struct key_signature));
-    value=calloc(1,sizeof(struct key_signature));
+    struct key_signature* value=(struct key_signature*)calloc(1,sizeof(struct key_signature));
     
     if (value) {
         value->next_key_signature = NULL;
@@ -999,8 +989,7 @@ struct key_signature* loadKeySignatureValue(xmlNodePtr cur){
 struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct custom_key_signature* value=(struct custom_key_signature*)malloc(sizeof(struct custom_key_signature));
-    value=calloc(1,sizeof(struct custom_key_signature));
+    struct custom_key_signature* value=(struct custom_key_signature*)calloc(1,sizeof(struct custom_key_signature));
 
     if (value) {
         value->next_custom_key_signature = NULL;
@@ -1020,8 +1009,7 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
         temp_cur = cur->xmlChildrenNode;
         while (temp_cur != NULL) {
             if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"key_accidental")) {
-                key_accidental_temp = (struct key_accidental*)malloc(sizeof(struct key_accidental));
-                key_accidental_temp = calloc(1, sizeof(struct key_accidental));
+                key_accidental_temp = (struct key_accidental*)calloc(1, sizeof(struct key_accidental));
 
                 if (key_accidental_temp) {
                     attributes = temp_cur->properties;
@@ -1059,8 +1047,7 @@ struct custom_key_signature* loadCustomKeySignatureValue(xmlNodePtr cur){
 struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct time_signature* value=(struct time_signature*)malloc(sizeof(struct time_signature));
-    value=calloc(1,sizeof(struct time_signature));
+    struct time_signature* value=(struct time_signature*)calloc(1,sizeof(struct time_signature));
 
     if (value) {
         value->next_time_signature = NULL;
@@ -1087,8 +1074,7 @@ struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
         temp_cur = cur->xmlChildrenNode;
         while (temp_cur != NULL) {
             if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"time_indication")) {
-                time_indication_temp = (struct time_indication*)malloc(sizeof(struct time_indication));
-                time_indication_temp = calloc(1, sizeof(struct time_indication));
+                time_indication_temp = (struct time_indication*)calloc(1, sizeof(struct time_indication));
 
                 if (time_indication_temp) {
                     attributes = temp_cur->properties;
@@ -1134,8 +1120,7 @@ struct time_signature* loadTimeSignatureValue(xmlNodePtr cur){
 
 struct barline* loadBarlineValue(xmlNodePtr cur){
     xmlAttr* attributes;
-    struct barline* value=(struct barline*)malloc(sizeof(struct barline));
-    value=calloc(1,sizeof(struct barline));
+    struct barline* value=(struct barline*)calloc(1,sizeof(struct barline));
 
     if (value) {
         value->next_barline = NULL;
@@ -1162,8 +1147,7 @@ struct barline* loadBarlineValue(xmlNodePtr cur){
 struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct tablature_tuning* value=(struct tablature_tuning*)malloc(sizeof(struct tablature_tuning));
-    value=calloc(1,sizeof(struct tablature_tuning));
+    struct tablature_tuning* value=(struct tablature_tuning*)calloc(1,sizeof(struct tablature_tuning));
 
     if (value) {
         value->next_tablature_tuning = NULL;
@@ -1183,8 +1167,7 @@ struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
         temp_cur = cur->xmlChildrenNode;
         while (temp_cur != NULL) {
             if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"string")) {
-                string_temp = (struct string*)malloc(sizeof(struct string));
-                string_temp = calloc(1, sizeof(struct string));
+                string_temp = (struct string*)calloc(1, sizeof(struct string));
 
                 if (string_temp) {
                     attributes = temp_cur->properties;
@@ -1229,8 +1212,7 @@ struct tablature_tuning* loadTablatureTuningValue(xmlNodePtr cur){
 struct voice* loadVoiceValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct voice* value=(struct voice*)malloc(sizeof(struct voice));
-    value=calloc(1,sizeof(struct voice));   
+    struct voice* value=(struct voice*)calloc(1,sizeof(struct voice));   
     value->next_voice=NULL;
     
     struct chord* chord_temp=NULL;
@@ -1256,10 +1238,10 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
     value->next_voice=NULL;
     attributes=cur->properties;
     while(attributes!=NULL){
-        if(!xmlStrcmp(cur->name,(const xmlChar*)"voice_item_ref")){
+        if(!xmlStrcmp(attributes->name,(const xmlChar*)"voice_item_ref")){
             value->voice_item_ref=xmlGetProp(cur,attributes->name);
         }
-        else if(!xmlStrcmp(cur->name,(const xmlChar*)"ossia")){
+        else if(!xmlStrcmp(attributes->name,(const xmlChar*)"ossia")){
             if(!xmlStrcmp(xmlGetProp(cur,attributes->name),(const xmlChar*)"yes"))
                 value->ossia= 1;
             else
@@ -1270,8 +1252,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
     temp_cur=cur->xmlChildrenNode;
     while(temp_cur!=NULL){
         if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"chord")){
-            chord_temp=(struct chord*)malloc(sizeof(struct chord));
-            chord_temp=calloc(1,sizeof(struct chord));
+            chord_temp=(struct chord*)calloc(1,sizeof(struct chord));
             chord_temp=loadChordValue(temp_cur);
             chord_temp->next_chord=NULL;
             if(chord_head==NULL){
@@ -1286,8 +1267,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
             value->n_chords++;
         }
         else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"rest")){
-            rest_temp=(struct rest*)malloc(sizeof(struct rest));
-            rest_temp=calloc(1,sizeof(struct rest));
+            rest_temp=(struct rest*)calloc(1,sizeof(struct rest));
             attributes=temp_cur->properties;
             while(attributes!=NULL){
                 if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -1311,6 +1291,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
             if(temp_cur->xmlChildrenNode!=NULL){
                 temp_cur=temp_cur->xmlChildrenNode;
                 if(temp_cur!=NULL){
+                    int last = 0;
                     do{
                         if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"duration")){
                            rest_temp->duration=loadDurationValue(temp_cur);
@@ -1320,8 +1301,11 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
                            if(xmlGetProp(temp_cur,(const xmlChar*)"number")!=NULL)
                             rest_temp->augmentation_dots=(struct augmentation_dots){ xmlCharToInt(xmlGetProp(temp_cur,(const xmlChar*)"augmentation_dots"))};
                         }
-                        temp_cur=temp_cur->next;
-                    }while(temp_cur->next!=NULL);
+                        if (temp_cur->next != NULL)
+                            temp_cur = temp_cur->next;
+                        else
+                            last = 1;
+                    }while(!last);
                 }
                 temp_cur=temp_cur->parent;
             }
@@ -1339,8 +1323,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
 
         }
         else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"tablature_symbol")){
-            tablature_symbol_temp=(struct tablature_symbol*)malloc(sizeof(struct tablature_symbol));
-            tablature_symbol_temp=calloc(1,sizeof(struct tablature_symbol));
+            tablature_symbol_temp=(struct tablature_symbol*)calloc(1,sizeof(struct tablature_symbol));
             
             if (tablature_symbol_temp) {
                 struct key* key_temp = NULL;
@@ -1425,8 +1408,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
             else { fprintf(stderr, "Memory allocation failed for 'tablature_symbol' element\n"); }
         }
         else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"gregorian_symbol")){
-            gregorian_symbol_temp=(struct gregorian_symbol*)malloc(sizeof(struct gregorian_symbol));
-            gregorian_symbol_temp=calloc(1,sizeof(struct gregorian_symbol));
+            gregorian_symbol_temp=(struct gregorian_symbol*)calloc(1,sizeof(struct gregorian_symbol));
             
             if (gregorian_symbol_temp) {
                 struct notehead* notehead_temp = NULL;
@@ -1436,22 +1418,22 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
 
                 attributes = cur->properties;
                 while (attributes != NULL) {
-                    if (!xmlStrcmp(cur->name, (const xmlChar*)"id")) {
+                    if (!xmlStrcmp(attributes->name, (const xmlChar*)"id")) {
                         gregorian_symbol_temp->id = xmlGetProp(cur, attributes->name);
                     }
-                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"neume")) {
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"neume")) {
                         gregorian_symbol_temp->neume = xmlGetProp(cur, attributes->name);
                     }
-                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"inflexion")) {
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"inflexion")) {
                         gregorian_symbol_temp->inflexion = xmlGetProp(cur, attributes->name);
                     }
-                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"subpunctis")) {
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"subpunctis")) {
                         gregorian_symbol_temp->subpunctis = xmlGetProp(cur, attributes->name);
                     }
-                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"interpretative_mark")) {
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"interpretative_mark")) {
                         gregorian_symbol_temp->interpretative_mark = xmlGetProp(cur, attributes->name);
                     }
-                    else if (!xmlStrcmp(cur->name, (const xmlChar*)"mora")) {
+                    else if (!xmlStrcmp(attributes->name, (const xmlChar*)"mora")) {
                         if (!xmlStrcmp(xmlGetProp(cur, attributes->name), (const xmlChar*)"yes"))
                             gregorian_symbol_temp->mora = 1;
                         else
@@ -1517,8 +1499,7 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
 struct chord* loadChordValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct chord* value=(struct chord*)malloc(sizeof(struct chord));
-    value=calloc(1,sizeof(struct chord));
+    struct chord* value=(struct chord*)calloc(1,sizeof(struct chord));
     value->next_chord=NULL;
     value->repetition= 0;
     
@@ -1636,8 +1617,7 @@ struct chord* loadChordValue(xmlNodePtr cur){
 struct notehead* loadNoteheadValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct notehead* value=(struct notehead*)malloc(sizeof(struct notehead));
-    value=calloc(1,sizeof(struct notehead));
+    struct notehead* value=(struct notehead*)calloc(1,sizeof(struct notehead));
     value->next_notehead=NULL;
     value->tie= 0;
     
@@ -1690,8 +1670,7 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
             int last = 0;
             do{
                 if(xmlStrcmp(temp_cur->name,(const xmlChar*)"text")&&xmlStrcmp(temp_cur->name,(const xmlChar*)"comment")){
-                    printed_accidental_temp=(struct printed_accidental*)malloc(sizeof(struct printed_accidental));
-                    printed_accidental_temp=calloc(1,sizeof(struct printed_accidental));
+                    printed_accidental_temp=(struct printed_accidental*)calloc(1,sizeof(struct printed_accidental));
 
                     if (printed_accidental_temp) {
                         printed_accidental_temp->printed_accidental_type = (xmlChar*)temp_cur->name;
@@ -1740,8 +1719,7 @@ struct notehead* loadNoteheadValue(xmlNodePtr cur){
 }
 
 struct duration loadDurationValue(xmlNodePtr cur){
-    struct duration* value=(struct duration*)malloc(sizeof(struct duration));
-    value=calloc(1,sizeof(struct duration));
+    struct duration* value=(struct duration*)calloc(1,sizeof(struct duration));
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
     
@@ -1763,8 +1741,7 @@ struct duration loadDurationValue(xmlNodePtr cur){
         temp_cur = cur->xmlChildrenNode;
         while (temp_cur != NULL) {
             if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tuplet_ratio")) {
-                tuplet_ratio_temp = (struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
-                tuplet_ratio_temp = calloc(1, sizeof(struct tuplet_ratio));
+                tuplet_ratio_temp = (struct tuplet_ratio*)calloc(1, sizeof(struct tuplet_ratio));
 
                 if (tuplet_ratio_temp) {
                     attributes = temp_cur->properties;
@@ -1812,8 +1789,7 @@ struct duration loadDurationValue(xmlNodePtr cur){
 
 struct tuplet_ratio* loadTupletRatio(xmlNodePtr cur) {
 
-    struct tuplet_ratio* value = (struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
-    value = calloc(1, sizeof(struct tuplet_ratio));
+    struct tuplet_ratio* value = (struct tuplet_ratio*)calloc(1, sizeof(struct tuplet_ratio));
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
 
@@ -1849,8 +1825,7 @@ struct tuplet_ratio* loadTupletRatio(xmlNodePtr cur) {
         temp_cur = cur->xmlChildrenNode;
         while (temp_cur != NULL) {
             if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"tuplet_ratio")) {
-                tuplet_ratio_temp = (struct tuplet_ratio*)malloc(sizeof(struct tuplet_ratio));
-                tuplet_ratio_temp = calloc(1, sizeof(struct tuplet_ratio));
+                tuplet_ratio_temp = (struct tuplet_ratio*)calloc(1, sizeof(struct tuplet_ratio));
 
                 tuplet_ratio_temp = loadTupletRatio(temp_cur);
                 if (tuplet_ratio_temp) {
@@ -1886,8 +1861,7 @@ struct tuplet_ratio* loadTupletRatio(xmlNodePtr cur) {
 struct key* loadKeyValue(xmlNodePtr cur){
     xmlAttr* attributes;
     xmlNodePtr temp_cur;
-    struct key* value=(struct key*)malloc(sizeof(struct key));
-    value=calloc(1,sizeof(struct key));
+    struct key* value=(struct key*)calloc(1,sizeof(struct key));
 
     if (value) {
         value->next_key = NULL;
@@ -1947,8 +1921,7 @@ struct key* loadKeyValue(xmlNodePtr cur){
 }
 
 struct articulation* loadArticulationValue(xmlNodePtr cur){
-    struct articulation* value=(struct articulation*)malloc(sizeof(struct articulation));
-    value=calloc(1,sizeof(struct articulation));
+    struct articulation* value=(struct articulation*)calloc(1,sizeof(struct articulation));
 
     if (value) {
         value->next_articulation = NULL;

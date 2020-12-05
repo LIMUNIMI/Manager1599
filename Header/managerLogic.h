@@ -41,10 +41,11 @@ struct agogics{
 };
 
 struct text_field{
-    xmlChar* text_field_value;
     xmlChar* extension_line_to;
     xmlChar* extension_line_shape;//(normal,dotted,slashed)
     xmlChar* event_ref;
+
+    xmlChar* text_field_value;
     
     struct text_field* next_text_field;
 };
@@ -82,9 +83,10 @@ struct syllable{
 struct lyrics{//(syllable+)
     int n_syllables;
     
-    struct syllable* syllables;
     xmlChar* part_ref;
     xmlChar* voice_ref;
+
+    struct syllable* syllables;
     
     struct lyrics* next_lyrics;
 };
@@ -128,7 +130,7 @@ struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline
     
     struct clef* clefs;
     struct key_signature* key_signatures;
-    struct custom_key_signature* custom_key_singatures;
+    struct custom_key_signature* custom_key_signatures;
     struct time_signature* time_signatures;
     struct barline* barlines;
     struct tablature_tuning* tablature_tunings;
@@ -268,6 +270,15 @@ MANAGERIEEE1599_API void printLogic();
 MANAGERIEEE1599_API void printSpine();
 MANAGERIEEE1599_API void printLos();
 MANAGERIEEE1599_API void printLayout();
+void printSyllables(struct lyrics* cur);
+void printClef(struct staff* cur);
+void printKeySignature(struct staff* cur);
+void printCustomKeySignature(struct staff* cur);
+void printTimeSignature(struct staff* cur);
+void printBarline(struct staff* cur);
+void printTablatureTuning(struct staff* cur);
+void printVoiceList(struct part* cur);
+void printMeasure(struct part* cur);
 
 #ifdef __cplusplus
 }
