@@ -143,11 +143,7 @@ void loadLos(){
     struct lyrics* lyrics_head=NULL;
     struct lyrics* lyrics_temp=NULL;
     struct lyrics* lyrics_p=NULL;
-    
-    struct syllable* syllable_head=NULL;
-    struct syllable* syllable_temp=NULL;
-    struct syllable* syllable_p=NULL;
-    
+   
     struct horizontal_symbol_list* horizontal_symbol_list_head=NULL;
     struct horizontal_symbol_list* horizontal_symbol_list_temp=NULL;
     struct horizontal_symbol_list* horizontal_symbol_list_p=NULL;
@@ -159,46 +155,14 @@ void loadLos(){
     struct part* part_temp=NULL;
     struct part* part_head=NULL;
     struct part* part_p=NULL;
-    
-    struct voice_item* voice_item_temp=NULL;
-    struct voice_item* voice_item_head=NULL;
-    struct voice_item* voice_item_p=NULL;
-    
-    struct measure* measure_temp=NULL;
-    struct measure* measure_head=NULL;
-    struct measure* measure_p=NULL;
-    
-    struct brackets* brackets_temp=NULL;
-    struct brackets* brackets_head=NULL;
-    struct brackets* brackets_p=NULL;
 
-    struct staff* staff_temp=NULL;
-    struct staff* staff_head=NULL;
-    struct staff* staff_p=NULL;
-    
-    struct clef* clef_temp=NULL;
-    struct clef* clef_head=NULL;
-    struct clef* clef_p=NULL;
-    
-    struct key_signature* key_signature_temp=NULL;
-    struct key_signature* key_signature_head=NULL;
-    struct key_signature* key_signature_p=NULL;
-    
-    struct custom_key_signature* custom_key_signature_temp=NULL;
-    struct custom_key_signature* custom_key_signature_head=NULL;
-    struct custom_key_signature* custom_key_signature_p=NULL;
-    
-    struct time_signature* time_signature_temp=NULL;
-    struct time_signature* time_signature_head=NULL;
-    struct time_signature* time_signature_p=NULL;
-    
-    struct barline* barline_temp=NULL;
-    struct barline* barline_head=NULL;
-    struct barline* barline_p=NULL;
-    
-    struct tablature_tuning* tablature_tuning_temp=NULL;
-    struct tablature_tuning* tablature_tuning_head=NULL;
-    struct tablature_tuning* tablature_tuning_p=NULL;
+    struct brackets* brackets_temp = NULL;
+    struct brackets* brackets_head = NULL;
+    struct brackets* brackets_p = NULL;
+
+    struct staff* staff_temp = NULL;
+    struct staff* staff_head = NULL;
+    struct staff* staff_p = NULL;
     
     logic_layer.los.n_agogics=0;
     logic_layer.los.n_text_fields=0;
@@ -333,6 +297,30 @@ void loadLos(){
                         logic_layer.los.n_brackets++;
                     }
                     else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"staff")){
+                        struct clef* clef_temp = NULL;
+                        struct clef* clef_head = NULL;
+                        struct clef* clef_p = NULL;
+
+                        struct key_signature* key_signature_temp = NULL;
+                        struct key_signature* key_signature_head = NULL;
+                        struct key_signature* key_signature_p = NULL;
+
+                        struct custom_key_signature* custom_key_signature_temp = NULL;
+                        struct custom_key_signature* custom_key_signature_head = NULL;
+                        struct custom_key_signature* custom_key_signature_p = NULL;
+
+                        struct time_signature* time_signature_temp = NULL;
+                        struct time_signature* time_signature_head = NULL;
+                        struct time_signature* time_signature_p = NULL;
+
+                        struct barline* barline_temp = NULL;
+                        struct barline* barline_head = NULL;
+                        struct barline* barline_p = NULL;
+
+                        struct tablature_tuning* tablature_tuning_temp = NULL;
+                        struct tablature_tuning* tablature_tuning_head = NULL;
+                        struct tablature_tuning* tablature_tuning_p = NULL;
+
                         staff_temp=(struct staff*)calloc(1,sizeof(struct staff)); 
                         staff_temp->n_clefs=0;
                         staff_temp->n_key_signatures=0;
@@ -465,12 +453,12 @@ void loadLos(){
                             temp_cur=temp_cur->parent;
                         }
                         //end scanning elements of staff
-                        staff_temp->clefs=clef_head;
-                        staff_temp->key_signatures=key_signature_head;
-                        staff_temp->custom_key_signatures=custom_key_signature_head;
-                        staff_temp->time_signatures=time_signature_head;
-                        staff_temp->barlines=barline_head;
-                        staff_temp->tablature_tunings=tablature_tuning_head;
+                        staff_temp->clef=clef_head;
+                        staff_temp->key_signature=key_signature_head;
+                        staff_temp->custom_key_signature=custom_key_signature_head;
+                        staff_temp->time_signature=time_signature_head;
+                        staff_temp->barline=barline_head;
+                        staff_temp->tablature_tuning=tablature_tuning_head;
                         staff_temp->next_staff=NULL;
                         if(staff_head==NULL){
                             staff_head=staff_temp;
@@ -487,6 +475,14 @@ void loadLos(){
                 }
             }// end if staff_list
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"part")){
+                struct voice_item* voice_item_temp = NULL;
+                struct voice_item* voice_item_head = NULL;
+                struct voice_item* voice_item_p = NULL;
+
+                struct measure* measure_temp = NULL;
+                struct measure* measure_head = NULL;
+                struct measure* measure_p = NULL;
+
                 part_temp=(struct part*)calloc(1,sizeof(struct part));
                 part_temp->n_voice_items=0;
                 part_temp->n_measures=0;
@@ -560,7 +556,7 @@ void loadLos(){
                     }
                     temp_cur=temp_cur->next;
                 }
-                part_temp->measures=measure_head;
+                part_temp->measure=measure_head;
                 part_temp->next_part=NULL;
                 if(part_head==NULL){
                     part_head=part_temp;
@@ -616,6 +612,10 @@ void loadLos(){
                 }
             }
             else if(!xmlStrcmp(cur->name,(const xmlChar*)"lyrics")){
+                struct syllable* syllable_head = NULL;
+                struct syllable* syllable_temp = NULL;
+                struct syllable* syllable_p = NULL;
+
                 lyrics_temp=(struct lyrics*)calloc(1,sizeof(struct lyrics));
                 lyrics_temp->n_syllables=0;
                 attributes=cur->properties;
@@ -667,7 +667,7 @@ void loadLos(){
                     }
                     temp_cur=temp_cur->next;
                 }//end while syllable in lyrics
-                lyrics_temp->syllables=syllable_head;
+                lyrics_temp->syllable=syllable_head;
                 lyrics_temp->next_lyrics=NULL;
                 if(lyrics_head==NULL){
                     lyrics_head=lyrics_temp;
@@ -688,7 +688,7 @@ void loadLos(){
     logic_layer.los.text_field = text_field_head;
     logic_layer.los.metronomic_indication = metronomic_indication_head;
     logic_layer.los.staff_list = staff_head;
-    logic_layer.los.staff_list_brackets = brackets_head;
+    logic_layer.los.staff_list_bracket = brackets_head;
     logic_layer.los.horizontal_symbols = horizontal_symbol_list_head;
     logic_layer.los.ornaments = ornament_list_head;
     logic_layer.los.lyrics = lyrics_head;
@@ -723,7 +723,7 @@ void printLos(){
                     else printf("no ");
                 }
                 if (p->event_ref)
-                    printf("event ref=%s ", p->event_ref);
+                    printf("event_ref=%s ", p->event_ref);
                 if (p->agogics_value)
                     printf("value=%s", p->agogics_value);
                 printf("\n");
@@ -741,11 +741,11 @@ void printLos(){
                 i++;
                 printf("Text Field: ");
                 if (p->extension_line_to)
-                    printf("line to=%s ", p->extension_line_to);
+                    printf("line_to=%s ", p->extension_line_to);
                 if (p->extension_line_shape)
-                    printf("line shape=%s ", p->extension_line_shape);
+                    printf("line_shape=%s ", p->extension_line_shape);
                 if (p->event_ref)
-                    printf("event ref=%s", p->event_ref);
+                    printf("event_ref=%s", p->event_ref);
                 if (p->text_field_value)
                     printf("value=%s", p->text_field_value);
                 printf("\n");
@@ -789,9 +789,9 @@ void printLos(){
                 if (p->performes_number)
                     printf("performers=%i ", p->performes_number);
                 if (p->transposition_pitch)
-                    printf("transposition pitch=%s ", p->transposition_pitch);
+                    printf("transposition_pitch=%s ", p->transposition_pitch);
                 if (p->transposition_accidental)
-                    printf("transposition accidental=%s ", p->transposition_accidental);
+                    printf("transposition_accidental=%s ", p->transposition_accidental);
                 if (p->octave_offset)
                     printf("performers=%i ", p->octave_offset);
                 printf("\n");
@@ -813,13 +813,12 @@ void printLos(){
                 if (p->id)
                     printf("id=%s ", p->id);
                 if (p->line_number)
-                    printf("line number=%i ", p->line_number);
+                    printf("line_number=%i ", p->line_number);
                 if (p->ossia) {
                     printf("ossia=");
                     if (p->ossia == 1) printf("yes ");
                     else printf("no ");
                 }
-                    printf("%i", p->ossia);
                 if (p->tablature)
                     printf("tablature=%s", p->tablature);
                 printf("\n");
@@ -837,7 +836,7 @@ void printLos(){
 
         if (logic_layer.los.n_brackets != 0) {
             printf("%i brackets\n", logic_layer.los.n_brackets);
-            struct brackets* p = logic_layer.los.staff_list_brackets;
+            struct brackets* p = logic_layer.los.staff_list_bracket;
             while (p != NULL && i < N_DISPLAY) {
                 i++;
                 printf("Brackets: ");
@@ -861,7 +860,7 @@ void printLos(){
             while (p != NULL && i < N_DISPLAY) {
                 i++;
                 printf("Ornament: ");
-
+                printOrnament(p->ornament_value);
                 printf("\n");
                 p = p->next_ornament;
             }
@@ -876,7 +875,7 @@ void printLos(){
             while (p != NULL && i < N_DISPLAY) {
                 i++;
                 printf("Horizontal Symbol: ");
-
+                printHorizontalSymbol(p->horizontal_symbol_value);
                 printf("\n");
                 p = p->next_horizontal_symbol;
             }
@@ -894,9 +893,9 @@ void printLos(){
                 if (p->n_syllables)
                     printf("%i syllables ", p->n_syllables);
                 if (p->part_ref)
-                    printf("part ref=%s ", p->part_ref);
+                    printf("part_ref=%s ", p->part_ref);
                 if (p->voice_ref)
-                    printf("voice ref=%s", p->voice_ref);
+                    printf("voice_ref=%s", p->voice_ref);
                 printf("\n");
                 printSyllables(p);
                 p = p->next_lyrics;
@@ -975,7 +974,7 @@ void loadLayout(){
                         attributes=temp_cur->properties;
                         while(attributes!=NULL){
                             if(!xmlStrcmp(attributes->name,(const xmlChar*)"format")){
-                                page_temp->standard_page_formats.format=xmlGetProp(temp_cur,attributes->name);
+                                page_temp->standard_page_format.format=xmlGetProp(temp_cur,attributes->name);
                             }
                             attributes=attributes->next;
                         }
@@ -984,10 +983,10 @@ void loadLayout(){
                         attributes=temp_cur->properties;
                         while(attributes!=NULL){
                             if(!xmlStrcmp(attributes->name,(const xmlChar*)"width")){
-                                page_temp->custom_page_formats.width=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                                page_temp->custom_page_format.width=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                             }
                             else if(!xmlStrcmp(attributes->name,(const xmlChar*)"height")){
-                                page_temp->custom_page_formats.height=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
+                                page_temp->custom_page_format.height=xmlCharToInt(xmlGetProp(temp_cur,attributes->name));
                             }
                             attributes=attributes->next;
                         }
@@ -1093,7 +1092,7 @@ void loadLayout(){
                         }while(!last);
                         temp_cur=temp_cur->parent;                        
                         //end scan layout staff
-                        layout_system_temp->layout_staves=layout_staff_head;
+                        layout_system_temp->layout_staff=layout_staff_head;
                         
                         layout_system_temp->next_layout_system=NULL;
                         if(layout_system_head==NULL)
@@ -1185,7 +1184,7 @@ void loadLayout(){
                     }                   
                     temp_cur=temp_cur->next;
                 }
-                page_temp->layout_systems=layout_system_head;
+                page_temp->layout_system=layout_system_head;
                 page_temp->layout_images_list=layout_images_head;
                 page_temp->layout_shapes_list=layout_shapes_head;
                 //end page elements
@@ -1210,26 +1209,154 @@ void loadLayout(){
             }
         }
     }//layout is optional
-    logic_layer.layout.pages = page_head;
+    logic_layer.layout.page = page_head;
 }
 
 void printLayout(){
+    if (logic_layer.layout.n_pages != 0) {
+        printf("\n#Layout#\n");
+        
+        if (logic_layer.layout.hpos_per_unit)
+            printf("hpos_per_unit=%i ", logic_layer.layout.hpos_per_unit);
+        if (logic_layer.layout.measurement_unit)
+            printf("measurement_unit=%s ", logic_layer.layout.measurement_unit);
+        
+         
+        printf("%i pages ", logic_layer.layout.n_pages);
+        if (logic_layer.layout.text_font)
+            printf("text_font=%s ",logic_layer.layout.text_font);
+        if (logic_layer.layout.music_font)
+            printf("music_font=%s ", logic_layer.layout.music_font);
+        printf("\n");
 
+        struct page* p = logic_layer.layout.page;
+        int i = 0;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("Page: ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->number)
+                printf("timing=%i ", p->number);
+            if (p->standard_page_format.format)
+                printf("format=%s ", p->standard_page_format.format);
+            if (p->custom_page_format.width)
+                printf("width=%i height=%i ", p->custom_page_format.width, p->custom_page_format.height);
+            printf("\n");
+            if (p->n_layout_systems != 0) {
+                printf("    %i layout systems\n", p->n_layout_systems);
+                struct layout_system* k = p->layout_system;
+                while (k) {
+                    printf("    Layout System: ");
+                    printLayoutSystem(k);
+                    k = k->next_layout_system;
+                }
+            }
+            if (p->n_layout_images != 0) {
+                printf("    %i layout images\n", p->n_layout_images);
+                struct layout_images* k = p->layout_images_list;
+                while (k) {
+                    printf("    Layout Images: ");
+                    printLayoutImages(k);
+                    k = k->next_layout_images;
+                }
+            }
+            if (p->n_layout_shapes != 0) {
+                printf("    %i layout shapes\n", p->n_layout_shapes);
+                struct layout_shapes* k = p->layout_shapes_list;
+                while (k) {
+                    printf("    Layout Shapes: ");
+                    printLayoutShapes(k);
+                    k = k->next_layout_shapes;
+                }
+            }
+            p = p->next_page;
+        }
+        if (logic_layer.layout.n_pages > N_DISPLAY) printf("...");
+        printf("\n");
+    }
+}
+
+void printLayoutSystem(struct layout_system* cur) {
+    if (cur->n_layout_staves != 0) {
+        if (cur->id)
+            printf("id=%s ", cur->id);
+        if (cur->upper_left_x)
+            printf("upper_left_x=%i ", cur->upper_left_x);
+        if (cur->upper_left_y)
+            printf("upper_left_y=%i ", cur->upper_left_y);
+        if (cur->lower_right_x)
+            printf("lower_right_x=%i ", cur->lower_right_x);
+        if (cur->lower_right_y)
+            printf("lower_right_y=%i ", cur->lower_right_y);
+
+        printf("%i layout staves ", cur->n_layout_staves);
+        struct layout_staff* p = cur->layout_staff;
+        while (p != NULL) {
+            printf("( Layout Staff: ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->staff_ref)
+                printf("staff_ref=%s ", p->staff_ref);
+            if (p->vertical_offset)
+                printf("vertical_offset=%i ", p->vertical_offset);
+            if (p->height)
+                printf("height=%i ", p->height);
+            if (p->show_key_signature)
+                if(p->show_key_signature==1) printf("show_key_signature");
+            if (p->show_clef)
+                if (p->show_clef == 1) printf("show_clef");
+            if (p->show_time_signature)
+                if (p->show_time_signature == 1) printf("show_time_signature");
+            if (p->ossia)
+                if (p->ossia == 1) printf("ossia");
+            printf(") ");
+            p = p->next_layout_staff;
+        }
+    }
+}
+
+void printLayoutImages(struct layout_images* cur) {
+    if (cur->file_name) {
+        printf("file_name=%s ", cur->file_name);
+        if (cur->file_format)
+            printf("file_format=%s ", cur->file_format);
+        if (cur->encoding_format)
+            printf("encoding_format=%s ", cur->encoding_format);
+        if (cur->horizontal_offset)
+            printf("horizontal_offset=%i ", cur->horizontal_offset);
+        if (cur->vertical_offset)
+            printf("vertical_offset=%i ", cur->vertical_offset);
+        if (cur->description)
+            printf("description=%s ", cur->description);
+        if (cur->copyright)
+            printf("copyright=%s ", cur->copyright);
+        if (cur->notes)
+            printf("notes=%s ", cur->notes);
+    }
+}
+
+void printLayoutShapes(struct layout_shapes* cur) {
+    if (cur->horizontal_offset) {
+        printf("horizontal_offset=%i ", cur->horizontal_offset);
+        if (cur->vertical_offset)
+            printf("vertical_offset=%i ", cur->vertical_offset);
+    }
 }
 
 void printSyllables(struct lyrics* cur) {
     if (cur->n_syllables!=0) {
-        printf("    %i syllables", cur->n_syllables);
+        printf("    %i syllables\n", cur->n_syllables);
         int i = 0;
         printf("    Syllables: ");
-        struct syllable* p = cur->syllables;
+        struct syllable* p = cur->syllable;
         while (p != NULL && i < N_DISPLAY) {
             i++;
             printf("( ");
             if (p->start_event_ref)
-                printf("start event ref=%s ", p->start_event_ref);
+                printf("start_event_ref=%s ", p->start_event_ref);
             if (p->end_event_ref)
-                printf("end event ref=%s ", p->end_event_ref);
+                printf("end_event_ref=%s ", p->end_event_ref);
             if (p->hyphen) {
                 printf("hyphen=");
                 if (p->hyphen == 1) printf("yes ");
@@ -1237,10 +1364,10 @@ void printSyllables(struct lyrics* cur) {
             }
             if (p->syllable_value)
                 printf("value=%s ",p->syllable_value);
-            printf(" ) ");
+            printf(") ");
             p = p->next_syllable;
         }
-        if (cur->n_syllables > N_DISPLAY) printf("...");
+        if (cur->n_syllables > N_DISPLAY) printf("  ...");
         printf("\n");
     }
 }
@@ -1250,7 +1377,7 @@ void printClef(struct staff* cur) {
         printf("    %i clefs\n",cur->n_clefs);
         int i = 0;
         printf("    Clef: ");
-        struct clef* p = cur->clefs;
+        struct clef* p = cur->clef;
         while (p != NULL && i < N_DISPLAY) {
             i++;
             printf("( ");
@@ -1261,11 +1388,11 @@ void printClef(struct staff* cur) {
             if (p->octave_num)
                 printf("octave=%i ", p->octave_num);
             if (p->event_ref)
-                printf("event ref=%s ", p->event_ref);
-            printf(" ) ");
+                printf("event_ref=%s ", p->event_ref);
+            printf(") ");
             p = p->next_clef;
         }
-        if (cur->n_clefs > N_DISPLAY) printf("...");
+        if (cur->n_clefs > N_DISPLAY) printf("  ...");
         printf("\n");
     }
 }
@@ -1275,20 +1402,19 @@ void printKeySignature(struct staff* cur) {
         printf("    %i key signatures\n", cur->n_key_signatures);
         int i = 0;
         printf("    Key Signature: ");
-        struct key_signature* p = cur->key_signatures;
-        while (p != NULL && i < N_DISPLAY) {
+        struct key_signature* p = cur->key_signature;
+        while (p != NULL ) {
             i++;
             printf("( ");
             if (p->event_ref)
-                printf("event ref=%s ", p->event_ref);
+                printf("event_ref=%s ", p->event_ref);
             if (p->num_type)
-                printf("num type=%s ", p->num_type);
+                printf("num_type=%s ", p->num_type);
             if (p->number)
-                printf("%i ", p->number);
-            printf(" ) ");
+                printf("number=%i ", p->number);
+            printf(") ");
             p = p->next_key_signature;
         }
-        if (cur->n_key_signatures > N_DISPLAY) printf("...");
         printf("\n");
     }
 }
@@ -1298,13 +1424,13 @@ void printCustomKeySignature(struct staff* cur) {
         printf("    %i custom key signatures\n", cur->n_custom_key_signatures);
         int i = 0;
         printf("    Custom Key Signature: ");
-        struct custom_key_signature* p = cur->custom_key_signatures;
+        struct custom_key_signature* p = cur->custom_key_signature;
         while (p != NULL && i < N_DISPLAY) {
             i++;
             printf("( ");
             if (p->event_ref)
-                printf("event ref=%s ", p->event_ref);
-            printf(" ) ");
+                printf("event_ref=%s ", p->event_ref);
+            printf(") ");
             if (p->n_key_accidentals != 0) {
                 printf("\n        Key Accidentals: ");
                 struct key_accidental* k = p->key_accidentals;
@@ -1314,13 +1440,13 @@ void printCustomKeySignature(struct staff* cur) {
                         printf("step=%s ",k->step);
                     if (k->accidental)
                         printf("accidental=%s ", k->accidental);
-                    printf(" ) ");
+                    printf(") ");
                     k = k->next_key_accidental;
                 }
             }
             p = p->next_custom_key_signature;
         }
-        if (cur->n_custom_key_signatures > N_DISPLAY) printf("...");
+        if (cur->n_custom_key_signatures > N_DISPLAY) printf("  ...");
         printf("\n");
     }
 }
@@ -1330,17 +1456,18 @@ void printTimeSignature(struct staff* cur) {
         printf("    %i time signatures\n", cur->n_time_signatures);
         int i = 0;
         printf("    Time Signature: ");
-        struct time_signature* p = cur->time_signatures;
+        struct time_signature* p = cur->time_signature;
         while (p != NULL && i < N_DISPLAY) {
             i++;
             printf("( ");
             if (p->event_ref)
                 printf("event_ref=%s ",p->event_ref);
             if (p->visible) {
+                printf("visible=");
                 if (p->visible == 0) printf("no ");
                 else printf("yes ");
             }
-            printf(" ) ");
+            printf(") ");
             if (p->n_time_indications != 0) {
                 printf("\n        Time Indications: ");
                 struct time_indication* k = p->time_indications;
@@ -1357,13 +1484,13 @@ void printTimeSignature(struct staff* cur) {
                     }
                     if (k->vtu_amount)
                         printf("vtu=%i ", k->vtu_amount);
-                    printf(" ) ");
+                    printf(") ");
                     k = k->next_time_indication;
                 }
             }
             p = p->next_time_signature;
         }
-        if (cur->n_time_signatures > N_DISPLAY) printf("...");
+        if (cur->n_time_signatures > N_DISPLAY) printf("    ...");
         printf("\n");
     }
 }
@@ -1373,7 +1500,7 @@ void printBarline(struct staff* cur) {
         printf("    %i barlines\n", cur->n_time_signatures);
         int i = 0;
         printf("    Barline: ");
-        struct barline* p = cur->barlines;
+        struct barline* p = cur->barline;
         while (p != NULL && i < N_DISPLAY) {
             i++;
             printf("( ");
@@ -1382,11 +1509,11 @@ void printBarline(struct staff* cur) {
             if (p->extension) 
                 printf("extension=%s ", p->extension);
             if (p->event_ref)
-                printf("event ref=%s ", p->event_ref);
-            printf(" ) ");
+                printf("event_ref=%s ", p->event_ref);
+            printf(") ");
             p = p->next_barline;
         }
-        if (cur->n_barlines > N_DISPLAY) printf("...");
+        if (cur->n_barlines > N_DISPLAY) printf("   ...");
         printf("\n");
     }
 
@@ -1397,13 +1524,13 @@ void printTablatureTuning(struct staff* cur) {
         printf("    %i tablature tunings\n", cur->n_tablature_tunings);
         int i = 0;
         printf("    Tablature Tuning: ");
-        struct tablature_tuning* p = cur->tablature_tunings;
+        struct tablature_tuning* p = cur->tablature_tuning;
         while (p != NULL && i < N_DISPLAY) {
             i++;
             printf("( ");
             if (p->type)
                 printf("type=%s ", p->type);
-            printf(" ) ");
+            printf(") ");
             if (p->n_strings != 0) {
                 printf("\n        Strings: ");
                 struct string* k = p->strings;
@@ -1417,13 +1544,13 @@ void printTablatureTuning(struct staff* cur) {
                         printf("accidental=%s ", k->string_accidental);
                     if (k->string_octave)
                         printf("octave=%i ", k->string_octave);
-                    printf(" ) ");
+                    printf(") ");
                     k = k->next_string;
                 }
             }
             p = p->next_tablature_tuning;
         }
-        if (cur->n_tablature_tunings > N_DISPLAY) printf("...");
+        if (cur->n_tablature_tunings > N_DISPLAY) printf("  ...");
         printf("\n");
     }
 }
@@ -1440,17 +1567,644 @@ void printVoiceList(struct part* cur) {
             if (p->id)
                 printf("id=%s ", p->id);
             if (p->staff_ref)
-                printf("staff ref=%s ", p->staff_ref);
+                printf("staff_ref=%s ", p->staff_ref);
             if (p->notation_style)
                 printf("style=%s ", p->notation_style);
-            printf(" ) ");
+            printf(") ");
             p = p->next_voice_item;
         }
-        if (cur->n_voice_items > N_DISPLAY) printf("...");
+        if (cur->n_voice_items > N_DISPLAY) printf("    ...");
         printf("\n");
     }
 }
 
 void printMeasure(struct part* cur) {
+    if (cur->n_measures != 0) {
+        printf("    %i measures\n", cur->n_measures);
+        int i = 0;
+        struct measure* p = cur->measure;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("    Measure: ( ");
+            if (p->number)
+                printf("number=%i ", p->number);
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->show_number)
+                printf("show_number=%i ", p->show_number);
+            if (p->numbering_style)
+                printf("style=%s ", p->numbering_style);
+            printf(")\n");
+            if (p->multiple_rest.number_of_measures) {
+                printf("        Multiple Rest: ");
+                if (p->multiple_rest.number_of_measures) {
+                    printf("number_of_measures=%i ", p->multiple_rest.number_of_measures);
+                }
+                if (p->multiple_rest.event_ref) {
+                    printf("event_ref=%s ", p->multiple_rest.event_ref);
+                }
+            }
+            if (p->measure_repeat.number_of_measures) {
+                printf("        Measure Repeat: ");
+                if (p->measure_repeat.number_of_measures) {
+                    printf("number_of_measures=%i ", p->measure_repeat.number_of_measures);
+                }
+                if (p->measure_repeat.event_ref) {
+                    printf("event_ref=%s ", p->measure_repeat.event_ref);
+                }
+            }
+            printVoice(p);
+            p = p->next_measure;
+        }
+        if (cur->n_measures > N_DISPLAY) printf("   ...");
+        printf("\n");
+    }
+}
 
+void printVoice(struct measure* cur) {
+    if (cur->n_voices != 0) {
+        printf("    %i voices\n", cur->n_voices);
+        int i = 0;
+        struct voice* p = cur->voices;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("    Voice: ( ");
+            if (p->voice_item_ref)
+                printf("voice_item_ref=%s ", p->voice_item_ref);
+            if (p->ossia) {
+                printf("ossia=");
+                if (p->ossia == 1) printf("yes ");
+                else printf("no ");
+            }
+            printf(")\n");
+            if (p->n_chords != 0) {
+                printf("    %i chords\n", p->n_chords);
+                struct chord* k = p->chord;
+                while (k) {
+                    printf("        Chord: ( ");
+                    printChord(k);
+                    printf(")\n");
+                    k = k->next_chord;
+                }
+            }
+            printRest(p);
+            printTablatureSymbol(p);
+            printGregorianSymbol(p);
+            p = p->next_voice;
+        }
+        if (cur->n_voices > N_DISPLAY) printf("   ...");
+        printf("\n");
+    }
+}
+
+void printChord(struct chord* cur) {
+    if (cur->id)      
+        printf("id=%s ", cur->id);
+    if (cur->event_ref)
+        printf("event_ref=%s ", cur->event_ref);
+    if (cur->stem_direction)
+        printf("stem_direction=%s ", cur->stem_direction);
+    if (cur->beam_before) {
+        printf("beam_before=");
+        if (cur->beam_before == 1) printf("yes ");
+        else printf("no ");
+    }
+    if (cur->beam_after) {
+        printf("beam_after=");
+        if (cur->beam_after == 1) printf("yes ");
+        else printf("no ");
+    }
+    if (cur->cue) {
+        printf("cue=");
+        if (cur->cue == 1) printf("yes ");
+        else printf("no ");
+    }
+    if (cur->tremolo_lines) {
+        printf("tremolo_lines=%i ", cur->tremolo_lines);
+    }
+    if (cur->repetition) {
+        printf("repetition=");
+        if (cur->repetition == 1) printf("yes ");
+        else printf("no ");
+    }
+    if (cur->duration.num != 0) {
+        printf("duration=%i/%i ",cur->duration.num,cur->duration.den);
+        if (cur->duration.tuplet_ratio) {
+            printTupletRatio(cur->duration.tuplet_ratio);
+        }
+    }
+    if (cur->augmentation_dots.number != 0) {
+        printf("agumentation_dots=%i ",cur->augmentation_dots.number);
+    }
+    if (cur->n_noteheads != 0) {
+        struct notehead* k = cur->noteheads;
+        printf("[ Noteheads: ");
+        while (k != NULL) {
+            printNotehead(k);
+            k = k->next_notehead;
+        }
+        printf("] ");
+    }
+    printArticulation(cur);
+}
+void printRest(struct voice* cur) {
+    if (cur->n_rests != 0) {
+        printf("    %i rests\n", cur->n_rests);
+        int i = 0;
+        struct rest* p = cur->rest;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("        Rest: ( ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->event_ref)
+                printf("event_ref=%s ", p->event_ref);
+            if (p->staff_ref)
+                printf("staff_ref=%s ", p->staff_ref);
+            if (p->hidden) {
+                if (p->hidden == 1) printf("hidden");
+            }
+            if (p->duration.num != 0) {
+                printf("duration=%i/%i ", p->duration.num, p->duration.den);
+                if (p->duration.tuplet_ratio) {
+                    printTupletRatio(p->duration.tuplet_ratio);
+                }
+            }
+            if (p->augmentation_dots.number != 0) {
+                printf("agumentation_dots=%i ", p->augmentation_dots.number);
+            }
+            printf(")\n");
+            p = p->next_rest;
+        }
+        if (cur->n_rests > N_DISPLAY) printf("     ...");
+        printf("\n");
+    }
+}
+void printTablatureSymbol(struct voice* cur) {
+    if (cur->n_tablature_symbols != 0) {
+        printf("    %i tablature symbols\n", cur->n_tablature_symbols);
+        int i = 0;
+        struct tablature_symbol* p = cur->tablature_symbol;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("        Tablature Symbol: ( ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->event_ref)
+                printf("event_ref=%s ", p->event_ref);
+            if (p->stem_direction)
+                printf("stem_direction=%s ", p->stem_direction);
+            if (p->beam_before) {
+                if (p->beam_before == 1) printf("beam_before");
+            }
+            if (p->beam_after) {
+                if (p->beam_after == 1) printf("beam_after");
+            }
+            if (p->duration.num != 0) {
+                printf("duration=%i/%i ", p->duration.num, p->duration.den);
+                if (p->duration.tuplet_ratio) {
+                    printTupletRatio(p->duration.tuplet_ratio);
+                }
+            }
+            if (p->augmentation_dots.number != 0) {
+                printf("agumentation_dots=%i ", p->augmentation_dots.number);
+            }
+            printf(")\n");
+            if (p->n_keys != 0) {
+                printf("            Keys: ");
+                struct key* k = p->keys;
+                while (k) {
+                    printKey(k);
+                    k = k->next_key;
+                }
+                printf("\n");
+            }
+            p = p->next_tablature_symbol;
+        }
+        if (cur->n_tablature_symbols > N_DISPLAY) printf("     ...");
+        printf("\n");
+    }
+}
+void printGregorianSymbol(struct voice* cur) {
+    if (cur->n_gregorian_symbols != 0) {
+        printf("    %i gregorian symbols\n", cur->n_chords);
+        int i = 0;
+        struct gregorian_symbol* p = cur->gregorian_symbol;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("        Gregorian Symbol: ( ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->neume)
+                printf("neume=%s ", p->neume);
+            if (p->inflexion)
+                printf("inflexion=%s ", p->inflexion);
+            if (p->subpunctis)
+                printf("subpunctis=%s ", p->subpunctis);
+            if (p->interpretative_mark)
+                printf("interpretative_mark=%s ", p->interpretative_mark);
+            if (p->mora) {
+                printf("mora=");
+                if (p->mora == 1) printf("yes ");
+                else printf("no ");
+            }
+            if (p->event_ref)
+                printf("event_ref=%s ", p->event_ref);
+            printf(")\n");
+            if (p->n_noteheads != 0) {
+                struct notehead* k = p->notehead;
+                printf("            Noteheads: ");
+                while (k != NULL) {
+                    printNotehead(k);
+                    k = k->next_notehead;
+                }
+            }
+            p = p->next_gregorian_symbol;
+        }
+        if (cur->n_gregorian_symbols > N_DISPLAY) printf("     ...");
+        printf("\n");
+    }
+}
+
+void printArticulation(struct chord* cur) {
+    if (cur->n_articulations != 0) {
+        printf("            %i articulations\n", cur->n_articulations);
+        int i = 0;
+        struct articulation* p = cur->articulations;
+        while (p != NULL && i < N_DISPLAY) {
+            i++;
+            printf("            Articulations: ");
+            if (p->articulation_sign)
+                printf("%s ", p->articulation_sign);
+            p = p->next_articulation;
+        }
+        if (cur->n_articulations > N_DISPLAY) printf(" ...");
+        printf("\n");
+    }
+}
+
+void printNotehead(struct notehead* cur) {
+    if (cur->id)
+        printf("id=%s ",cur->id);
+    if (cur->staff_ref)
+        printf("staff_ref=%s ", cur->staff_ref);
+    if (cur->style)
+        printf("style=%s ", cur->style);
+
+    if (cur->pitch.step != NULL) {
+        printf("( Pitch: ");
+        printf("step=%s ",cur->pitch.step);
+        if (cur->pitch.octave)
+            printf("octave=%i ",cur->pitch.octave);
+        if (cur->pitch.actual_accidental)
+            printf("accidental=%s ", cur->pitch.actual_accidental);
+        printf(") ");
+    }
+
+    if (cur->n_printed_accidentals != 0) {
+        struct printed_accidental* p = cur->printed_accidentals;
+        printf("( Printed Accidentals: ");
+        while (p) {
+            printf("%s ",p->printed_accidental_type);
+            if (p->parenthesis) {
+                if (p->parenthesis == 1) printf("parenthesis=yes ");
+                else printf("parenthesis=no ");
+            }
+            p = p->next_printed_accidental;
+        }
+        printf(") ");
+    }
+    if (cur->printed_accidentals_shape)
+        printf("printed_accidentals_shape=%s ",cur->printed_accidentals_shape);
+    if (cur->tie) {
+        if (cur->tie == 1) printf("tie");
+    }
+    if (cur->fingering.number) {
+        printf("( Fingering: number=%i ) ",cur->fingering.number);
+    }
+}
+
+void printTupletRatio(struct tuplet_ratio* cur) {
+    if (cur->n_tuplet_ratios != 0) {
+        while (cur != NULL){
+            printf("[ Tuplet Ratio: ");
+            if (cur->enter_num)
+                printf("enter_num=%i ", cur->enter_num);
+            if (cur->enter_den)
+                printf("enter_den=%i ", cur->enter_den);
+            if (cur->enter_dots)
+                printf("enter_dots=%i ", cur->enter_dots);
+            if (cur->in_num)
+                printf("in_num=%i ", cur->in_num);
+            if (cur->in_den)
+                printf("in_den=%i ", cur->in_den);
+            if (cur->in_dots)
+                printf("in_dots=%i ", cur->in_dots);
+            printTupletRatio(cur);
+            printf("] ");
+            cur = cur->next_tuplet_ratio;
+        }
+    }
+}
+
+void printKey(struct key* cur) {
+    printf("[ ");
+    if (cur->id)
+        printf("id=%s ", cur->id);
+    if (cur->staff_ref)
+        printf("staff_ref=%s ", cur->staff_ref);
+
+    if (cur->tie)
+        if (cur->tie == 1) printf("tie ");
+    if (cur->tablature_pitch.key_number) {
+        printf("( Tablature Pitch: ");
+        printf("key_number=%i ", cur->tablature_pitch.key_number);
+        if (cur->tablature_pitch.string_number)
+            printf("string_number=%i ", cur->tablature_pitch.string_number);
+        printf(") ");
+    }
+    if (cur->tablature_articulation.shape) {
+        printf("( Tablature Articulation: ");
+        printf("shape=%s ", cur->tablature_articulation.shape);
+        printf(") ");
+    }
+    if (cur->tablature_fingering.shape) {
+        printf("( Tablature Fingering: ");
+        printf("shape=%s ", cur->tablature_fingering.shape);
+        if (cur->tablature_fingering.tablature_fingering_value)
+            printf("tablature_fingering_value=%s ", cur->tablature_fingering.tablature_fingering_value);
+        printf(") ");
+    }
+    printf("] ");
+}
+
+void printOrnament(ornament cur) {
+    if (cur.acciaccatura.event_ref) {
+        printf("Acciaccatura event_ref=%s ", cur.acciaccatura.event_ref);
+        if (cur.acciaccatura.id) printf("id=%s ", cur.acciaccatura.id);
+        if (cur.acciaccatura.n_chords != 0) {
+            struct chord* p = cur.acciaccatura.chord;
+            while (p) {
+                printf("notehead_ref=%s ", p->event_ref);
+                p = p->next_chord;
+            }
+        }
+        if (cur.acciaccatura.n_chords != 0) {
+            printf("    %i chords\n", cur.acciaccatura.n_chords);
+            struct chord* k = cur.acciaccatura.chord;
+            while (k) {
+                printf("        Chord: ( ");
+                printChord(k);
+                printf(")\n");
+                k = k->next_chord;
+            }
+        }
+        printf("\n");
+    }
+    else if (cur.baroque_acciaccatura.event_ref) {
+        printf("baroque_acciaccatura \n");
+    }
+    else if (cur.appoggiatura.event_ref) {
+        printf("appoggiatura \n");
+    }
+    else if (cur.baroque_appoggiatura.event_ref) {
+        printf("baroque_appoggiatura \n");
+    }
+    else if (cur.mordent.event_ref) {
+        printf("mordent \n");
+    }
+    else if (cur.tremolo.start_event_ref) {
+        printf("tremolo \n");
+    }
+    else if (cur.trill.event_ref) {
+        printf("trill \n");
+    }
+    else if (cur.turn.event_ref) {
+        printf("turn \n");
+    }
+}
+
+void printHorizontalSymbol(horizontal_symbol cur) {
+    if (cur.arpeggio.shape) {
+        printf("Arpeggio shape=%s ",cur.arpeggio.shape);
+        if (cur.arpeggio.direction) printf("direction=%s ", cur.arpeggio.direction);
+        if (cur.arpeggio.n_notehead_refs != 0) {
+            struct notehead_ref* p = cur.arpeggio.notehead_ref;
+            while (p) {
+                printf("notehead_ref=%s ",p->event_ref);
+                p = p->next_notehead_ref;
+            }
+        }
+        printf("\n");
+    }
+    else if (cur.bend.to_pitch) {
+        printf("Bend ");
+        if (cur.bend.id) printf("id=%s ", cur.bend.id);
+        if (cur.bend.event_ref) printf("event_ref=%s ", cur.bend.event_ref);
+        if (cur.bend.type) printf("type=%s ", cur.bend.type);
+        if (cur.bend.to_pitch) printf("to_pitch=%s ", cur.bend.to_pitch);
+        if (cur.bend.to_accidental) printf("to_accidental=%s ", cur.bend.to_accidental);
+        printf("\n");
+    }
+    else if (cur.breath_mark.type) {
+        printf("Breath Mark ");
+        if (cur.breath_mark.id) printf("id=%s ", cur.breath_mark.id);
+        if (cur.breath_mark.type) printf("type=%s ", cur.breath_mark.type);
+        if (cur.breath_mark.staff_ref) printf("staff_ref=%s ", cur.breath_mark.staff_ref);
+        if (cur.breath_mark.start_event_ref) printf("start_event_ref=%s ", cur.breath_mark.start_event_ref);
+        if (cur.breath_mark.end_event_ref) printf("end_event_ref=%s ", cur.breath_mark.end_event_ref);
+        printf("\n");
+    }
+    else if (cur.chord_symbol.event_ref) {
+        printf("Chord Symbol ");
+        if (cur.chord_symbol.id) printf("id=%s ", cur.chord_symbol.id);
+        if (cur.chord_symbol.event_ref) printf("event_ref=%s ", cur.chord_symbol.event_ref); 
+        if (cur.chord_symbol.chord_symbol_value) printf("value=%s ", cur.chord_symbol.chord_symbol_value);
+        printf("\n");
+    }
+    else if (cur.dynamic.event_ref) {
+        printf("Dynamic ");
+        if (cur.dynamic.id) printf("id=%s ", cur.dynamic.id);
+        if (cur.dynamic.extension_line_to) printf("extension_line_to=%s ", cur.dynamic.extension_line_to);
+        if (cur.dynamic.extension_line_shape) printf("extension_line_shape=%s ", cur.dynamic.extension_line_shape);
+        if (cur.dynamic.staff_ref) printf("staff_ref=%s ", cur.dynamic.staff_ref);
+        if (cur.dynamic.event_ref) printf("event_ref=%s ", cur.dynamic.event_ref);
+        if (cur.dynamic.dynamic_value) printf("value=%s ", cur.dynamic.dynamic_value);
+        printf("\n");
+    }
+    else if (cur.fermata.event_ref) {
+        printf("Fermata ");
+        if (cur.fermata.id) printf("id=%s ", cur.fermata.id);
+        if (cur.fermata.event_ref) printf("event_ref=%s ", cur.fermata.event_ref);
+        if (cur.fermata.fermata_value) printf("value=%i ", cur.fermata.fermata_value);
+        printf("\n");
+    }
+    else if (cur.glissando.start_event_ref) {
+        printf("Glissando ");
+        if (cur.glissando.id) printf("id=%s ", cur.glissando.id);
+        if (cur.glissando.start_event_ref) printf("start_event_ref=%s ", cur.glissando.start_event_ref);
+        if (cur.glissando.end_event_ref) printf("end_event_ref=%s ", cur.glissando.end_event_ref);
+        printf("\n");
+    }
+    else if (cur.hairpin.type) {
+        printf("Hairpin ");
+        if (cur.hairpin.id) printf("id=%s ", cur.hairpin.id);
+        if (cur.hairpin.type) printf("type=%s ", cur.hairpin.type);
+        if (cur.hairpin.staff_ref) printf("staff_ref=%s ", cur.hairpin.staff_ref);
+        if (cur.hairpin.start_event_ref) printf("start_event_ref=%s ", cur.hairpin.start_event_ref);
+        if (cur.hairpin.end_event_ref) printf("end_event_ref=%s ", cur.hairpin.end_event_ref);
+        printf("\n");
+    }
+    else if (cur.octave_bracket.staff_ref) {
+        printf("Octave Bracket ");
+        if (cur.octave_bracket.id) printf("id=%s ", cur.octave_bracket.id);
+        if (cur.octave_bracket.type) printf("type=%s ", cur.octave_bracket.type);
+        if (cur.octave_bracket.staff_ref) printf("staff_ref=%s ", cur.octave_bracket.staff_ref);
+        if (cur.octave_bracket.start_event_ref) printf("start_event_ref=%s ", cur.octave_bracket.start_event_ref);
+        if (cur.octave_bracket.end_event_ref) printf("end_event_ref=%s ", cur.octave_bracket.end_event_ref);
+        printf("\n");
+    }
+    else if (cur.pedal_start.event_ref) {
+        printf("Pedal Start ");
+        if (cur.pedal_start.id) printf("id=%s ", cur.pedal_start.id);
+        if (cur.pedal_start.event_ref) printf("type=%s ", cur.pedal_start.event_ref);
+        printf("\n");
+    }
+    else if (cur.pedal_end.event_ref) {
+        printf("Pedal End ");
+        if (cur.pedal_end.id) printf("id=%s ", cur.pedal_end.id);
+        if (cur.pedal_end.event_ref) printf("type=%s ", cur.pedal_end.event_ref);
+        printf("\n");
+    }
+    else if (cur.percussion_beater.start_event_ref) {
+        printf("Percussion Beater ");
+        if (cur.percussion_beater.percussion_beater_value) printf("value=%s ", cur.percussion_beater.percussion_beater_value);
+        if (cur.percussion_beater.id) printf("id=%s ", cur.percussion_beater.id);
+        if (cur.percussion_beater.type) printf("type=%s ", cur.percussion_beater.type);
+        if (cur.percussion_beater.start_event_ref) printf("start_event_ref=%s ", cur.percussion_beater.start_event_ref);
+        if (cur.percussion_beater.end_event_ref) printf("end_event_ref=%s ", cur.percussion_beater.end_event_ref);
+        printf("\n");
+    }
+    else if (cur.percussion_special.event_ref) {
+        printf("Percussion Special ");
+        if (cur.percussion_special.percussion_special_value) printf("value=%s ", cur.percussion_special.percussion_special_value);
+        if (cur.percussion_special.id) printf("id=%s ", cur.percussion_special.id);
+        if (cur.percussion_special.type) printf("type=%s ", cur.percussion_special.type);
+        if (cur.percussion_special.event_ref) printf("event_ref=%s ", cur.percussion_special.event_ref);
+        printf("\n");
+    }
+    else if (cur.slur.start_event_ref) {
+        printf("Slur ");
+        if (cur.slur.id) printf("id=%s ", cur.slur.id);
+        if (cur.slur.start_event_ref) printf("start_event_ref=%s ", cur.slur.start_event_ref);
+        if (cur.slur.end_event_ref) printf("end_event_ref=%s ", cur.slur.end_event_ref);
+        if (cur.slur.shape) printf("shape=%s ", cur.slur.shape);
+        if (cur.slur.bracketed) if (cur.slur.bracketed == 1) printf("bracketed ");
+        printf("\n");
+    }
+    else if (cur.special_beam.n_notehead_refs!=0) {
+        printf("Special Beam ");
+        if (cur.special_beam.id) printf("id=%s ", cur.special_beam.id);
+        if (cur.special_beam.fanned_from) printf("fanned_from=%s ", cur.special_beam.fanned_from);
+        if (cur.special_beam.fanned_to) printf("fanned_to=%s ", cur.special_beam.fanned_to);
+        if (cur.special_beam.n_notehead_refs != 0) {
+            struct notehead_ref* p = cur.special_beam.notehead_ref;
+            while (p) {
+                printf("notehead_ref=%s ", p->event_ref);
+                p = p->next_notehead_ref;
+            }
+        }
+        printf("\n");
+    }
+    else if (cur.tablature_hsymbol.event_ref) {
+        printf("Tablature Hsymbol ");
+        if (cur.tablature_hsymbol.id) printf("id=%s ", cur.tablature_hsymbol.id);
+        if (cur.tablature_hsymbol.event_ref) printf("event_ref=%s ", cur.tablature_hsymbol.event_ref);
+        if (cur.tablature_hsymbol.string_number) printf("string_number=%i ", cur.tablature_hsymbol.string_number);
+        if (cur.tablature_hsymbol.start_fret) printf("start_fret=%s ", cur.tablature_hsymbol.start_fret);
+        if (cur.tablature_hsymbol.fret_number) printf("fret_number=%i ", cur.tablature_hsymbol.fret_number);
+        if (cur.tablature_hsymbol.n_barres != 0) {
+            struct barre* p = cur.tablature_hsymbol.barre;
+            printf("[ Barre: ");
+            while (p) {
+                if (p->start_string_position) printf("start_string_position=%s ", p->start_string_position);
+                if (p->end_string_position) printf("end_string_position=%s ", p->end_string_position);
+                if (p->fret_position) printf("fret_position=%s ", p->fret_position);
+                p = p->next_barre;
+            }
+            printf("] ");
+        }
+        if (cur.tablature_hsymbol.n_tablature_elements!= 0) {
+            struct tablature_element* p = cur.tablature_hsymbol.tablature_element;
+            printf("[ Tablature Element: ");
+            while (p) {
+                if (p->shape) printf("start_string_position=%s ", p->shape);
+                if (p->string_position) printf("end_string_position=%s ", p->string_position);
+                if (p->fret_position) printf("fret_position=%s ", p->fret_position);
+                p = p->next_tablature_element;
+            }
+            printf("] ");
+        }
+        printf("\n");
+    }
+    else if (cur.repeat.event_ref) {
+        printf("Repeat ");
+        if (cur.repeat.id) printf("id=%s ", cur.repeat.id);
+        if (cur.repeat.event_ref) printf("event_ref=%s ", cur.repeat.event_ref);
+        if (cur.repeat.repeat_text) printf("repeat_text=%s ", cur.repeat.repeat_text);
+        if (cur.repeat.n_jump_tos != 0) {
+            struct jump_to* p = cur.repeat.jump_to;
+            printf("[ Jump To: ");
+            while (p) {
+                if (p->id) printf("id=%s ", p->id);
+                if (p->event_ref) printf("event_ref=%s ", p->event_ref);
+                p = p->next_jump_to;
+            }
+            printf("] ");
+        }
+        if (cur.repeat.n_ends != 0) {
+            struct end* p = cur.repeat.end;
+            printf("[ End: ");
+            while (p) {
+                if (p->id) printf("id=%s ", p->id);
+                if (p->event_ref) printf("event_ref=%s ", p->event_ref);
+                p = p->next_end;
+            }
+            printf("] ");
+        }
+        printf("\n");
+    }
+    else if (cur.segno.event_ref) {
+        printf("Segno ");
+        if (cur.segno.id) printf("id=%s ", cur.segno.id);
+        if (cur.segno.event_ref) printf("event_ref=%s ", cur.segno.event_ref);
+        if (cur.segno.segno_value) printf("value=%s ", cur.segno.segno_value);
+        printf("\n");
+    }
+    else if (cur.coda.event_ref) {
+        printf("Coda ");
+        if (cur.coda.id) printf("id=%s ", cur.coda.id);
+        if (cur.coda.event_ref) printf("event_ref=%s ", cur.coda.event_ref);
+        if (cur.coda.coda_value) printf("value=%s ", cur.coda.coda_value);
+        printf("\n");
+    }
+    else if (cur.fine.event_ref) {
+        printf("Fine ");
+        if (cur.fine.id) printf("id=%s ", cur.fine.id);
+        if (cur.fine.event_ref) printf("event_ref=%s ", cur.fine.event_ref);
+        if (cur.fine.fine_value) printf("value=%s ", cur.fine.fine_value);
+        printf("\n");
+    }
+    else if (cur.multiple_endings.n_multiple_endigs!=0) {
+        printf("Multple Endings ");
+        if (cur.multiple_endings.id) printf("id=%s ", cur.multiple_endings.id);
+        printf("\n");
+    }
+    else if (cur.custom_hsymbol.start_event_ref) {
+        printf("ustom Hsymbol ");
+        if (cur.custom_hsymbol.id) printf("id=%s ", cur.custom_hsymbol.id);
+        if (cur.custom_hsymbol.start_event_ref) printf("start_event_ref=%s ", cur.custom_hsymbol.start_event_ref);
+        if (cur.custom_hsymbol.end_event_ref) printf("end_event_ref=%s ", cur.custom_hsymbol.end_event_ref);
+        printf("\n");
+    }
 }

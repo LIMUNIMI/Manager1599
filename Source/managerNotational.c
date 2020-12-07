@@ -72,7 +72,7 @@ void loadGraphicInstanceGroup(){
                     }
                     temp_cur = temp_cur->next;
                 }
-                graphic_instance_group_temp->graphic_instances = graphic_instance_head;
+                graphic_instance_group_temp->graphic_instance = graphic_instance_head;
 
                 graphic_instance_group_temp->next_graphic_instance_group = NULL;
                 if (graphic_instance_group_head == NULL)
@@ -239,7 +239,7 @@ void loadNotationInstanceGroup(){
                     }
                     temp_cur = temp_cur->next;
                 }
-                notation_instance_group_temp->notation_instances = notation_instance_head;
+                notation_instance_group_temp->notation_instance = notation_instance_head;
 
                 notation_instance_group_temp->next_notation_instance_group = NULL;
                 if (notation_instance_group_head == NULL)
@@ -331,7 +331,7 @@ struct notation_instance* loadNotationInstance(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->notation_events = notation_event_head;
+        value->notation_event = notation_event_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'notation_instance' element\n"); }
     
@@ -339,5 +339,141 @@ struct notation_instance* loadNotationInstance(xmlNodePtr cur){
 }
 
 void printNotational(){
-	
+
+    if (notational_layer.n_graphic_insance_groups != 0 ||
+        notational_layer.n_notation_instance_groups != 0 ) {
+
+        printf("\n###Notational Layer###\n");
+
+        printGraphicInstanceGroup();
+        printNotationInstanceGroup();
+    }
+}
+
+void printGraphicInstanceGroup() {
+    if (notational_layer.n_graphic_insance_groups != 0) {
+        printf("%i graphic instance groups\n", notational_layer.n_graphic_insance_groups);
+        struct graphic_instance_group* p = notational_layer.graphic_instance_group;
+        while (p) {
+            printf("Graphic Instance Group ");
+            if (p->description)
+                printf("description=%s ",p->description);
+            printf(":\n");
+
+            if (p->n_graphic_instances != 0) {
+                struct graphic_instance* k = p->graphic_instance;
+                printf("    %i graphic instances\n", p->n_graphic_instances);
+                int j = 0;
+                while (k && j<N_DISPLAY) {
+                    j++;
+                    printf("    Graphic Instance: ");
+                    if (k->description)
+                        printf("description=%s ", k->description);
+                    if (k->position_in_group)
+                        printf("position_in_group=%i ", k->position_in_group);
+                    if (k->file_name)
+                        printf("file_name=%s ", k->file_name);
+                    if (k->file_format)
+                        printf("file_format=%s ", k->file_format);
+                    if (k->encoding_format)
+                        printf("encoding_format=%s ", k->encoding_format);
+                    if (k->measurement_unit)
+                        printf("measurement_unit=%s ", k->measurement_unit);
+                    printf("\n");
+                    if (k->n_graphic_events != 0) {
+                        struct graphic_event* t = k->graphic_event;
+                        int i = 0;
+                        printf("        %i graphic events\n", k->n_graphic_events);
+                        printf("        Graphic Events: ");
+                        while (t && i < N_DISPLAY) {
+                            i++;
+                            printf("( ");
+                            if (t->event_ref)
+                                printf("event_ref=%s ", t->event_ref);
+                            if (t->upper_left_x)
+                                printf("upper_left_x=%.1f ", t->upper_left_x);
+                            if (t->upper_left_y)
+                                printf("upper_left_y=%.1f ", t->upper_left_y);
+                            if (t->lower_right_x)
+                                printf("lower_right_x=%.1f ", t->lower_right_x);
+                            if (t->lower_right_y)
+                                printf("lower_right_y=%.1f ", t->lower_right_y);
+                            if (t->highlight_color)
+                                printf("highlight_color=%s ", t->highlight_color);
+                            if (t->description)
+                                printf("description=%s ", t->description);
+                            printf(") ");
+                            t = t->next_graphic_event;
+                        }
+                        if (k->n_graphic_events > N_DISPLAY)printf("      ...");
+                        printf("\n");
+                    }
+                    k = k->next_graphic_instance;
+                }
+                if (p->n_graphic_instances > N_DISPLAY)printf("    ...");
+            }
+            
+            p = p->next_graphic_instance_group;
+        }
+    }
+}
+
+void printNotationInstanceGroup() {
+    if (notational_layer.n_notation_instance_groups != 0) {
+        printf("%i notation instance groups\n", notational_layer.n_notation_instance_groups);
+        struct notation_instance_group* p = notational_layer.notation_instance_group;
+        while (p) {
+            printf("Notation Instance Group ");
+            if (p->description)
+                printf("description=%s ", p->description);
+            printf(":\n");
+
+            if (p->n_notation_instances != 0) {
+                struct notation_instance* k = p->notation_instance;
+                printf("    %i notation instances\n", p->n_notation_instances);
+                int j = 0;
+                while (k && j < N_DISPLAY) {
+                    j++;
+                    printf("    Notation Instance: ");
+                    if (k->description)
+                        printf("description=%s ", k->description);
+                    if (k->position_in_group)
+                        printf("position_in_group=%i ", k->position_in_group);
+                    if (k->file_name)
+                        printf("file_name=%s ", k->file_name);
+                    if (k->format)
+                        printf("format=%s ", k->format);
+                    if (k->measurement_unit)
+                        printf("measurement_unit=%s ", k->measurement_unit);
+                    printf("\n");
+                    if (k->n_notation_events != 0) {
+                        struct notation_event* t = k->notation_event;
+                        int i = 0;
+                        printf("        %i notation events\n", k->n_notation_events);
+                        printf("        Notation Events: ");
+                        while (t && i < N_DISPLAY) {
+                            i++;
+                            printf("( ");
+                            if (t->event_ref)
+                                printf("event_ref=%s ", t->event_ref);
+                            if (t->start_position)
+                                printf("start_position=%.1f ", t->start_position);
+                            if (t->end_position)
+                                printf("end_position=%.1f ", t->end_position);
+                            if (t->description)
+                                printf("description=%s ", t->description);
+                            printf(") ");
+                            t = t->next_notation_event;
+                        }
+                        if (k->n_notation_events > N_DISPLAY)printf("        ...");
+                        printf("\n");
+                    }
+                    k = k->next_notation_instance;
+                }
+                if (p->n_notation_instances > N_DISPLAY)printf("    ...");
+            }
+
+            p = p->next_notation_instance_group;
+        }
+    }
 }

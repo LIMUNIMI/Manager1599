@@ -38,7 +38,7 @@ extern "C" {
         xmlChar* codomain_ref; //REQUIRED
         xmlChar* displacement_ref; 
         
-        struct mir_feature* mir_features;
+        struct mir_feature* mir_feature;
         
         struct mir_morphism* next_mir_morphism;
     };
@@ -51,7 +51,7 @@ extern "C" {
         xmlChar* displacement_ref;
         xmlChar* segment_ref;
         
-        struct mir_feature* mir_features;
+        struct mir_feature* mir_feature;
         
         struct mir_subobject* next_mir_subobject;
     };
@@ -64,8 +64,8 @@ extern "C" {
         xmlChar* description;
         xmlChar* displacement_ref;
         
-        struct mir_subobject* mir_subobjects;
-        struct mir_feature* mir_features;
+        struct mir_subobject* mir_subobject;
+        struct mir_feature* mir_feature;
         
         struct mir_object* next_mir_object;
     };
@@ -78,18 +78,10 @@ extern "C" {
         xmlChar* description;
         xmlChar* file_name;
         
-        struct mir_object* mir_objects;
-        struct mir_morphism* mir_morphisms;
+        struct mir_object* mir_object;
+        struct mir_morphism* mir_morphism;
         
         struct mir_model* next_mir_model;
-    };
-    
-    struct mir{//(mir_model+)
-        int n_mir_models;
-        
-        struct mir_model* mir_models;
-        
-        struct mir* next_mir;
     };
         
 //Petri Nets
@@ -116,18 +108,10 @@ extern "C" {
         xmlChar* description;
         xmlChar* file_name; //REQUIRED
         
-        struct place* places;
-        struct transition* transitions;
+        struct place* place;
+        struct transition* transition;
         
         struct petri_net* next_petri_net;
-    };
-    
-    struct petri_nets{//(petr_net+)
-        int n_petri_nets;
-        
-        struct petri_net* petri_net_list;
-        
-        struct petri_nets* next_petri_nets;
     };
     
 //Analysis
@@ -176,8 +160,8 @@ extern "C" {
         
         xmlChar* id; //REQUIRED
         
-        struct segment_event* segment_events;
-        struct feature_object* feature_objects;
+        struct segment_event* segment_event;
+        struct feature_object* feature_object;
         
         struct segment* next_segment;
     };
@@ -202,7 +186,7 @@ extern "C" {
         
         struct segmentation* segmentation;
         struct relationship* relationships;//(relationship+)
-        struct feature_object_relationship* feature_object_relationships;
+        struct feature_object_relationship* feature_object_relationship;
         
         struct analysis* next_analysis;
     };
@@ -222,7 +206,7 @@ extern "C" {
         xmlChar* author;
         xmlChar* description;
         
-        struct chord_name* chord_names;
+        struct chord_name* chord_name;
         
         struct chord_grid* next_chord_grid;
     };
@@ -232,12 +216,12 @@ extern "C" {
         int n_chord_grids;
         int n_analysis;
         int n_petri_nets;
-        int n_mirs;
+        int n_mir_models;
         
         struct chord_grid* chord_grid;
         struct analysis* analysis;
-        struct petri_nets* petri_nets;
-        struct mir* mir;
+        struct petri_net* petri_nets;
+        struct mir_model* mir;
     };
 
 //Variables
@@ -262,10 +246,10 @@ extern "C" {
     struct mir_feature* loadMirFeature(xmlNodePtr cur);
 
     MANAGERIEEE1599_API void printStructural();
-    MANAGERIEEE1599_API void printChordGrid();
-    MANAGERIEEE1599_API void printAnalysis();
-    MANAGERIEEE1599_API void printPetriNet();
-    MANAGERIEEE1599_API void printMir();
+    void printChordGrid();
+    void printAnalysis();
+    void printPetriNet();
+    void printMir();
 
 #ifdef __cplusplus
 }

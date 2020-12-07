@@ -54,7 +54,7 @@ extern "C" {
 
         xmlChar* description;//REQUIRED
 
-        struct graphic_instance* graphic_instances;
+        struct graphic_instance* graphic_instance;
 
         struct graphic_instance_group* next_graphic_instance_group;
     };
@@ -78,7 +78,7 @@ extern "C" {
         xmlChar* format;//REQUIRED
         xmlChar* measurement_unit;//REQUIRED
 
-        struct notation_event* notation_events;
+        struct notation_event* notation_event;
         struct rights rights;
 
         struct notation_instance* next_notation_instance;
@@ -89,7 +89,7 @@ extern "C" {
 
         xmlChar* description;//REQUIRED
 
-        struct notation_instance* notation_instances;
+        struct notation_instance* notation_instance;
 
         struct notation_instance_group* next_notation_instance_group;
     };

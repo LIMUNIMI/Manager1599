@@ -412,7 +412,7 @@ void printTrackGeneral(struct track_general cur){
         printf("( ");
         if (cur.geographical_region) printf("region=%s ",cur.geographical_region);
         if (cur.lyrics_language) printf("language=%s ", cur.lyrics_language);
-        printf(" )");
+        printf(")");
     }
     printf("\n");
 
@@ -431,7 +431,7 @@ void printTrackGeneral(struct track_general cur){
                 printf("studio=%s ",p->studio_name);
             if (p->studio_address)
                 printf("address=%s ", p->studio_address);
-            printf(" ) ");
+            printf(") ");
             p = p->next_recording;
         }
         if (cur.n_recordings > N_DISPLAY) printf("...");
@@ -451,7 +451,7 @@ void printTrackGeneral(struct track_general cur){
                 printf("description=%s ", p->description);
             if (p->weight)
                 printf("weight=%s ", p->weight);
-            printf(" ) ");
+            printf(") ");
             p = p->next_genre;
         }
         if (cur.n_genres > N_DISPLAY) printf("...");
@@ -479,7 +479,7 @@ void printTrackGeneral(struct track_general cur){
                 printf("pubblication=%s ", p->publication_date);
             if (p->label)
                 printf("label=%s ", p->label);
-            printf(" ) ");
+            printf(") ");
             p = p->next_album;
         }
         if (cur.n_albums > N_DISPLAY) printf("...");
@@ -497,7 +497,7 @@ void printTrackGeneral(struct track_general cur){
                 printf("name=%s ", p->name);
             if (p->type)
                 printf("type=%s ", p->type);
-            printf(" ) ");
+            printf(") ");
             p = p->next_performer;
         }
         if (cur.n_performers > N_DISPLAY) printf("...");
@@ -530,7 +530,7 @@ void printTrackIndexing(struct track_indexing cur){
                 printf("start event ref=%s ", p->start_event_ref);
             if (p->end_event_ref)
                 printf("end event ref=%s ", p->end_event_ref);
-            printf(" ) ");
+            printf(") ");
             p = p->next_track_region;
         }
         if (cur.n_track_regions > N_DISPLAY) printf("...");
@@ -552,7 +552,7 @@ void printTrackIndexing(struct track_indexing cur){
                 printf("event ref=%s ", p->event_ref);
             if (p->description)
                 printf("description%s ", p->description);
-            printf(" ) ");
+            printf(") ");
             p = p->next_track_event;
         }
         if (cur.n_track_events > N_DISPLAY) printf("...");

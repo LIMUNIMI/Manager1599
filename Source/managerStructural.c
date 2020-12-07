@@ -89,7 +89,7 @@ void loadChordGrid(){
                 }
                 temp_cur=temp_cur->next;
             }
-            chord_grid_temp->chord_names=chord_name_head;
+            chord_grid_temp->chord_name=chord_name_head;
             
             chord_grid_temp->next_chord_grid=NULL;
             if(chord_grid_head==NULL)
@@ -259,7 +259,7 @@ void loadAnalysis(){
                 temp_cur=temp_cur->next;
             }
             analysis_temp->relationships=relationship_head;
-            analysis_temp->feature_object_relationships=feature_object_relationship_head;
+            analysis_temp->feature_object_relationship=feature_object_relationship_head;
             
             analysis_temp->next_analysis=NULL;
             if(analysis_head==NULL)
@@ -370,8 +370,8 @@ struct segmentation* loadSegmentation(xmlNodePtr cur){
                         }
                         temp_cur = temp_cur->next;
                     }
-                    segment_temp->segment_events = segment_event_head;
-                    segment_temp->feature_objects = feature_object_head;
+                    segment_temp->segment_event = segment_event_head;
+                    segment_temp->feature_object = feature_object_head;
 
                     segment_temp->next_segment = NULL;
                     if (segment_head == NULL)
@@ -431,65 +431,37 @@ void loadPetriNets(){
     xmlXPathObjectPtr result;
     xmlNodeSetPtr nodeset;
     xmlNodePtr cur;
-    xmlNodePtr temp_cur;
     
-    struct petri_nets* petri_nets_temp=NULL;
-    struct petri_nets* petri_nets_head=NULL;
-    struct petri_nets* petri_nets_p=NULL;
+    struct petri_net* petri_net_temp=NULL;
+    struct petri_net* petri_net_head=NULL;
+    struct petri_net* petri_net_p=NULL;
     structural_layer.n_petri_nets=0;
     
-    xpath=(xmlChar *)"/ieee1599/structural/petri_nets";
+    xpath=(xmlChar *)"/ieee1599/structural/petri_nets/petri_net";
     result=getNodeset(doc,xpath);
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
         nodeset=result->nodesetval;
         for(int i=0;i<nodeset->nodeNr;i++){//scanning petri nets
             cur=nodeset->nodeTab[i];
-            petri_nets_temp = (struct petri_nets*)calloc(1, sizeof(struct petri_nets));
-            
-            if (petri_nets_temp) {
-                //load petri net list elements
-                struct petri_net* petri_net_temp = NULL;
-                struct petri_net* petri_net_head = NULL;
-                struct petri_net* petri_net_p = NULL;
-                petri_nets_temp->n_petri_nets = 0;
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"petri_net")) {
+                petri_net_temp = (struct petri_net*)calloc(1, sizeof(struct petri_net));
 
-                temp_cur = cur->xmlChildrenNode;
-                while (temp_cur != NULL) {
-                    if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"petri_net")) {
-                        petri_net_temp = (struct petri_net*)calloc(1, sizeof(struct petri_net));
+                petri_net_temp = loadPetriNet(cur);
 
-                        petri_net_temp = loadPetriNet(temp_cur);
-
-                        petri_net_temp->next_petri_net = NULL;
-                        if (petri_net_head == NULL)
-                            petri_net_head = petri_net_temp;
-                        else {
-                            petri_net_p = petri_net_head;
-                            while (petri_net_p->next_petri_net != NULL)
-                                petri_net_p = petri_net_p->next_petri_net;
-                            petri_net_p->next_petri_net = petri_net_temp;
-                        }
-                        petri_nets_temp->n_petri_nets++;
-                    }
-                    temp_cur = temp_cur->next;
-                }
-                petri_nets_temp->petri_net_list = petri_net_head;
-
-                petri_nets_temp->next_petri_nets = NULL;
-                if (petri_nets_head == NULL)
-                    petri_nets_head = petri_nets_temp;
+                petri_net_temp->next_petri_net = NULL;
+                if (petri_net_head == NULL)
+                    petri_net_head = petri_net_temp;
                 else {
-                    petri_nets_p = petri_nets_head;
-                    while (petri_nets_p->next_petri_nets != NULL)
-                        petri_nets_p = petri_nets_p->next_petri_nets;
-                    petri_nets_p->next_petri_nets = petri_nets_temp;
+                    petri_net_p = petri_net_head;
+                    while (petri_net_p->next_petri_net != NULL)
+                        petri_net_p = petri_net_p->next_petri_net;
+                    petri_net_p->next_petri_net = petri_net_temp;
                 }
                 structural_layer.n_petri_nets++;
             }
-            else { fprintf(stderr, "Memory allocation failed for 'ppetri_nets' element\n"); }
         }
     }
-    structural_layer.petri_nets = petri_nets_head;
+    structural_layer.petri_nets = petri_net_head;
 }
 
 struct petri_net* loadPetriNet(xmlNodePtr cur){
@@ -587,8 +559,8 @@ struct petri_net* loadPetriNet(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->places = place_head;
-        value->transitions = transition_head;
+        value->place = place_head;
+        value->transition = transition_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'petri_net' element\n"); }
     
@@ -600,65 +572,36 @@ void loadMir(){
     xmlXPathObjectPtr result;
     xmlNodeSetPtr nodeset;
     xmlNodePtr cur;
-    xmlNodePtr temp_cur;
     
-    struct mir* mir_temp=NULL;
-    struct mir* mir_head=NULL;
-    struct mir* mir_p=NULL;
-    structural_layer.n_mirs=0;
+    struct mir_model* mir_model_temp = NULL;
+    struct mir_model* mir_model_head = NULL;
+    struct mir_model* mir_model_p = NULL;
+    structural_layer.n_mir_models=0;
     
-    xpath=(xmlChar *)"/ieee1599/structural/mir";
+    xpath=(xmlChar *)"/ieee1599/structural/mir/mir_model";
     result=getNodeset(doc,xpath);
     if(!xmlXPathNodeSetIsEmpty(result->nodesetval)){
         nodeset=result->nodesetval;
-        for(int i=0;i<nodeset->nodeNr;i++){//scanning mirs
-            mir_temp=(struct mir*)calloc(1,sizeof(struct mir));
+        for(int i=0;i<nodeset->nodeNr;i++){
+            mir_model_temp=(struct mir_model*)calloc(1,sizeof(struct mir_model));
             cur=nodeset->nodeTab[i];
-            
-            if (mir_temp) {
-                //load mir_model elements
-                struct mir_model* mir_model_temp = NULL;
-                struct mir_model* mir_model_head = NULL;
-                struct mir_model* mir_model_p = NULL;
-                mir_temp->n_mir_models = 0;
-
-                temp_cur = cur->xmlChildrenNode;
-                while (temp_cur != NULL) {
-                    if (!xmlStrcmp(temp_cur->name, (const xmlChar*)"mir_model")) {
-                        mir_model_temp = (struct mir_model*)calloc(1, sizeof(struct mir_model));
-
-                        mir_model_temp = loadMirModel(temp_cur);
-
-                        mir_model_temp->next_mir_model = NULL;
-                        if (mir_model_head == NULL)
-                            mir_model_head = mir_model_temp;
-                        else {
-                            mir_model_p = mir_model_head;
-                            while (mir_model_p->next_mir_model != NULL)
-                                mir_model_p = mir_model_p->next_mir_model;
-                            mir_model_p->next_mir_model = mir_model_temp;
-                        }
-                        mir_temp->n_mir_models++;
-                    }
-                    temp_cur = temp_cur->next;
-                }
-                mir_temp->mir_models = mir_model_head;
-
-                mir_temp->next_mir = NULL;
-                if (mir_head == NULL)
-                    mir_head = mir_temp;
+            if (!xmlStrcmp(cur->name, (const xmlChar*)"mir_model")) {
+                mir_model_temp = (struct mir_model*)calloc(1, sizeof(struct mir_model));
+                mir_model_temp = loadMirModel(cur);
+                mir_model_temp->next_mir_model = NULL;
+                if (mir_model_head == NULL)
+                    mir_model_head = mir_model_temp;
                 else {
-                    mir_p = mir_head;
-                    while (mir_p->next_mir != NULL)
-                        mir_p = mir_p->next_mir;
-                    mir_p->next_mir = mir_temp;
+                    mir_model_p = mir_model_head;
+                    while (mir_model_p->next_mir_model != NULL)
+                        mir_model_p = mir_model_p->next_mir_model;
+                    mir_model_p->next_mir_model = mir_model_temp;
                 }
-                structural_layer.n_mirs++;
+                structural_layer.n_mir_models++;
             }
-            else { fprintf(stderr, "Memory allocation failed for 'mir' element\n"); }
         }
+        structural_layer.mir = mir_model_head;
     }
-    structural_layer.mir = mir_head;
 }
 
 struct mir_model* loadMirModel(xmlNodePtr cur){
@@ -728,8 +671,8 @@ struct mir_model* loadMirModel(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->mir_objects = mir_object_head;
-        value->mir_morphisms = mir_morphism_head;
+        value->mir_object = mir_object_head;
+        value->mir_morphism = mir_morphism_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'mir_model' element\n"); }
 
@@ -804,7 +747,7 @@ struct mir_object* loadMirObject(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->mir_features = mir_feature_head;
+        value->mir_feature = mir_feature_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'mir_object' element\n"); }
 
@@ -860,7 +803,7 @@ struct mir_subobject* loadMirSubobject(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->mir_features = mir_feature_head;
+        value->mir_feature = mir_feature_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'mir_subobject' element\n"); }
     
@@ -919,7 +862,7 @@ struct mir_morphism* loadMirMorphism(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->mir_features = mir_feature_head;
+        value->mir_feature = mir_feature_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'mir_morphism' element\n"); }
  
@@ -954,4 +897,307 @@ struct mir_feature* loadMirFeature(xmlNodePtr cur){
 
 void printStructural(){
 
+    if (structural_layer.n_chord_grids!=0 || 
+        structural_layer.n_analysis != 0 ||
+        structural_layer.n_petri_nets != 0 ||
+        structural_layer.n_mir_models != 0
+        ) {
+        printf("\n###Structural Layer###\n");
+        printChordGrid();
+        printAnalysis();
+        printPetriNet();
+        printMir();
+    }
+}
+
+void printChordGrid() {
+    if (structural_layer.n_chord_grids != 0) {
+        printf("%i chord grids\n", structural_layer.n_chord_grids);
+        struct chord_grid* p = structural_layer.chord_grid;
+        while (p) {
+            printf("Chord Grid: ");
+            if (p->id)
+                printf("id=%s ",p->id);
+            if (p->author)
+                printf("author=%s ", p->author);
+            if (p->description)
+                printf("description=%s ", p->description);
+
+            if (p->n_chord_names != 0) {
+                struct chord_name* k = p->chord_name;
+                printf("( Chord Names: ");
+                while (k) {
+                    if (k->chord_name_value)
+                        printf("%s ", k->chord_name_value);
+                    if (k->root_id)
+                        printf("id=%s",k->root_id);
+                    k = k->next_chord_name;
+                }
+                printf(") ");
+            }
+            printf("\n");
+            p = p->next_chord_grid;
+        }
+    }
+}
+
+void printAnalysis() {
+    if (structural_layer.n_analysis != 0) {
+        printf("%i analysis\n", structural_layer.n_analysis);
+        struct analysis* p = structural_layer.analysis;
+        while (p) {
+            printf("Analysis: ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->author)
+                printf("author=%s ", p->author);
+            if (p->description)
+                printf("description=%s ", p->description);
+            printf("\n");
+
+            if (p->segmentation->n_segments != 0) {
+                printf("    Segmentation: ");
+                if (p->segmentation->id)
+                    printf("id=%s ", p->segmentation->id);
+                if (p->segmentation->description)
+                    printf("description=%s ", p->segmentation->description);
+                if (p->segmentation->description)
+                    printf("method=%s ", p->segmentation->method);
+                struct segment* k = p->segmentation->segment;
+                printf("( Segments:");
+                while (k) {
+                    if (k->id)
+                        printf("id=%s ",k->id);
+                    if (k->n_segment_events != 0){
+                        struct segment_event* t = k->segment_event;
+                        printf("[ Segments: ");
+                        while (t) {
+                            if (t->event_ref)
+                                printf("event_ref=%s ",t->event_ref);
+                            t = t->next_segment_event;
+                        }
+                        printf("] ");
+                    }
+                    if (k->n_feature_objects != 0) {
+                        struct feature_object* t = k->feature_object;
+                        printf("[ Feature Object: ");
+                        while (t) {
+                            if (t->id)
+                                printf("id=%s ", t->id);
+                            if (t->name)
+                                printf("name=%s ", t->name);
+
+                            if (t->simple_description)
+                                printf("simple_description=%s ", t->simple_description);
+                            t = t->next_feature_object;
+                        }
+                        printf("] ");
+                    }
+                    k = k->next_segment;
+                }
+                printf(")\n");
+            }
+            if (p->n_relationships != 0) {
+                struct relationship* k = p->relationships;
+                while (k) {
+                    printf("    Relationships: ");
+                    if (k->id)
+                        printf("id=%s ", k->id);
+                    if (k->description)
+                        printf("description=%s", k->description);
+                    if (k->segment_a_ref)
+                        printf("segment_a_ref=%s", k->segment_a_ref);
+                    if (k->segment_b_ref)
+                        printf("segment_b_ref=%s", k->segment_b_ref);
+                    if (k->feature_object_a_ref)
+                        printf("feature_object_a_ref=%s", k->feature_object_a_ref);
+                    if (k->feature_object_b_ref)
+                        printf("feature_object_b_ref=%s", k->feature_object_b_ref);
+                    if (k->feature_object_relationship_ref)
+                        printf("feature_object_relationship_ref=%s", k->feature_object_relationship_ref);
+                    printf("\n");
+                    k = k->next_relationship;
+                }
+            }
+            if (p->n_feature_object_relationships != 0) {
+                struct feature_object_relationship* k = p->feature_object_relationship;
+                while (k) {
+                    printf("    Feature Object Relationship: ");
+                    if (k->id)
+                        printf("id=%s ", k->id);
+                    if (k->ver_rule)
+                        printf("ver_rule=%s", k->ver_rule);
+                    printf("\n");
+                    k = k->next_feature_object_relationship;
+                }             
+            }
+            p = p->next_analysis;
+        }
+    }
+}
+
+void printPetriNet() {
+    if (structural_layer.n_petri_nets != 0) {
+        printf("%i petri nets\n", structural_layer.n_petri_nets);
+        struct petri_net* p = structural_layer.petri_nets;
+        while (p) {
+            printf("Petri Net: ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->author)
+                printf("author=%s ", p->author);
+            if (p->description)
+                printf("description=%s ", p->description);
+            if (p->file_name)
+                printf("file_name=%s ", p->file_name);
+            printf("\n");
+
+            if (p->n_places != 0) {
+                struct place* k = p->place;
+                int i = 0;
+                while (k && i < N_DISPLAY) {
+                    i++;
+                    printf("    Place: ");
+                    if (k->place_ref)
+                        printf("place_ref=%s ", k->place_ref);
+                    if (k->segment_ref)
+                        printf("segment_ref=%s ", k->segment_ref);
+                    printf("\n");
+                    k = k->next_place;
+                }
+                if (p->n_places>N_DISPLAY) printf("  ...");
+            }
+            if (p->n_transitions != 0) {
+                struct transition* k = p->transition;
+                int i = 0;
+                while (k && i < N_DISPLAY) {
+                    i++;
+                    printf("    Transition: ");
+                    if (k->transition_ref)
+                        printf("transition_ref=%s ", k->transition_ref);
+                    if (k->feature_object_relationship_ref)
+                        printf("feature_object_relationship_ref=%s ", k->feature_object_relationship_ref);
+                    printf("\n");
+                    k = k->next_transition;
+                }
+                if (p->n_transitions > N_DISPLAY) printf("  ...");
+            }
+            p = p->next_petri_net;
+        }
+    }
+}
+
+void printMir() {
+    if (structural_layer.n_mir_models != 0) {
+        printf("%i mir models\n", structural_layer.n_mir_models);
+        struct mir_model* p = structural_layer.mir;
+        while (p) {
+            printf("Mir Model: ");
+            if (p->id)
+                printf("id=%s ", p->id);
+            if (p->description)
+                printf("description=%s ", p->description);
+            if (p->file_name)
+                printf("file_name=%s ", p->file_name);
+            printf("\n");
+
+            if (p->n_mir_objects != 0) {
+                struct mir_object* k = p->mir_object;
+                while (k) {
+                    printf("    Object: ");
+                    if (k->id)
+                        printf("id=%s ", k->id);
+                    if (k->description)
+                        printf("description=%s ", k->description);
+                    if (k->displacement_ref)
+                        printf("displacement_ref=%s ", k->displacement_ref);
+                    printf("\n");
+                    if (k->n_mir_subobjects != 0) {
+                        struct mir_subobject* t = k->mir_subobject;
+                        printf("        %i subobjects\n", k->n_mir_subobjects);
+                        while (t) {
+                            printf("        Subobject: ");
+                            if (t->id)
+                                printf("id=%s ", t->id);
+                            if (t->description)
+                                printf("description=%s ", t->description);
+                            if (t->displacement_ref)
+                                printf("displacement_ref=%s ", t->displacement_ref);
+                            if (t->segment_ref)
+                                printf("segment_ref=%s ", t->segment_ref);
+                            printf("\n");
+                            if (t->n_mir_features != 0) {
+                                struct mir_feature* j = k->mir_feature;
+                                printf("            %i features\n", t->n_mir_features);
+                                while (j) {
+                                    printf("            Feature: ");
+                                    if (j->id)
+                                        printf("id=%s ", j->id);
+                                    if (j->description)
+                                        printf("description=%s ", j->description);
+                                    if (j->displacement_ref)
+                                        printf("displacement_ref=%s ", j->displacement_ref);
+                                    printf("\n");
+                                    j = j->next_mir_feature;
+                                }
+                            }
+                            t = t->next_mir_subobject;
+                        }
+                    }
+                    if (k->n_mir_features != 0) {
+                        struct mir_feature* t = k->mir_feature;
+                        printf("        %i features\n", k->n_mir_features);
+                        while (t) {
+                            printf("        Feature: ");
+                            if (t->id)
+                                printf("id=%s ", t->id);
+                            if (t->description)
+                                printf("description=%s ", t->description);
+                            if (t->displacement_ref)
+                                printf("displacement_ref=%s ", t->displacement_ref);
+                            printf("\n");
+                            t = t->next_mir_feature;
+                        }
+                    }
+                    k = k->next_mir_object;
+                }
+                printf(")\n");
+            }
+            if (p->n_mir_morphisms != 0) {
+                struct mir_morphism* k = p->mir_morphism;
+                while (k) {
+                    printf("    Morphism: ");
+                    if (k->id)
+                        printf("id=%s ", k->id);
+                    if (k->description)
+                        printf("description=%s", k->description);
+                    if (k->domain_ref)
+                        printf("domain_ref=%s", k->domain_ref);
+                    if (k->codomain_ref)
+                        printf("codomain_ref=%s", k->codomain_ref);
+                    if (k->displacement_ref)
+                        printf("displacement_ref=%s", k->displacement_ref);                 
+                    printf("\n");
+                    if (k->n_mir_features != 0) {
+                        struct mir_feature* t = k->mir_feature;
+                        printf("        %i features\n", k->n_mir_features);
+                        while (t) {
+                            printf("        Feature: ");
+                            if (t->id)
+                                printf("id=%s ", t->id);
+                            if (t->description)
+                                printf("description=%s ", t->description);
+                            if (t->displacement_ref)
+                                printf("displacement_ref=%s ", t->displacement_ref);
+                            printf("\n");
+                            t = t->next_mir_feature;
+                        }
+                    }
+                    k = k->next_mir_morphism;
+                }
+            }
+
+            p = p->next_mir_model;
+        }
+    }
 }

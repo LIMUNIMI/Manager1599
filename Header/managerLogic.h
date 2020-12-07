@@ -86,7 +86,7 @@ struct lyrics{//(syllable+)
     xmlChar* part_ref;
     xmlChar* voice_ref;
 
-    struct syllable* syllables;
+    struct syllable* syllable;
     
     struct lyrics* next_lyrics;
 };
@@ -102,7 +102,7 @@ struct part{
     int octave_offset;
   
     struct voice_item* voice_list;
-    struct measure* measures;
+    struct measure* measure;
     
     struct part* next_part;
 };
@@ -128,12 +128,12 @@ struct staff{//(clef|(key_signature|custom_key_signature)|time_signature|barline
     int ossia;//(yes,no) default no
     xmlChar* tablature;//(none,french,german,italian)
     
-    struct clef* clefs;
-    struct key_signature* key_signatures;
-    struct custom_key_signature* custom_key_signatures;
-    struct time_signature* time_signatures;
-    struct barline* barlines;
-    struct tablature_tuning* tablature_tunings;
+    struct clef* clef;
+    struct key_signature* key_signature;
+    struct custom_key_signature* custom_key_signature;
+    struct time_signature* time_signature;
+    struct barline* barline;
+    struct tablature_tuning* tablature_tuning;
     
     struct staff* next_staff;
 };
@@ -151,7 +151,7 @@ struct los{//?
     
     //(brackets,staff)+
     struct staff* staff_list;//1    
-    struct brackets* staff_list_brackets;
+    struct brackets* staff_list_bracket;
     struct horizontal_symbol_list* horizontal_symbols;//?
     struct ornament_list* ornaments;//?    
     struct agogics* agogics;
@@ -206,7 +206,7 @@ struct layout_system{
     int lower_right_x;//REQUIRED
     int lower_right_y;//REQUIRED
     
-    struct layout_staff* layout_staves;//+
+    struct layout_staff* layout_staff;//+
     
     struct layout_system* next_layout_system;
 };
@@ -228,9 +228,9 @@ struct page{//((standard_page_format | custom_page_format), layout_system*, layo
     xmlChar* id;//REQUIRED
     int number;
     
-    struct standard_page_format standard_page_formats;
-    struct custom_page_format custom_page_formats;
-    struct layout_system* layout_systems;
+    struct standard_page_format standard_page_format;
+    struct custom_page_format custom_page_format;
+    struct layout_system* layout_system;
     struct layout_images* layout_images_list;
     struct layout_shapes* layout_shapes_list;
     
@@ -243,7 +243,7 @@ struct layout{//(page+, text_font?, music_font?)
     int hpos_per_unit;//REQUIRED
     xmlChar* measurement_unit;//REQUIRED (centimeters,millimeters,inches,decimal_inches,points,picas,pixels,twips)
     
-    struct page* pages;//+
+    struct page* page;//+
     xmlChar* text_font;
     xmlChar* music_font;
 };
@@ -279,6 +279,24 @@ void printBarline(struct staff* cur);
 void printTablatureTuning(struct staff* cur);
 void printVoiceList(struct part* cur);
 void printMeasure(struct part* cur);
+void printVoice(struct measure* cur);
+void printOrnament(ornament cur);
+void printHorizontalSymbol(horizontal_symbol cur);
+
+void printChord(struct chord* cur);
+void printRest(struct voice* cur);
+void printTablatureSymbol(struct voice* cur);
+void printGregorianSymbol(struct voice* cur);
+
+void printArticulation(struct chord* cur);
+
+void printNotehead(struct notehead* cur);
+void printTupletRatio(struct tuplet_ratio* cur);
+void printKey(struct key* cur);
+
+void printLayoutSystem(struct layout_system* cur);
+void printLayoutImages(struct layout_images* cur);
+void printLayoutShapes(struct layout_shapes* cur);
 
 #ifdef __cplusplus
 }

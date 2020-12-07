@@ -19,6 +19,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         chord_temp=NULL;
         chord_head=NULL;
         chord_p=NULL;
+        value.acciaccatura.n_chords = 0;
 
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -51,9 +52,10 @@ ornament loadOrnamentValue(xmlNodePtr cur){
                         chord_p=chord_p->next_chord;
                     chord_p->next_chord=chord_temp;
                 }
+                value.acciaccatura.n_chords++;
             }  
         }
-        value.acciaccatura.chords=chord_head;
+        value.acciaccatura.chord=chord_head;
         
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"baroque_acciaccatura")){
@@ -75,6 +77,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         chord_temp=NULL;
         chord_head=NULL;
         chord_p=NULL;
+        value.appoggiatura.n_chords = 0;
         
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -107,9 +110,10 @@ ornament loadOrnamentValue(xmlNodePtr cur){
                         chord_p=chord_p->next_chord;
                     chord_p->next_chord=chord_temp;
                 }
+                value.appoggiatura.n_chords++;
             }  
         }
-        value.appoggiatura.chords=chord_head;
+        value.appoggiatura.chord=chord_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"baroque_appoggiatura")){
         attributes=cur->properties;
@@ -230,6 +234,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct notehead_ref* notehead_ref_temp=NULL;
         struct notehead_ref* notehead_ref_head=NULL;
         struct notehead_ref* notehead_ref_p=NULL;
+        value.arpeggio.n_notehead_refs = 0;
         
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -261,6 +266,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                         notehead_ref_p=notehead_ref_p->next_notehead_ref;
                     notehead_ref_p->next_notehead_ref=notehead_ref_temp;
                 }
+                value.arpeggio.n_notehead_refs++;
             }  
         }//end notehead_ref list in arpeggio
         value.arpeggio.notehead_ref=notehead_ref_head;
@@ -503,6 +509,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct notehead_ref* notehead_ref_temp=NULL;
         struct notehead_ref* notehead_ref_head=NULL;
         struct notehead_ref* notehead_ref_p=NULL;
+        value.special_beam.n_notehead_refs = 0;
         
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -537,6 +544,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                         notehead_ref_p=notehead_ref_p->next_notehead_ref;
                     notehead_ref_p->next_notehead_ref=notehead_ref_temp;
                 }
+                value.special_beam.n_notehead_refs++;
             }  
         }//end notehead_ref list in special_beam
         value.special_beam.notehead_ref=notehead_ref_head;
@@ -545,11 +553,13 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct tablature_element* tablature_element_temp=NULL;
         struct tablature_element* tablature_element_head=NULL;
         struct tablature_element* tablature_element_p=NULL;
+        value.tablature_hsymbol.n_tablature_elements = 0;
         
         struct barre* barre_temp=NULL;
         struct barre* barre_head=NULL;
         struct barre* barre_p=NULL;
-        
+        value.tablature_hsymbol.n_barres = 0;
+
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -595,6 +605,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                         tablature_element_p=tablature_element_p->next_tablature_element;
                     tablature_element_p=tablature_element_temp;
                 }
+                value.tablature_hsymbol.n_tablature_elements++;
             }  
             else if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"barre")){
                 barre_temp= (struct barre*)calloc(1,sizeof(struct barre));
@@ -622,21 +633,24 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                             barre_p = barre_p->next_barre;
                         barre_p = barre_temp;
                     }
+                    value.tablature_hsymbol.n_barres++;
                 }
                 else { fprintf(stderr, "Memory allocation failed for 'barre' element\n"); }
             }   
         }
-        value.tablature_hsymbol.tablature_elements=tablature_element_head;
-        value.tablature_hsymbol.barres=barre_head;
+        value.tablature_hsymbol.tablature_element=tablature_element_head;
+        value.tablature_hsymbol.barre=barre_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"repeat")){
         struct jump_to* jump_to_temp=NULL;
         struct jump_to* jump_to_head=NULL;
         struct jump_to* jump_to_p=NULL;
+        value.repeat.n_jump_tos = 0;
         
         struct end* end_temp=NULL;
         struct end* end_head=NULL;
         struct end* end_p=NULL;
+        value.repeat.n_ends = 0;
         
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -676,6 +690,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                             jump_to_p = jump_to_p->next_jump_to;
                         jump_to_p = jump_to_temp;
                     }
+                    value.repeat.n_jump_tos++;
                 }
                 else { fprintf(stderr, "Memory allocation failed for 'jump_to' element\n"); }
             } 
@@ -702,12 +717,13 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                             end_p = end_p->next_end;
                         end_p = end_temp;
                     }
+                    value.repeat.n_ends++;
                 }
                 else { fprintf(stderr, "Memory allocation failed for 'end' element\n"); }
             }   
         }
-        value.repeat.jump_tos=jump_to_head;
-        value.repeat.ends=end_head;
+        value.repeat.jump_to=jump_to_head;
+        value.repeat.end=end_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"segno")){
         value.segno.segno_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
@@ -752,6 +768,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct multiple_ending* multiple_ending_temp=NULL;
         struct multiple_ending* multiple_ending_head=NULL;
         struct multiple_ending* multiple_ending_p=NULL;
+        value.multiple_endings.n_multiple_endigs = 0;
         
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -794,6 +811,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
                             multiple_ending_p = multiple_ending_p->next_multiple_ending;
                         multiple_ending_p = multiple_ending_temp;
                     }
+                    value.multiple_endings.n_multiple_endigs++;
                 }
                 else { fprintf(stderr, "Memory allocation failed for 'multiple_ending' element\n"); }
             }  
@@ -1488,10 +1506,10 @@ struct voice* loadVoiceValue(xmlNodePtr cur){
         }
         temp_cur=temp_cur->next;
     }
-    value->chords=chord_head;
-    value->rests=rest_head;
-    value->tablature_symbols=tablature_symbol_head;
-    value->gregorian_symbols=gregorian_symbol_head;
+    value->chord=chord_head;
+    value->rest=rest_head;
+    value->tablature_symbol=tablature_symbol_head;
+    value->gregorian_symbol=gregorian_symbol_head;
     
     return value;
 }

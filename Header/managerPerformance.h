@@ -48,8 +48,8 @@ extern "C" {
         xmlChar* division_value;//REQUIRED NMTOKEN
         xmlChar* measurement_unit;//REQUIRED
 
-        struct midi_event* midi_events;
-        struct sys_ex* sys_exs;
+        struct midi_event* midi_event;
+        struct sys_ex* sys_ex;
 
         struct midi_event_sequence* next_midi_event_sequence;
     };
@@ -62,7 +62,7 @@ extern "C" {
         xmlChar* track;//REQUIRED
         xmlChar* channel;//REQUIRED
 
-        struct midi_event_sequence* midi_event_sequences;
+        struct midi_event_sequence* midi_event_sequence;
 
         struct midi_mapping* next_midi_mapping;
     };
@@ -74,7 +74,7 @@ extern "C" {
         xmlChar* format;//REQUIRED
 
         struct rights rights;
-        struct midi_mapping* midi_mappings;
+        struct midi_mapping* midi_mapping;
 
         struct midi_instance* next_midi_instance;
     };
@@ -101,8 +101,8 @@ extern "C" {
         int end_line;
         xmlChar* pnml_file;
 
-        struct csound_mpeg4_part_ref* csound_mpeg4_part_refs;
-        struct csound_mpeg4_spine_ref* csound_mpeg4_spine_refs;
+        struct csound_mpeg4_part_ref* csound_mpeg4_part_ref;
+        struct csound_mpeg4_spine_ref* csound_mpeg4_spine_ref;
 
         struct csound_mpeg4_instrument_mapping* next_csound_mpeg4_instrument_mapping;
     };
@@ -112,7 +112,7 @@ extern "C" {
 
         xmlChar* file_name;//REQUIRED
 
-        struct csound_mpeg4_instrument_mapping* csound_mpeg4_instrument_mappings;
+        struct csound_mpeg4_instrument_mapping* csound_mpeg4_instrument_mapping;
         struct rights rights;
 
         struct csound_mpeg4_orchestra* next_csound_mpeg4_orchestra;
@@ -130,7 +130,7 @@ extern "C" {
 
         xmlChar* file_name;//REQUIRED
 
-        struct csound_mpeg4_spine_event* csound_mpeg4_spine_events;
+        struct csound_mpeg4_spine_event* csound_mpeg4_spine_event;
         struct rights rights;
 
         struct csound_mpeg4_score* next_csound_mpeg4_score;
@@ -140,8 +140,8 @@ extern "C" {
             int n_csound_mpeg4_scores;
             int n_csound_mpeg4_orchestras;
 
-            struct csound_mpeg4_score* csound_mpeg4_scores;
-            struct csound_mpeg4_orchestra* csound_mpeg4_orchestras;
+            struct csound_mpeg4_score* csound_mpeg4_score;
+            struct csound_mpeg4_orchestra* csound_mpeg4_orchestra;
 
             struct csound_mpeg4_instance* next_csound_mpeg4_instance;
     };

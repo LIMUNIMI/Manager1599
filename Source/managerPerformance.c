@@ -76,7 +76,7 @@ void loadMidiInstance(){
                 }
                 temp_cur=temp_cur->next;
             }
-            midi_instance_temp->midi_mappings=midi_mapping_head;
+            midi_instance_temp->midi_mapping=midi_mapping_head;
             
             midi_instance_temp->next_midi_instance=NULL;
             if(midi_instance_head==NULL)
@@ -142,7 +142,7 @@ struct midi_mapping* loadMidiMapping(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->midi_event_sequences = midi_event_sequence_head;
+        value->midi_event_sequence = midi_event_sequence_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'midi_mapping' element\n"); }
     
@@ -216,8 +216,8 @@ struct midi_event_sequence* loadMidiEventSequence(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->midi_events = midi_event_head;
-        value->sys_exs = sys_ex_head;
+        value->midi_event = midi_event_head;
+        value->sys_ex = sys_ex_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'midi_event_sequence' element\n"); }
     
@@ -341,8 +341,8 @@ void loadCsoundInstance(){
                     }
                     temp_cur = temp_cur->next;
                 }
-                csound_instance_temp->csound_mpeg4_scores = csound_score_head;
-                csound_instance_temp->csound_mpeg4_orchestras = csound_orchestra_head;
+                csound_instance_temp->csound_mpeg4_score = csound_score_head;
+                csound_instance_temp->csound_mpeg4_orchestra = csound_orchestra_head;
 
                 csound_instance_temp->next_csound_mpeg4_instance = NULL;
                 if (csound_instance_head == NULL)
@@ -416,7 +416,7 @@ struct csound_mpeg4_score* loadCsoundScore(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->csound_mpeg4_spine_events = csound_spine_event_head;
+        value->csound_mpeg4_spine_event = csound_spine_event_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'csound_score' element\n"); }
     
@@ -466,7 +466,7 @@ struct csound_mpeg4_orchestra* loadCsoundOrchestra(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->csound_mpeg4_instrument_mappings = csound_instrument_mapping_head;
+        value->csound_mpeg4_instrument_mapping = csound_instrument_mapping_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'csound_orchestra' element\n"); }
     
@@ -561,8 +561,8 @@ struct csound_mpeg4_instrument_mapping* loadCsoundInstrumentMapping(xmlNodePtr c
             }
             cur = cur->next;
         }
-        value->csound_mpeg4_part_refs = csound_part_ref_head;
-        value->csound_mpeg4_spine_refs = csound_spine_ref_head;
+        value->csound_mpeg4_part_ref = csound_part_ref_head;
+        value->csound_mpeg4_spine_ref = csound_spine_ref_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'csound_instrument_mapping' element\n"); }
 
@@ -638,8 +638,8 @@ void loadMpeg4Instance(){
                     }
                     temp_cur = temp_cur->next;
                 }
-                mpeg4_instance_temp->csound_mpeg4_scores = mpeg4_score_head;
-                mpeg4_instance_temp->csound_mpeg4_orchestras = mpeg4_orchestra_head;
+                mpeg4_instance_temp->csound_mpeg4_score = mpeg4_score_head;
+                mpeg4_instance_temp->csound_mpeg4_orchestra = mpeg4_orchestra_head;
 
                 mpeg4_instance_temp->next_csound_mpeg4_instance = NULL;
                 if (mpeg4_instance_head == NULL)
@@ -713,7 +713,7 @@ struct csound_mpeg4_score* loadMpeg4Score(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->csound_mpeg4_spine_events = mpeg4_spine_event_head;
+        value->csound_mpeg4_spine_event = mpeg4_spine_event_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'mpeg4_score' element\n"); }
     
@@ -763,7 +763,7 @@ struct csound_mpeg4_orchestra* loadMpeg4Orchestra(xmlNodePtr cur){
             }
             cur = cur->next;
         }
-        value->csound_mpeg4_instrument_mappings = mpeg4_instrument_mapping_head;
+        value->csound_mpeg4_instrument_mapping = mpeg4_instrument_mapping_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'mpeg4_orchestra' element\n"); }
     
@@ -860,27 +860,293 @@ struct csound_mpeg4_instrument_mapping* loadMpeg4InstrumentMapping(xmlNodePtr cu
             }
             cur = cur->next;
         }
-        value->csound_mpeg4_part_refs = mpeg4_part_ref_head;
-        value->csound_mpeg4_spine_refs = mpeg4_spine_ref_head;
+        value->csound_mpeg4_part_ref = mpeg4_part_ref_head;
+        value->csound_mpeg4_spine_ref = mpeg4_spine_ref_head;
     }
     else { fprintf(stderr, "Memory allocation failed for 'mpeg4_instrument_mapping' element\n"); }
     
     return value;
 }
+
 void printPerformance(){
-    printMidiInstance();
-    printCsoundInstance();
-    printMpeg4Instance();
+
+    if (performance_layer.n_midi_instances != 0 ||
+        performance_layer.n_csound_instances != 0 ||
+        performance_layer.n_mpeg4_instances != 0 ) {
+        printf("\n###Performance Layer###\n");
+        printMidiInstance();
+        printCsoundInstance();
+        printMpeg4Instance();
+    }
 }
 
 void printMidiInstance(){
+    if (performance_layer.n_midi_instances != 0) {
+        printf("%i MIDI instances\n", performance_layer.n_midi_instances);
+        struct midi_instance* p = performance_layer.midi_instance;
+        while (p) {
+            printf("MIDI Instance: ");
+            if (p->file_name)
+                printf("file_name=%s ", p->file_name);
+            if (p->format)
+                printf("format=%s ", p->format);
+            printf("\n");
+            if (p->rights.file_name) {
+                printf("rights=%s ",p->rights.file_name);
+            }
+            if (p->n_midi_mappings != 0) {
+                struct midi_mapping* k = p->midi_mapping;
+                printf("    %i MIDI mappings\n", p->n_midi_mappings);
+                while (k) {
+                    printf("    MIDI Mapping: ");
+                    if (k->part_ref)
+                        printf("part_ref=%s ", k->part_ref);
+                    if (k->voice_ref)
+                        printf("voice_ref=%s ", k->voice_ref);
+                    if (k->track)
+                        printf("track=%s ", k->track);
+                    if (k->channel)
+                        printf("channel=%s ", k->channel);
+                    printf("\n");
 
+                    if (k->n_midi_event_sequences != 0) {
+                        struct midi_event_sequence* t = k->midi_event_sequence;
+                        int i = 0;
+                        printf("        %i MIDI event sequences\n", k->n_midi_event_sequences);
+                        while (t && i<N_DISPLAY) {
+                            printf("        MIDI Event Sequence ( ");
+                            if (t->division_type)
+                                printf("division_type=%s ", t->division_type);
+                            if (t->division_value)
+                                printf("division_value=%s ", t->division_value);
+                            if (t->measurement_unit)
+                                printf("measurement_unit=%s ", t->measurement_unit);
+                            printf(")\n ");
+                            if (t->n_midi_events != 0) {
+                                struct midi_event* me = t->midi_event;
+                                printf("            %i midi events\n",t->n_midi_events);
+                                printf("            MIDI events: ");
+                                while (me) {
+                                    printf("[ ");
+                                    if (me->timing)
+                                        printf("timing=%s ",me->timing);
+                                    if (me->event_ref)
+                                        printf("event_ref=%s ", me->event_ref);
+                                    printf("] ");
+                                    me = me->next_midi_event;
+                                }
+                            }
+                            if (t->n_sys_exs != 0) {
+                                struct sys_ex* se = t->sys_ex;
+                                printf("            %i sys exs\n", t->n_midi_events);
+                                printf("            Sys Ex: ");
+                                while (se) {
+                                    printf("[ ");
+                                    if (se->event_ref)
+                                        printf("event_ref=%s ", se->event_ref);
+                                    printf("] ");
+                                    se = se->next_sys_ex;
+                                }
+                            }
+                            t = t->next_midi_event_sequence;
+                        }
+                        if (k->n_midi_event_sequences > N_DISPLAY)printf("      ...");
+                    }
+                    printf(")\n");
+                    k = k->next_midi_mapping;
+                }
+            }
+            p = p->next_midi_instance;
+        }
+    }
 }
 
 void printCsoundInstance(){
-
+    if (performance_layer.n_csound_instances != 0) {
+        printf("%i csound instances\n", performance_layer.n_csound_instances);
+        struct csound_mpeg4_instance* p = performance_layer.csound_instance;
+        printf("CSound Instance:\n");
+        while (p) {
+            if (p->n_csound_mpeg4_scores != 0) {
+                struct csound_mpeg4_score* k = p->csound_mpeg4_score;
+                printf("    %i csound scores\n", p->n_csound_mpeg4_scores);
+                while (k) {
+                    printf("    CSound Score: ");
+                    if (k->file_name)
+                        printf("file_name=%s ", k->file_name);
+                    if (k->rights.file_name)
+                        printf("rights=%s ", k->rights.file_name);
+                    printf("\n");
+                    if (k->n_csound_mpeg4_spine_events != 0) {
+                        struct csound_mpeg4_spine_event* t = k->csound_mpeg4_spine_event;
+                        int i = 0;
+                        printf("        %i csound spine events\n", k->n_csound_mpeg4_spine_events);
+                        while (t && i < N_DISPLAY) {
+                            printf("        CSound Spine Events: ");
+                            printf("( ");
+                            if (t->line_number)
+                                printf("line_number=%i ", t->line_number);
+                            if (t->event_ref)
+                                printf("event_ref=%s ", t->event_ref);
+                            printf(") ");
+                            t = t->next_csound_mpeg4_spine_event;
+                        }
+                        if (k->n_csound_mpeg4_spine_events > N_DISPLAY)printf("      ...");
+                        printf("\n");
+                    }
+                    k = k->next_csound_mpeg4_score;
+                }
+            }
+            if (p->n_csound_mpeg4_orchestras != 0) {
+                struct csound_mpeg4_orchestra* k = p->csound_mpeg4_orchestra;
+                printf("    %i csound orchestras\n", p->n_csound_mpeg4_orchestras);
+                while (k) {
+                    printf("    CSound Orchestra: ");
+                    if (k->file_name)
+                        printf("file_name=%s ", k->file_name);
+                    if (k->rights.file_name)
+                        printf("rights=%s ", k->rights.file_name);
+                    printf("\n");
+                    if (k->n_csound_mpeg4_instrument_mappings != 0) {
+                        struct csound_mpeg4_instrument_mapping* t = k->csound_mpeg4_instrument_mapping;
+                        printf("        %i csound instrument mappings\n", k->n_csound_mpeg4_instrument_mappings);
+                        while (t) {
+                            printf("        CSound Instrument Mappings: ");
+                            if (t->instrument_info)
+                                printf("instrument_number=%s ", t->instrument_info);
+                            if (t->start_line)
+                                printf("start_line=%i ", t->start_line);
+                            if (t->end_line)
+                                printf("end_line=%i ", t->end_line);
+                            if (t->pnml_file)
+                                printf("pnml_file=%s ", t->pnml_file);
+                            if (t->n_csound_mpeg4_part_refs) {
+                                struct csound_mpeg4_part_ref* pr = t->csound_mpeg4_part_ref;
+                                printf(" part_refs( ");
+                                int i = 0;
+                                while (pr) {
+                                    i++;
+                                    if (pr->part_ref) printf("part_ref=%s ",pr->part_ref);
+                                    pr = pr->next_csound_mpeg4_part_ref;
+                                }
+                                if (t->n_csound_mpeg4_spine_refs > N_DISPLAY)printf("      ...");
+                                printf(") ");
+                            }
+                            if (t->n_csound_mpeg4_spine_refs) {
+                                struct csound_mpeg4_spine_ref* sr = t->csound_mpeg4_spine_ref;
+                                printf(" spine_refs( ");
+                                int i = 0;
+                                while (sr) {
+                                    i++;
+                                    if (sr->event_ref) printf("event_ref=%s ",sr->event_ref);
+                                    sr = sr->next_csound_mpeg4_spine_ref;
+                                }
+                                if (t->n_csound_mpeg4_spine_refs > N_DISPLAY)printf("      ...");
+                                printf(") ");
+                            }
+                            printf("\n");
+                            t = t->next_csound_mpeg4_instrument_mapping;
+                        }
+                    }
+                    k = k->next_csound_mpeg4_orchestra;
+                }
+            }
+            p = p->next_csound_mpeg4_instance;
+        }
+    }
 }
 
 void printMpeg4Instance(){
-
+    if (performance_layer.n_mpeg4_instances != 0) {
+        printf("%i mpeg4 instances\n", performance_layer.n_csound_instances);
+        struct csound_mpeg4_instance* p = performance_layer.csound_instance;
+        printf("MPEG4 Instance:\n");
+        while (p) {
+            if (p->n_csound_mpeg4_scores != 0) {
+                struct csound_mpeg4_score* k = p->csound_mpeg4_score;
+                printf("    %i mpeg4 scores\n", p->n_csound_mpeg4_scores);
+                while (k) {
+                    printf("    MPEG4 Score: ");
+                    if (k->file_name)
+                        printf("file_name=%s ", k->file_name);
+                    if (k->rights.file_name)
+                        printf("rights=%s ", k->rights.file_name);
+                    printf("\n");
+                    if (k->n_csound_mpeg4_spine_events != 0) {
+                        struct csound_mpeg4_spine_event* t = k->csound_mpeg4_spine_event;
+                        int i = 0;
+                        printf("        %i mpeg4 spine events\n", k->n_csound_mpeg4_spine_events);
+                        while (t && i < N_DISPLAY) {
+                            printf("        MPEG4 Spine Events: ");
+                            printf("( ");
+                            if (t->line_number)
+                                printf("line_number=%i ", t->line_number);
+                            if (t->event_ref)
+                                printf("event_ref=%s ", t->event_ref);
+                            printf(") ");
+                            t = t->next_csound_mpeg4_spine_event;
+                        }
+                        if (k->n_csound_mpeg4_spine_events > N_DISPLAY)printf("      ...");
+                        printf("\n");
+                    }
+                    k = k->next_csound_mpeg4_score;
+                }
+            }
+            if (p->n_csound_mpeg4_orchestras != 0) {
+                struct csound_mpeg4_orchestra* k = p->csound_mpeg4_orchestra;
+                printf("    %i mpeg4 orchestras\n", p->n_csound_mpeg4_orchestras);
+                while (k) {
+                    printf("    MPEG4 Orchestra: ");
+                    if (k->file_name)
+                        printf("file_name=%s ", k->file_name);
+                    if (k->rights.file_name)
+                        printf("rights=%s ", k->rights.file_name);
+                    printf("\n");
+                    if (k->n_csound_mpeg4_instrument_mappings != 0) {
+                        struct csound_mpeg4_instrument_mapping* t = k->csound_mpeg4_instrument_mapping;
+                        printf("        %i mpeg4 instrument mappings\n", k->n_csound_mpeg4_instrument_mappings);
+                        while (t ) {
+                            printf("        MPEG4 Instrument Mappings: ");
+                            if (t->instrument_info)
+                                printf("instrument_name=%s ", t->instrument_info);
+                            if (t->start_line)
+                                printf("start_line=%i ", t->start_line);
+                            if (t->end_line)
+                                printf("end_line=%i ", t->end_line);
+                            if (t->pnml_file)
+                                printf("pnml_file=%s ", t->pnml_file);
+                            if (t->n_csound_mpeg4_part_refs) {
+                                struct csound_mpeg4_part_ref* pr = t->csound_mpeg4_part_ref;
+                                printf(" part_refs( ");
+                                int i = 0;
+                                while (pr && i < N_DISPLAY) {
+                                    i++;
+                                    if (pr->part_ref) printf("part_ref=%s ", pr->part_ref);
+                                    pr = pr->next_csound_mpeg4_part_ref;
+                                }
+                                if (t->n_csound_mpeg4_part_refs > N_DISPLAY)printf("        ...");
+                                printf(") ");
+                            }
+                            if (t->n_csound_mpeg4_spine_refs) {
+                                struct csound_mpeg4_spine_ref* sr = t->csound_mpeg4_spine_ref;
+                                printf(" spine_refs( ");
+                                int i = 0;
+                                while (sr && i < N_DISPLAY) {
+                                    i++;
+                                    if (sr->event_ref) printf("event_ref=%s ", sr->event_ref);
+                                    sr = sr->next_csound_mpeg4_spine_ref;
+                                }
+                                if (t->n_csound_mpeg4_spine_refs > N_DISPLAY)printf("        ...");
+                                printf(") ");
+                            }
+                            printf("\n");
+                            t = t->next_csound_mpeg4_instrument_mapping;
+                        }
+                    }
+                    k = k->next_csound_mpeg4_orchestra;
+                }
+            }
+            p = p->next_csound_mpeg4_instance;
+        }
+    }
 }

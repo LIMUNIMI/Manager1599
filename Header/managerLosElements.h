@@ -218,6 +218,7 @@ struct duration{
     
     int num;//REQUIRED
     int den;//REQUIRED
+
     struct tuplet_ratio* tuplet_ratio;//?
 };
 
@@ -280,10 +281,10 @@ struct voice{//(chord | rest | tablature_symbol | gregorian_symbol)+
     xmlChar* voice_item_ref;//REQUIRED
     int ossia;//(yes,no) default no
     
-    struct chord* chords;
-    struct rest* rests;
-    struct tablature_symbol* tablature_symbols;
-    struct gregorian_symbol* gregorian_symbols;
+    struct chord* chord;
+    struct rest* rest;
+    struct tablature_symbol* tablature_symbol;
+    struct gregorian_symbol* gregorian_symbol;
     
     struct voice* next_voice;
 };
@@ -341,6 +342,8 @@ struct multiple_ending{
 };
 
 struct multiple_endings{//+
+    int n_multiple_endigs;
+
     xmlChar* id;
 
     struct multiple_ending* multiple_ending;
@@ -382,12 +385,15 @@ struct end{
 };
 
 struct repeat{
+    int n_jump_tos;
+    int n_ends;
+
     xmlChar* id;
     xmlChar* event_ref;
     
     xmlChar* repeat_text;//?
-    struct jump_to* jump_tos;//(jump_to,end?)+
-    struct end* ends;//
+    struct jump_to* jump_to;//(jump_to,end?)+
+    struct end* end;//
 };
 
 struct barre{
@@ -407,17 +413,22 @@ struct tablature_element{
 };
 
 struct tablature_hsymbol{//(tablature_element|barre)+
+    int n_tablature_elements;
+    int n_barres;
+
     xmlChar *id;
     xmlChar* event_ref;
     int string_number;//REQUIRED
     xmlChar* start_fret;//REQUIRED
     int fret_number;//REQUIRED
     
-    struct barre* barres;
-    struct tablature_element* tablature_elements;
+    struct barre* barre;
+    struct tablature_element* tablature_element;
 };
 
 struct special_beam{//(notehead_ref+)
+    int n_notehead_refs;
+
     xmlChar* id;
     xmlChar* fanned_from;
     xmlChar* fanned_to;
@@ -522,6 +533,8 @@ struct bend{
 };
 
 struct arpeggio{
+    int n_notehead_refs;
+
     xmlChar* shape;//REQUIRED (wavy,line,no_arpeggio)
     xmlChar* direction;//(up,down) default=down
     
@@ -597,11 +610,13 @@ struct baroque_appoggiatura{
 };
 
 struct appoggiatura{//(chord+)
+    int n_chords;
+
     xmlChar* id;
     xmlChar* event_ref;
     int slur;//(yes,no) default no
     
-    struct chord* chords;
+    struct chord* chord;
 };
 
 struct baroque_acciaccatura{
@@ -611,11 +626,13 @@ struct baroque_acciaccatura{
 };
 
 struct acciaccatura{//(chord+)
+    int n_chords;
+
     xmlChar* id;
     xmlChar* event_ref;
     int slur;//(yes,no) default no
     
-    struct chord* chords;
+    struct chord* chord;
 };
 
 typedef union{
