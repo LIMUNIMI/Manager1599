@@ -466,3 +466,65 @@ void printNotes(){
         printf("Notes: %s\n", general_layer.notes);
     }
 }
+
+void freeAuthorsList(struct author* head) {
+    struct author* temp;
+    while (head) {
+        temp = head;
+        head = head->next_author;
+        free(temp);
+    }
+}
+
+void freeOtherTitlesList(struct other_title* head) {
+    struct other_title* temp;
+    while (head) {
+        temp = head;
+        head = head->next_title;
+        free(temp);
+    }
+}
+
+void freeDatesList(struct date* head) {
+    struct date* temp;
+    while (head) {
+        temp = head;
+        head = head->next_date;
+        free(temp);
+    }
+}
+
+void freeRelatedFilesList(struct related_file* head) {
+    struct related_file* temp;
+    while (head) {
+        temp = head;
+        head = head->next_file;
+        free(temp);
+    }
+}
+
+void freeAnalogMediaList(struct analog_medium* head) {
+    struct analog_medium* temp;
+    while (head) {
+        temp = head;
+        head = head->next_medium;
+        free(temp);
+    }
+}
+
+void freeGeneralLayer(struct general cur) {
+    if (cur.description.authors && cur.description.n_authors!=0)
+        freeAuthorsList(cur.description.authors);
+    if (cur.description.other_titles && cur.description.n_other_titles != 0)
+        freeOtherTitlesList(cur.description.other_titles);
+    if (cur.description.dates && cur.description.n_dates != 0)
+        freeDatesList(cur.description.dates);
+    if (cur.description.genres && cur.description.n_genres != 0)
+        freeGenresList(cur.description.genres);
+
+    if (cur.analog_media && cur.n_analog_media != 0)
+        freeAnalogMediaList(cur.analog_media);
+
+    if (cur.related_files && cur.n_related_files!=0)
+        freeRelatedFilesList(cur.related_files);
+}

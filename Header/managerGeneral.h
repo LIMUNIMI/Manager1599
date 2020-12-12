@@ -105,6 +105,12 @@ MANAGERIEEE1599_API void printRelatedFiles();
 MANAGERIEEE1599_API void printAnalogMedia();
 MANAGERIEEE1599_API void printNotes();
 
+void freeAuthorsList(struct author* head);
+void freeOtherTitlesList(struct other_title* head);
+void freeDatesList(struct date* head);
+void freeRelatedFilesList(struct related_file* head);
+void freeAnalogMediaList(struct analog_medium* head);
+MANAGERIEEE1599_API void freeGeneralLayer(struct general cur);
 
 #ifdef __cplusplus
 }

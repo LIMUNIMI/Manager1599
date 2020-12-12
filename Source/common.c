@@ -41,17 +41,17 @@ int getDoc(xmlChar* docpath){// return 1 if no errors occurred
         cur = xmlDocGetRootElement(doc);
         if (cur == NULL) {
             fprintf(stderr, "Empty document\n");
-            xmlFreeDoc(doc);
+            //xmlFreeDoc(doc);
             no_error = 0;
         }
         else if (xmlStrcmp(cur->name, (const xmlChar*)"ieee1599")) {
             fprintf(stderr, "Document is not ieee1599\n");
-            xmlFreeDoc(doc);
+            //xmlFreeDoc(doc);
             no_error = 0;
         }
         else if (isValid(doc) == 0) {
             fprintf(stdout, "Document is not Valid\n");
-            xmlFreeDoc(doc);
+            //xmlFreeDoc(doc);
             no_error = 0;
         }
     }
@@ -160,15 +160,25 @@ void clean() {
     }
 }
 
-MANAGERIEEE1599_API void setFileRootFolder(xmlChar* new_file_root_folder) {
+void setFileRootFolder(xmlChar* new_file_root_folder) {
     file_root_folder = new_file_root_folder;
 }
-MANAGERIEEE1599_API void setDtdRootFolder(xmlChar* new_dtd_root_folder) {
+void setDtdRootFolder(xmlChar* new_dtd_root_folder) {
     dtd_root_folder = new_dtd_root_folder;
 }
-MANAGERIEEE1599_API xmlChar* getFileRootFolder() {
+xmlChar* getFileRootFolder() {
     return file_root_folder;
 }
-MANAGERIEEE1599_API xmlChar* getDtdRootFolder() {
+xmlChar* getDtdRootFolder() {
     return dtd_root_folder;
+}
+
+
+void freeGenresList(struct genre* head) {
+    struct genre* temp;
+    while (head) {
+        temp = head;
+        head = head->next_genre;
+        free(temp);
+    }
 }

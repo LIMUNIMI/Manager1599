@@ -164,7 +164,7 @@ struct track_general loadTrackGeneral(xmlNodePtr cur){
             temp_cur=cur->xmlChildrenNode;
             while(temp_cur!=NULL){
                 if(!xmlStrcmp(temp_cur->name,(const xmlChar*)"genre")){
-                    genre_temp=(struct genre*)calloc(1,sizeof(struct genre));
+                    //genre_temp=(struct genre*)calloc(1,sizeof(struct genre));
                     
                     genre_temp=loadGenre(temp_cur);
                     
@@ -392,7 +392,12 @@ void printAudio(){
         struct track* p=audio_layer.tracks;
         while(p!=NULL&&i<N_DISPLAY){
             i++;
-            printf("%s\n",p->file_name);
+                printf("%s ",p->file_name);
+            if (p->file_format)
+                printf("file_format=%s ",p->file_format);
+            if (p->encoding_format)
+                printf("encoding_format=%s ",p->encoding_format);
+            printf("\n");
             printTrackGeneral(p->track_general);
             printTrackIndexing(p->track_indexing);
             if (p->rights.file_name)
@@ -426,7 +431,7 @@ void printTrackGeneral(struct track_general cur){
             if(p->date)
                 printf("date=%s ",cur.recordings->date);
             if (p->recorded_part)
-                printf("recorded part=%s ", p->recorded_part);
+                printf("recorded_part=%s ", p->recorded_part);
             if (p->studio_name)
                 printf("studio=%s ",p->studio_name);
             if (p->studio_address)
@@ -472,7 +477,7 @@ void printTrackGeneral(struct track_general cur){
             if (p->carrier_type)
                 printf("carrier=%s ", p->carrier_type);
             if (p->catalogue_number)
-                printf("catalog number=%s ", p->catalogue_number);
+                printf("catalog_number=%s ", p->catalogue_number);
             if (p->number_of_tracks)
                 printf("tracks=%i ", p->number_of_tracks);
             if (p->publication_date)
@@ -527,9 +532,9 @@ void printTrackIndexing(struct track_indexing cur){
             if (p->description)
                 printf("description=%s ", p->description);
             if (p->start_event_ref)
-                printf("start event ref=%s ", p->start_event_ref);
+                printf("start_event ref=%s ", p->start_event_ref);
             if (p->end_event_ref)
-                printf("end event ref=%s ", p->end_event_ref);
+                printf("end_event ref=%s ", p->end_event_ref);
             printf(") ");
             p = p->next_track_region;
         }
@@ -545,11 +550,11 @@ void printTrackIndexing(struct track_indexing cur){
             i++;
             printf("( ");
             if (p->start_time)
-                printf("start time=%s ", p->start_time);
+                printf("start_time=%s ", p->start_time);
             if (p->end_time)
-                printf("end time=%s ", p->end_time);
+                printf("end_time=%s ", p->end_time);
             if (p->event_ref)
-                printf("event ref=%s ", p->event_ref);
+                printf("event_ref=%s ", p->event_ref);
             if (p->description)
                 printf("description%s ", p->description);
             printf(") ");
@@ -559,4 +564,79 @@ void printTrackIndexing(struct track_indexing cur){
         printf("\n");
     }
 
+}
+
+void freeRecordingsList(struct recording* head) {
+    struct recording* temp;
+    while (head) {
+        temp = head;
+        head = head->next_recording;
+        free(temp);
+        
+    }
+}
+
+void freeAlbumsList(struct album* head) {
+    struct album* temp;
+    while (head) {
+        temp = head;
+        head = head->next_album;
+        free(temp);
+    }
+}
+
+void freePerformersList(struct performer* head) {
+    struct performer* temp;
+    while (head) {
+        temp = head;
+        head = head->next_performer;
+        free(temp);
+    }
+}
+
+void freeTrackEventsList(struct track_event* head) {
+    struct track_event* temp;
+    while (head) {
+        temp = head;
+        head = head->next_track_event;
+        free(temp);
+    }
+}
+
+void freeTrackRegionsList(struct track_region* head) {
+    struct track_region* temp;
+    while (head) {
+        temp = head;
+        head = head->next_track_region;
+        free(temp);
+    }
+}
+
+void freeTracksList(struct track* head) {
+    struct track* temp;
+    while (head) {
+        temp = head;
+        head = head->next_track;
+
+        if(temp->track_indexing.track_regions)
+            freeTrackRegionsList(temp->track_indexing.track_regions);
+        if(temp->track_indexing.track_events)
+            freeTrackEventsList(temp->track_indexing.track_events);
+        
+        if(temp->track_general.recordings)
+            freeRecordingsList(temp->track_general.recordings);
+        if(temp->track_general.genres)
+            freeGenresList(temp->track_general.genres);
+        if(temp->track_general.albums)
+            freeAlbumsList(temp->track_general.albums);
+        if(temp->track_general.performers)
+            freePerformersList(temp->track_general.performers);
+
+        free(temp);
+    }
+}
+
+void freeAudioLayer(struct audio cur) {
+    if (cur.tracks && cur.n_tracks!=0) 
+        freeTracksList(cur.tracks);  
 }

@@ -81,3 +81,13 @@ void setFileName(xmlChar* file_name) {
 xmlChar* getFileName() {
     return ieee1599_root.file_name;
 }
+
+
+void freeDocument() {
+    freeGeneralLayer(ieee1599_root.general_layer);
+    freeLogicLayer(ieee1599_root.logic_layer);
+    freeStructuralLayer(ieee1599_root.structural_layer);
+    freeNotationalLayer(ieee1599_root.notational_layer);
+    freePerformanceLayer(ieee1599_root.performance_layer);
+    freeAudioLayer(ieee1599_root.audio_layer);
+}

@@ -123,6 +123,14 @@ extern "C" {
     MANAGERIEEE1599_API void printTrackGeneral(struct track_general cur);
     MANAGERIEEE1599_API void printTrackIndexing(struct track_indexing cur);
 
+    MANAGERIEEE1599_API void freeAudioLayer(struct audio cur);
+    void freeTracksList(struct track* head);
+    void freeTrackRegionsList(struct track_region* head);
+    void freeTrackEventsList(struct track_event* head);
+    void freePerformersList(struct performer* head);
+    void freeAlbumsList(struct album* head);
+    void freeRecordingsList(struct recording* head);
+
 #ifdef __cplusplus
 }
 #endif

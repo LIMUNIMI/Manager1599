@@ -88,6 +88,8 @@ MANAGERIEEE1599_API void setDtdRootFolder(xmlChar* dtd_root_folder);
 MANAGERIEEE1599_API xmlChar* getFileRootFolder();
 MANAGERIEEE1599_API xmlChar* getDtdRootFolder();
 
+void freeGenresList(struct genre* head);
+
 #ifdef __cplusplus
 }
 #endif

@@ -1150,3 +1150,154 @@ void printMpeg4Instance(){
         }
     }
 }
+
+void freeSysExsList(struct sys_ex* head) {
+    struct sys_ex* temp;
+    while (head) {
+        temp = head;
+        head = head->next_sys_ex;
+        free(temp);
+    }
+}
+
+void freeMidiEventsList(struct midi_event* head) {
+    struct midi_event* temp;
+    while (head) {
+        temp = head;
+        head = head->next_midi_event;
+        free(temp);
+    }
+}
+
+void freeMidiEventSequencesList(struct midi_event_sequence* head) {
+    struct midi_event_sequence* temp;
+    while (head) {
+        temp = head;
+        head = head->next_midi_event_sequence;
+
+        if (temp->midi_event)
+            freeMidiEventsList(temp->midi_event);
+        if (temp->sys_ex)
+            freeSysExsList(temp->sys_ex);
+
+        free(temp);
+    }
+}
+
+void freeMidiMappingsList(struct midi_mapping* head) {
+    struct midi_mapping* temp;
+    while (head) {
+        temp = head;
+        head = head->next_midi_mapping;
+
+        if (temp->midi_event_sequence)
+            freeMidiEventSequencesList(temp->midi_event_sequence);
+
+        free(temp);
+    }
+}
+
+void freeMidiInstancesList(struct midi_instance* head) {
+    struct midi_instance* temp;
+    while (head) {
+        temp = head;
+        head = head->next_midi_instance;
+
+        if (temp->midi_mapping)
+            freeMidiMappingsList(temp->midi_mapping);
+
+        free(temp);
+    }
+}
+
+void freeCsoundMpeg4SpineRefsList(struct csound_mpeg4_spine_ref* head) {
+    struct csound_mpeg4_spine_ref* temp;
+    while (head) {
+        temp = head;
+        head = head->next_csound_mpeg4_spine_ref;
+        free(temp);
+    }
+}
+
+void freeCsoundMpeg4PartRefsList(struct csound_mpeg4_part_ref* head) {
+    struct csound_mpeg4_part_ref* temp;
+    while (head) {
+        temp = head;
+        head = head->next_csound_mpeg4_part_ref;
+        free(temp);
+    }
+}
+
+void freeCsoundMpeg4InstrumentMappingsList(struct csound_mpeg4_instrument_mapping* head) {
+    struct csound_mpeg4_instrument_mapping* temp;
+    while (head) {
+        temp = head;
+        head = head->next_csound_mpeg4_instrument_mapping;
+
+        if (temp->csound_mpeg4_part_ref)
+            freeCsoundMpeg4PartRefsList(temp->csound_mpeg4_part_ref);
+        if (temp->csound_mpeg4_spine_ref)
+            freeCsoundMpeg4SpineRefsList(temp->csound_mpeg4_spine_ref);
+
+        free(temp);
+    }
+}
+
+void freeCsoundMpeg4OrtchestrasList(struct csound_mpeg4_orchestra* head) {
+    struct csound_mpeg4_orchestra* temp;
+    while (head) {
+        temp = head;
+        head = head->next_csound_mpeg4_orchestra;
+
+        if (temp->csound_mpeg4_instrument_mapping)
+            freeCsoundMpeg4PartRefsList(temp->csound_mpeg4_instrument_mapping);
+
+        free(temp);
+    }
+}
+
+void freeCsoundMpeg4SpineEventsList(struct csound_mpeg4_spine_event* head) {
+    struct csound_mpeg4_spine_event* temp;
+    while (head) {
+        temp = head;
+        head = head->next_csound_mpeg4_spine_event;
+        free(temp);
+    }
+}
+
+void freeCsoundMpeg4ScoresList(struct csound_mpeg4_score* head) {
+    struct csound_mpeg4_score* temp;
+    while (head) {
+        temp = head;
+        head = head->next_csound_mpeg4_score;
+
+        if (temp->csound_mpeg4_spine_event)
+            freeCsoundMpeg4SpineEventsList(temp->csound_mpeg4_spine_event);
+
+        free(temp);
+    }
+}
+
+void freeCsoundMpeg4InstancesList(struct csound_mpeg4_instance* head) {
+    struct csound_mpeg4_instance* temp;
+    while (head) {
+        temp = head;
+        head = head->next_csound_mpeg4_instance;
+
+        if (temp->csound_mpeg4_score)
+            freeCsoundMpeg4ScoresList(temp->csound_mpeg4_score);
+        if (temp->csound_mpeg4_orchestra)
+            freeCsoundMpeg4OrtchestrasList(temp->csound_mpeg4_orchestra);
+
+        free(temp);
+    }
+}
+
+void freePerformanceLayer(struct performance cur) {
+    if (cur.midi_instance && cur.n_midi_instances!=0)
+        freeMidiInstancesList(cur.midi_instance);
+    if (cur.csound_instance && cur.n_csound_instances != 0)
+        freeCsoundMpeg4InstancesList(cur.csound_instance);
+    if (cur.mpeg4_instance && cur.n_mpeg4_instances != 0)
+        freeCsoundMpeg4InstancesList(cur.mpeg4_instance);
+}

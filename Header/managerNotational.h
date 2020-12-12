@@ -117,6 +117,12 @@ extern "C" {
     MANAGERIEEE1599_API void printGraphicInstanceGroup();
     MANAGERIEEE1599_API void printNotationInstanceGroup();
 
+    MANAGERIEEE1599_API void freeNotationalLayer(struct notational cur);
+    void freeGraphicEventsList(struct graphic_event* head);
+    void freeGraphicInstancesList(struct graphic_instance* head);
+    void freeGraphicInstanceGroupsList(struct graphic_instance_group* head);
+    void freeNotationEventsList(struct notation_event* head);
+
 #ifdef __cplusplus
 }
 #endif

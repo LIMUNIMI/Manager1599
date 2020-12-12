@@ -1201,3 +1201,208 @@ void printMir() {
         }
     }
 }
+
+void freeMirFeaturesList(struct mir_feature* head) {
+    struct mir_feature* temp;
+    while (head) {
+        temp = head;
+        head = head->next_mir_feature;
+        free(temp);
+    }
+}
+
+void freeMirMorphismsList(struct mir_morphism* head) {
+    struct mir_morphism* temp;
+    while (head) {
+        temp = head;
+        head = head->next_mir_morphism;
+        
+        if (temp->mir_feature)
+            freeMirFeaturesList(temp->mir_feature);
+
+        free(temp);
+    }
+}
+
+void freeMirSubobjectsList(struct mir_subobject* head) {
+    struct mir_subobject* temp;
+    while (head) {
+        temp = head;
+        head = head->next_mir_subobject;
+
+        if (temp->mir_feature)
+            freeMirFeaturesList(temp->mir_feature);
+
+        free(temp);
+    }
+}
+
+void freeMirObjectsList(struct mir_object* head) {
+    struct mir_object* temp;
+    while (head) {
+        temp = head;
+        head = head->next_mir_object;
+
+        if (temp->mir_subobject)
+            freeMirSubobjectsList(temp->mir_subobject);
+        if (temp->mir_feature)
+            freeMirFeaturesList(temp->mir_feature);
+
+        free(temp);
+    }
+}
+
+void freeMirModelsList(struct mir_model* head) {
+    struct mir_model* temp;
+    while (head) {
+        temp = head;
+        head = head->next_mir_model;
+
+        if (temp->mir_object)
+            freeMirObjectsList(temp->mir_object);
+        if (temp->mir_morphism)
+            freeMirMorphismsList(temp->mir_morphism);
+
+        free(temp);
+    }
+}
+
+void freeTransitionsList(struct transition* head) {
+    struct transition* temp;
+    while (head) {
+        temp = head;
+        head = head->next_transition;
+        free(temp);
+    }
+}
+
+void freePlacesList(struct place* head) {
+    struct place* temp;
+    while (head) {
+        temp = head;
+        head = head->next_place;
+        free(temp);
+    }
+}
+
+void freePetriNetsList(struct petri_net* head) {
+    struct petri_net* temp;
+    while (head) {
+        temp = head;
+        head = head->next_petri_net;
+
+        if (temp->place)
+            freePlacesList(temp->place);
+        if (temp->transition)
+            freeTransitionsList(temp->transition);
+
+        free(temp);
+    }
+}
+
+void freeFeatureObjectsList(struct feature_object* head) {
+    struct feature_object* temp;
+    while (head) {
+        temp = head;
+        head = head->next_feature_object;
+        free(temp);
+    }
+}
+
+void freeSegmentEventsList(struct segment_event* head) {
+    struct segment_event* temp;
+    while (head) {
+        temp = head;
+        head = head->next_segment_event;
+        free(temp);
+    }
+}
+
+void freeSegmentsList(struct segment* head) {
+    struct segment* temp;
+    while (head) {
+        temp = head;
+        head = head->next_segment;
+
+        if (temp->segment_event)
+            freeSegmentEventsList(temp->segment_event);
+        if (temp->feature_object)
+            freeFeatureObjectsList(temp->feature_object);
+
+        free(temp);
+    }
+}
+
+void freeSegmentation(struct segmentation* cur) {
+        if (cur->segment)
+            freeSegmentsList(cur->segment);
+        free(cur);
+}
+
+void freeFeatureObjectRelationshipsList(struct feature_object_relationship* head) {
+    struct feature_object_relationship* temp;
+    while (head) {
+        temp = head;
+        head = head->next_feature_object_relationship;
+        free(temp);
+    }
+}
+
+void freeRelationshipsList(struct relationship* head) {
+    struct relationship* temp;
+    while (head) {
+        temp = head;
+        head = head->next_relationship;
+        free(temp);
+    }
+}
+
+void freeAnalysisList(struct analysis* head) {
+    struct analysis* temp;
+    while (head) {
+        temp = head;
+        head = head->next_analysis;
+
+        if (temp->segmentation)
+            freeSegmentation(temp->segmentation);
+        if (temp->relationships)
+            freeRelationshipsList(temp->relationships);
+        if (temp->feature_object_relationship)
+            freeFeatureObjectRelationshipsList(temp->feature_object_relationship);
+
+        free(temp);
+    }
+}
+
+void freeChordNamesList(struct chord_name* head) {
+    struct chord_name* temp;
+    while (head) {
+        temp = head;
+        head = head->next_chord_name;
+        free(temp);
+    }
+}
+
+void freeChordGridsList(struct chord_grid* head) {
+    struct chord_grid* temp;
+    while (head) {
+        temp = head;
+        head = head->next_chord_grid;
+
+        if (temp->chord_name)
+            freeChordNamesList(temp->chord_name);
+
+        free(temp);
+    }
+}
+
+void freeStructuralLayer(struct structural cur) {
+    if (cur.chord_grid && cur.n_chord_grids!=0)
+        freeChordGridsList(cur.chord_grid);
+    if (cur.analysis && cur.n_analysis != 0)
+        freeAnalysisList(cur.analysis);
+    if (cur.petri_nets && cur.n_petri_nets != 0)
+        freePetriNetsList(cur.petri_nets);
+    if (cur.mir && cur.n_mir_models!= 0)
+        freeMirModelsList(cur.mir);
+}

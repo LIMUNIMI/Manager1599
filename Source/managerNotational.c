@@ -477,3 +477,80 @@ void printNotationInstanceGroup() {
         }
     }
 }
+
+void freeGraphicEventsList(struct graphic_event* head) {
+    struct graphic_event* temp;
+    while (head) {
+        temp = head;
+        head = head->next_graphic_event;
+        free(temp);
+    }
+}
+
+void freeGraphicInstancesList(struct graphic_instance* head) {
+    struct graphic_instance* temp;
+    while (head) {
+        temp = head;
+        head = head->next_graphic_instance;
+
+        if (temp->graphic_event)
+            freeGraphicEventsList(temp->graphic_event);
+
+        free(temp);
+    }
+}
+
+void freeGraphicInstanceGroupsList(struct graphic_instance_group* head) {
+    struct graphic_instance_group* temp;
+    while (head) {
+        temp = head;
+        head = head->next_graphic_instance_group;
+
+        if (temp->graphic_instance)
+            freeGraphicInstancesList(temp->graphic_instance);
+
+        free(temp);
+    }
+}
+
+void freeNotationEventsList(struct notation_event* head) {
+    struct notation_event* temp;
+    while (head) {
+        temp = head;
+        head = head->next_notation_event;
+        free(temp);
+    }
+}
+
+void freeNotationInstancesList(struct notation_instance* head) {
+    struct notation_instance* temp;
+    while (head) {
+        temp = head;
+        head = head->next_notation_instance;
+
+        if (temp->notation_event)
+            freeNotationEventsList(temp->notation_event);
+
+        free(temp);
+    }
+}
+
+void freeNotationInstanceGroupsList(struct notation_instance_group* head) {
+    struct notation_instance_group* temp;
+    while (head) {
+        temp = head;
+        head = head->next_notation_instance_group;
+
+        if (temp->notation_instance)
+            freeNotationInstancesList(temp->notation_instance);
+
+        free(temp);
+    }
+}
+
+void freeNotationalLayer(struct notational cur) {
+    if (cur.graphic_instance_group && cur.n_graphic_insance_groups)
+        freeGraphicInstanceGroupsList(cur.graphic_instance_group);
+    if (cur.notation_instance_group && cur.n_notation_instance_groups)
+        freeNotationInstanceGroupsList(cur.notation_instance_group);
+}

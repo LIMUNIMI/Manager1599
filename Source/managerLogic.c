@@ -1939,16 +1939,11 @@ void printKey(struct key* cur) {
 }
 
 void printOrnament(ornament cur) {
-    if (cur.acciaccatura.event_ref) {
-        printf("Acciaccatura event_ref=%s ", cur.acciaccatura.event_ref);
+    if (!xmlStrcmp(cur.acciaccatura.ornament_name, (const xmlChar*)"acciaccatura")) {
+        printf("%s ", cur.acciaccatura.ornament_name);
+        if (cur.acciaccatura.event_ref) printf("event_ref=%s ", cur.acciaccatura.event_ref);
         if (cur.acciaccatura.id) printf("id=%s ", cur.acciaccatura.id);
-        if (cur.acciaccatura.n_chords != 0) {
-            struct chord* p = cur.acciaccatura.chord;
-            while (p) {
-                printf("notehead_ref=%s ", p->event_ref);
-                p = p->next_chord;
-            }
-        }
+        if (cur.acciaccatura.slur) if (cur.acciaccatura.slur == 1) printf("slur ");
         if (cur.acciaccatura.n_chords != 0) {
             printf("    %i chords\n", cur.acciaccatura.n_chords);
             struct chord* k = cur.acciaccatura.chord;
@@ -1961,32 +1956,81 @@ void printOrnament(ornament cur) {
         }
         printf("\n");
     }
-    else if (cur.baroque_acciaccatura.event_ref) {
-        printf("baroque_acciaccatura \n");
+    else if (!xmlStrcmp(cur.baroque_acciaccatura.ornament_name, (const xmlChar*)"baroque_acciaccatura")) {
+        printf("%s ", cur.baroque_acciaccatura.ornament_name);
+        if (cur.baroque_acciaccatura.event_ref) printf("event_ref=%s ", cur.baroque_acciaccatura.event_ref);
+        if (cur.baroque_acciaccatura.id) printf("id=%s ", cur.baroque_acciaccatura.id);
+        if (cur.baroque_acciaccatura.style) printf("style=%s ", cur.baroque_acciaccatura.style);
+        printf("\n");
     }
-    else if (cur.appoggiatura.event_ref) {
-        printf("appoggiatura \n");
+    else if (!xmlStrcmp(cur.appoggiatura.ornament_name, (const xmlChar*)"appoggiatura")) {
+        printf("%s ", cur.appoggiatura.ornament_name);
+        if (cur.appoggiatura.event_ref) printf("event_ref=%s ", cur.appoggiatura.event_ref);
+        if (cur.appoggiatura.id) printf("id=%s ", cur.appoggiatura.id);
+        if (cur.appoggiatura.slur) if (cur.appoggiatura.slur == 1) printf("slur ");
+        if (cur.appoggiatura.n_chords != 0) {
+            printf("    %i chords\n", cur.appoggiatura.n_chords);
+            struct chord* k = cur.appoggiatura.chord;
+            while (k) {
+                printf("        Chord: ( ");
+                printChord(k);
+                printf(")\n");
+                k = k->next_chord;
+            }
+        }
+        printf("\n");
     }
-    else if (cur.baroque_appoggiatura.event_ref) {
-        printf("baroque_appoggiatura \n");
+    else if (!xmlStrcmp(cur.baroque_appoggiatura.ornament_name, (const xmlChar*)"baroque_appoggiatura")) {
+        printf("%s ", cur.baroque_appoggiatura.ornament_name);
+        if (cur.baroque_appoggiatura.event_ref) printf("event_ref=%s ", cur.baroque_appoggiatura.event_ref);
+        if (cur.baroque_appoggiatura.id) printf("id=%s ", cur.baroque_appoggiatura.id);
+        if (cur.baroque_appoggiatura.style) printf("style=%s ", cur.baroque_appoggiatura.style);
+        printf("\n");
     }
-    else if (cur.mordent.event_ref) {
-        printf("mordent \n");
+    else if (!xmlStrcmp(cur.mordent.ornament_name, (const xmlChar*)"mordent")) {
+        printf("%s ", cur.mordent.ornament_name);
+        if (cur.mordent.event_ref) printf("event_ref=%s ", cur.mordent.event_ref);
+        if (cur.mordent.id) printf("id=%s ", cur.mordent.id);
+        if (cur.mordent.type) printf("type=%s ", cur.mordent.type);
+        if (cur.mordent.length) printf("length=%s ", cur.mordent.length);
+        if (cur.mordent.accidental) printf("accidental=%s ", cur.mordent.accidental);
+        if (cur.mordent.style) printf("style=%s ", cur.mordent.style);
+        printf("\n");
     }
-    else if (cur.tremolo.start_event_ref) {
-        printf("tremolo \n");
+    else if (!xmlStrcmp(cur.tremolo.ornament_name, (const xmlChar*)"tremolo")) {
+        printf("%s ", cur.tremolo.ornament_name);
+        if (cur.tremolo.id) printf("id=%s ", cur.tremolo.id);
+        if (cur.tremolo.start_event_ref) printf("start_event_ref=%s ", cur.tremolo.start_event_ref);
+        if (cur.tremolo.end_event_ref) printf("end_event_ref=%s ", cur.tremolo.end_event_ref);
+        if (cur.tremolo.tremolo_lines) printf("tremolo_lines=%i ", cur.tremolo.tremolo_lines);
+        printf("\n");
     }
-    else if (cur.trill.event_ref) {
-        printf("trill \n");
+    else if (!xmlStrcmp(cur.trill.ornament_name, (const xmlChar*)"trill")) {
+        printf("%s ", cur.trill.ornament_name);
+        if (cur.trill.event_ref) printf("event_ref=%s ", cur.trill.event_ref);
+        if (cur.trill.id) printf("id=%s ", cur.trill.id);
+        if (cur.trill.accidental) printf("accidental=%s ", cur.trill.accidental);
+        if (cur.trill.style) printf("style=%s ", cur.trill.style);
+        if (cur.trill.start_hook) printf("start_hook=%s ", cur.trill.start_hook);
+        if (cur.trill.end_hook) printf("end_hook=%s ", cur.trill.end_hook);
+        printf("\n");
     }
-    else if (cur.turn.event_ref) {
-        printf("turn \n");
+    else if (!xmlStrcmp(cur.turn.ornament_name, (const xmlChar*)"turn")) {
+        printf("%s ", cur.turn.ornament_name);
+        if (cur.turn.event_ref) printf("event_ref=%s ", cur.turn.event_ref);
+        if (cur.turn.id) printf("id=%s ", cur.turn.id);
+        if (cur.turn.type) printf("type=%s ", cur.turn.type);
+        if (cur.turn.style) printf("style=%s ", cur.turn.style);
+        if (cur.turn.upper_accidental) printf("upper_accidental=%s ", cur.turn.upper_accidental);
+        if (cur.turn.lower_accidental) printf("lower_accidental=%s ", cur.turn.lower_accidental);
+        printf("\n");
     }
 }
 
 void printHorizontalSymbol(horizontal_symbol cur) {
-    if (cur.arpeggio.shape) {
-        printf("Arpeggio shape=%s ",cur.arpeggio.shape);
+    if (!xmlStrcmp(cur.arpeggio.horizontal_symbol_name,(const xmlChar*)"arpeggio")) {
+        printf("%s ", cur.arpeggio.horizontal_symbol_name);
+        if(cur.arpeggio.shape) printf("shape=%s ", cur.arpeggio.shape);
         if (cur.arpeggio.direction) printf("direction=%s ", cur.arpeggio.direction);
         if (cur.arpeggio.n_notehead_refs != 0) {
             struct notehead_ref* p = cur.arpeggio.notehead_ref;
@@ -1997,8 +2041,8 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         }
         printf("\n");
     }
-    else if (cur.bend.to_pitch) {
-        printf("Bend ");
+    else if (!xmlStrcmp(cur.bend.horizontal_symbol_name, (const xmlChar*)"bend")) {
+        printf("%s ", cur.bend.horizontal_symbol_name);
         if (cur.bend.id) printf("id=%s ", cur.bend.id);
         if (cur.bend.event_ref) printf("event_ref=%s ", cur.bend.event_ref);
         if (cur.bend.type) printf("type=%s ", cur.bend.type);
@@ -2006,8 +2050,8 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         if (cur.bend.to_accidental) printf("to_accidental=%s ", cur.bend.to_accidental);
         printf("\n");
     }
-    else if (cur.breath_mark.type) {
-        printf("Breath Mark ");
+    else if (!xmlStrcmp(cur.breath_mark.horizontal_symbol_name, (const xmlChar*)"breath_mark")) {
+        printf("%s ", cur.breath_mark.horizontal_symbol_name);
         if (cur.breath_mark.id) printf("id=%s ", cur.breath_mark.id);
         if (cur.breath_mark.type) printf("type=%s ", cur.breath_mark.type);
         if (cur.breath_mark.staff_ref) printf("staff_ref=%s ", cur.breath_mark.staff_ref);
@@ -2015,15 +2059,15 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         if (cur.breath_mark.end_event_ref) printf("end_event_ref=%s ", cur.breath_mark.end_event_ref);
         printf("\n");
     }
-    else if (cur.chord_symbol.event_ref) {
-        printf("Chord Symbol ");
+    else if (!xmlStrcmp(cur.chord_symbol.horizontal_symbol_name, (const xmlChar*)"chord_symbol")) {
+        printf("%s ", cur.chord_symbol.horizontal_symbol_name);
         if (cur.chord_symbol.id) printf("id=%s ", cur.chord_symbol.id);
         if (cur.chord_symbol.event_ref) printf("event_ref=%s ", cur.chord_symbol.event_ref); 
         if (cur.chord_symbol.chord_symbol_value) printf("value=%s ", cur.chord_symbol.chord_symbol_value);
         printf("\n");
     }
-    else if (cur.dynamic.event_ref) {
-        printf("Dynamic ");
+    else if (!xmlStrcmp(cur.dynamic.horizontal_symbol_name, (const xmlChar*)"dynamic")) {
+        printf("%s ", cur.dynamic.horizontal_symbol_name);
         if (cur.dynamic.id) printf("id=%s ", cur.dynamic.id);
         if (cur.dynamic.extension_line_to) printf("extension_line_to=%s ", cur.dynamic.extension_line_to);
         if (cur.dynamic.extension_line_shape) printf("extension_line_shape=%s ", cur.dynamic.extension_line_shape);
@@ -2032,22 +2076,22 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         if (cur.dynamic.dynamic_value) printf("value=%s ", cur.dynamic.dynamic_value);
         printf("\n");
     }
-    else if (cur.fermata.event_ref) {
-        printf("Fermata ");
+    else if (!xmlStrcmp(cur.fermata.horizontal_symbol_name, (const xmlChar*)"fermata")) {
+        printf("%s ", cur.fermata.horizontal_symbol_name);
         if (cur.fermata.id) printf("id=%s ", cur.fermata.id);
         if (cur.fermata.event_ref) printf("event_ref=%s ", cur.fermata.event_ref);
         if (cur.fermata.fermata_value) printf("value=%i ", cur.fermata.fermata_value);
         printf("\n");
     }
-    else if (cur.glissando.start_event_ref) {
-        printf("Glissando ");
+    else if (!xmlStrcmp(cur.glissando.horizontal_symbol_name, (const xmlChar*)"glissando")) {
+        printf("%s ", cur.glissando.horizontal_symbol_name);
         if (cur.glissando.id) printf("id=%s ", cur.glissando.id);
         if (cur.glissando.start_event_ref) printf("start_event_ref=%s ", cur.glissando.start_event_ref);
         if (cur.glissando.end_event_ref) printf("end_event_ref=%s ", cur.glissando.end_event_ref);
         printf("\n");
     }
-    else if (cur.hairpin.type) {
-        printf("Hairpin ");
+    else if (!xmlStrcmp(cur.hairpin.horizontal_symbol_name, (const xmlChar*)"hairpin")) {
+        printf("%s ", cur.hairpin.horizontal_symbol_name);
         if (cur.hairpin.id) printf("id=%s ", cur.hairpin.id);
         if (cur.hairpin.type) printf("type=%s ", cur.hairpin.type);
         if (cur.hairpin.staff_ref) printf("staff_ref=%s ", cur.hairpin.staff_ref);
@@ -2055,8 +2099,8 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         if (cur.hairpin.end_event_ref) printf("end_event_ref=%s ", cur.hairpin.end_event_ref);
         printf("\n");
     }
-    else if (cur.octave_bracket.staff_ref) {
-        printf("Octave Bracket ");
+    else if (!xmlStrcmp(cur.octave_bracket.horizontal_symbol_name, (const xmlChar*)"octave_bracket")) {
+        printf("%s ", cur.octave_bracket.horizontal_symbol_name);
         if (cur.octave_bracket.id) printf("id=%s ", cur.octave_bracket.id);
         if (cur.octave_bracket.type) printf("type=%s ", cur.octave_bracket.type);
         if (cur.octave_bracket.staff_ref) printf("staff_ref=%s ", cur.octave_bracket.staff_ref);
@@ -2064,20 +2108,20 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         if (cur.octave_bracket.end_event_ref) printf("end_event_ref=%s ", cur.octave_bracket.end_event_ref);
         printf("\n");
     }
-    else if (cur.pedal_start.event_ref) {
-        printf("Pedal Start ");
+    else if (!xmlStrcmp(cur.pedal_start.horizontal_symbol_name, (const xmlChar*)"pedal_start")) {
+        printf("%s ", cur.pedal_start.horizontal_symbol_name);
         if (cur.pedal_start.id) printf("id=%s ", cur.pedal_start.id);
         if (cur.pedal_start.event_ref) printf("type=%s ", cur.pedal_start.event_ref);
         printf("\n");
     }
-    else if (cur.pedal_end.event_ref) {
-        printf("Pedal End ");
+    else if (!xmlStrcmp(cur.pedal_end.horizontal_symbol_name, (const xmlChar*)"pedal_end")) {
+        printf("%s ", cur.pedal_end.horizontal_symbol_name);
         if (cur.pedal_end.id) printf("id=%s ", cur.pedal_end.id);
         if (cur.pedal_end.event_ref) printf("type=%s ", cur.pedal_end.event_ref);
         printf("\n");
     }
-    else if (cur.percussion_beater.start_event_ref) {
-        printf("Percussion Beater ");
+    else if (!xmlStrcmp(cur.percussion_beater.horizontal_symbol_name, (const xmlChar*)"percussion_beater")) {
+        printf("%s ", cur.percussion_beater.horizontal_symbol_name);
         if (cur.percussion_beater.percussion_beater_value) printf("value=%s ", cur.percussion_beater.percussion_beater_value);
         if (cur.percussion_beater.id) printf("id=%s ", cur.percussion_beater.id);
         if (cur.percussion_beater.type) printf("type=%s ", cur.percussion_beater.type);
@@ -2085,16 +2129,16 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         if (cur.percussion_beater.end_event_ref) printf("end_event_ref=%s ", cur.percussion_beater.end_event_ref);
         printf("\n");
     }
-    else if (cur.percussion_special.event_ref) {
-        printf("Percussion Special ");
+    else if (!xmlStrcmp(cur.percussion_special.horizontal_symbol_name, (const xmlChar*)"percussion_special")) {
+    printf("%s ", cur.percussion_special.horizontal_symbol_name);
         if (cur.percussion_special.percussion_special_value) printf("value=%s ", cur.percussion_special.percussion_special_value);
         if (cur.percussion_special.id) printf("id=%s ", cur.percussion_special.id);
         if (cur.percussion_special.type) printf("type=%s ", cur.percussion_special.type);
         if (cur.percussion_special.event_ref) printf("event_ref=%s ", cur.percussion_special.event_ref);
         printf("\n");
     }
-    else if (cur.slur.start_event_ref) {
-        printf("Slur ");
+    else if (!xmlStrcmp(cur.slur.horizontal_symbol_name, (const xmlChar*)"slur")) {
+    printf("%s ", cur.slur.horizontal_symbol_name);
         if (cur.slur.id) printf("id=%s ", cur.slur.id);
         if (cur.slur.start_event_ref) printf("start_event_ref=%s ", cur.slur.start_event_ref);
         if (cur.slur.end_event_ref) printf("end_event_ref=%s ", cur.slur.end_event_ref);
@@ -2102,8 +2146,8 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         if (cur.slur.bracketed) if (cur.slur.bracketed == 1) printf("bracketed ");
         printf("\n");
     }
-    else if (cur.special_beam.n_notehead_refs!=0) {
-        printf("Special Beam ");
+    else if (!xmlStrcmp(cur.special_beam.horizontal_symbol_name, (const xmlChar*)"special_beam")) {
+    printf("%s ", cur.special_beam.horizontal_symbol_name);
         if (cur.special_beam.id) printf("id=%s ", cur.special_beam.id);
         if (cur.special_beam.fanned_from) printf("fanned_from=%s ", cur.special_beam.fanned_from);
         if (cur.special_beam.fanned_to) printf("fanned_to=%s ", cur.special_beam.fanned_to);
@@ -2116,8 +2160,8 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         }
         printf("\n");
     }
-    else if (cur.tablature_hsymbol.event_ref) {
-        printf("Tablature Hsymbol ");
+    else if (!xmlStrcmp(cur.tablature_hsymbol.horizontal_symbol_name, (const xmlChar*)"tablature_hsymbol")) {
+    printf("%s ", cur.tablature_hsymbol.horizontal_symbol_name);
         if (cur.tablature_hsymbol.id) printf("id=%s ", cur.tablature_hsymbol.id);
         if (cur.tablature_hsymbol.event_ref) printf("event_ref=%s ", cur.tablature_hsymbol.event_ref);
         if (cur.tablature_hsymbol.string_number) printf("string_number=%i ", cur.tablature_hsymbol.string_number);
@@ -2147,8 +2191,8 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         }
         printf("\n");
     }
-    else if (cur.repeat.event_ref) {
-        printf("Repeat ");
+    else if (!xmlStrcmp(cur.repeat.horizontal_symbol_name, (const xmlChar*)"repeat")) {
+    printf("%s ", cur.repeat.horizontal_symbol_name);
         if (cur.repeat.id) printf("id=%s ", cur.repeat.id);
         if (cur.repeat.event_ref) printf("event_ref=%s ", cur.repeat.event_ref);
         if (cur.repeat.repeat_text) printf("repeat_text=%s ", cur.repeat.repeat_text);
@@ -2174,37 +2218,271 @@ void printHorizontalSymbol(horizontal_symbol cur) {
         }
         printf("\n");
     }
-    else if (cur.segno.event_ref) {
-        printf("Segno ");
+    else if (!xmlStrcmp(cur.segno.horizontal_symbol_name, (const xmlChar*)"segno")) {
+    printf("%s ", cur.segno.horizontal_symbol_name);
         if (cur.segno.id) printf("id=%s ", cur.segno.id);
         if (cur.segno.event_ref) printf("event_ref=%s ", cur.segno.event_ref);
         if (cur.segno.segno_value) printf("value=%s ", cur.segno.segno_value);
         printf("\n");
     }
-    else if (cur.coda.event_ref) {
-        printf("Coda ");
+    else if (!xmlStrcmp(cur.coda.horizontal_symbol_name, (const xmlChar*)"coda")) {
+    printf("%s ", cur.coda.horizontal_symbol_name);
         if (cur.coda.id) printf("id=%s ", cur.coda.id);
         if (cur.coda.event_ref) printf("event_ref=%s ", cur.coda.event_ref);
         if (cur.coda.coda_value) printf("value=%s ", cur.coda.coda_value);
         printf("\n");
     }
-    else if (cur.fine.event_ref) {
-        printf("Fine ");
+    else if (!xmlStrcmp(cur.fine.horizontal_symbol_name, (const xmlChar*)"fine")) {
+    printf("%s ", cur.fine.horizontal_symbol_name);
         if (cur.fine.id) printf("id=%s ", cur.fine.id);
         if (cur.fine.event_ref) printf("event_ref=%s ", cur.fine.event_ref);
         if (cur.fine.fine_value) printf("value=%s ", cur.fine.fine_value);
         printf("\n");
     }
-    else if (cur.multiple_endings.n_multiple_endigs!=0) {
-        printf("Multple Endings ");
+    else if (!xmlStrcmp(cur.multiple_endings.horizontal_symbol_name, (const xmlChar*)"multiple_endings")) {
+    printf("%s ", cur.multiple_endings.horizontal_symbol_name);
         if (cur.multiple_endings.id) printf("id=%s ", cur.multiple_endings.id);
         printf("\n");
     }
-    else if (cur.custom_hsymbol.start_event_ref) {
-        printf("ustom Hsymbol ");
+    else if (!xmlStrcmp(cur.custom_hsymbol.horizontal_symbol_name, (const xmlChar*)"custom_hsymbol")) {
+    printf("%s ", cur.custom_hsymbol.horizontal_symbol_name);
         if (cur.custom_hsymbol.id) printf("id=%s ", cur.custom_hsymbol.id);
         if (cur.custom_hsymbol.start_event_ref) printf("start_event_ref=%s ", cur.custom_hsymbol.start_event_ref);
         if (cur.custom_hsymbol.end_event_ref) printf("end_event_ref=%s ", cur.custom_hsymbol.end_event_ref);
         printf("\n");
+    }
+}
+
+void freeLogicLayer(struct logic cur) {
+    if (cur.spine && cur.n_events!=0) {
+        freeEventsList(cur.spine);
+        cur.spine = NULL;
+    }
+
+    if (cur.los.staff_list && cur.los.n_staves != 0) {
+        freeStavesList(cur.los.staff_list);
+        cur.los.staff_list = NULL;
+    }
+    if (cur.los.staff_list_bracket && cur.los.n_brackets) {
+        freeBracketsList(cur.los.staff_list_bracket);
+        cur.los.staff_list_bracket = NULL;
+    }
+    if (cur.los.horizontal_symbols && cur.los.n_horizontal_symbols) {
+        freeHorizontalSymbolsList(cur.los.horizontal_symbols);
+        cur.los.horizontal_symbols = NULL;
+    }
+    if (cur.los.ornaments && cur.los.n_ornaments) {
+        freeOrnamentsList(cur.los.ornaments);
+        cur.los.ornaments = NULL;
+    }
+    if (cur.los.agogics && cur.los.n_agogics) {
+        freeAgogicsList(cur.los.agogics);
+        cur.los.agogics = NULL;
+    }
+    if (cur.los.text_field && cur.los.n_text_fields) {
+        freeTextFieldsList(cur.los.text_field);
+        cur.los.text_field = NULL;
+    }
+    if (cur.los.metronomic_indication && cur.los.n_metronomic_indications) {
+        freeMetronomicIndicationsList(cur.los.metronomic_indication);
+        cur.los.metronomic_indication = NULL;
+    }
+    if (cur.los.lyrics && cur.los.n_lyrics) {
+        freeLyricsList(cur.los.lyrics);
+        cur.los.lyrics = NULL;
+    }
+    if (cur.los.part && cur.los.n_parts) {
+        freePartsList(cur.los.part);
+        cur.los.part = NULL;
+    }
+
+    if (cur.layout.page && cur.layout.n_pages) {
+        freePagesList(cur.layout.page);
+        cur.layout.page = NULL;
+    }
+
+}
+
+
+void freeEventsList(struct event* head) {
+    struct event* temp;
+    while (head) {
+        temp = head;
+        head = head->next_event;
+        free(temp);
+    }
+}
+
+void freeAgogicsList(struct agogics* head) {
+    struct agogics* temp;
+    while (head) {
+        temp = head;
+        head = head->next_agogics;
+        free(temp);
+    }
+}
+
+void freeTextFieldsList(struct text_field* head) {
+    struct text_field* temp;
+    while (head) {
+        temp = head;
+        head = head->next_text_field;
+        free(temp);
+    }
+}
+
+void freeMetronomicIndicationsList(struct metronomic_indication* head) {
+    struct metronomic_indication* temp;
+    while (head) {
+        temp = head;
+        head = head->next_metronomic_indication;
+        free(temp);
+    }
+}
+
+void freeHorizontalSymbolsList(struct horizontal_symbol_list* head) {
+    struct horizontal_symbol_list* temp;
+    while (head) {
+        temp = head;
+        head = head->next_horizontal_symbol;
+        freeHorizontalSymbolLists(temp->horizontal_symbol_value);
+        free(temp);
+    }
+}
+
+void freeOrnamentsList(struct ornament_list* head) {
+    struct ornament_list* temp;
+    while (head) {
+        temp = head;
+        head = head->next_ornament;
+        freeOrnamentLists(temp->ornament_value);
+        free(temp);
+    }
+}
+
+void freeSyllablesList(struct syllable* head) {
+    struct syllable* temp;
+    while (head) {
+        temp = head;
+        head = head->next_syllable;
+        free(temp);
+    }
+}
+
+void freeLyricsList(struct lyrics* head) {
+    struct lyrics* temp;
+    while (head) {
+        temp = head;
+        head = head->next_lyrics;
+
+        if (temp->syllable)
+            freeSyllablesList(temp->syllable);
+
+        free(temp);
+    }
+}
+
+void freePartsList(struct part* head) {
+    struct part* temp;
+    while (head) {
+        temp = head;
+        head = head->next_part;
+
+        if (temp->voice_list)
+            freeVoiceItemsList(temp->voice_list);
+        if (temp->measure)
+            freeMeasuresList(temp->measure);
+
+        free(temp);
+    }
+}
+
+
+void freeBracketsList(struct brackets* head) {
+    struct brackets* temp;
+    while (head) {
+        temp = head;
+        head = head->next_brackets;
+        free(temp);
+    }
+}
+
+void freeStavesList(struct staff* head) {
+    struct staff* temp;
+    while (head) {
+        temp = head;
+        head = head->next_staff;
+
+        if (temp->clef)
+            freeClefsList(temp->clef);
+        if (temp->key_signature)
+            freeKeySignaturesList(temp->key_signature);
+        if (temp->custom_key_signature)
+            freeCustomKeySignaturesList(temp->custom_key_signature);
+        if (temp->time_signature)
+            freeTimeSignaturesList(temp->time_signature);
+        if (temp->barline)
+            freeBarlinesList(temp->barline);
+        if (temp->tablature_tuning)
+            freeTablatureTuningsList(temp->tablature_tuning);
+
+        free(temp);
+    }
+}
+
+void freeLayoutShapesList(struct layout_shapes* head) {
+    struct layout_shapes* temp;
+    while (head) {
+        temp = head;
+        head = head->next_layout_shapes;
+        free(temp);
+    }
+}
+
+void freeLayoutImagesList(struct layout_images* head) {
+    struct layout_images* temp;
+    while (head) {
+        temp = head;
+        head = head->next_layout_images;
+        free(temp);
+    }
+}
+
+void freeLayoutStavesList(struct layout_staff* head) {
+    struct layout_staff* temp;
+    while (head) {
+        temp = head;
+        head = head->next_layout_staff;
+        free(temp);
+    }
+}
+
+void freeLayoutSystemsList(struct layout_system* head) {
+    struct layout_system* temp;
+    while (head) {
+        temp = head;
+        head = head->next_layout_system;
+
+        if (temp->layout_staff)
+            freeLayoutStavesList(temp->layout_staff);
+
+        free(temp);
+    }
+}
+
+void freePagesList(struct page* head) {
+    struct page* temp;
+    while (head) {
+        temp = head;
+        head = head->next_page;
+
+        if (temp->layout_system)
+            freeLayoutSystemsList(temp->layout_system);
+        if (temp->layout_images_list)
+            freeLayoutImagesList(temp->layout_images_list);
+        if (temp->layout_shapes_list)
+            freeLayoutShapesList(temp->layout_shapes_list);
+
+        free(temp);
     }
 }

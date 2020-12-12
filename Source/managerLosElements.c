@@ -20,6 +20,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         chord_head=NULL;
         chord_p=NULL;
         value.acciaccatura.n_chords = 0;
+        value.acciaccatura.ornament_name = "acciaccatura";
 
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -59,6 +60,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"baroque_acciaccatura")){
+        value.baroque_acciaccatura.ornament_name = "baroque_acciaccatura";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -78,7 +80,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         chord_head=NULL;
         chord_p=NULL;
         value.appoggiatura.n_chords = 0;
-        
+        value.appoggiatura.ornament_name = "appoggiatura";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -116,6 +118,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         value.appoggiatura.chord=chord_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"baroque_appoggiatura")){
+        value.baroque_appoggiatura.ornament_name = "baroque_appoggiatura";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -131,6 +134,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         }
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"mordent")){
+        value.mordent.ornament_name = "mordent";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -155,6 +159,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         }
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"tremolo")){
+        value.tremolo.ornament_name = "tremolo";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -174,6 +179,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         }
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"trill")){
+        value.trill.ornament_name = "trill";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -198,6 +204,7 @@ ornament loadOrnamentValue(xmlNodePtr cur){
         }
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"turn")){
+        value.turn.ornament_name = "turn";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -235,7 +242,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct notehead_ref* notehead_ref_head=NULL;
         struct notehead_ref* notehead_ref_p=NULL;
         value.arpeggio.n_notehead_refs = 0;
-        
+        value.arpeggio.horizontal_symbol_name = "arpeggio";
+
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"shape")){
@@ -272,6 +280,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         value.arpeggio.notehead_ref=notehead_ref_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"bend")){
+        value.bend.horizontal_symbol_name = "bend";
+
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -296,6 +306,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"breath_mark")){
+        value.breath_mark.horizontal_symbol_name = "breath_mark";
+
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -317,6 +329,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"chord_symbol")){
+        value.chord_symbol.horizontal_symbol_name = "chord_symbol";
         value.chord_symbol.chord_symbol_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -330,6 +343,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"dynamic")){
+        value.dynamic.horizontal_symbol_name = "dynamic";
         value.dynamic.dynamic_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -352,6 +366,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"fermata")){
+    value.fermata.horizontal_symbol_name = "fermata";
         value.fermata.fermata_value=xmlCharToInt(xmlNodeListGetString(doc,cur->xmlChildrenNode,1));
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -365,6 +380,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"glissando")){
+        value.glissando.horizontal_symbol_name = "glissando";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -380,6 +396,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"hairpin")){
+        value.hairpin.horizontal_symbol_name = "hairpin";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -401,6 +418,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"octave_bracket")){
+        value.octave_bracket.horizontal_symbol_name = "octave_bracket";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -422,6 +440,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"pedal_start")){
+        value.pedal_start.horizontal_symbol_name = "pedal_start";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -434,6 +453,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"pedal_end")){
+        value.pedal_end.horizontal_symbol_name = "pedal_end";
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -446,6 +466,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"percussion_beater")){
+        value.percussion_beater.horizontal_symbol_name = "percussion_beater";
         value.percussion_beater.percussion_beater_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -465,6 +486,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"percussion_special")){
+        value.percussion_special.horizontal_symbol_name = "percussion_special";
         value.percussion_special.percussion_special_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -481,6 +503,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"slur")){
+        value.slur.horizontal_symbol_name = "slur";
         //load svg
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -510,7 +533,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct notehead_ref* notehead_ref_head=NULL;
         struct notehead_ref* notehead_ref_p=NULL;
         value.special_beam.n_notehead_refs = 0;
-        
+        value.special_beam.horizontal_symbol_name = "special_beam";
+
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -559,6 +583,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct barre* barre_head=NULL;
         struct barre* barre_p=NULL;
         value.tablature_hsymbol.n_barres = 0;
+        value.tablature_hsymbol.horizontal_symbol_name = "tablature_hsymbol";
 
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -651,7 +676,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct end* end_head=NULL;
         struct end* end_p=NULL;
         value.repeat.n_ends = 0;
-        
+        value.repeat.horizontal_symbol_name = "repeat";
+
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -726,6 +752,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         value.repeat.end=end_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"segno")){
+        value.segno.horizontal_symbol_name = "segno";
         value.segno.segno_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -739,6 +766,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"coda")){
+        value.coda.horizontal_symbol_name = "coda";
         value.coda.coda_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -752,6 +780,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         } 
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"fine")){
+        value.fine.horizontal_symbol_name = "fine";
         value.fine.fine_value=xmlNodeListGetString(doc,cur->xmlChildrenNode,1);
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -769,7 +798,8 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         struct multiple_ending* multiple_ending_head=NULL;
         struct multiple_ending* multiple_ending_p=NULL;
         value.multiple_endings.n_multiple_endigs = 0;
-        
+        value.multiple_endings.horizontal_symbol_name = "multiple_endings";
+
         attributes=cur->properties;
         while(attributes!=NULL){
             if(!xmlStrcmp(attributes->name,(const xmlChar*)"id")){
@@ -819,6 +849,7 @@ horizontal_symbol loadHorizontalSymbolValue(xmlNodePtr cur){
         value.multiple_endings.multiple_ending=multiple_ending_head;
     }
     else if(!xmlStrcmp(cur->name,(const xmlChar*)"custom_hsymbol")){
+        value.custom_hsymbol.horizontal_symbol_name = "custom_hsymbol";
         //load svg
         attributes=cur->properties;
         while(attributes!=NULL){
@@ -1950,4 +1981,349 @@ struct articulation* loadArticulationValue(xmlNodePtr cur){
     else { fprintf(stderr, "Memory allocation failed for 'articulation' element\n"); }
 
     return value;
+}
+
+void freeStringsList(struct string* head) {
+    struct string* temp;
+    while (head) {
+        temp = head;
+        head = head->next_string;
+        free(temp);
+    }
+}
+
+void freeTablatureTuningsList(struct tablature_tuning* head) {
+    struct tablature_tuning* temp;
+    while (head) {
+        temp = head;
+        head = head->next_tablature_tuning;
+
+        if (temp->strings)
+            freeStringsList(temp->strings);
+        free(temp);
+    }
+}
+
+void freeBarlinesList(struct barline* head) {
+    struct barline* temp;
+    while (head) {
+        temp = head;
+        head = head->next_barline;
+        free(temp);
+    }
+}
+
+void freeTimeIndicationsList(struct time_indication* head) {
+    struct time_indication* temp;
+    while (head) {
+        temp = head;
+        head = head->next_time_indication;
+        free(temp);
+    }
+}
+
+void freeTimeSignaturesList(struct time_signature* head) {
+    struct time_signature* temp;
+    while (head) {
+        temp = head;
+        head = head->next_time_signature;
+
+        if (temp->time_indications)
+            freeTimeIndicationsList(temp->time_indications);
+        free(temp);
+    }
+}
+
+void freeKeyAccidentalsList(struct key_accidental* head) {
+    struct key_accidental* temp;
+    while (head) {
+        temp = head;
+        head = head->next_key_accidental;
+        free(temp);
+    }
+}
+
+void freeCustomKeySignaturesList(struct custom_key_signature* head) {
+    struct custom_key_signature* temp;
+    while (head) {
+        temp = head;
+        head = head->next_custom_key_signature;
+
+        if (temp->key_accidentals)
+            freeKeyAccidentalsList(temp->key_accidentals);
+        free(temp);
+    }
+}
+
+void freeKeySignaturesList(struct key_signature* head) {
+    struct key_signature* temp;
+    while (head) {
+        temp = head;
+        head = head->next_key_signature;
+        free(temp);
+    }
+}
+
+void freeClefsList(struct clef* head) {
+    struct clef* temp;
+    while (head) {
+        temp = head;
+        head = head->next_clef;
+        free(temp);
+    }
+}
+
+void freePrintedAccidentalsList(struct printed_accidental* head) {
+    struct printed_accidental* temp;
+    while (head) {
+        temp = head;
+        head = head->next_printed_accidental;
+        free(temp);
+    }
+}
+
+void freeNoteheadsList(struct notehead* head) {
+    struct notehead* temp;
+    while (head) {
+        temp = head;
+        head = head->next_notehead;
+
+        if (temp->printed_accidentals)
+            freePrintedAccidentalsList(temp->printed_accidentals);
+
+        free(temp);
+    }
+}
+
+void freeNoteheadRefsList(struct notehead_ref* head) {
+    struct notehead_ref* temp;
+    while (head) {
+        temp = head;
+        head = head->next_notehead_ref;
+        free(temp);
+    }
+}
+
+void freeArticulationsList(struct articulation* head) {
+    struct articulation* temp;
+    while (head) {
+        temp = head;
+        head = head->next_articulation;
+        free(temp);
+    }
+}
+
+void freeGregorianSymbolsList(struct gregorian_symbol* head) {
+    struct gregorian_symbol* temp;
+    while (head) {
+        temp = head;
+        head = head->next_gregorian_symbol;
+
+        if (temp->notehead)
+            freeNoteheadsList(temp->notehead);
+
+        free(temp);
+    }
+}
+
+void freeKeysList(struct key* head) {
+    struct key* temp;
+    while (head) {
+        temp = head;
+        head = head->next_key;
+        free(temp);
+    }
+}
+
+void freeTupletRatiosList(struct tuplet_ratio* head) {
+    struct tuplet_ratio* temp;
+    while (head) {
+        temp = head;
+        head = head->next_tuplet_ratio;
+
+        if (temp->tuplet_ratio)
+            freeTupletRatiosList(temp->tuplet_ratio);
+
+        free(temp);
+    }
+}
+
+void freeTablatureSymbolsList(struct tablature_symbol* head) {
+    struct tablature_symbol* temp;
+    while (head) {
+        temp = head;
+        head = head->next_tablature_symbol;
+
+        if (temp->keys)
+            freeKeysList(temp->keys);
+        if (temp->duration.num)
+            freeTupletRatiosList(temp->duration.tuplet_ratio);
+
+        free(temp);
+    }
+}
+
+void freeRestsList(struct rest* head) {
+    struct rest* temp;
+    while (head) {
+        temp = head;
+        head = head->next_rest;
+
+        if (temp->duration.num)
+            freeTupletRatiosList(temp->duration.tuplet_ratio);
+
+        free(temp);
+    }
+}
+
+void freeChordsList(struct chord* head) {
+    struct chord* temp;
+    while (head) {
+        temp = head;
+        head = head->next_chord;
+
+        if (temp->duration.num)
+            freeTupletRatiosList(temp->duration.tuplet_ratio);
+        if (temp->noteheads)
+            freeNoteheadsList(temp->noteheads);
+        if (temp->articulations)
+            freeArticulationsList(temp->articulations);
+
+        free(temp);
+    }
+}
+
+void freeVoicesList(struct voice* head) {
+    struct voice* temp;
+    while (head) {
+        temp = head;
+        head = head->next_voice;
+
+        if (temp->chord)
+            freeChordsList(temp->chord);
+        if (temp->rest)
+            freeRestsList(temp->rest);
+        if (temp->tablature_symbol)
+            freeTablatureSymbolsList(temp->tablature_symbol);
+        if (temp->gregorian_symbol)
+            freeGregorianSymbolsList(temp->gregorian_symbol);
+
+        free(temp);
+    }
+}
+
+void freeMeasuresList(struct measure* head) {
+    struct measure* temp;
+    while (head) {
+        temp = head;
+        head = head->next_measure;
+
+        if (temp->voices)
+            freeVoicesList(temp->voices);
+
+        free(temp);
+    }
+}
+
+void freeVoiceItemsList(struct voice_item* head) {
+    struct voice_item* temp;
+    while (head) {
+        temp = head;
+        head = head->next_voice_item;
+        free(temp);
+    }
+}
+
+void freeMultipleEndingsList(struct multiple_ending* head) {
+    struct multiple_ending* temp;
+    while (head) {
+        temp = head;
+        head = head->next_multiple_ending;
+        free(temp);
+    }
+}
+
+void freeJumpTosList(struct jump_to* head) {
+    struct jump_to* temp;
+    while (head) {
+        temp = head;
+        head = head->next_jump_to;
+        free(temp);
+    }
+}
+
+void freeEndsList(struct end* head) {
+    struct end* temp;
+    while (head) {
+        temp = head;
+        head = head->next_end;
+        free(temp);
+    }
+}
+
+void freeBarresList(struct barre* head) {
+    struct barre* temp;
+    while (head) {
+        temp = head;
+        head = head->next_barre;
+        free(temp);
+    }
+}
+
+void freeTablatureElementsList(struct tablature_element* head) {
+    struct tablature_element* temp;
+    while (head) {
+        temp = head;
+        head = head->next_tablature_element;
+        free(temp);
+    }
+}
+
+void freeHorizontalSymbolLists(horizontal_symbol cur) {
+    
+    if (!xmlStrcmp(cur.multiple_endings.horizontal_symbol_name, (const xmlChar*)"multiple_endings"))
+    if (cur.multiple_endings.multiple_ending) {
+        freeMultipleEndingsList(cur.multiple_endings.multiple_ending);
+    }
+    
+    if (!xmlStrcmp(cur.repeat.horizontal_symbol_name, (const xmlChar*)"repeat"))
+    if (cur.repeat.jump_to) {
+        freeJumpTosList(cur.repeat.jump_to);
+    }
+    if (!xmlStrcmp(cur.repeat.horizontal_symbol_name, (const xmlChar*)"repeat"))
+    if (cur.repeat.end) {
+        freeEndsList(cur.repeat.end);
+    }
+    
+    if (!xmlStrcmp(cur.tablature_hsymbol.horizontal_symbol_name, (const xmlChar*)"tablature_hsymbol"))
+    if (cur.tablature_hsymbol.barre) {
+        freeBarresList(cur.tablature_hsymbol.barre);
+    }
+    if (!xmlStrcmp(cur.tablature_hsymbol.horizontal_symbol_name, (const xmlChar*)"tablature_hsymbol"))
+    if (cur.tablature_hsymbol.tablature_element) {
+        freeTablatureElementsList(cur.tablature_hsymbol.tablature_element);
+    }
+    
+    if (!xmlStrcmp(cur.special_beam.horizontal_symbol_name, (const xmlChar*)"special_beam"))
+    if (cur.special_beam.notehead_ref) {
+        freeNoteheadRefsList(cur.special_beam.notehead_ref);
+    }
+
+    if (!xmlStrcmp(cur.arpeggio.horizontal_symbol_name, (const xmlChar*)"arpeggio"))
+    if (cur.arpeggio.notehead_ref) {
+        freeNoteheadRefsList(cur.arpeggio.notehead_ref);
+    }
+}
+
+void freeOrnamentLists(ornament cur) {
+
+    if(!xmlStrcmp(cur.appoggiatura.ornament_name,(const xmlChar*)"appoggiatura"))
+        if (cur.appoggiatura.chord) {
+            freeChordsList(cur.appoggiatura.chord);
+        }
+
+    if (!xmlStrcmp(cur.appoggiatura.ornament_name, (const xmlChar*)"acciaccatura"))
+    if (cur.acciaccatura.chord) {
+        freeChordsList(cur.acciaccatura.chord);
+    }
 }

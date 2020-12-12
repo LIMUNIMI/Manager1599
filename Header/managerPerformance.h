@@ -183,6 +183,20 @@ extern "C" {
     MANAGERIEEE1599_API void printCsoundInstance();
     MANAGERIEEE1599_API void printMpeg4Instance();
     
+    MANAGERIEEE1599_API void freePerformanceLayer(struct performance cur);
+    void freeSysExsList(struct sys_ex* head);
+    void freeMidiEventsList(struct midi_event* head);
+    void freeMidiEventSequencesList(struct midi_event_sequence* head);
+    void freeMidiMappingsList(struct midi_mapping* head);
+    void freeMidiInstancesList(struct midi_instance* head);
+    void freeCsoundMpeg4SpineRefsList(struct csound_mpeg4_spine_ref* head);
+    void freeCsoundMpeg4PartRefsList(struct csound_mpeg4_part_ref* head);
+    void freeCsoundMpeg4InstrumentMappingsList(struct csound_mpeg4_instrument_mapping* head);
+    void freeCsoundMpeg4OrtchestrasList(struct csound_mpeg4_orchestra* head);
+    void freeCsoundMpeg4SpineEventsList(struct csound_mpeg4_spine_event* head);
+    void freeCsoundMpeg4ScoresList(struct csound_mpeg4_score* head);
+    void freeCsoundMpeg4InstancesList(struct csound_mpeg4_instance* head);
+
 #ifdef __cplusplus
 }
 #endif

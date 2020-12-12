@@ -25,8 +25,9 @@ int main(int argc, char **argv) {
         if (strcmp(getFileName(), (const char*)"")) {
             if (getDoc((xmlChar*)(getFileName())) == 1) {
                 fprintf(stdout, "Loaded %s\n", getFileName());
-                loadDocument();
+                loadDocument();               
                 printDocument();
+                freeDocument();
             }
 
             do { 

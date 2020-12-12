@@ -298,6 +298,24 @@ void printLayoutSystem(struct layout_system* cur);
 void printLayoutImages(struct layout_images* cur);
 void printLayoutShapes(struct layout_shapes* cur);
 
+MANAGERIEEE1599_API void freeLogicLayer(struct logic cur);
+void freeEventsList(struct event* head);
+void freeAgogicsList(struct agogics* head);
+void freeTextFieldsList(struct text_field* head);
+void freeMetronomicIndicationsList(struct metronomic_indication* head);
+void freeHorizontalSymbolsList(struct horizontal_symbol_list* head);
+void freeOrnamentsList(struct ornament_list* head);
+void freeSyllablesList(struct syllable* head);
+void freeLyricsList(struct lyrics* head);
+void freePartsList(struct part* head);
+void freeBracketsList(struct brackets* head);
+void freeStavesList(struct staff* head);
+void freeLayoutShapesList(struct layout_shapes* head);
+void freeLayoutImagesList(struct layout_images* head);
+void freeLayoutStavesList(struct layout_staff* head);
+void freeLayoutSystemsList(struct layout_system* head);
+void freePagesList(struct page* head);
+
 #ifdef __cplusplus
 }
 #endif

@@ -251,6 +251,24 @@ extern "C" {
     void printPetriNet();
     void printMir();
 
+    MANAGERIEEE1599_API void freeStructuralLayer(struct structural cur);
+    void freeMirFeaturesList(struct mir_feature* head);
+    void freeMirMorphismsList(struct mir_morphism* head);
+    void freeMirSubobjectsList(struct mir_subobject* head);
+    void freeMirObjectsList(struct mir_object* head);
+    void freeMirModelsList(struct mir_model* head);
+    void freeTransitionsList(struct transition* head);
+    void freePlacesList(struct place* head);
+    void freePetriNetsList(struct petri_net* head);
+    void freeFeatureObjectsList(struct feature_object* head);
+    void freeSegmentEventsList(struct segment_event* head);
+    void freeSegmentation(struct segmentation* head);
+    void freeFeatureObjectRelationshipsList(struct feature_object_relationship* head);
+    void freeRelationshipsList(struct relationship* head);
+    void freeAnalysisList(struct analysis* head);
+    void freeChordNamesList(struct chord_name* head);
+    void freeChordGridsList(struct chord_grid* head);
+
 #ifdef __cplusplus
 }
 #endif

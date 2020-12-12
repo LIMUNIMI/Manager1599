@@ -48,6 +48,7 @@ MANAGERIEEE1599_API struct ieee1599 getIEEE1599Root();
 MANAGERIEEE1599_API void setFileName(xmlChar* file_name);
 MANAGERIEEE1599_API xmlChar* getFileName();
 
+MANAGERIEEE1599_API void freeDocument();
 #ifdef __cplusplus
 }
 #endif
