@@ -7,7 +7,6 @@ Impostare il progetto di lavoro come descritto nel file * *Tutorial Installazion
   - In `Proprietà di configurazione > Generale > Nome di destinazione` inserire * *managerieee1599* *.
   - In `C/C++ > Preprocessore > Definizioni preprocessore` aggiungere la parola chiave * *MANAGERIEEE1599_EXPORTS* *.
   - In `C/C++ > Avanzate > Compila come` scegliere * *Compila come codice C (/TC)* *.
-  - In `Linker > Input > Dipendenza aggiuntive` aggiungere * *libxml2.lib* * e * *iconv.lib* *.
 2. Aggiungere all'inzio di **common.h** le seguenti istruzioni:
       ```
       #pragma once
