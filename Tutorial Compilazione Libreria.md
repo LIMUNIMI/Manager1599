@@ -1,13 +1,12 @@
 #Tutorial Compilazione Libreria C/C++ in Visual Studio 2019
 
-Impostare il progetto di lavoro come descritto nel file * *Tutorial Installazione Libreria* *. Fatto ciò, seguire la seguente procedura:
+Impostare il progetto di lavoro come descritto nel file * *Tutorial Installazione Sorgente* *. Fatto ciò, seguire la seguente procedura:
 
 1. Nelle Proprietá di configurazone del progetto:
   - In `Proprietà di configurazione > Generale > Tipo di configurazione` scegliere * *Libreria dinamica (.dll)* *.
-  - In `Proprietà di configurazione > Generale > Nome di destinazione` inserire * *manager1599* *.
+  - In `Proprietà di configurazione > Generale > Nome di destinazione` inserire * *managerieee1599* *.
   - In `C/C++ > Preprocessore > Definizioni preprocessore` aggiungere la parola chiave * *MANAGERIEEE1599_EXPORTS* *.
   - In `C/C++ > Avanzate > Compila come` scegliere * *Compila come codice C (/TC)* *.
-  - In `Linker > Input > Dipendenza aggiuntive` aggiungere * *libxml2.lib* * e * *iconv.lib* *.
 2. Aggiungere all'inzio di **common.h** le seguenti istruzioni:
       ```
       #pragma once

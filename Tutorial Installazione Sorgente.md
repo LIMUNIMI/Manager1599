@@ -18,4 +18,4 @@ Nelle Proprietá di configurazone del progetto:
 1. In `C/C++ > Generale > Directory di inclusione aggiuntive` aggiungere il percorso alla cartella * *include* * (compresa) delle librerie **libxml2** e **iconv**.
 2. In `C/C++ > Riga di comando > Opzioni aggiuntive` inserie il comando * */wd4996* *.
 3. In `Linker > Generale > Directory librerie aggiuntive` aggiungere il percorso alla cartella * *lib* * (compresa) delle librerie **libxml2** e **iconv**.
-4. In `Linker > Input > Dipendenza aggiuntive` aggiungere * *libxml2.dll* * e * *iconv.dll* *.
+4. In `Linker > Input > Dipendenza aggiuntive` aggiungere * *libxml2.lib* * e * *iconv.lib* *.
