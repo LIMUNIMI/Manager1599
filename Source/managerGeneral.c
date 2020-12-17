@@ -202,7 +202,7 @@ void printDescription(){
         i = 0;
         while(author_p!=NULL&&i<N_DISPLAY){
             i++;
-            printf("name=%s: %s\n",author_p->type,author_p->name);
+            printf("%s: %s\n",author_p->type,author_p->name);
             author_p=author_p->next_author;
         }
         if (general_layer.description.n_authors > N_DISPLAY) printf("...\n");

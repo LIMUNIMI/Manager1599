@@ -68,11 +68,13 @@ struct genre{//?
 extern const int N_DISPLAY;// number of same type elements displayed by print functions
 
 extern xmlDocPtr doc;
-extern xmlChar* fileRootFolder;
-extern xmlChar* dtdRootFolder;
+extern xmlChar* file_root_folder;
+extern xmlChar* dtd_root_folder;
 
-
-MANAGERIEEE1599_API int getDoc(xmlChar* docpath);
+/* getDoc returns 1 if no errors occurred while parsing the XML document.
+* To ignore validation, second parameter must be 0.
+*/
+MANAGERIEEE1599_API int getDoc(xmlChar* docpath, int force_validation);
 MANAGERIEEE1599_API int isValid(xmlDocPtr doc);
 MANAGERIEEE1599_API xmlXPathObjectPtr getNodeset(xmlDocPtr doc, xmlChar *xpath);
 MANAGERIEEE1599_API char* concat(const char *s1, const char *s2);

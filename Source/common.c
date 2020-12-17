@@ -26,7 +26,8 @@ int isValid(xmlDocPtr doc) {// return 1 if document is valid
     return res;
 }
 
-int getDoc(xmlChar* docpath){// return 1 if no errors occurred
+
+int getDoc(xmlChar* docpath, int force_validation){
 
     int no_error = 1;
 
@@ -52,7 +53,10 @@ int getDoc(xmlChar* docpath){// return 1 if no errors occurred
         else if (isValid(doc) == 0) {
             fprintf(stdout, "Document is not Valid\n");
             //xmlFreeDoc(doc);
-            no_error = 0;
+            if (force_validation == 1)
+                no_error = 0;
+            else
+                fprintf(stdout,"Document will be parsed, but inconsistency issues may occur\n");
         }
     }
 

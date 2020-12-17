@@ -1250,7 +1250,7 @@ void freeCsoundMpeg4OrtchestrasList(struct csound_mpeg4_orchestra* head) {
         head = head->next_csound_mpeg4_orchestra;
 
         if (temp->csound_mpeg4_instrument_mapping)
-            freeCsoundMpeg4PartRefsList(temp->csound_mpeg4_instrument_mapping);
+            freeCsoundMpeg4InstrumentMappingsList(temp->csound_mpeg4_instrument_mapping);
 
         free(temp);
     }

@@ -5,7 +5,6 @@
  */
 
 #include "fileChooser.h"
-#include "managerDocument.h"
 
 char* rootFolderPath;
 
