@@ -1,12 +1,12 @@
 #Tutorial Compilazione Libreria C/C++ in Visual Studio 2019
 
-Impostare il progetto di lavoro come descritto nel file * *Tutorial Installazione Sorgente* *. Fatto ciò, seguire la seguente procedura:
+Impostare il progetto di lavoro come descritto nel file _Tutorial Installazione Sorgente_. Fatto ciò, seguire la seguente procedura:
 
 1. Nelle Proprietá di configurazone del progetto:
-  - In `Proprietà di configurazione > Generale > Tipo di configurazione` scegliere * *Libreria dinamica (.dll)* *.
-  - In `Proprietà di configurazione > Generale > Nome di destinazione` inserire * *managerieee1599* *.
-  - In `C/C++ > Preprocessore > Definizioni preprocessore` aggiungere la parola chiave * *MANAGERIEEE1599_EXPORTS* *.
-  - In `C/C++ > Avanzate > Compila come` scegliere * *Compila come codice C (/TC)* *.
+  - In `Proprietà di configurazione > Generale > Tipo di configurazione` scegliere _Libreria dinamica (.dll)_.
+  - In `Proprietà di configurazione > Generale > Nome di destinazione` inserire _managerieee1599_.
+  - In `C/C++ > Preprocessore > Definizioni preprocessore` aggiungere la parola chiave _MANAGERIEEE1599_EXPORTS_.
+  - In `C/C++ > Avanzate > Compila come` scegliere _Compila come codice C (/TC)_.
 2. Aggiungere all'inzio di **common.h** le seguenti istruzioni:
       ```
       #pragma once
@@ -18,29 +18,29 @@ Impostare il progetto di lavoro come descritto nel file * *Tutorial Installazion
       #endif
       ```
       
-3. Aggiungere la parola chiave * *MANAGERIEEE1599_API* * alle dichiarazioni delle variabili e funzioni che si vogliono esportare nella libreria.
+3. Aggiungere la parola chiave _MANAGERIEEE1599_API_ alle dichiarazioni delle variabili e funzioni che si vogliono esportare nella libreria.
 
 4. Compilare.
 
 ## Packing libreria
 
-Solitamente, le librerie suddividono i loro file tra le cartelle * *include* *,* *bin* * e * *lib* *.
+Solitamente, le librerie suddividono i loro file tra le cartelle _include_,_bin_ e _lib_.
 
-1. Creare la cartella * *managerieee1599* * che contiene le sottocartelle * *include* *, * *libs* * e * *bin* *.
-2. Spostare i file * *.lib* * e * *.dll* *, creati in fase di compilazione, il primo nella cartella * *lib* * e il secondo in * *bin* *.
+1. Creare la cartella _managerieee1599_ che contiene le sottocartelle _include_, _libs_ e _bin_.
+2. Spostare i file _.lib_ e _.dll_, creati in fase di compilazione, il primo nella cartella _lib_ e il secondo in _bin_.
 3. Copiare e incollare tutti i file di intestazione nella cartella include.
 
 ## Utilizzare la libreria
 
-Per importare e utilizzare la libreri in programmi esterni, sono necessari i file di intestazione, i file * *.lib* * e i file  * *.dll* *.
+Per importare e utilizzare la libreri in programmi esterni, sono necessari i file di intestazione, i file _.lib_ e i file  _.dll_.
 
 
 Nelle Proprietá di configurazone del progetto:
-1. In `C/C++ > Generale > Directory di inclusione aggiuntive` aggiungere il percorso alla cartella * *include* * (compresa) delle librerie **libxml2**,**iconv** e "managerieee1599".
-2. In `C/C++ > Riga di comando > Opzioni aggiuntive` inserie il comando * */wd4996* *.
-3. In `Linker > Generale > Directory librerie aggiuntive` aggiungere il percorso alla cartella * *lib* * (compresa) delle librerie **libxml2** e **iconv** e "managerieee1599".
-4. In `Linker > Input > Dipendenza aggiuntive` aggiungere * *libxml2.lib* *,* *iconv.lib* * e "managerieee1599.lib".
-5. Copiare e incollare i file * *.dll* * dalle cartelle * *bin* * delle librerie alla directory di lavoro del programma che le utilizza.
+1. In `C/C++ > Generale > Directory di inclusione aggiuntive` aggiungere il percorso alla cartella _include_ (compresa) delle librerie **libxml2**,**iconv** e "managerieee1599".
+2. In `C/C++ > Riga di comando > Opzioni aggiuntive` inserie il comando _/wd4996_.
+3. In `Linker > Generale > Directory librerie aggiuntive` aggiungere il percorso alla cartella _lib_ (compresa) delle librerie **libxml2** e **iconv** e "managerieee1599".
+4. In `Linker > Input > Dipendenza aggiuntive` aggiungere _libxml2.lib_, _iconv.lib_ e "managerieee1599.lib".
+5. Copiare e incollare i file _.dll_ dalle cartelle _bin_ delle librerie alla directory di lavoro del programma che le utilizza.
 
 ### Packing automatico della libreria in post-compilazione e copia del file .dll all'interno del programma che la utilizza
 
