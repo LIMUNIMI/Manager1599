@@ -1,0 +1,1816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ieee1599 SYSTEM "http://standards.ieee.org/downloads/1599/1599-2008/ieee1599.dtd">
+<ieee1599 version="1.0" creator="Maurizio Martinelli">
+  <general>
+    <description>
+      <main_title>Prélude</main_title>
+      <author type="composer">Weiss, Silvius Leopold</author>
+      <work_title>Suite n.3</work_title>
+      <genres>
+        <genre name="Lute tablature" weight="100"/>
+      </genres>
+    </description>
+  </general>
+  <logic>
+    <spine>
+      <event id="p1v1_0" timing="0" hpos="0"/>
+      <event id="p1v1_1" timing="1" hpos="2"/>
+      <event id="p1v1_2" timing="1" hpos="2"/>
+      <event id="p1v1_3" timing="1" hpos="2"/>
+      <event id="p1v1_4" timing="1" hpos="2"/>
+      <event id="p1v1_5" timing="1" hpos="2"/>
+      <event id="p1v1_6" timing="1" hpos="2"/>
+      <event id="p1v1_7" timing="1" hpos="2"/>
+      <event id="p1v1_8" timing="1" hpos="2"/>
+      <event id="p1v1_9" timing="1" hpos="2"/>
+      <event id="p1v1_10" timing="1" hpos="2"/>
+      <event id="p1v1_11" timing="1" hpos="2"/>
+      <event id="p1v1_12" timing="1" hpos="2"/>
+      <event id="p1v1_13" timing="1" hpos="2"/>
+      <event id="p1v1_14" timing="1" hpos="2"/>
+      <event id="p1v1_15" timing="1" hpos="2"/>
+      <event id="p1v1_16" timing="1" hpos="2"/>
+      <event id="p1v1_17" timing="1" hpos="2"/>
+      <event id="p1v1_18" timing="1" hpos="2"/>
+      <event id="p1v1_19" timing="1" hpos="2"/>
+      <event id="p1v1_20" timing="1" hpos="2"/>
+      <event id="p1v1_21" timing="1" hpos="2"/>
+      <event id="p1v1_22" timing="4" hpos="2"/>
+      <event id="p1v1_23" timing="1" hpos="2"/>
+      <event id="p1v1_24" timing="1" hpos="2"/>
+      <event id="p1v1_25" timing="1" hpos="2"/>
+      <event id="p1v1_26" timing="1" hpos="2"/>
+      <event id="p1v1_27" timing="1" hpos="2"/>
+      <event id="p1v1_28" timing="1" hpos="2"/>
+      <event id="p1v1_29" timing="1" hpos="2"/>
+      <event id="p1v1_30" timing="1" hpos="2"/>
+      <event id="p1v1_31" timing="1" hpos="2"/>
+      <event id="p1v1_32" timing="1" hpos="2"/>
+      <event id="p1v1_33" timing="1" hpos="2"/>
+      <event id="p1v1_34" timing="1" hpos="2"/>
+      <event id="p1v1_35" timing="1" hpos="2"/>
+      <event id="p1v1_36" timing="1" hpos="2"/>
+      <event id="p1v1_37" timing="1" hpos="2"/>
+      <event id="p1v1_38" timing="1" hpos="2"/>
+      <event id="p1v1_39" timing="1" hpos="2"/>
+      <event id="p1v1_40" timing="1" hpos="2"/>
+      <event id="p1v1_41" timing="4" hpos="2"/>
+      <event id="p1v1_42" timing="1" hpos="2"/>
+      <event id="p1v1_43" timing="1" hpos="2"/>
+      <event id="p1v1_44" timing="1" hpos="2"/>
+      <event id="p1v1_45" timing="1" hpos="2"/>
+      <event id="p1v1_46" timing="1" hpos="2"/>
+      <event id="p1v1_47" timing="1" hpos="2"/>
+      <event id="p1v1_48" timing="1" hpos="2"/>
+      <event id="p1v1_49" timing="1" hpos="2"/>
+      <event id="p1v1_50" timing="1" hpos="2"/>
+      <event id="p1v1_51" timing="1" hpos="2"/>
+      <event id="p1v1_52" timing="1" hpos="2"/>
+      <event id="p1v1_53" timing="1" hpos="2"/>
+      <event id="p1v1_54" timing="1" hpos="2"/>
+      <event id="p1v1_55" timing="1" hpos="2"/>
+      <event id="p1v1_56" timing="1" hpos="2"/>
+      <event id="p1v1_57" timing="1" hpos="2"/>
+      <event id="p1v1_58" timing="1" hpos="2"/>
+      <event id="p1v1_59" timing="1" hpos="2"/>
+      <event id="p1v1_60" timing="1" hpos="2"/>
+      <event id="p1v1_61" timing="1" hpos="2"/>
+      <event id="p1v1_62" timing="1" hpos="2"/>
+      <event id="p1v1_63" timing="1" hpos="2"/>
+      <event id="p1v1_64" timing="1" hpos="2"/>
+      <event id="p1v1_65" timing="1" hpos="2"/>
+      <event id="p1v1_66" timing="1" hpos="2"/>
+      <event id="p1v1_67" timing="1" hpos="2"/>
+      <event id="p1v1_68" timing="1" hpos="2"/>
+      <event id="p1v1_69" timing="1" hpos="2"/>
+      <event id="p1v1_70" timing="1" hpos="2"/>
+      <event id="p1v1_71" timing="1" hpos="2"/>
+      <event id="p1v1_72" timing="1" hpos="2"/>
+      <event id="p1v1_73" timing="1" hpos="2"/>
+      <event id="p1v1_74" timing="1" hpos="2"/>
+      <event id="p1v1_75" timing="1" hpos="2"/>
+      <event id="p1v1_76" timing="1" hpos="2"/>
+      <event id="p1v1_77" timing="1" hpos="2"/>
+      <event id="p1v1_78" timing="1" hpos="2"/>
+      <event id="p1v1_79" timing="1" hpos="2"/>
+      <event id="p1v1_80" timing="1" hpos="2"/>
+      <event id="p1v1_81" timing="1" hpos="2"/>
+      <event id="p1v1_82" timing="1" hpos="2"/>
+      <event id="p1v1_83" timing="1" hpos="2"/>
+      <event id="p1v1_84" timing="1" hpos="2"/>
+      <event id="p1v1_85" timing="1" hpos="2"/>
+      <event id="p1v1_86" timing="1" hpos="2"/>
+      <event id="p1v1_87" timing="1" hpos="2"/>
+      <event id="p1v1_88" timing="1" hpos="2"/>
+      <event id="p1v1_89" timing="1" hpos="2"/>
+      <event id="p1v1_90" timing="1" hpos="2"/>
+      <event id="p1v1_91" timing="1" hpos="2"/>
+      <event id="p1v1_92" timing="1" hpos="2"/>
+      <event id="p1v1_93" timing="1" hpos="2"/>
+      <event id="p1v1_94" timing="1" hpos="2"/>
+      <event id="p1v1_95" timing="1" hpos="2"/>
+      <event id="p1v1_96" timing="1" hpos="2"/>
+      <event id="p1v1_97" timing="1" hpos="2"/>
+      <event id="p1v1_98" timing="1" hpos="2"/>
+      <event id="p1v1_99" timing="1" hpos="2"/>
+      <event id="p1v1_100" timing="1" hpos="2"/>
+      <event id="p1v1_101" timing="1" hpos="2"/>
+      <event id="p1v1_102" timing="1" hpos="2"/>
+      <event id="p1v1_103" timing="1" hpos="2"/>
+      <event id="p1v1_104" timing="1" hpos="2"/>
+      <event id="p1v1_105" timing="1" hpos="2"/>
+      <event id="p1v1_106" timing="1" hpos="2"/>
+      <event id="p1v1_107" timing="1" hpos="2"/>
+      <event id="p1v1_108" timing="1" hpos="2"/>
+      <event id="p1v1_109" timing="1" hpos="2"/>
+      <event id="p1v1_110" timing="1" hpos="2"/>
+      <event id="p1v1_111" timing="1" hpos="2"/>
+      <event id="p1v1_112" timing="1" hpos="2"/>
+      <event id="p1v1_113" timing="1" hpos="2"/>
+      <event id="p1v1_114" timing="1" hpos="2"/>
+      <event id="p1v1_115" timing="1" hpos="2"/>
+      <event id="p1v1_116" timing="1" hpos="2"/>
+      <event id="p1v1_117" timing="1" hpos="2"/>
+      <event id="p1v1_118" timing="1" hpos="2"/>
+      <event id="p1v1_119" timing="1" hpos="2"/>
+      <event id="p1v1_120" timing="1" hpos="2"/>
+      <event id="p1v1_121" timing="1" hpos="2"/>
+      <event id="p1v1_122" timing="1" hpos="2"/>
+      <event id="p1v1_123" timing="1" hpos="2"/>
+      <event id="p1v1_124" timing="1" hpos="2"/>
+      <event id="p1v1_125" timing="1" hpos="2"/>
+      <event id="p1v1_126" timing="1" hpos="2"/>
+      <event id="p1v1_127" timing="1" hpos="2"/>
+      <event id="p1v1_128" timing="1" hpos="2"/>
+      <event id="p1v1_129" timing="1" hpos="2"/>
+      <event id="p1v1_130" timing="1" hpos="2"/>
+      <event id="p1v1_131" timing="1" hpos="2"/>
+      <event id="p1v1_132" timing="1" hpos="2"/>
+      <event id="p1v1_133" timing="1" hpos="2"/>
+      <event id="p1v1_134" timing="1" hpos="2"/>
+      <event id="p1v1_135" timing="1" hpos="2"/>
+      <event id="p1v1_136" timing="1" hpos="2"/>
+      <event id="p1v1_137" timing="1" hpos="2"/>
+      <event id="p1v1_138" timing="1" hpos="2"/>
+      <event id="p1v1_139" timing="1" hpos="2"/>
+      <event id="p1v1_140" timing="1" hpos="2"/>
+      <event id="p1v1_141" timing="1" hpos="2"/>
+      <event id="p1v1_142" timing="1" hpos="2"/>
+      <event id="p1v1_143" timing="1" hpos="2"/>
+      <event id="p1v1_144" timing="1" hpos="2"/>
+      <event id="p1v1_145" timing="1" hpos="2"/>
+      <event id="p1v1_146" timing="1" hpos="2"/>
+      <event id="p1v1_147" timing="1" hpos="2"/>
+      <event id="p1v1_148" timing="1" hpos="2"/>
+      <event id="p1v1_149" timing="1" hpos="2"/>
+      <event id="p1v1_150" timing="1" hpos="2"/>
+      <event id="p1v1_151" timing="1" hpos="2"/>
+      <event id="p1v1_152" timing="1" hpos="2"/>
+      <event id="p1v1_153" timing="1" hpos="2"/>
+      <event id="p1v1_154" timing="1" hpos="2"/>
+      <event id="p1v1_155" timing="1" hpos="2"/>
+      <event id="p1v1_156" timing="1" hpos="2"/>
+      <event id="p1v1_157" timing="1" hpos="2"/>
+      <event id="p1v1_158" timing="1" hpos="2"/>
+      <event id="p1v1_159" timing="1" hpos="2"/>
+      <event id="p1v1_160" timing="1" hpos="2"/>
+      <event id="p1v1_161" timing="1" hpos="2"/>
+      <event id="p1v1_162" timing="1" hpos="2"/>
+      <event id="p1v1_163" timing="1" hpos="2"/>
+      <event id="p1v1_164" timing="1" hpos="2"/>
+      <event id="p1v1_165" timing="4" hpos="2"/>
+      <event id="p1v1_166" timing="4" hpos="2"/>
+      <event id="p1v1_167" timing="4" hpos="2"/>
+      <event id="p1v1_168" timing="4" hpos="2"/>
+      <event id="p1v1_169" timing="1" hpos="2"/>
+      <event id="p1v1_170" timing="1" hpos="2"/>
+      <event id="p1v1_171" timing="1" hpos="2"/>
+      <event id="p1v1_172" timing="1" hpos="2"/>
+      <event id="p1v1_173" timing="1" hpos="2"/>
+      <event id="p1v1_174" timing="1" hpos="2"/>
+      <event id="p1v1_175" timing="1" hpos="2"/>
+      <event id="p1v1_176" timing="1" hpos="2"/>
+      <event id="p1v1_177" timing="1" hpos="2"/>
+      <event id="p1v1_178" timing="1" hpos="2"/>
+      <event id="p1v1_179" timing="1" hpos="2"/>
+      <event id="p1v1_180" timing="1" hpos="2"/>
+      <event id="p1v1_181" timing="1" hpos="2"/>
+      <event id="p1v1_182" timing="4" hpos="2"/>
+      <event id="p1v1_183" timing="1" hpos="2"/>
+      <event id="p1v1_184" timing="4" hpos="2"/>
+    </spine>
+    <los>
+      <staff_list>
+        <staff id="staff_1" line_number="6" tablature="french">
+          <tablature_tuning type="G"/>
+        </staff>
+      </staff_list>
+      <part id="Liuto">
+        <voice_list>
+          <voice_item id="Liuto_Voice" staff_ref="staff_1"/>
+        </voice_list>
+        <measure number="1">
+          <voice voice_item_ref="Liuto">
+            <tablature_symbol event_ref="p1v1_0">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_1">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_2">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_3">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_4">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_5">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_6">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_7">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_8">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_9">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_10">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_11">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="5"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_12">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="5"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_13">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_14">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_15">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_16">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_17">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_18">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_19">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_20">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_21">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_22">
+              <duration num="1" den="2"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="1"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_23">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_24">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_25">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_26">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_27">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_28">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_29">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_30">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="4"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_31">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="4"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_32">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_33">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_34">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_35">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_36">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_37">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_38">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_39">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_40">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_41">
+              <duration num="1" den="2"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_42">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="8" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_43">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_44">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_45">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_46">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_47">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_48">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_49">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_50">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_51">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_52">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_53">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_54">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="9" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_55">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_56">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_57">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_58">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_59">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_60">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_61">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_62">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_63">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_64">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_65">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_66">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="10" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_67">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_68">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_69">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_70">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_71">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_72">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_73">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_74">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_75">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_76">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_77">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_78">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_79">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_80">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_81">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_82">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="11" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_83">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_84">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_85">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_86">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_87">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_88">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_89">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_90">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="8" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_91">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_92">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_93">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_94">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="0"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_95">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_96">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_97">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_98">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_99">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_100">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_101">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_102">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_103">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_104">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_105">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_106">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_107">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_108">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_109">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="5"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_110">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_111">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_112">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_113">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="5"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_114">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="4"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_115">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_116">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_117">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="5"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_118">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_119">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_120">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_121">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_122">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="11" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_123">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_124">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_125">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_126">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="6" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_127">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_128">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_129">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_130">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="3"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_131">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_132">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_133">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_134">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_135">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_136">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="2"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_137">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_138">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="6" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_139">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_140">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_141">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_142">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="10" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_143">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_144">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_145">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_146">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_147">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_148">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_149">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_150">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_151">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_152">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="1"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_153">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_154">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="11" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_155">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_156">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_157">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_158">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_159">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_160">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_161">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_162">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_163">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="3"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_164">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="3"/>
+                <tablature_articulation shape="tie"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_165">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_166">
+              <duration num="1" den="2"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="11" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_167">
+              <duration num="1" den="2"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="6" key_number="4"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="2"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_168">
+              <duration num="1" den="2"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="10" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="6" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_169">
+              <duration num="1" den="2"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="10" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="6" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_170">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_171">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_172">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_173">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_174">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_175">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_176">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_177">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_178">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="1" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_179">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_180">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="2" key_number="0"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_181">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_182">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="3" key_number="1"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_183">
+              <duration num="1" den="8"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+            <tablature_symbol event_ref="p1v1_184">
+              <duration num="1" den="2"/>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="7" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="6" key_number="1"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="5" key_number="0"/>
+              </key>
+              <key staff_ref="staff_1">
+                <tablature_pitch string_number="4" key_number="2"/>
+              </key>
+            </tablature_symbol>
+          </voice>
+        </measure>
+      </part>
+    </los>
+  </logic>
+  <notational>
+    <graphic_instance_group description="French tablature for lute">
+      <graphic_instance file_name="score_files/french_tablature_for_lute/weiss_prelude.jpg" file_format="image_jpeg" encoding_format="image_jpeg" position_in_group="1" measurement_unit="pixels">
+        <graphic_event event_ref="p1v1_0" upper_left_x="84" upper_left_y="182" lower_right_x="114" lower_right_y="212"/>
+        <graphic_event event_ref="p1v1_1" upper_left_x="112" upper_left_y="156" lower_right_x="142" lower_right_y="186"/>
+        <graphic_event event_ref="p1v1_2" upper_left_x="144" upper_left_y="154" lower_right_x="174" lower_right_y="184"/>
+        <graphic_event event_ref="p1v1_3" upper_left_x="178" upper_left_y="142" lower_right_x="208" lower_right_y="172"/>
+        <graphic_event event_ref="p1v1_4" upper_left_x="210" upper_left_y="138" lower_right_x="240" lower_right_y="168"/>
+        <graphic_event event_ref="p1v1_5" upper_left_x="244" upper_left_y="126" lower_right_x="274" lower_right_y="156"/>
+        <graphic_event event_ref="p1v1_6" upper_left_x="275" upper_left_y="124" lower_right_x="305" lower_right_y="154"/>
+        <graphic_event event_ref="p1v1_7" upper_left_x="308" upper_left_y="118" lower_right_x="338" lower_right_y="148"/>
+        <graphic_event event_ref="p1v1_8" upper_left_x="342" upper_left_y="114" lower_right_x="372" lower_right_y="144"/>
+        <graphic_event event_ref="p1v1_9" upper_left_x="370" upper_left_y="104" lower_right_x="400" lower_right_y="134"/>
+        <graphic_event event_ref="p1v1_10" upper_left_x="403" upper_left_y="100" lower_right_x="433" lower_right_y="130"/>
+        <graphic_event event_ref="p1v1_11" upper_left_x="435" upper_left_y="100" lower_right_x="465" lower_right_y="130"/>
+        <graphic_event event_ref="p1v1_12" upper_left_x="465" upper_left_y="100" lower_right_x="495" lower_right_y="130"/>
+        <graphic_event event_ref="p1v1_13" upper_left_x="499" upper_left_y="100" lower_right_x="529" lower_right_y="130"/>
+        <graphic_event event_ref="p1v1_14" upper_left_x="531" upper_left_y="100" lower_right_x="561" lower_right_y="130"/>
+        <graphic_event event_ref="p1v1_15" upper_left_x="565" upper_left_y="114" lower_right_x="595" lower_right_y="144"/>
+        <graphic_event event_ref="p1v1_16" upper_left_x="595" upper_left_y="114" lower_right_x="625" lower_right_y="144"/>
+        <graphic_event event_ref="p1v1_17" upper_left_x="628" upper_left_y="126" lower_right_x="658" lower_right_y="156"/>
+        <graphic_event event_ref="p1v1_18" upper_left_x="658" upper_left_y="126" lower_right_x="688" lower_right_y="156"/>
+        <graphic_event event_ref="p1v1_19" upper_left_x="692" upper_left_y="138" lower_right_x="722" lower_right_y="168"/>
+        <graphic_event event_ref="p1v1_20" upper_left_x="724" upper_left_y="138" lower_right_x="754" lower_right_y="168"/>
+        <graphic_event event_ref="p1v1_21" upper_left_x="748" upper_left_y="112" lower_right_x="778" lower_right_y="142"/>
+        <graphic_event event_ref="p1v1_22" upper_left_x="779" upper_left_y="114" lower_right_x="820" lower_right_y="211"/>
+        <graphic_event event_ref="p1v1_23" upper_left_x="80" upper_left_y="334" lower_right_x="110" lower_right_y="364"/>
+        <graphic_event event_ref="p1v1_24" upper_left_x="120" upper_left_y="284" lower_right_x="150" lower_right_y="314"/>
+        <graphic_event event_ref="p1v1_25" upper_left_x="160" upper_left_y="284" lower_right_x="190" lower_right_y="314"/>
+        <graphic_event event_ref="p1v1_26" upper_left_x="192" upper_left_y="270" lower_right_x="222" lower_right_y="300"/>
+        <graphic_event event_ref="p1v1_27" upper_left_x="232" upper_left_y="270" lower_right_x="262" lower_right_y="300"/>
+        <graphic_event event_ref="p1v1_28" upper_left_x="276" upper_left_y="260" lower_right_x="306" lower_right_y="290"/>
+        <graphic_event event_ref="p1v1_29" upper_left_x="308" upper_left_y="260" lower_right_x="338" lower_right_y="290"/>
+        <graphic_event event_ref="p1v1_30" upper_left_x="356" upper_left_y="250" lower_right_x="386" lower_right_y="280"/>
+        <graphic_event event_ref="p1v1_31" upper_left_x="390" upper_left_y="250" lower_right_x="420" lower_right_y="280"/>
+        <graphic_event event_ref="p1v1_32" upper_left_x="432" upper_left_y="260" lower_right_x="462" lower_right_y="290"/>
+        <graphic_event event_ref="p1v1_33" upper_left_x="470" upper_left_y="260" lower_right_x="500" lower_right_y="290"/>
+        <graphic_event event_ref="p1v1_34" upper_left_x="508" upper_left_y="260" lower_right_x="538" lower_right_y="290"/>
+        <graphic_event event_ref="p1v1_35" upper_left_x="544" upper_left_y="260" lower_right_x="574" lower_right_y="290"/>
+        <graphic_event event_ref="p1v1_36" upper_left_x="580" upper_left_y="270" lower_right_x="610" lower_right_y="300"/>
+        <graphic_event event_ref="p1v1_37" upper_left_x="616" upper_left_y="270" lower_right_x="646" lower_right_y="300"/>
+        <graphic_event event_ref="p1v1_38" upper_left_x="658" upper_left_y="270" lower_right_x="688" lower_right_y="300"/>
+        <graphic_event event_ref="p1v1_39" upper_left_x="700" upper_left_y="270" lower_right_x="730" lower_right_y="300"/>
+        <graphic_event event_ref="p1v1_40" upper_left_x="742" upper_left_y="272" lower_right_x="772" lower_right_y="302"/>
+        <graphic_event event_ref="p1v1_41" upper_left_x="774" upper_left_y="252" lower_right_x="809" lower_right_y="353 "/>
+        <graphic_event event_ref="p1v1_42" upper_left_x="78" upper_left_y="477" lower_right_x="108" lower_right_y="507"/>
+        <graphic_event event_ref="p1v1_43" upper_left_x="114" upper_left_y="437" lower_right_x="144" lower_right_y="467"/>
+        <graphic_event event_ref="p1v1_44" upper_left_x="140" upper_left_y="437" lower_right_x="170" lower_right_y="467"/>
+        <graphic_event event_ref="p1v1_45" upper_left_x="172" upper_left_y="425" lower_right_x="202" lower_right_y="455"/>
+        <graphic_event event_ref="p1v1_46" upper_left_x="202" upper_left_y="425" lower_right_x="232" lower_right_y="455"/>
+        <graphic_event event_ref="p1v1_47" upper_left_x="236" upper_left_y="411" lower_right_x="266" lower_right_y="441"/>
+        <graphic_event event_ref="p1v1_48" upper_left_x="266" upper_left_y="411" lower_right_x="296" lower_right_y="441"/>
+        <graphic_event event_ref="p1v1_49" upper_left_x="296" upper_left_y="400" lower_right_x="326" lower_right_y="430"/>
+        <graphic_event event_ref="p1v1_50" upper_left_x="330" upper_left_y="400" lower_right_x="360" lower_right_y="430"/>
+        <graphic_event event_ref="p1v1_51" upper_left_x="360" upper_left_y="411" lower_right_x="390" lower_right_y="441"/>
+        <graphic_event event_ref="p1v1_52" upper_left_x="390" upper_left_y="411" lower_right_x="420" lower_right_y="441"/>
+        <graphic_event event_ref="p1v1_53" upper_left_x="420" upper_left_y="420" lower_right_x="450" lower_right_y="450"/>
+        <graphic_event event_ref="p1v1_54" upper_left_x="444" upper_left_y="477" lower_right_x="474" lower_right_y="507"/>
+        <graphic_event event_ref="p1v1_55" upper_left_x="480" upper_left_y="433" lower_right_x="510" lower_right_y="463"/>
+        <graphic_event event_ref="p1v1_56" upper_left_x="506" upper_left_y="433" lower_right_x="536" lower_right_y="463"/>
+        <graphic_event event_ref="p1v1_57" upper_left_x="536" upper_left_y="420" lower_right_x="566" lower_right_y="450"/>
+        <graphic_event event_ref="p1v1_58" upper_left_x="570" upper_left_y="420" lower_right_x="600" lower_right_y="450"/>
+        <graphic_event event_ref="p1v1_59" upper_left_x="604" upper_left_y="407" lower_right_x="634" lower_right_y="437"/>
+        <graphic_event event_ref="p1v1_60" upper_left_x="636" upper_left_y="407" lower_right_x="666" lower_right_y="437"/>
+        <graphic_event event_ref="p1v1_61" upper_left_x="664" upper_left_y="400" lower_right_x="694" lower_right_y="430"/>
+        <graphic_event event_ref="p1v1_62" upper_left_x="696" upper_left_y="400" lower_right_x="726" lower_right_y="430"/>
+        <graphic_event event_ref="p1v1_63" upper_left_x="726" upper_left_y="407" lower_right_x="756" lower_right_y="437"/>
+        <graphic_event event_ref="p1v1_64" upper_left_x="754" upper_left_y="407" lower_right_x="784" lower_right_y="437"/>
+        <graphic_event event_ref="p1v1_65" upper_left_x="780" upper_left_y="420" lower_right_x="810" lower_right_y="450"/>
+        <graphic_event event_ref="p1v1_66" upper_left_x="74" upper_left_y="623" lower_right_x="104" lower_right_y="653"/>
+        <graphic_event event_ref="p1v1_67" upper_left_x="106" upper_left_y="580" lower_right_x="136" lower_right_y="610"/>
+        <graphic_event event_ref="p1v1_68" upper_left_x="138" upper_left_y="580" lower_right_x="168" lower_right_y="610"/>
+        <graphic_event event_ref="p1v1_69" upper_left_x="172" upper_left_y="570" lower_right_x="202" lower_right_y="600"/>
+        <graphic_event event_ref="p1v1_70" upper_left_x="206" upper_left_y="570" lower_right_x="236" lower_right_y="600"/>
+        <graphic_event event_ref="p1v1_71" upper_left_x="236" upper_left_y="555" lower_right_x="266" lower_right_y="585"/>
+        <graphic_event event_ref="p1v1_72" upper_left_x="266" upper_left_y="555" lower_right_x="296" lower_right_y="585"/>
+        <graphic_event event_ref="p1v1_73" upper_left_x="296" upper_left_y="545" lower_right_x="326" lower_right_y="575"/>
+        <graphic_event event_ref="p1v1_74" upper_left_x="322" upper_left_y="545" lower_right_x="352" lower_right_y="575"/>
+        <graphic_event event_ref="p1v1_75" upper_left_x="352" upper_left_y="540" lower_right_x="382" lower_right_y="570"/>
+        <graphic_event event_ref="p1v1_76" upper_left_x="380" upper_left_y="540" lower_right_x="410" lower_right_y="570"/>
+        <graphic_event event_ref="p1v1_77" upper_left_x="414" upper_left_y="570" lower_right_x="444" lower_right_y="600"/>
+        <graphic_event event_ref="p1v1_78" upper_left_x="451" upper_left_y="570" lower_right_x="481" lower_right_y="600"/>
+        <graphic_event event_ref="p1v1_79" upper_left_x="475" upper_left_y="545" lower_right_x="505" lower_right_y="575"/>
+        <graphic_event event_ref="p1v1_80" upper_left_x="507" upper_left_y="545" lower_right_x="537" lower_right_y="575"/>
+        <graphic_event event_ref="p1v1_81" upper_left_x="545" upper_left_y="545" lower_right_x="575" lower_right_y="575"/>
+        <graphic_event event_ref="p1v1_82" upper_left_x="570" upper_left_y="627" lower_right_x="600" lower_right_y="657"/>
+        <graphic_event event_ref="p1v1_83" upper_left_x="595" upper_left_y="567" lower_right_x="625" lower_right_y="597"/>
+        <graphic_event event_ref="p1v1_84" upper_left_x="630" upper_left_y="567" lower_right_x="660" lower_right_y="597"/>
+        <graphic_event event_ref="p1v1_85" upper_left_x="667" upper_left_y="555" lower_right_x="697" lower_right_y="585"/>
+        <graphic_event event_ref="p1v1_86" upper_left_x="700" upper_left_y="555" lower_right_x="730" lower_right_y="585"/>
+        <graphic_event event_ref="p1v1_87" upper_left_x="730" upper_left_y="540" lower_right_x="760" lower_right_y="570"/>
+        <graphic_event event_ref="p1v1_88" upper_left_x="750" upper_left_y="570" lower_right_x="780" lower_right_y="600"/>
+        <graphic_event event_ref="p1v1_89" upper_left_x="790" upper_left_y="567" lower_right_x="820" lower_right_y="597"/>
+        <graphic_event event_ref="p1v1_90" upper_left_x="76" upper_left_y="770" lower_right_x="106" lower_right_y="800"/>
+        <graphic_event event_ref="p1v1_91" upper_left_x="110" upper_left_y="726" lower_right_x="140" lower_right_y="756"/>
+        <graphic_event event_ref="p1v1_92" upper_left_x="140" upper_left_y="726" lower_right_x="170" lower_right_y="756"/>
+        <graphic_event event_ref="p1v1_93" upper_left_x="174" upper_left_y="714" lower_right_x="204" lower_right_y="744"/>
+        <graphic_event event_ref="p1v1_94" upper_left_x="200" upper_left_y="714" lower_right_x="230" lower_right_y="744"/>
+        <graphic_event event_ref="p1v1_95" upper_left_x="228" upper_left_y="718" lower_right_x="258" lower_right_y="748"/>
+        <graphic_event event_ref="p1v1_96" upper_left_x="260" upper_left_y="718" lower_right_x="290" lower_right_y="748"/>
+        <graphic_event event_ref="p1v1_97" upper_left_x="300" upper_left_y="690" lower_right_x="330" lower_right_y="720"/>
+        <graphic_event event_ref="p1v1_98" upper_left_x="330" upper_left_y="690" lower_right_x="360" lower_right_y="720"/>
+        <graphic_event event_ref="p1v1_99" upper_left_x="360" upper_left_y="700" lower_right_x="390" lower_right_y="730"/>
+        <graphic_event event_ref="p1v1_100" upper_left_x="386" upper_left_y="700" lower_right_x="416" lower_right_y="730"/>
+        <graphic_event event_ref="p1v1_101" upper_left_x="412" upper_left_y="718" lower_right_x="442" lower_right_y="748"/>
+        <graphic_event event_ref="p1v1_102" upper_left_x="444" upper_left_y="772" lower_right_x="474" lower_right_y="802"/>
+        <graphic_event event_ref="p1v1_103" upper_left_x="482" upper_left_y="712" lower_right_x="512" lower_right_y="742"/>
+        <graphic_event event_ref="p1v1_104" upper_left_x="514" upper_left_y="712" lower_right_x="544" lower_right_y="742"/>
+        <graphic_event event_ref="p1v1_105" upper_left_x="545" upper_left_y="700" lower_right_x="575" lower_right_y="730"/>
+        <graphic_event event_ref="p1v1_106" upper_left_x="575" upper_left_y="700" lower_right_x="605" lower_right_y="730"/>
+        <graphic_event event_ref="p1v1_107" upper_left_x="605" upper_left_y="690" lower_right_x="635" lower_right_y="720"/>
+        <graphic_event event_ref="p1v1_108" upper_left_x="635" upper_left_y="690" lower_right_x="665" lower_right_y="720"/>
+        <graphic_event event_ref="p1v1_109" upper_left_x="665" upper_left_y="690" lower_right_x="695" lower_right_y="720"/>
+        <graphic_event event_ref="p1v1_110" upper_left_x="697" upper_left_y="740" lower_right_x="727" lower_right_y="770"/>
+        <graphic_event event_ref="p1v1_111" upper_left_x="720" upper_left_y="712" lower_right_x="750" lower_right_y="742"/>
+        <graphic_event event_ref="p1v1_112" upper_left_x="755" upper_left_y="700" lower_right_x="785" lower_right_y="730"/>
+        <graphic_event event_ref="p1v1_113" upper_left_x="785" upper_left_y="688" lower_right_x="815" lower_right_y="718"/>
+        <graphic_event event_ref="p1v1_114" upper_left_x="81" upper_left_y="890" lower_right_x="111" lower_right_y="920"/>
+        <graphic_event event_ref="p1v1_115" upper_left_x="107" upper_left_y="860" lower_right_x="137" lower_right_y="890"/>
+        <graphic_event event_ref="p1v1_116" upper_left_x="140" upper_left_y="846" lower_right_x="170" lower_right_y="876"/>
+        <graphic_event event_ref="p1v1_117" upper_left_x="175" upper_left_y="840" lower_right_x="205" lower_right_y="870"/>
+        <graphic_event event_ref="p1v1_118" upper_left_x="205" upper_left_y="860" lower_right_x="235" lower_right_y="890"/>
+        <graphic_event event_ref="p1v1_119" upper_left_x="235" upper_left_y="850" lower_right_x="265" lower_right_y="880"/>
+        <graphic_event event_ref="p1v1_120" upper_left_x="265" upper_left_y="840" lower_right_x="295" lower_right_y="870"/>
+        <graphic_event event_ref="p1v1_121" upper_left_x="300" upper_left_y="840" lower_right_x="330" lower_right_y="870"/>
+        <graphic_event event_ref="p1v1_122" upper_left_x="329" upper_left_y="845" lower_right_x="356" lower_right_y="948"/>
+        <graphic_event event_ref="p1v1_123" upper_left_x="355" upper_left_y="840" lower_right_x="385" lower_right_y="870"/>
+        <graphic_event event_ref="p1v1_124" upper_left_x="380" upper_left_y="860" lower_right_x="410" lower_right_y="890"/>
+        <graphic_event event_ref="p1v1_125" upper_left_x="420" upper_left_y="846" lower_right_x="450" lower_right_y="876"/>
+        <graphic_event event_ref="p1v1_126" upper_left_x="451" upper_left_y="835" lower_right_x="478" lower_right_y="938"/>
+        <graphic_event event_ref="p1v1_127" upper_left_x="475" upper_left_y="860" lower_right_x="505" lower_right_y="890"/>
+        <graphic_event event_ref="p1v1_128" upper_left_x="510" upper_left_y="840" lower_right_x="540" lower_right_y="870"/>
+        <graphic_event event_ref="p1v1_129" upper_left_x="540" upper_left_y="846" lower_right_x="570" lower_right_y="876"/>
+        <graphic_event event_ref="p1v1_130" upper_left_x="567" upper_left_y="851" lower_right_x="594" lower_right_y="954"/>
+        <graphic_event event_ref="p1v1_131" upper_left_x="605" upper_left_y="840" lower_right_x="635" lower_right_y="870"/>
+        <graphic_event event_ref="p1v1_132" upper_left_x="635" upper_left_y="860" lower_right_x="665" lower_right_y="890"/>
+        <graphic_event event_ref="p1v1_133" upper_left_x="665" upper_left_y="846" lower_right_x="695" lower_right_y="876"/>
+        <graphic_event event_ref="p1v1_134" upper_left_x="695" upper_left_y="845" lower_right_x="722" lower_right_y="948"/>
+        <graphic_event event_ref="p1v1_135" upper_left_x="730" upper_left_y="860" lower_right_x="760" lower_right_y="890"/>
+        <graphic_event event_ref="p1v1_136" upper_left_x="760" upper_left_y="846" lower_right_x="790" lower_right_y="876"/>
+        <graphic_event event_ref="p1v1_137" upper_left_x="790" upper_left_y="846" lower_right_x="820" lower_right_y="876"/>
+        <graphic_event event_ref="p1v1_138" upper_left_x="76" upper_left_y="1004" lower_right_x="109" lower_right_y="1079"/>
+        <graphic_event event_ref="p1v1_139" upper_left_x="114" upper_left_y="994" lower_right_x="144" lower_right_y="1024"/>
+        <graphic_event event_ref="p1v1_140" upper_left_x="144" upper_left_y="1010" lower_right_x="174" lower_right_y="1040"/>
+        <graphic_event event_ref="p1v1_141" upper_left_x="172" upper_left_y="1018" lower_right_x="202" lower_right_y="1048"/>
+        <graphic_event event_ref="p1v1_142" upper_left_x="196" upper_left_y="1018" lower_right_x="229" lower_right_y="1093"/>
+        <graphic_event event_ref="p1v1_143" upper_left_x="238" upper_left_y="1014" lower_right_x="268" lower_right_y="1044"/>
+        <graphic_event event_ref="p1v1_144" upper_left_x="260" upper_left_y="996" lower_right_x="290" lower_right_y="1026"/>
+        <graphic_event event_ref="p1v1_145" upper_left_x="292" upper_left_y="1010" lower_right_x="322" lower_right_y="1040"/>
+        <graphic_event event_ref="p1v1_146" upper_left_x="326" upper_left_y="1008" lower_right_x="357" lower_right_y="1093"/>
+        <graphic_event event_ref="p1v1_147" upper_left_x="358" upper_left_y="1012" lower_right_x="388" lower_right_y="1042"/>
+        <graphic_event event_ref="p1v1_148" upper_left_x="390" upper_left_y="1026" lower_right_x="420" lower_right_y="1056"/>
+        <graphic_event event_ref="p1v1_149" upper_left_x="422" upper_left_y="1020" lower_right_x="452" lower_right_y="1050"/>
+        <graphic_event event_ref="p1v1_150" upper_left_x="450" upper_left_y="1026" lower_right_x="480" lower_right_y="1056"/>
+        <graphic_event event_ref="p1v1_151" upper_left_x="483" upper_left_y="1024" lower_right_x="513" lower_right_y="1054"/>
+        <graphic_event event_ref="p1v1_152" upper_left_x="512" upper_left_y="1032" lower_right_x="542" lower_right_y="1062"/>
+        <graphic_event event_ref="p1v1_153" upper_left_x="547" upper_left_y="1038" lower_right_x="577" lower_right_y="1068"/>
+        <graphic_event event_ref="p1v1_154" upper_left_x="577" upper_left_y="1064" lower_right_x="607" lower_right_y="1094"/>
+        <graphic_event event_ref="p1v1_155" upper_left_x="603" upper_left_y="1032" lower_right_x="633" lower_right_y="1062"/>
+        <graphic_event event_ref="p1v1_156" upper_left_x="633" upper_left_y="1034" lower_right_x="663" lower_right_y="1064"/>
+        <graphic_event event_ref="p1v1_157" upper_left_x="660" upper_left_y="1024" lower_right_x="690" lower_right_y="1054"/>
+        <graphic_event event_ref="p1v1_158" upper_left_x="689" upper_left_y="1024" lower_right_x="719" lower_right_y="1054"/>
+        <graphic_event event_ref="p1v1_159" upper_left_x="719" upper_left_y="1008" lower_right_x="749" lower_right_y="1038"/>
+        <graphic_event event_ref="p1v1_160" upper_left_x="753" upper_left_y="1006" lower_right_x="783" lower_right_y="1036"/>
+        <graphic_event event_ref="p1v1_161" upper_left_x="791" upper_left_y="994" lower_right_x="821" lower_right_y="1024"/>
+        <graphic_event event_ref="p1v1_162" upper_left_x="77" upper_left_y="1140" lower_right_x="107" lower_right_y="1170"/>
+        <graphic_event event_ref="p1v1_163" upper_left_x="105" upper_left_y="1158" lower_right_x="135" lower_right_y="1188"/>
+        <graphic_event event_ref="p1v1_164" upper_left_x="133" upper_left_y="1168" lower_right_x="163" lower_right_y="1193"/>
+        <graphic_event event_ref="p1v1_165" upper_left_x="170" upper_left_y="1170" lower_right_x="200" lower_right_y="1200"/>
+        <graphic_event event_ref="p1v1_166" upper_left_x="197" upper_left_y="1160" lower_right_x="224" lower_right_y="1251"/>
+        <graphic_event event_ref="p1v1_167" upper_left_x="226" upper_left_y="1169" lower_right_x="248" lower_right_y="1221"/>
+        <graphic_event event_ref="p1v1_168" upper_left_x="247" upper_left_y="1166" lower_right_x="274" lower_right_y="1239"/>
+        <graphic_event event_ref="p1v1_169" upper_left_x="275" upper_left_y="1164" lower_right_x="308" lower_right_y="1239"/>
+        <graphic_event event_ref="p1v1_170" upper_left_x="311" upper_left_y="1214" lower_right_x="341" lower_right_y="1244"/>
+        <graphic_event event_ref="p1v1_171" upper_left_x="333" upper_left_y="1168" lower_right_x="363" lower_right_y="1198"/>
+        <graphic_event event_ref="p1v1_172" upper_left_x="365" upper_left_y="1170" lower_right_x="395" lower_right_y="1200"/>
+        <graphic_event event_ref="p1v1_173" upper_left_x="395" upper_left_y="1152" lower_right_x="425" lower_right_y="1182"/>
+        <graphic_event event_ref="p1v1_174" upper_left_x="423" upper_left_y="1152" lower_right_x="453" lower_right_y="1182"/>
+        <graphic_event event_ref="p1v1_175" upper_left_x="451" upper_left_y="1140" lower_right_x="481" lower_right_y="1170"/>
+        <graphic_event event_ref="p1v1_176" upper_left_x="479" upper_left_y="1140" lower_right_x="509" lower_right_y="1170"/>
+        <graphic_event event_ref="p1v1_177" upper_left_x="507" upper_left_y="1128" lower_right_x="537" lower_right_y="1158"/>
+        <graphic_event event_ref="p1v1_178" upper_left_x="535" upper_left_y="1128" lower_right_x="565" lower_right_y="1158"/>
+        <graphic_event event_ref="p1v1_179" upper_left_x="563" upper_left_y="1142" lower_right_x="593" lower_right_y="1172"/>
+        <graphic_event event_ref="p1v1_180" upper_left_x="593" upper_left_y="1142" lower_right_x="623" lower_right_y="1172"/>
+        <graphic_event event_ref="p1v1_181" upper_left_x="621" upper_left_y="1150" lower_right_x="651" lower_right_y="1180"/>
+        <graphic_event event_ref="p1v1_182" upper_left_x="647" upper_left_y="1150" lower_right_x="677" lower_right_y="1180"/>
+        <graphic_event event_ref="p1v1_183" upper_left_x="675" upper_left_y="1170" lower_right_x="705" lower_right_y="1200"/>
+        <graphic_event event_ref="p1v1_184" upper_left_x="704" upper_left_y="1175" lower_right_x="733" lower_right_y="1239"/>
+      </graphic_instance>
+    </graphic_instance_group>
+  </notational>
+  <audio>
+    <track file_name="audio_files/weiss_prelude.wav" file_format="audio_wav" encoding_format="audio_wav">
+      <track_general>
+        <performers>
+          <performer name="Lute" type="lute"/>
+        </performers>
+      </track_general>
+      <track_indexing timing_type="seconds">
+        <track_event start_time="0.00" event_ref="p1v1_0"/>
+        <track_event start_time="0.48" event_ref="p1v1_1"/>
+        <track_event start_time="0.81" event_ref="p1v1_2"/>
+        <track_event start_time="1.00" event_ref="p1v1_3"/>
+        <track_event start_time="1.23" event_ref="p1v1_4"/>
+        <track_event start_time="1.42" event_ref="p1v1_5"/>
+        <track_event start_time="1.49" event_ref="p1v1_6"/>
+        <track_event start_time="1.64" event_ref="p1v1_7"/>
+        <track_event start_time="1.87" event_ref="p1v1_8"/>
+        <track_event start_time="2.01" event_ref="p1v1_9"/>
+        <track_event start_time="2.22" event_ref="p1v1_10"/>
+        <track_event start_time="2.39" event_ref="p1v1_11"/>
+        <track_event start_time="2.56" event_ref="p1v1_12"/>
+        <track_event start_time="2.72" event_ref="p1v1_13"/>
+        <track_event start_time="2.91" event_ref="p1v1_14"/>
+        <track_event start_time="3.09" event_ref="p1v1_15"/>
+        <track_event start_time="3.28" event_ref="p1v1_16"/>
+        <track_event start_time="3.45" event_ref="p1v1_17"/>
+        <track_event start_time="3.70" event_ref="p1v1_18"/>
+        <track_event start_time="3.91" event_ref="p1v1_19"/>
+        <track_event start_time="4.16" event_ref="p1v1_20"/>
+        <track_event start_time="4.44" event_ref="p1v1_21"/>
+        <track_event start_time="4.80" event_ref="p1v1_22"/>
+        <track_event start_time="7.34" event_ref="p1v1_23"/>
+        <track_event start_time="7.80" event_ref="p1v1_24"/>
+        <track_event start_time="8.08" event_ref="p1v1_25"/>
+        <track_event start_time="8.29" event_ref="p1v1_26"/>
+        <track_event start_time="8.42" event_ref="p1v1_27"/>
+        <track_event start_time="8.58" event_ref="p1v1_28"/>
+        <track_event start_time="8.80" event_ref="p1v1_29"/>
+        <track_event start_time="8.99" event_ref="p1v1_30"/>
+        <track_event start_time="9.32" event_ref="p1v1_31"/>
+        <track_event start_time="9.34" event_ref="p1v1_32"/>
+        <track_event start_time="9.52" event_ref="p1v1_33"/>
+        <track_event start_time="9.73" event_ref="p1v1_34"/>
+        <track_event start_time="9.91" event_ref="p1v1_35"/>
+        <track_event start_time="10.11" event_ref="p1v1_36"/>
+        <track_event start_time="10.28" event_ref="p1v1_37"/>
+        <track_event start_time="10.54" event_ref="p1v1_38"/>
+        <track_event start_time="10.78" event_ref="p1v1_39"/>
+        <track_event start_time="10.99" event_ref="p1v1_40"/>
+        <track_event start_time="11.28" event_ref="p1v1_41"/>
+        <track_event start_time="13.52" event_ref="p1v1_42"/>
+        <track_event start_time="13.95" event_ref="p1v1_43"/>
+        <track_event start_time="14.26" event_ref="p1v1_44"/>
+        <track_event start_time="14.54" event_ref="p1v1_45"/>
+        <track_event start_time="14.71" event_ref="p1v1_46"/>
+        <track_event start_time="14.84" event_ref="p1v1_47"/>
+        <track_event start_time="15.01" event_ref="p1v1_48"/>
+        <track_event start_time="15.19" event_ref="p1v1_49"/>
+        <track_event start_time="15.37" event_ref="p1v1_50"/>
+        <track_event start_time="15.54" event_ref="p1v1_51"/>
+        <track_event start_time="15.78" event_ref="p1v1_52"/>
+        <track_event start_time="15.98" event_ref="p1v1_53"/>
+        <track_event start_time="16.32" event_ref="p1v1_54"/>
+        <track_event start_time="16.65" event_ref="p1v1_55"/>
+        <track_event start_time="16.89" event_ref="p1v1_56"/>
+        <track_event start_time="17.03" event_ref="p1v1_57"/>
+        <track_event start_time="17.22" event_ref="p1v1_58"/>
+        <track_event start_time="17.38" event_ref="p1v1_59"/>
+        <track_event start_time="17.54" event_ref="p1v1_60"/>
+        <track_event start_time="17.73" event_ref="p1v1_61"/>
+        <track_event start_time="17.89" event_ref="p1v1_62"/>
+        <track_event start_time="18.07" event_ref="p1v1_63"/>
+        <track_event start_time="18.27" event_ref="p1v1_64"/>
+        <track_event start_time="18.47" event_ref="p1v1_65"/>
+        <track_event start_time="18.81" event_ref="p1v1_66"/>
+        <track_event start_time="19.05" event_ref="p1v1_67"/>
+        <track_event start_time="19.27" event_ref="p1v1_68"/>
+        <track_event start_time="19.53" event_ref="p1v1_69"/>
+        <track_event start_time="19.70" event_ref="p1v1_70"/>
+        <track_event start_time="19.85" event_ref="p1v1_71"/>
+        <track_event start_time="20.02" event_ref="p1v1_72"/>
+        <track_event start_time="20.19" event_ref="p1v1_73"/>
+        <track_event start_time="20.35" event_ref="p1v1_74"/>
+        <track_event start_time="20.54" event_ref="p1v1_75"/>
+        <track_event start_time="20.70" event_ref="p1v1_76"/>
+        <track_event start_time="20.93" event_ref="p1v1_77"/>
+        <track_event start_time="21.11" event_ref="p1v1_78"/>
+        <track_event start_time="21.32" event_ref="p1v1_79"/>
+        <track_event start_time="21.54" event_ref="p1v1_80"/>
+        <track_event start_time="21.83" event_ref="p1v1_81"/>
+        <track_event start_time="22.16" event_ref="p1v1_82"/>
+        <track_event start_time="22.52" event_ref="p1v1_83"/>
+        <track_event start_time="22.72" event_ref="p1v1_84"/>
+        <track_event start_time="22.90" event_ref="p1v1_85"/>
+        <track_event start_time="23.10" event_ref="p1v1_86"/>
+        <track_event start_time="23.33" event_ref="p1v1_87"/>
+        <track_event start_time="23.60" event_ref="p1v1_88"/>
+        <track_event start_time="23.84" event_ref="p1v1_89"/>
+        <track_event start_time="24.17" event_ref="p1v1_90"/>
+        <track_event start_time="24.47" event_ref="p1v1_91"/>
+        <track_event start_time="24.77" event_ref="p1v1_92"/>
+        <track_event start_time="24.91" event_ref="p1v1_93"/>
+        <track_event start_time="25.11" event_ref="p1v1_94"/>
+        <track_event start_time="25.27" event_ref="p1v1_95"/>
+        <track_event start_time="25.45" event_ref="p1v1_96"/>
+        <track_event start_time="25.62" event_ref="p1v1_97"/>
+        <track_event start_time="25.81" event_ref="p1v1_98"/>
+        <track_event start_time="26.01" event_ref="p1v1_99"/>
+        <track_event start_time="26.30" event_ref="p1v1_100"/>
+        <track_event start_time="26.47" event_ref="p1v1_101"/>
+        <track_event start_time="26.72" event_ref="p1v1_102"/>
+        <track_event start_time="27.08" event_ref="p1v1_103"/>
+        <track_event start_time="27.27" event_ref="p1v1_104"/>
+        <track_event start_time="27.46" event_ref="p1v1_105"/>
+        <track_event start_time="27.63" event_ref="p1v1_106"/>
+        <track_event start_time="27.81" event_ref="p1v1_107"/>
+        <track_event start_time="28.00" event_ref="p1v1_108"/>
+        <track_event start_time="28.23" event_ref="p1v1_109"/>
+        <track_event start_time="28.50" event_ref="p1v1_110"/>
+        <track_event start_time="28.85" event_ref="p1v1_111"/>
+        <track_event start_time="29.05" event_ref="p1v1_112"/>
+        <track_event start_time="29.24" event_ref="p1v1_113"/>
+        <track_event start_time="29.42" event_ref="p1v1_114"/>
+        <track_event start_time="29.64" event_ref="p1v1_115"/>
+        <track_event start_time="29.82" event_ref="p1v1_116"/>
+        <track_event start_time="29.97" event_ref="p1v1_117"/>
+        <track_event start_time="30.19" event_ref="p1v1_118"/>
+        <track_event start_time="30.41" event_ref="p1v1_119"/>
+        <track_event start_time="30.59" event_ref="p1v1_120"/>
+        <track_event start_time="30.74" event_ref="p1v1_121"/>
+        <track_event start_time="30.97" event_ref="p1v1_122"/>
+        <track_event start_time="31.33" event_ref="p1v1_123"/>
+        <track_event start_time="31.55" event_ref="p1v1_124"/>
+        <track_event start_time="31.75" event_ref="p1v1_125"/>
+        <track_event start_time="31.92" event_ref="p1v1_126"/>
+        <track_event start_time="32.12" event_ref="p1v1_127"/>
+        <track_event start_time="32.26" event_ref="p1v1_128"/>
+        <track_event start_time="32.44" event_ref="p1v1_129"/>
+        <track_event start_time="32.67" event_ref="p1v1_130"/>
+        <track_event start_time="32.91" event_ref="p1v1_131"/>
+        <track_event start_time="33.16" event_ref="p1v1_132"/>
+        <track_event start_time="33.28" event_ref="p1v1_133"/>
+        <track_event start_time="33.51" event_ref="p1v1_134"/>
+        <track_event start_time="33.71" event_ref="p1v1_135"/>
+        <track_event start_time="33.89" event_ref="p1v1_136"/>
+        <track_event start_time="34.09" event_ref="p1v1_137"/>
+        <track_event start_time="34.25" event_ref="p1v1_138"/>
+        <track_event start_time="34.49" event_ref="p1v1_139"/>
+        <track_event start_time="34.68" event_ref="p1v1_140"/>
+        <track_event start_time="34.93" event_ref="p1v1_141"/>
+        <track_event start_time="35.14" event_ref="p1v1_142"/>
+        <track_event start_time="35.35" event_ref="p1v1_143"/>
+        <track_event start_time="35.58" event_ref="p1v1_144"/>
+        <track_event start_time="35.85" event_ref="p1v1_145"/>
+        <track_event start_time="36.14" event_ref="p1v1_146"/>
+        <track_event start_time="36.46" event_ref="p1v1_147"/>
+        <track_event start_time="36.70" event_ref="p1v1_148"/>
+        <track_event start_time="36.90" event_ref="p1v1_149"/>
+        <track_event start_time="37.16" event_ref="p1v1_150"/>
+        <track_event start_time="37.47" event_ref="p1v1_151"/>
+        <track_event start_time="37.76" event_ref="p1v1_152"/>
+        <track_event start_time="38.06" event_ref="p1v1_153"/>
+        <track_event start_time="38.52" event_ref="p1v1_154"/>
+        <track_event start_time="39.12" event_ref="p1v1_155"/>
+        <track_event start_time="39.44" event_ref="p1v1_156"/>
+        <track_event start_time="39.65" event_ref="p1v1_157"/>
+        <track_event start_time="39.87" event_ref="p1v1_158"/>
+        <track_event start_time="40.07" event_ref="p1v1_159"/>
+        <track_event start_time="40.28" event_ref="p1v1_160"/>
+        <track_event start_time="40.54" event_ref="p1v1_161"/>
+        <track_event start_time="40.73" event_ref="p1v1_162"/>
+        <track_event start_time="41.06" event_ref="p1v1_163"/>
+        <track_event start_time="41.39" event_ref="p1v1_164"/>
+        <track_event start_time="41.66" event_ref="p1v1_165"/>
+        <track_event start_time="42.04" event_ref="p1v1_166"/>
+        <track_event start_time="43.36" event_ref="p1v1_167"/>
+        <track_event start_time="44.61" event_ref="p1v1_168"/>
+        <track_event start_time="46.79" event_ref="p1v1_169"/>
+        <track_event start_time="49.10" event_ref="p1v1_170"/>
+        <track_event start_time="49.54" event_ref="p1v1_171"/>
+        <track_event start_time="49.90" event_ref="p1v1_172"/>
+        <track_event start_time="50.29" event_ref="p1v1_173"/>
+        <track_event start_time="50.53" event_ref="p1v1_174"/>
+        <track_event start_time="50.73" event_ref="p1v1_175"/>
+        <track_event start_time="50.98" event_ref="p1v1_176"/>
+        <track_event start_time="51.26" event_ref="p1v1_177"/>
+        <track_event start_time="51.56" event_ref="p1v1_178"/>
+        <track_event start_time="51.87" event_ref="p1v1_179"/>
+        <track_event start_time="52.22" event_ref="p1v1_180"/>
+        <track_event start_time="52.58" event_ref="p1v1_181"/>
+        <track_event start_time="53.04" event_ref="p1v1_182"/>
+        <track_event start_time="53.54" event_ref="p1v1_183"/>
+        <track_event start_time="54.31" event_ref="p1v1_184"/>
+      </track_indexing>
+    </track>
+  </audio>
+</ieee1599>

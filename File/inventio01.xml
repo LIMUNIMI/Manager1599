@@ -1,0 +1,4183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ieee1599 SYSTEM "http://standards.ieee.org/downloads/1599/1599-2008/ieee1599.dtd">
+<ieee1599 version="1.0">
+  <general>
+    <description>
+      <main_title>Inventio 1</main_title>
+      <author type="composer">J.S. Bach</author>
+      <number>BWV 772</number>
+      <work_title>Zwei- und dreistimmige Inventionen</work_title>
+    </description>
+  </general>
+  <logic>
+    <spine>
+      <event id="timesig_0" timing="0" hpos="0"/>
+      <event id="keysig_0" timing="0" hpos="0"/>
+      <event id="clef_0" timing="0" hpos="0"/>
+      <event id="clef_1" timing="0" hpos="0"/>
+      <event id="p1v1_0" timing="0" hpos="0"/>
+      <event id="p2v1_0" timing="0" hpos="0"/>
+      <event id="p1v1_1" timing="256" hpos="256"/>
+      <event id="p1v1_2" timing="256" hpos="256"/>
+      <event id="p1v1_3" timing="256" hpos="256"/>
+      <event id="p1v1_4" timing="256" hpos="256"/>
+      <event id="p1v1_5" timing="256" hpos="256"/>
+      <event id="p1v1_6" timing="256" hpos="256"/>
+      <event id="p1v1_7" timing="256" hpos="256"/>
+      <event id="p1v1_8" timing="256" hpos="256"/>
+      <event id="p2v1_1" timing="0" hpos="0"/>
+      <event id="p2v1_2" timing="256" hpos="256"/>
+      <event id="p1v1_9" timing="256" hpos="256"/>
+      <event id="p2v1_3" timing="0" hpos="0"/>
+      <event id="p2v1_4" timing="256" hpos="256"/>
+      <event id="p1v1_10" timing="256" hpos="256"/>
+      <event id="p2v1_5" timing="0" hpos="0"/>
+      <event id="p2v1_6" timing="256" hpos="256"/>
+      <event id="p1v1_11" timing="256" hpos="256"/>
+      <event id="p2v1_7" timing="0" hpos="0"/>
+      <event id="p2v1_8" timing="256" hpos="256"/>
+      <event id="p1v1_12" timing="256" hpos="256"/>
+      <event id="p2v1_9" timing="0" hpos="0"/>
+      <event id="p1v1_13" timing="256" hpos="256"/>
+      <event id="p1v1_14" timing="256" hpos="256"/>
+      <event id="p2v1_10" timing="0" hpos="0"/>
+      <event id="p1v1_15" timing="256" hpos="256"/>
+      <event id="p1v1_16" timing="256" hpos="256"/>
+      <event id="p2v1_11" timing="0" hpos="0"/>
+      <event id="p1v1_17" timing="256" hpos="256"/>
+      <event id="p1v1_18" timing="256" hpos="256"/>
+      <event id="p1v1_19" timing="256" hpos="256"/>
+      <event id="p1v1_20" timing="256" hpos="256"/>
+      <event id="p2v1_12" timing="0" hpos="0"/>
+      <event id="p2v1_13" timing="256" hpos="256"/>
+      <event id="p1v1_21" timing="256" hpos="256"/>
+      <event id="p2v1_14" timing="0" hpos="0"/>
+      <event id="p2v1_15" timing="256" hpos="256"/>
+      <event id="p1v1_22" timing="256" hpos="256"/>
+      <event id="p2v1_16" timing="0" hpos="0"/>
+      <event id="p2v1_17" timing="256" hpos="256"/>
+      <event id="p1v1_23" timing="256" hpos="256"/>
+      <event id="p2v1_18" timing="0" hpos="0"/>
+      <event id="p2v1_19" timing="256" hpos="256"/>
+      <event id="p1v1_24" timing="256" hpos="256"/>
+      <event id="p2v1_20" timing="0" hpos="0"/>
+      <event id="p1v1_25" timing="256" hpos="256"/>
+      <event id="p1v1_26" timing="256" hpos="256"/>
+      <event id="p2v1_21" timing="0" hpos="0"/>
+      <event id="p1v1_27" timing="256" hpos="256"/>
+      <event id="p1v1_28" timing="256" hpos="256"/>
+      <event id="p2v1_22" timing="0" hpos="0"/>
+      <event id="p1v1_29" timing="256" hpos="256"/>
+      <event id="p1v1_30" timing="256" hpos="256"/>
+      <event id="p2v1_23" timing="0" hpos="0"/>
+      <event id="p1v1_31" timing="256" hpos="256"/>
+      <event id="p1v1_32" timing="256" hpos="256"/>
+      <event id="p2v1_24" timing="0" hpos="0"/>
+      <event id="p1v1_33" timing="256" hpos="256"/>
+      <event id="p1v1_34" timing="256" hpos="256"/>
+      <event id="p2v1_25" timing="0" hpos="0"/>
+      <event id="p1v1_35" timing="256" hpos="256"/>
+      <event id="p1v1_36" timing="256" hpos="256"/>
+      <event id="p2v1_26" timing="0" hpos="0"/>
+      <event id="p1v1_37" timing="256" hpos="256"/>
+      <event id="p1v1_38" timing="256" hpos="256"/>
+      <event id="p2v1_27" timing="0" hpos="0"/>
+      <event id="p1v1_39" timing="256" hpos="256"/>
+      <event id="p1v1_40" timing="256" hpos="256"/>
+      <event id="p2v1_28" timing="0" hpos="0"/>
+      <event id="p1v1_41" timing="256" hpos="256"/>
+      <event id="p1v1_42" timing="256" hpos="256"/>
+      <event id="p2v1_29" timing="0" hpos="0"/>
+      <event id="p1v1_43" timing="256" hpos="256"/>
+      <event id="p1v1_44" timing="256" hpos="256"/>
+      <event id="p2v1_30" timing="0" hpos="0"/>
+      <event id="p1v1_45" timing="256" hpos="256"/>
+      <event id="p1v1_46" timing="256" hpos="256"/>
+      <event id="p2v1_31" timing="0" hpos="0"/>
+      <event id="p1v1_47" timing="256" hpos="256"/>
+      <event id="p1v1_48" timing="256" hpos="256"/>
+      <event id="p2v1_32" timing="0" hpos="0"/>
+      <event id="p1v1_49" timing="256" hpos="256"/>
+      <event id="p1v1_50" timing="256" hpos="256"/>
+      <event id="p2v1_33" timing="0" hpos="0"/>
+      <event id="p1v1_51" timing="256" hpos="256"/>
+      <event id="p1v1_52" timing="256" hpos="256"/>
+      <event id="p2v1_34" timing="0" hpos="0"/>
+      <event id="p1v1_53" timing="256" hpos="256"/>
+      <event id="p1v1_54" timing="256" hpos="256"/>
+      <event id="p1v1_55" timing="256" hpos="256"/>
+      <event id="p1v1_56" timing="256" hpos="256"/>
+      <event id="p2v1_35" timing="0" hpos="0"/>
+      <event id="p2v1_36" timing="256" hpos="256"/>
+      <event id="p1v1_57" timing="256" hpos="256"/>
+      <event id="p2v1_37" timing="0" hpos="0"/>
+      <event id="p2v1_38" timing="256" hpos="256"/>
+      <event id="p1v1_58" timing="256" hpos="256"/>
+      <event id="p2v1_39" timing="0" hpos="0"/>
+      <event id="p2v1_40" timing="256" hpos="256"/>
+      <event id="p2v1_41" timing="256" hpos="256"/>
+      <event id="p1v1_59" timing="256" hpos="256"/>
+      <event id="p2v1_42" timing="0" hpos="0"/>
+      <event id="p1v1_60" timing="256" hpos="256"/>
+      <event id="p2v1_43" timing="0" hpos="0"/>
+      <event id="p1v1_61" timing="256" hpos="256"/>
+      <event id="p1v1_62" timing="256" hpos="256"/>
+      <event id="p2v1_44" timing="0" hpos="0"/>
+      <event id="p1v1_63" timing="256" hpos="256"/>
+      <event id="p1v1_64" timing="256" hpos="256"/>
+      <event id="p2v1_45" timing="0" hpos="0"/>
+      <event id="p1v1_65" timing="256" hpos="256"/>
+      <event id="p1v1_66" timing="256" hpos="256"/>
+      <event id="p2v1_46" timing="0" hpos="0"/>
+      <event id="p1v1_67" timing="256" hpos="256"/>
+      <event id="p1v1_68" timing="256" hpos="256"/>
+      <event id="p2v1_47" timing="0" hpos="0"/>
+      <event id="p1v1_69" timing="256" hpos="256"/>
+      <event id="p1v1_70" timing="256" hpos="256"/>
+      <event id="p2v1_48" timing="0" hpos="0"/>
+      <event id="p1v1_71" timing="256" hpos="256"/>
+      <event id="p1v1_72" timing="256" hpos="256"/>
+      <event id="p2v1_49" timing="0" hpos="0"/>
+      <event id="p1v1_73" timing="256" hpos="256"/>
+      <event id="p1v1_74" timing="256" hpos="256"/>
+      <event id="p2v1_50" timing="0" hpos="0"/>
+      <event id="p1v1_75" timing="256" hpos="256"/>
+      <event id="p1v1_76" timing="256" hpos="256"/>
+      <event id="p2v1_51" timing="0" hpos="0"/>
+      <event id="p1v1_77" timing="256" hpos="256"/>
+      <event id="p1v1_78" timing="128" hpos="128"/>
+      <event id="p1v1_79" timing="128" hpos="128"/>
+      <event id="p1v1_80" timing="256" hpos="256"/>
+      <event id="p2v1_52" timing="0" hpos="0"/>
+      <event id="p1v1_81" timing="256" hpos="256"/>
+      <event id="p2v1_53" timing="0" hpos="0"/>
+      <event id="p1v1_82" timing="512" hpos="512"/>
+      <event id="p2v1_54" timing="0" hpos="0"/>
+      <event id="p1v1_83" timing="256" hpos="256"/>
+      <event id="p1v1_84" timing="256" hpos="256"/>
+      <event id="p2v1_55" timing="0" hpos="0"/>
+      <event id="p2v1_56" timing="256" hpos="256"/>
+      <event id="p1v1_85" timing="256" hpos="256"/>
+      <event id="p2v1_57" timing="0" hpos="0"/>
+      <event id="p2v1_58" timing="256" hpos="256"/>
+      <event id="p1v1_86" timing="256" hpos="256"/>
+      <event id="p2v1_59" timing="0" hpos="0"/>
+      <event id="p2v1_60" timing="256" hpos="256"/>
+      <event id="p2v1_61" timing="256" hpos="256"/>
+      <event id="p2v1_62" timing="256" hpos="256"/>
+      <event id="p1v1_87" timing="256" hpos="256"/>
+      <event id="p2v1_63" timing="0" hpos="0"/>
+      <event id="p1v1_88" timing="256" hpos="256"/>
+      <event id="p1v1_89" timing="256" hpos="256"/>
+      <event id="p2v1_64" timing="0" hpos="0"/>
+      <event id="p1v1_90" timing="256" hpos="256"/>
+      <event id="p1v1_91" timing="256" hpos="256"/>
+      <event id="p2v1_65" timing="0" hpos="0"/>
+      <event id="p1v1_92" timing="256" hpos="256"/>
+      <event id="p1v1_93" timing="256" hpos="256"/>
+      <event id="p2v1_66" timing="0" hpos="0"/>
+      <event id="p1v1_94" timing="256" hpos="256"/>
+      <event id="p1v1_95" timing="256" hpos="256"/>
+      <event id="p2v1_67" timing="0" hpos="0"/>
+      <event id="p2v1_68" timing="256" hpos="256"/>
+      <event id="p1v1_96" timing="256" hpos="256"/>
+      <event id="p2v1_69" timing="0" hpos="0"/>
+      <event id="p2v1_70" timing="256" hpos="256"/>
+      <event id="p1v1_97" timing="256" hpos="256"/>
+      <event id="p2v1_71" timing="0" hpos="0"/>
+      <event id="p2v1_72" timing="256" hpos="256"/>
+      <event id="p2v1_73" timing="256" hpos="256"/>
+      <event id="p2v1_74" timing="256" hpos="256"/>
+      <event id="p1v1_98" timing="256" hpos="256"/>
+      <event id="p2v1_75" timing="0" hpos="0"/>
+      <event id="p1v1_99" timing="256" hpos="256"/>
+      <event id="p1v1_100" timing="256" hpos="256"/>
+      <event id="p2v1_76" timing="0" hpos="0"/>
+      <event id="p1v1_101" timing="256" hpos="256"/>
+      <event id="p1v1_102" timing="256" hpos="256"/>
+      <event id="p2v1_77" timing="0" hpos="0"/>
+      <event id="p1v1_103" timing="256" hpos="256"/>
+      <event id="p1v1_104" timing="256" hpos="256"/>
+      <event id="p2v1_78" timing="0" hpos="0"/>
+      <event id="p1v1_105" timing="256" hpos="256"/>
+      <event id="p1v1_106" timing="256" hpos="256"/>
+      <event id="clef_2" timing="0" hpos="0"/>
+      <event id="p2v1_79" timing="0" hpos="0"/>
+      <event id="p2v1_80" timing="256" hpos="256"/>
+      <event id="p1v1_107" timing="256" hpos="256"/>
+      <event id="p2v1_81" timing="0" hpos="0"/>
+      <event id="p2v1_82" timing="256" hpos="256"/>
+      <event id="p1v1_108" timing="256" hpos="256"/>
+      <event id="p2v1_83" timing="0" hpos="0"/>
+      <event id="p2v1_84" timing="256" hpos="256"/>
+      <event id="p2v1_85" timing="256" hpos="256"/>
+      <event id="p2v1_86" timing="256" hpos="256"/>
+      <event id="p1v1_109" timing="256" hpos="256"/>
+      <event id="p2v1_87" timing="0" hpos="0"/>
+      <event id="p1v1_110" timing="256" hpos="256"/>
+      <event id="p1v1_111" timing="256" hpos="256"/>
+      <event id="p2v1_88" timing="0" hpos="0"/>
+      <event id="p1v1_112" timing="256" hpos="256"/>
+      <event id="p1v1_113" timing="256" hpos="256"/>
+      <event id="p2v1_89" timing="0" hpos="0"/>
+      <event id="p1v1_114" timing="256" hpos="256"/>
+      <event id="p1v1_115" timing="256" hpos="256"/>
+      <event id="p2v1_90" timing="0" hpos="0"/>
+      <event id="p1v1_116" timing="256" hpos="256"/>
+      <event id="p1v1_117" timing="256" hpos="256"/>
+      <event id="p2v1_91" timing="0" hpos="0"/>
+      <event id="p2v1_92" timing="256" hpos="256"/>
+      <event id="p1v1_118" timing="256" hpos="256"/>
+      <event id="p2v1_93" timing="0" hpos="0"/>
+      <event id="p2v1_94" timing="256" hpos="256"/>
+      <event id="p1v1_119" timing="256" hpos="256"/>
+      <event id="p2v1_95" timing="0" hpos="0"/>
+      <event id="p2v1_96" timing="256" hpos="256"/>
+      <event id="p2v1_97" timing="256" hpos="256"/>
+      <event id="p2v1_98" timing="256" hpos="256"/>
+      <event id="p1v1_120" timing="256" hpos="256"/>
+      <event id="p2v1_99" timing="0" hpos="0"/>
+      <event id="p1v1_121" timing="256" hpos="256"/>
+      <event id="p1v1_122" timing="256" hpos="256"/>
+      <event id="p2v1_100" timing="0" hpos="0"/>
+      <event id="p1v1_123" timing="256" hpos="256"/>
+      <event id="p1v1_124" timing="256" hpos="256"/>
+      <event id="p2v1_101" timing="0" hpos="0"/>
+      <event id="p1v1_125" timing="256" hpos="256"/>
+      <event id="p1v1_126" timing="256" hpos="256"/>
+      <event id="p2v1_102" timing="0" hpos="0"/>
+      <event id="p1v1_127" timing="256" hpos="256"/>
+      <event id="p1v1_128" timing="256" hpos="256"/>
+      <event id="p2v1_103" timing="0" hpos="0"/>
+      <event id="p2v1_104" timing="256" hpos="256"/>
+      <event id="p1v1_129" timing="256" hpos="256"/>
+      <event id="p2v1_105" timing="0" hpos="0"/>
+      <event id="p2v1_106" timing="256" hpos="256"/>
+      <event id="p1v1_130" timing="256" hpos="256"/>
+      <event id="p2v1_107" timing="0" hpos="0"/>
+      <event id="p2v1_108" timing="256" hpos="256"/>
+      <event id="p1v1_131" timing="256" hpos="256"/>
+      <event id="p2v1_109" timing="0" hpos="0"/>
+      <event id="p2v1_110" timing="256" hpos="256"/>
+      <event id="p1v1_132" timing="256" hpos="256"/>
+      <event id="p2v1_111" timing="0" hpos="0"/>
+      <event id="p2v1_112" timing="256" hpos="256"/>
+      <event id="p1v1_133" timing="256" hpos="256"/>
+      <event id="p2v1_113" timing="0" hpos="0"/>
+      <event id="p2v1_114" timing="256" hpos="256"/>
+      <event id="p1v1_134" timing="256" hpos="256"/>
+      <event id="p2v1_115" timing="0" hpos="0"/>
+      <event id="p2v1_116" timing="256" hpos="256"/>
+      <event id="p1v1_135" timing="256" hpos="256"/>
+      <event id="p2v1_117" timing="0" hpos="0"/>
+      <event id="p2v1_118" timing="256" hpos="256"/>
+      <event id="p1v1_136" timing="256" hpos="256"/>
+      <event id="p2v1_119" timing="0" hpos="0"/>
+      <event id="p2v1_120" timing="256" hpos="256"/>
+      <event id="p1v1_137" timing="256" hpos="256"/>
+      <event id="p2v1_121" timing="0" hpos="0"/>
+      <event id="p2v1_122" timing="256" hpos="256"/>
+      <event id="p1v1_138" timing="256" hpos="256"/>
+      <event id="p2v1_123" timing="0" hpos="0"/>
+      <event id="p2v1_124" timing="256" hpos="256"/>
+      <event id="p1v1_139" timing="256" hpos="256"/>
+      <event id="p2v1_125" timing="0" hpos="0"/>
+      <event id="p2v1_126" timing="256" hpos="256"/>
+      <event id="clef_3" timing="0" hpos="0"/>
+      <event id="p1v1_140" timing="256" hpos="256"/>
+      <event id="p2v1_127" timing="0" hpos="0"/>
+      <event id="p2v1_128" timing="256" hpos="256"/>
+      <event id="p1v1_141" timing="256" hpos="256"/>
+      <event id="p2v1_129" timing="0" hpos="0"/>
+      <event id="p2v1_130" timing="256" hpos="256"/>
+      <event id="p1v1_142" timing="256" hpos="256"/>
+      <event id="p2v1_131" timing="0" hpos="0"/>
+      <event id="p2v1_132" timing="256" hpos="256"/>
+      <event id="p2v1_133" timing="256" hpos="256"/>
+      <event id="p2v1_134" timing="256" hpos="256"/>
+      <event id="p1v1_143" timing="256" hpos="256"/>
+      <event id="p2v1_135" timing="0" hpos="0"/>
+      <event id="p1v1_144" timing="256" hpos="256"/>
+      <event id="p1v1_145" timing="256" hpos="256"/>
+      <event id="p2v1_136" timing="0" hpos="0"/>
+      <event id="p1v1_146" timing="256" hpos="256"/>
+      <event id="p1v1_147" timing="256" hpos="256"/>
+      <event id="p2v1_137" timing="0" hpos="0"/>
+      <event id="p1v1_148" timing="256" hpos="256"/>
+      <event id="p1v1_149" timing="256" hpos="256"/>
+      <event id="p1v1_150" timing="256" hpos="256"/>
+      <event id="p2v1_138" timing="0" hpos="0"/>
+      <event id="p1v1_151" timing="256" hpos="256"/>
+      <event id="p2v1_139" timing="0" hpos="0"/>
+      <event id="p1v1_152" timing="256" hpos="256"/>
+      <event id="p2v1_140" timing="0" hpos="0"/>
+      <event id="p1v1_153" timing="256" hpos="256"/>
+      <event id="p2v1_141" timing="0" hpos="0"/>
+      <event id="p1v1_154" timing="256" hpos="256"/>
+      <event id="p2v1_142" timing="0" hpos="0"/>
+      <event id="p1v1_155" timing="256" hpos="256"/>
+      <event id="p2v1_143" timing="0" hpos="0"/>
+      <event id="p1v1_156" timing="256" hpos="256"/>
+      <event id="p2v1_144" timing="0" hpos="0"/>
+      <event id="p1v1_157" timing="256" hpos="256"/>
+      <event id="p2v1_145" timing="0" hpos="0"/>
+      <event id="p1v1_158" timing="256" hpos="256"/>
+      <event id="p2v1_146" timing="0" hpos="0"/>
+      <event id="p1v1_159" timing="256" hpos="256"/>
+      <event id="p2v1_147" timing="0" hpos="0"/>
+      <event id="p1v1_160" timing="256" hpos="256"/>
+      <event id="p2v1_148" timing="0" hpos="0"/>
+      <event id="p1v1_161" timing="256" hpos="256"/>
+      <event id="p2v1_149" timing="0" hpos="0"/>
+      <event id="p1v1_162" timing="256" hpos="256"/>
+      <event id="p2v1_150" timing="0" hpos="0"/>
+      <event id="p1v1_163" timing="256" hpos="256"/>
+      <event id="p2v1_151" timing="0" hpos="0"/>
+      <event id="p1v1_164" timing="256" hpos="256"/>
+      <event id="p2v1_152" timing="0" hpos="0"/>
+      <event id="p1v1_165" timing="256" hpos="256"/>
+      <event id="p2v1_153" timing="0" hpos="0"/>
+      <event id="p1v1_166" timing="256" hpos="256"/>
+      <event id="p2v1_154" timing="0" hpos="0"/>
+      <event id="p1v1_167" timing="256" hpos="256"/>
+      <event id="p2v1_155" timing="0" hpos="0"/>
+      <event id="p1v1_168" timing="256" hpos="256"/>
+      <event id="p1v1_169" timing="256" hpos="256"/>
+      <event id="p2v1_156" timing="0" hpos="0"/>
+      <event id="p1v1_170" timing="256" hpos="256"/>
+      <event id="p1v1_171" timing="256" hpos="256"/>
+      <event id="p2v1_157" timing="0" hpos="0"/>
+      <event id="p1v1_172" timing="512" hpos="512"/>
+      <event id="p2v1_158" timing="0" hpos="0"/>
+      <event id="p1v1_173" timing="256" hpos="256"/>
+      <event id="p1v1_174" timing="256" hpos="256"/>
+      <event id="p2v1_159" timing="0" hpos="0"/>
+      <event id="p1v1_175" timing="256" hpos="256"/>
+      <event id="p1v1_176" timing="256" hpos="256"/>
+      <event id="p2v1_160" timing="0" hpos="0"/>
+      <event id="p1v1_177" timing="256" hpos="256"/>
+      <event id="p1v1_178" timing="256" hpos="256"/>
+      <event id="p2v1_161" timing="0" hpos="0"/>
+      <event id="p1v1_179" timing="256" hpos="256"/>
+      <event id="p1v1_180" timing="256" hpos="256"/>
+      <event id="p1v1_181" timing="256" hpos="256"/>
+      <event id="p1v1_182" timing="256" hpos="256"/>
+      <event id="p2v1_162" timing="0" hpos="0"/>
+      <event id="p2v1_163" timing="256" hpos="256"/>
+      <event id="p2v1_164" timing="256" hpos="256"/>
+      <event id="p2v1_165" timing="256" hpos="256"/>
+      <event id="p2v1_166" timing="256" hpos="256"/>
+      <event id="p2v1_167" timing="256" hpos="256"/>
+      <event id="p2v1_168" timing="256" hpos="256"/>
+      <event id="p2v1_169" timing="256" hpos="256"/>
+      <event id="p1v1_183" timing="256" hpos="256"/>
+      <event id="p2v1_170" timing="0" hpos="0"/>
+      <event id="p1v1_184" timing="256" hpos="256"/>
+      <event id="p1v1_185" timing="256" hpos="256"/>
+      <event id="p1v1_186" timing="256" hpos="256"/>
+      <event id="p1v1_187" timing="256" hpos="256"/>
+      <event id="p1v1_188" timing="256" hpos="256"/>
+      <event id="p1v1_189" timing="256" hpos="256"/>
+      <event id="p1v1_190" timing="256" hpos="256"/>
+      <event id="p1v1_191" timing="256" hpos="256"/>
+      <event id="p2v1_171" timing="0" hpos="0"/>
+      <event id="p2v1_172" timing="256" hpos="256"/>
+      <event id="p2v1_173" timing="256" hpos="256"/>
+      <event id="p2v1_174" timing="256" hpos="256"/>
+      <event id="p2v1_175" timing="256" hpos="256"/>
+      <event id="p2v1_176" timing="256" hpos="256"/>
+      <event id="p2v1_177" timing="256" hpos="256"/>
+      <event id="p2v1_178" timing="256" hpos="256"/>
+      <event id="p1v1_192" timing="256" hpos="256"/>
+      <event id="p2v1_179" timing="0" hpos="0"/>
+      <event id="p1v1_193" timing="256" hpos="256"/>
+      <event id="p1v1_194" timing="256" hpos="256"/>
+      <event id="p1v1_195" timing="256" hpos="256"/>
+      <event id="p1v1_196" timing="256" hpos="256"/>
+      <event id="p1v1_197" timing="256" hpos="256"/>
+      <event id="p1v1_198" timing="256" hpos="256"/>
+      <event id="p1v1_199" timing="256" hpos="256"/>
+      <event id="p1v1_200" timing="256" hpos="256"/>
+      <event id="p2v1_180" timing="0" hpos="0"/>
+      <event id="p2v1_181" timing="256" hpos="256"/>
+      <event id="p2v1_182" timing="256" hpos="256"/>
+      <event id="p2v1_183" timing="256" hpos="256"/>
+      <event id="p2v1_184" timing="256" hpos="256"/>
+      <event id="p2v1_185" timing="256" hpos="256"/>
+      <event id="p2v1_186" timing="256" hpos="256"/>
+      <event id="p2v1_187" timing="256" hpos="256"/>
+      <event id="p1v1_201" timing="256" hpos="256"/>
+      <event id="p2v1_188" timing="0" hpos="0"/>
+      <event id="p1v1_202" timing="256" hpos="256"/>
+      <event id="p1v1_203" timing="256" hpos="256"/>
+      <event id="p1v1_204" timing="256" hpos="256"/>
+      <event id="p1v1_205" timing="256" hpos="256"/>
+      <event id="p1v1_206" timing="256" hpos="256"/>
+      <event id="p1v1_207" timing="256" hpos="256"/>
+      <event id="p1v1_208" timing="256" hpos="256"/>
+      <event id="p1v1_209" timing="256" hpos="256"/>
+      <event id="p2v1_189" timing="0" hpos="0"/>
+      <event id="p2v1_190" timing="256" hpos="256"/>
+      <event id="p2v1_191" timing="256" hpos="256"/>
+      <event id="p2v1_192" timing="256" hpos="256"/>
+      <event id="p2v1_193" timing="256" hpos="256"/>
+      <event id="p2v1_194" timing="256" hpos="256"/>
+      <event id="p2v1_195" timing="256" hpos="256"/>
+      <event id="p2v1_196" timing="256" hpos="256"/>
+      <event id="p1v1_210" timing="256" hpos="256"/>
+      <event id="p2v1_197" timing="0" hpos="0"/>
+      <event id="p1v1_211" timing="256" hpos="256"/>
+      <event id="p1v1_212" timing="256" hpos="256"/>
+      <event id="p2v1_198" timing="0" hpos="0"/>
+      <event id="p1v1_213" timing="256" hpos="256"/>
+      <event id="p1v1_214" timing="256" hpos="256"/>
+      <event id="p2v1_199" timing="0" hpos="0"/>
+      <event id="p1v1_215" timing="256" hpos="256"/>
+      <event id="p1v1_216" timing="256" hpos="256"/>
+      <event id="p2v1_200" timing="0" hpos="0"/>
+      <event id="p1v1_217" timing="256" hpos="256"/>
+      <event id="p1v1_218" timing="256" hpos="256"/>
+      <event id="p2v1_201" timing="0" hpos="0"/>
+      <event id="p1v1_219" timing="256" hpos="256"/>
+      <event id="p1v1_220" timing="256" hpos="256"/>
+      <event id="p2v1_202" timing="0" hpos="0"/>
+      <event id="p1v1_221" timing="256" hpos="256"/>
+      <event id="p1v1_222" timing="256" hpos="256"/>
+      <event id="p2v1_203" timing="0" hpos="0"/>
+      <event id="p1v1_223" timing="256" hpos="256"/>
+      <event id="p1v1_224" timing="256" hpos="256"/>
+      <event id="p2v1_204" timing="0" hpos="0"/>
+      <event id="p1v1_225" timing="256" hpos="256"/>
+      <event id="p1v1_226" timing="256" hpos="256"/>
+      <event id="p2v1_205" timing="0" hpos="0"/>
+      <event id="p1v1_227" timing="256" hpos="256"/>
+      <event id="p1v1_228" timing="256" hpos="256"/>
+      <event id="p2v1_206" timing="0" hpos="0"/>
+      <event id="p1v1_229" timing="256" hpos="256"/>
+      <event id="p1v1_230" timing="256" hpos="256"/>
+      <event id="p2v1_207" timing="0" hpos="0"/>
+      <event id="p1v1_231" timing="256" hpos="256"/>
+      <event id="p1v1_232" timing="256" hpos="256"/>
+      <event id="p2v1_208" timing="0" hpos="0"/>
+      <event id="p1v1_233" timing="256" hpos="256"/>
+      <event id="p1v1_234" timing="256" hpos="256"/>
+      <event id="p2v1_209" timing="0" hpos="0"/>
+      <event id="p2v1_210" timing="256" hpos="256"/>
+      <event id="p1v1_235" timing="256" hpos="256"/>
+      <event id="p2v1_211" timing="0" hpos="0"/>
+      <event id="p2v1_212" timing="256" hpos="256"/>
+      <event id="p1v1_236" timing="256" hpos="256"/>
+      <event id="p2v1_213" timing="0" hpos="0"/>
+      <event id="p2v1_214" timing="256" hpos="256"/>
+      <event id="p1v1_237" timing="256" hpos="256"/>
+      <event id="p2v1_215" timing="0" hpos="0"/>
+      <event id="p1v1_238" timing="256" hpos="256"/>
+      <event id="p2v1_216" timing="0" hpos="0"/>
+      <event id="p1v1_239" timing="256" hpos="256"/>
+      <event id="p2v1_217" timing="0" hpos="0"/>
+      <event id="p1v1_240" timing="256" hpos="256"/>
+      <event id="p1v1_241" timing="256" hpos="256"/>
+      <event id="p2v1_218" timing="0" hpos="0"/>
+      <event id="p1v1_242" timing="256" hpos="256"/>
+      <event id="p1v1_243" timing="256" hpos="256"/>
+      <event id="p2v1_219" timing="0" hpos="0"/>
+      <event id="p1v1_244" timing="256" hpos="256"/>
+      <event id="p1v1_245" timing="256" hpos="256"/>
+      <event id="p2v1_220" timing="0" hpos="0"/>
+      <event id="p1v1_246" timing="256" hpos="256"/>
+      <event id="p1v1_247" timing="256" hpos="256"/>
+      <event id="p2v1_221" timing="0" hpos="0"/>
+      <event id="p1v1_248" timing="256" hpos="256"/>
+      <event id="p2v1_222" timing="0" hpos="0"/>
+      <event id="p1v1_249" timing="256" hpos="256"/>
+      <event id="p2v1_223" timing="0" hpos="0"/>
+      <event id="p1v1_250" timing="256" hpos="256"/>
+      <event id="p2v1_224" timing="0" hpos="0"/>
+      <event id="p1v1_251" timing="256" hpos="256"/>
+      <event id="p2v1_225" timing="0" hpos="0"/>
+      <event id="p1v1_252" timing="256" hpos="256"/>
+      <event id="p1v1_253" timing="256" hpos="256"/>
+      <event id="p2v1_226" timing="0" hpos="0"/>
+      <event id="p1v1_254" timing="256" hpos="256"/>
+      <event id="p1v1_255" timing="256" hpos="256"/>
+      <event id="p2v1_227" timing="0" hpos="0"/>
+    </spine>
+    <los>
+      <staff_list>
+        <staff id="staff_1">
+          <clef shape="G" staff_step="2" event_ref="clef_0"/>
+          <time_signature event_ref="timesig_0">
+            <time_indication num="4" den="4" vtu_amount="4096"/>
+          </time_signature>
+          <key_signature event_ref="keysig_0">
+            <sharp_num number="0"/>
+          </key_signature>
+        </staff>
+        <staff id="staff_2">
+          <clef shape="F" staff_step="6" event_ref="clef_1"/>
+          <clef shape="G" staff_step="2" event_ref="clef_2"/>
+          <clef shape="F" staff_step="6" event_ref="clef_3"/>
+          <time_signature event_ref="timesig_0">
+            <time_indication num="4" den="4" vtu_amount="4096"/>
+          </time_signature>
+          <key_signature event_ref="keysig_0">
+            <sharp_num number="0"/>
+          </key_signature>
+        </staff>
+      </staff_list>
+      <part id="part_1">
+        <voice_list>
+          <voice_item id="part_1_voice_1" staff_ref="staff_1"/>
+        </voice_list>
+        <measure number="1">
+          <voice voice_item_ref="part_1_voice_1">
+            <rest event_ref="p1v1_0">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p1v1_1">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_2">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_3">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_4">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_5">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_6">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_7">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_8">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_9">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_10">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_11">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="2">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_12">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_13">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_14">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_15">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_16">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_17">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_18">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_19">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_20">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_21">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_22">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_23">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="3">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_24">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_25">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_26">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_27">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_28">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_29">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_30">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_31">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_32">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_33">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_34">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_35">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_36">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_37">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_38">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_39">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="4">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_40">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_41">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_42">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_43">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_44">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_45">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_46">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_47">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_48">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_49">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_50">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_51">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_52">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_53">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_54">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_55">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="5">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_56">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_57">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_58">
+              <duration num="1" den="8"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_59">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_60">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_61">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_62">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_63">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_64">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_65">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_66">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_67">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="6">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_68">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_69">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_70">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_71">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_72">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_73">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_74">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_75">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_76">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_77">
+              <duration num="1" den="32"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_78">
+              <duration num="1" den="32"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_79">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_80">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_81">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_82">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_83">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="7">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_84">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <rest event_ref="p1v1_85">
+              <duration num="1" den="8"/>
+            </rest>
+            <rest event_ref="p1v1_86">
+              <duration num="1" den="4"/>
+            </rest>
+            <rest event_ref="p1v1_87">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p1v1_88">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_89">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_90">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_91">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_92">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_93">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_94">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="8">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_95">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <rest event_ref="p1v1_96">
+              <duration num="1" den="8"/>
+            </rest>
+            <rest event_ref="p1v1_97">
+              <duration num="1" den="4"/>
+            </rest>
+            <rest event_ref="p1v1_98">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p1v1_99">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_100">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_101">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_102">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_103">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_104">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_105">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="9">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_106">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <rest event_ref="p1v1_107">
+              <duration num="1" den="8"/>
+            </rest>
+            <rest event_ref="p1v1_108">
+              <duration num="1" den="4"/>
+            </rest>
+            <rest event_ref="p1v1_109">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p1v1_110">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_111">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_112">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_113">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_114">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_115">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_116">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="10">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_117">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <rest event_ref="p1v1_118">
+              <duration num="1" den="8"/>
+            </rest>
+            <rest event_ref="p1v1_119">
+              <duration num="1" den="4"/>
+            </rest>
+            <rest event_ref="p1v1_120">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p1v1_121">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_122">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_123">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_124">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_125">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_126">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_127">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="11">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_128">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_129">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="6" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_130">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_131">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_132">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_133">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_134">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_135">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="6" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="12">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_136">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_137">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_138">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_139">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_140">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_141">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_142">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="13">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_143">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_144">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_145">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_146">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_147">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_148">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_149">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_150">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_151">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_152">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_153">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_154">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_155">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_156">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_157">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_158">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="14">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_159">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_160">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_161">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_162">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_163">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_164">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_165">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_166">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_167">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_168">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_169">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_170">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_171">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_172">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_173">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="15">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_174">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_175">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_176">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_177">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_178">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_179">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_180">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_181">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_182">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="16">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_183">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_184">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_185">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_186">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_187">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_188">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_189">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_190">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_191">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="17">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_192">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_193">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_194">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_195">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_196">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_197">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_198">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_199">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_200">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="18">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_201">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_202">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_203">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_204">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_205">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_206">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_207">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_208">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_209">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="19">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_210">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_211">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_212">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_213">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_214">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_215">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_216">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_217">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_218">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_219">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_220">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_221">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_222">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_223">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_224">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_225">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="20">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_226">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_227">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_228">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_229">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_230">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="7"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_231">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_232">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_233">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_234">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="7"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_235">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_236">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_237">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_238">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="21">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_239">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_240">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_241">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_242">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_243">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_244">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_245">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_246">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_247">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_248">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_249">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_250">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_251">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_252">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_253">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p1v1_254">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="22">
+          <voice voice_item_ref="part_1_voice_1">
+            <chord event_ref="p1v1_255">
+              <duration num="1" den="1"/>
+              <notehead>
+                <pitch step="C" octave="6"/>
+              </notehead>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+      </part>
+      <part id="part_2">
+        <voice_list>
+          <voice_item id="part_2_voice_1" staff_ref="staff_2"/>
+        </voice_list>
+        <measure number="1">
+          <voice voice_item_ref="part_2_voice_1">
+            <rest event_ref="p2v1_0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="p2v1_1">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p2v1_2">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_3">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_4">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_5">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_6">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_7">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_8">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="2">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_9">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_10">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="3"/>
+              </notehead>
+            </chord>
+            <rest event_ref="p2v1_11">
+              <duration num="1" den="4"/>
+            </rest>
+            <rest event_ref="p2v1_12">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p2v1_13">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_14">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_15">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_16">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_17">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_18">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_19">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="3">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_20">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_21">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_22">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_23">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_24">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_25">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_26">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_27">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="4">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_28">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_29">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_30">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_31">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_32">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_33">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_34">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="5">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_35">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_36">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_37">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_38">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_39">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_40">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_41">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_42">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_43">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_44">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_45">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_46">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="6">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_47">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_48">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_49">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_50">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_51">
+              <duration num="1" den="8"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch step="B" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_52">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_53">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_54">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="3"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="7">
+          <voice voice_item_ref="part_2_voice_1">
+            <rest event_ref="p2v1_55">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p2v1_56">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_57">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_58">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_59">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_60">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_61">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_62">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="3"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_63">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_64">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_65">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_66">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="8">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_67">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_68">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_69">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_70">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_71">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_72">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_73">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_74">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_75">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_76">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_77">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_78">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="9">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_79">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_80">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_81">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_82">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_83">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_84">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_85">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_86">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_87">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_88">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_89">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_90">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="10">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_91">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_92">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_93">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_94">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_95">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_96">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_97">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_98">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_99">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_100">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_101">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_102">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="11">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_103">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_104">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_105">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_106">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_107">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_108">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_109">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_110">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="5" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_111">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_112">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_113">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_114">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_115">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_116">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_117">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_118">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="12">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_119">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_120">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_121">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_122">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_123">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_124">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_125">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_126">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_127">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_128">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_129">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_130">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_131">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_132">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_133">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_134">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="13">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_135">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_136">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_137">
+              <duration num="1" den="8"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_138">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_139">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_140">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_141">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_142">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_143">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_144">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_145">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_146">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="14">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_147">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_148">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_149">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_150">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_151">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_152">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_153">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_154">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_155">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_156">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_157">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_158">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="15">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_159">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_160">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="3"/>
+              </notehead>
+            </chord>
+            <rest event_ref="p2v1_161">
+              <duration num="1" den="4"/>
+            </rest>
+            <rest event_ref="p2v1_162">
+              <duration num="1" den="16"/>
+            </rest>
+            <chord event_ref="p2v1_163">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_164">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_165">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_166">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_167">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_168">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_169">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="16">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_170">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_171">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_172">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_173">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_174">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_175">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_176">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_177">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_178">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="17">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_179">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_180">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_181">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_182">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_183">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_184">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_185">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_186">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_187">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="18">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_188">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_189">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_190">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_191">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_192">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_193">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_194">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_195">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="B" octave="4" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_196">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="19">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_197">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_198">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="4" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_199">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_200">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_201">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_202">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_203">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_204">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="B" octave="4" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="20">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_205">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="A" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_206">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="F" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_207">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_208">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_209">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="5"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_210">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_211">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_212">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_213">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_214">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_215">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_216">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="21">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_217">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_218">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="C" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_219">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_220">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_221">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_222">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="D" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_223">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="E" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_224">
+              <duration num="1" den="16"/>
+              <notehead>
+                <pitch step="F" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_225">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="4"/>
+              </notehead>
+            </chord>
+            <chord event_ref="p2v1_226">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch step="G" octave="3"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="22">
+          <voice voice_item_ref="part_2_voice_1">
+            <chord event_ref="p2v1_227">
+              <duration num="1" den="1"/>
+              <notehead>
+                <pitch step="C" octave="3"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+      </part>
+      <ornaments>
+        <mordent event_ref="p1v1_10" type="upper" length="normal"/>
+        <mordent event_ref="p1v1_58" type="lower" length="normal"/>
+        <mordent event_ref="p1v1_81" type="upper" length="normal"/>
+        <mordent event_ref="p1v1_95" type="upper" length="normal"/>
+        <mordent event_ref="p2v1_137" type="lower" length="normal"/>
+        <mordent event_ref="p1v1_171" type="upper" length="normal"/>
+      </ornaments>
+    </los>
+  </logic>
+  <notational>
+    <graphic_instance_group description="Finale">
+      <graphic_instance file_name="score_files/finale/inventio01_finale_1.tif" file_format="image_tiff" encoding_format="image_tiff" position_in_group="1" measurement_unit="pixels">
+        <graphic_event event_ref="p1v1_0" upper_left_x="467" upper_left_y="607" lower_right_x="512" lower_right_y="687"/>
+        <graphic_event event_ref="p1v1_1" upper_left_x="522" upper_left_y="602" lower_right_x="577" lower_right_y="712"/>
+        <graphic_event event_ref="p1v1_2" upper_left_x="587" upper_left_y="597" lower_right_x="632" lower_right_y="702"/>
+        <graphic_event event_ref="p1v1_3" upper_left_x="647" upper_left_y="602" lower_right_x="687" lower_right_y="692"/>
+        <graphic_event event_ref="p1v1_4" upper_left_x="697" upper_left_y="592" lower_right_x="747" lower_right_y="697"/>
+        <graphic_event event_ref="p1v1_5" upper_left_x="757" upper_left_y="592" lower_right_x="807" lower_right_y="702"/>
+        <graphic_event event_ref="p1v1_6" upper_left_x="817" upper_left_y="597" lower_right_x="862" lower_right_y="702"/>
+        <graphic_event event_ref="p1v1_7" upper_left_x="872" upper_left_y="602" lower_right_x="922" lower_right_y="712"/>
+        <graphic_event event_ref="p1v1_8" upper_left_x="937" upper_left_y="557" lower_right_x="982" lower_right_y="687"/>
+        <graphic_event event_ref="p1v1_9" upper_left_x="1022" upper_left_y="542" lower_right_x="1097" lower_right_y="667"/>
+        <graphic_event event_ref="p1v1_10" upper_left_x="1142" upper_left_y="607" lower_right_x="1202" lower_right_y="742"/>
+        <graphic_event event_ref="p1v1_11" upper_left_x="1257" upper_left_y="592" lower_right_x="1352" lower_right_y="727"/>
+        <graphic_event event_ref="p1v1_12" upper_left_x="1417" upper_left_y="527" lower_right_x="1457" lower_right_y="662"/>
+        <graphic_event event_ref="p1v1_13" upper_left_x="1477" upper_left_y="537" lower_right_x="1512" lower_right_y="682"/>
+        <graphic_event event_ref="p1v1_14" upper_left_x="1517" upper_left_y="532" lower_right_x="1577" lower_right_y="702"/>
+        <graphic_event event_ref="p1v1_15" upper_left_x="1582" upper_left_y="537" lower_right_x="1652" lower_right_y="682"/>
+        <graphic_event event_ref="p1v1_16" upper_left_x="1642" upper_left_y="522" lower_right_x="1682" lower_right_y="672"/>
+        <graphic_event event_ref="p1v1_17" upper_left_x="1692" upper_left_y="542" lower_right_x="1742" lower_right_y="702"/>
+        <graphic_event event_ref="p1v1_18" upper_left_x="1747" upper_left_y="542" lower_right_x="1792" lower_right_y="697"/>
+        <graphic_event event_ref="p1v1_19" upper_left_x="1807" upper_left_y="542" lower_right_x="1842" lower_right_y="692"/>
+        <graphic_event event_ref="p1v1_20" upper_left_x="1862" upper_left_y="582" lower_right_x="1902" lower_right_y="692"/>
+        <graphic_event event_ref="p1v1_21" upper_left_x="1937" upper_left_y="562" lower_right_x="2042" lower_right_y="697"/>
+        <graphic_event event_ref="p1v1_22" upper_left_x="2047" upper_left_y="562" lower_right_x="2147" lower_right_y="707"/>
+        <graphic_event event_ref="p1v1_23" upper_left_x="2177" upper_left_y="542" lower_right_x="2262" lower_right_y="692"/>
+        <graphic_event event_ref="p1v1_24" upper_left_x="277" upper_left_y="1144" lower_right_x="332" lower_right_y="1269"/>
+        <graphic_event event_ref="p1v1_25" upper_left_x="342" upper_left_y="1129" lower_right_x="397" lower_right_y="1269"/>
+        <graphic_event event_ref="p1v1_26" upper_left_x="407" upper_left_y="1129" lower_right_x="457" lower_right_y="1259"/>
+        <graphic_event event_ref="p1v1_27" upper_left_x="467" upper_left_y="1139" lower_right_x="517" lower_right_y="1259"/>
+        <graphic_event event_ref="p1v1_28" upper_left_x="527" upper_left_y="1154" lower_right_x="582" lower_right_y="1264"/>
+        <graphic_event event_ref="p1v1_29" upper_left_x="597" upper_left_y="1134" lower_right_x="652" lower_right_y="1264"/>
+        <graphic_event event_ref="p1v1_30" upper_left_x="652" upper_left_y="1139" lower_right_x="707" lower_right_y="1269"/>
+        <graphic_event event_ref="p1v1_31" upper_left_x="722" upper_left_y="1119" lower_right_x="762" lower_right_y="1259"/>
+        <graphic_event event_ref="p1v1_32" upper_left_x="782" upper_left_y="1129" lower_right_x="827" lower_right_y="1264"/>
+        <graphic_event event_ref="p1v1_33" upper_left_x="837" upper_left_y="1134" lower_right_x="897" lower_right_y="1274"/>
+        <graphic_event event_ref="p1v1_34" upper_left_x="907" upper_left_y="1139" lower_right_x="962" lower_right_y="1264"/>
+        <graphic_event event_ref="p1v1_35" upper_left_x="967" upper_left_y="1149" lower_right_x="1017" lower_right_y="1269"/>
+        <graphic_event event_ref="p1v1_36" upper_left_x="1022" upper_left_y="1159" lower_right_x="1082" lower_right_y="1279"/>
+        <graphic_event event_ref="p1v1_37" upper_left_x="1092" upper_left_y="1144" lower_right_x="1152" lower_right_y="1264"/>
+        <graphic_event event_ref="p1v1_38" upper_left_x="1157" upper_left_y="1149" lower_right_x="1202" lower_right_y="1269"/>
+        <graphic_event event_ref="p1v1_39" upper_left_x="1222" upper_left_y="1139" lower_right_x="1272" lower_right_y="1274"/>
+        <graphic_event event_ref="p1v1_40" upper_left_x="1312" upper_left_y="1144" lower_right_x="1357" lower_right_y="1284"/>
+        <graphic_event event_ref="p1v1_41" upper_left_x="1372" upper_left_y="1154" lower_right_x="1422" lower_right_y="1279"/>
+        <graphic_event event_ref="p1v1_42" upper_left_x="1437" upper_left_y="1164" lower_right_x="1487" lower_right_y="1274"/>
+        <graphic_event event_ref="p1v1_43" upper_left_x="1492" upper_left_y="1164" lower_right_x="1542" lower_right_y="1289"/>
+        <graphic_event event_ref="p1v1_44" upper_left_x="1557" upper_left_y="1184" lower_right_x="1607" lower_right_y="1294"/>
+        <graphic_event event_ref="p1v1_45" upper_left_x="1612" upper_left_y="1164" lower_right_x="1667" lower_right_y="1299"/>
+        <graphic_event event_ref="p1v1_46" upper_left_x="1677" upper_left_y="1159" lower_right_x="1732" lower_right_y="1304"/>
+        <graphic_event event_ref="p1v1_47" upper_left_x="1742" upper_left_y="1159" lower_right_x="1787" lower_right_y="1294"/>
+        <graphic_event event_ref="p1v1_48" upper_left_x="1812" upper_left_y="1109" lower_right_x="1862" lower_right_y="1234"/>
+        <graphic_event event_ref="p1v1_49" upper_left_x="1877" upper_left_y="1109" lower_right_x="1927" lower_right_y="1239"/>
+        <graphic_event event_ref="p1v1_50" upper_left_x="1937" upper_left_y="1109" lower_right_x="1987" lower_right_y="1264"/>
+        <graphic_event event_ref="p1v1_51" upper_left_x="1997" upper_left_y="1109" lower_right_x="2042" lower_right_y="1269"/>
+        <graphic_event event_ref="p1v1_52" upper_left_x="2047" upper_left_y="1104" lower_right_x="2107" lower_right_y="1274"/>
+        <graphic_event event_ref="p1v1_53" upper_left_x="2127" upper_left_y="1114" lower_right_x="2162" lower_right_y="1259"/>
+        <graphic_event event_ref="p1v1_54" upper_left_x="2187" upper_left_y="1114" lower_right_x="2232" lower_right_y="1259"/>
+        <graphic_event event_ref="p1v1_55" upper_left_x="2239" upper_left_y="1104" lower_right_x="2294" lower_right_y="1259"/>
+        <graphic_event event_ref="p1v1_56" upper_left_x="282" upper_left_y="1689" lower_right_x="372" lower_right_y="1839"/>
+        <graphic_event event_ref="p1v1_57" upper_left_x="402" upper_left_y="1689" lower_right_x="487" lower_right_y="1879"/>
+        <graphic_event event_ref="p1v1_58" upper_left_x="527" upper_left_y="1739" lower_right_x="607" lower_right_y="1849"/>
+        <graphic_event event_ref="p1v1_59" upper_left_x="692" upper_left_y="1714" lower_right_x="782" lower_right_y="1849"/>
+        <graphic_event event_ref="p1v1_60" upper_left_x="802" upper_left_y="1694" lower_right_x="862" lower_right_y="1809"/>
+        <graphic_event event_ref="p1v1_61" upper_left_x="877" upper_left_y="1689" lower_right_x="927" lower_right_y="1814"/>
+        <graphic_event event_ref="p1v1_62" upper_left_x="942" upper_left_y="1699" lower_right_x="982" lower_right_y="1819"/>
+        <graphic_event event_ref="p1v1_63" upper_left_x="987" upper_left_y="1699" lower_right_x="1047" lower_right_y="1849"/>
+        <graphic_event event_ref="p1v1_64" upper_left_x="1072" upper_left_y="1704" lower_right_x="1112" lower_right_y="1849"/>
+        <graphic_event event_ref="p1v1_65" upper_left_x="1137" upper_left_y="1704" lower_right_x="1187" lower_right_y="1819"/>
+        <graphic_event event_ref="p1v1_66" upper_left_x="1202" upper_left_y="1689" lower_right_x="1252" lower_right_y="1834"/>
+        <graphic_event event_ref="p1v1_67" upper_left_x="1267" upper_left_y="1694" lower_right_x="1312" lower_right_y="1824"/>
+        <graphic_event event_ref="p1v1_68" upper_left_x="1357" upper_left_y="1684" lower_right_x="1402" lower_right_y="1834"/>
+        <graphic_event event_ref="p1v1_69" upper_left_x="1417" upper_left_y="1679" lower_right_x="1457" lower_right_y="1804"/>
+        <graphic_event event_ref="p1v1_70" upper_left_x="1472" upper_left_y="1679" lower_right_x="1517" lower_right_y="1829"/>
+        <graphic_event event_ref="p1v1_71" upper_left_x="1532" upper_left_y="1674" lower_right_x="1577" lower_right_y="1819"/>
+        <graphic_event event_ref="p1v1_72" upper_left_x="1597" upper_left_y="1749" lower_right_x="1637" lower_right_y="1874"/>
+        <graphic_event event_ref="p1v1_73" upper_left_x="1657" upper_left_y="1724" lower_right_x="1697" lower_right_y="1859"/>
+        <graphic_event event_ref="p1v1_74" upper_left_x="1707" upper_left_y="1724" lower_right_x="1757" lower_right_y="1844"/>
+        <graphic_event event_ref="p1v1_75" upper_left_x="1772" upper_left_y="1709" lower_right_x="1817" lower_right_y="1849"/>
+        <graphic_event event_ref="p1v1_76" upper_left_x="1827" upper_left_y="1724" lower_right_x="1882" lower_right_y="1869"/>
+        <graphic_event event_ref="p1v1_77" upper_left_x="1897" upper_left_y="1739" lower_right_x="1932" lower_right_y="1884"/>
+        <graphic_event event_ref="p1v1_78" upper_left_x="1942" upper_left_y="1734" lower_right_x="1967" lower_right_y="1869"/>
+        <graphic_event event_ref="p1v1_79" upper_left_x="1972" upper_left_y="1724" lower_right_x="2007" lower_right_y="1869"/>
+        <graphic_event event_ref="p1v1_80" upper_left_x="2012" upper_left_y="1694" lower_right_x="2072" lower_right_y="1879"/>
+        <graphic_event event_ref="p1v1_81" upper_left_x="2087" upper_left_y="1689" lower_right_x="2147" lower_right_y="1799"/>
+        <graphic_event event_ref="p1v1_82" upper_left_x="2177" upper_left_y="1694" lower_right_x="2242" lower_right_y="1839"/>
+        <graphic_event event_ref="p1v1_83" upper_left_x="2247" upper_left_y="1689" lower_right_x="2292" lower_right_y="1844"/>
+        <graphic_event event_ref="p1v1_84" upper_left_x="282" upper_left_y="2262" lower_right_x="357" lower_right_y="2422"/>
+        <graphic_event event_ref="p1v1_85" upper_left_x="397" upper_left_y="2272" lower_right_x="462" lower_right_y="2417"/>
+        <graphic_event event_ref="p1v1_86" upper_left_x="482" upper_left_y="2267" lower_right_x="592" lower_right_y="2427"/>
+        <graphic_event event_ref="p1v1_87" upper_left_x="727" upper_left_y="2282" lower_right_x="797" lower_right_y="2427"/>
+        <graphic_event event_ref="p1v1_88" upper_left_x="802" upper_left_y="2262" lower_right_x="872" lower_right_y="2392"/>
+        <graphic_event event_ref="p1v1_89" upper_left_x="872" upper_left_y="2252" lower_right_x="922" lower_right_y="2377"/>
+        <graphic_event event_ref="p1v1_90" upper_left_x="917" upper_left_y="2242" lower_right_x="982" lower_right_y="2407"/>
+        <graphic_event event_ref="p1v1_91" upper_left_x="977" upper_left_y="2232" lower_right_x="1042" lower_right_y="2402"/>
+        <graphic_event event_ref="p1v1_92" upper_left_x="1042" upper_left_y="2232" lower_right_x="1107" lower_right_y="2387"/>
+        <graphic_event event_ref="p1v1_93" upper_left_x="1102" upper_left_y="2237" lower_right_x="1157" lower_right_y="2387"/>
+        <graphic_event event_ref="p1v1_94" upper_left_x="1157" upper_left_y="2232" lower_right_x="1222" lower_right_y="2392"/>
+        <graphic_event event_ref="p1v1_95" upper_left_x="1247" upper_left_y="2282" lower_right_x="1337" lower_right_y="2412"/>
+        <graphic_event event_ref="p1v1_96" upper_left_x="1377" upper_left_y="2287" lower_right_x="1462" lower_right_y="2387"/>
+        <graphic_event event_ref="p1v1_97" upper_left_x="1517" upper_left_y="2282" lower_right_x="1592" lower_right_y="2402"/>
+        <graphic_event event_ref="p1v1_98" upper_left_x="1737" upper_left_y="2292" lower_right_x="1832" lower_right_y="2407"/>
+        <graphic_event event_ref="p1v1_99" upper_left_x="1857" upper_left_y="2307" lower_right_x="1897" lower_right_y="2427"/>
+        <graphic_event event_ref="p1v1_100" upper_left_x="1912" upper_left_y="2302" lower_right_x="1972" lower_right_y="2432"/>
+        <graphic_event event_ref="p1v1_101" upper_left_x="1967" upper_left_y="2292" lower_right_x="2027" lower_right_y="2462"/>
+        <graphic_event event_ref="p1v1_102" upper_left_x="2047" upper_left_y="2287" lower_right_x="2092" lower_right_y="2437"/>
+        <graphic_event event_ref="p1v1_103" upper_left_x="2107" upper_left_y="2302" lower_right_x="2157" lower_right_y="2432"/>
+        <graphic_event event_ref="p1v1_104" upper_left_x="2172" upper_left_y="2297" lower_right_x="2227" lower_right_y="2432"/>
+        <graphic_event event_ref="p1v1_105" upper_left_x="2242" upper_left_y="2312" lower_right_x="2292" lower_right_y="2437"/>
+        <graphic_event event_ref="p1v1_106" upper_left_x="282" upper_left_y="2864" lower_right_x="342" lower_right_y="2989"/>
+        <graphic_event event_ref="p1v1_107" upper_left_x="357" upper_left_y="2849" lower_right_x="417" lower_right_y="2954"/>
+        <graphic_event event_ref="p1v1_108" upper_left_x="442" upper_left_y="2844" lower_right_x="492" lower_right_y="2969"/>
+        <graphic_event event_ref="p1v1_109" upper_left_x="587" upper_left_y="2864" lower_right_x="647" lower_right_y="2964"/>
+        <graphic_event event_ref="p1v1_110" upper_left_x="647" upper_left_y="2864" lower_right_x="687" lower_right_y="2989"/>
+        <graphic_event event_ref="p1v1_111" upper_left_x="687" upper_left_y="2864" lower_right_x="732" lower_right_y="2994"/>
+        <graphic_event event_ref="p1v1_112" upper_left_x="727" upper_left_y="2864" lower_right_x="772" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_113" upper_left_x="772" upper_left_y="2849" lower_right_x="807" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_114" upper_left_x="812" upper_left_y="2864" lower_right_x="852" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_115" upper_left_x="852" upper_left_y="2859" lower_right_x="887" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_116" upper_left_x="892" upper_left_y="2859" lower_right_x="932" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_117" upper_left_x="957" upper_left_y="2864" lower_right_x="1002" lower_right_y="2974"/>
+        <graphic_event event_ref="p1v1_118" upper_left_x="1022" upper_left_y="2864" lower_right_x="1087" lower_right_y="2969"/>
+        <graphic_event event_ref="p1v1_119" upper_left_x="1112" upper_left_y="2859" lower_right_x="1167" lower_right_y="2969"/>
+        <graphic_event event_ref="p1v1_120" upper_left_x="1272" upper_left_y="2864" lower_right_x="1317" lower_right_y="2964"/>
+        <graphic_event event_ref="p1v1_121" upper_left_x="1327" upper_left_y="2844" lower_right_x="1362" lower_right_y="2974"/>
+        <graphic_event event_ref="p1v1_122" upper_left_x="1367" upper_left_y="2854" lower_right_x="1402" lower_right_y="2969"/>
+        <graphic_event event_ref="p1v1_123" upper_left_x="1407" upper_left_y="2864" lower_right_x="1442" lower_right_y="2969"/>
+        <graphic_event event_ref="p1v1_124" upper_left_x="1447" upper_left_y="2874" lower_right_x="1482" lower_right_y="2979"/>
+        <graphic_event event_ref="p1v1_125" upper_left_x="1487" upper_left_y="2854" lower_right_x="1522" lower_right_y="2974"/>
+        <graphic_event event_ref="p1v1_126" upper_left_x="1532" upper_left_y="2859" lower_right_x="1577" lower_right_y="3004"/>
+        <graphic_event event_ref="p1v1_127" upper_left_x="1582" upper_left_y="2849" lower_right_x="1622" lower_right_y="2984"/>
+        <graphic_event event_ref="p1v1_128" upper_left_x="1647" upper_left_y="2849" lower_right_x="1697" lower_right_y="2969"/>
+        <graphic_event event_ref="p1v1_129" upper_left_x="1702" upper_left_y="2859" lower_right_x="1787" lower_right_y="2989"/>
+        <graphic_event event_ref="p1v1_130" upper_left_x="1792" upper_left_y="2859" lower_right_x="1872" lower_right_y="2974"/>
+        <graphic_event event_ref="p1v1_131" upper_left_x="1892" upper_left_y="2844" lower_right_x="1952" lower_right_y="2974"/>
+        <graphic_event event_ref="p1v1_132" upper_left_x="1972" upper_left_y="2839" lower_right_x="2037" lower_right_y="3009"/>
+        <graphic_event event_ref="p1v1_133" upper_left_x="2057" upper_left_y="2879" lower_right_x="2112" lower_right_y="3009"/>
+        <graphic_event event_ref="p1v1_134" upper_left_x="2127" upper_left_y="2859" lower_right_x="2197" lower_right_y="3009"/>
+        <graphic_event event_ref="p1v1_135" upper_left_x="2212" upper_left_y="2849" lower_right_x="2272" lower_right_y="2994"/>
+        <graphic_event event_ref="p2v1_0" upper_left_x="462" upper_left_y="829" lower_right_x="537" lower_right_y="939"/>
+        <graphic_event event_ref="p2v1_1" upper_left_x="912" upper_left_y="829" lower_right_x="982" lower_right_y="944"/>
+        <graphic_event event_ref="p2v1_2" upper_left_x="987" upper_left_y="854" lower_right_x="1032" lower_right_y="974"/>
+        <graphic_event event_ref="p2v1_3" upper_left_x="1047" upper_left_y="849" lower_right_x="1087" lower_right_y="969"/>
+        <graphic_event event_ref="p2v1_4" upper_left_x="1097" upper_left_y="839" lower_right_x="1147" lower_right_y="954"/>
+        <graphic_event event_ref="p2v1_5" upper_left_x="1157" upper_left_y="824" lower_right_x="1207" lower_right_y="964"/>
+        <graphic_event event_ref="p2v1_6" upper_left_x="1212" upper_left_y="849" lower_right_x="1267" lower_right_y="969"/>
+        <graphic_event event_ref="p2v1_7" upper_left_x="1267" upper_left_y="844" lower_right_x="1327" lower_right_y="974"/>
+        <graphic_event event_ref="p2v1_8" upper_left_x="1327" upper_left_y="864" lower_right_x="1382" lower_right_y="959"/>
+        <graphic_event event_ref="p2v1_9" upper_left_x="1412" upper_left_y="769" lower_right_x="1482" lower_right_y="874"/>
+        <graphic_event event_ref="p2v1_10" upper_left_x="1517" upper_left_y="779" lower_right_x="1587" lower_right_y="964"/>
+        <graphic_event event_ref="p2v1_11" upper_left_x="1622" upper_left_y="814" lower_right_x="1692" lower_right_y="944"/>
+        <graphic_event event_ref="p2v1_12" upper_left_x="1847" upper_left_y="834" lower_right_x="1907" lower_right_y="929"/>
+        <graphic_event event_ref="p2v1_13" upper_left_x="1907" upper_left_y="824" lower_right_x="1962" lower_right_y="949"/>
+        <graphic_event event_ref="p2v1_14" upper_left_x="1967" upper_left_y="809" lower_right_x="2017" lower_right_y="939"/>
+        <graphic_event event_ref="p2v1_15" upper_left_x="2022" upper_left_y="794" lower_right_x="2072" lower_right_y="964"/>
+        <graphic_event event_ref="p2v1_16" upper_left_x="2082" upper_left_y="789" lower_right_x="2132" lower_right_y="939"/>
+        <graphic_event event_ref="p2v1_17" upper_left_x="2127" upper_left_y="809" lower_right_x="2182" lower_right_y="949"/>
+        <graphic_event event_ref="p2v1_18" upper_left_x="2197" upper_left_y="804" lower_right_x="2242" lower_right_y="964"/>
+        <graphic_event event_ref="p2v1_19" upper_left_x="2262" upper_left_y="819" lower_right_x="2292" lower_right_y="939"/>
+        <graphic_event event_ref="p2v1_20" upper_left_x="279" upper_left_y="1359" lower_right_x="353" lower_right_y="1506"/>
+        <graphic_event event_ref="p2v1_21" upper_left_x="366" upper_left_y="1346" lower_right_x="473" lower_right_y="1506"/>
+        <graphic_event event_ref="p2v1_22" upper_left_x="513" upper_left_y="1353" lower_right_x="599" lower_right_y="1513"/>
+        <graphic_event event_ref="p2v1_23" upper_left_x="633" upper_left_y="1346" lower_right_x="719" lower_right_y="1513"/>
+        <graphic_event event_ref="p2v1_24" upper_left_x="773" upper_left_y="1326" lower_right_x="853" lower_right_y="1506"/>
+        <graphic_event event_ref="p2v1_25" upper_left_x="859" upper_left_y="1373" lower_right_x="973" lower_right_y="1519"/>
+        <graphic_event event_ref="p2v1_26" upper_left_x="1013" upper_left_y="1373" lower_right_x="1106" lower_right_y="1493"/>
+        <graphic_event event_ref="p2v1_27" upper_left_x="1139" upper_left_y="1353" lower_right_x="1219" lower_right_y="1506"/>
+        <graphic_event event_ref="p2v1_28" upper_left_x="1306" upper_left_y="1353" lower_right_x="1386" lower_right_y="1519"/>
+        <graphic_event event_ref="p2v1_29" upper_left_x="1393" upper_left_y="1386" lower_right_x="1493" lower_right_y="1539"/>
+        <graphic_event event_ref="p2v1_30" upper_left_x="1539" upper_left_y="1379" lower_right_x="1619" lower_right_y="1513"/>
+        <graphic_event event_ref="p2v1_31" upper_left_x="1646" upper_left_y="1373" lower_right_x="1746" lower_right_y="1533"/>
+        <graphic_event event_ref="p2v1_32" upper_left_x="1786" upper_left_y="1366" lower_right_x="1879" lower_right_y="1499"/>
+        <graphic_event event_ref="p2v1_33" upper_left_x="1913" upper_left_y="1353" lower_right_x="1986" lower_right_y="1499"/>
+        <graphic_event event_ref="p2v1_34" upper_left_x="2019" upper_left_y="1353" lower_right_x="2106" lower_right_y="1499"/>
+        <graphic_event event_ref="p2v1_35" upper_left_x="286" upper_left_y="1926" lower_right_x="346" lower_right_y="2113"/>
+        <graphic_event event_ref="p2v1_36" upper_left_x="346" upper_left_y="1979" lower_right_x="406" lower_right_y="2106"/>
+        <graphic_event event_ref="p2v1_37" upper_left_x="406" upper_left_y="1966" lower_right_x="459" lower_right_y="2113"/>
+        <graphic_event event_ref="p2v1_38" upper_left_x="459" upper_left_y="1953" lower_right_x="539" lower_right_y="2113"/>
+        <graphic_event event_ref="p2v1_39" upper_left_x="533" upper_left_y="1933" lower_right_x="599" lower_right_y="2106"/>
+        <graphic_event event_ref="p2v1_40" upper_left_x="593" upper_left_y="1939" lower_right_x="666" lower_right_y="2113"/>
+        <graphic_event event_ref="p2v1_41" upper_left_x="659" upper_left_y="1959" lower_right_x="733" lower_right_y="2119"/>
+        <graphic_event event_ref="p2v1_42" upper_left_x="726" upper_left_y="1973" lower_right_x="793" lower_right_y="2099"/>
+        <graphic_event event_ref="p2v1_43" upper_left_x="806" upper_left_y="1939" lower_right_x="886" lower_right_y="2139"/>
+        <graphic_event event_ref="p2v1_44" upper_left_x="906" upper_left_y="1973" lower_right_x="993" lower_right_y="2146"/>
+        <graphic_event event_ref="p2v1_45" upper_left_x="1032" upper_left_y="1927" lower_right_x="1162" lower_right_y="2082"/>
+        <graphic_event event_ref="p2v1_46" upper_left_x="1167" upper_left_y="1907" lower_right_x="1262" lower_right_y="2067"/>
+        <graphic_event event_ref="p2v1_47" upper_left_x="1352" upper_left_y="1967" lower_right_x="1402" lower_right_y="2102"/>
+        <graphic_event event_ref="p2v1_48" upper_left_x="1447" upper_left_y="1952" lower_right_x="1527" lower_right_y="2082"/>
+        <graphic_event event_ref="p2v1_49" upper_left_x="1572" upper_left_y="1952" lower_right_x="1652" lower_right_y="2092"/>
+        <graphic_event event_ref="p2v1_50" upper_left_x="1697" upper_left_y="1957" lower_right_x="1777" lower_right_y="2087"/>
+        <graphic_event event_ref="p2v1_51" upper_left_x="1802" upper_left_y="1937" lower_right_x="1922" lower_right_y="2072"/>
+        <graphic_event event_ref="p2v1_52" upper_left_x="2007" upper_left_y="1937" lower_right_x="2072" lower_right_y="2072"/>
+        <graphic_event event_ref="p2v1_53" upper_left_x="2082" upper_left_y="1927" lower_right_x="2157" lower_right_y="2052"/>
+        <graphic_event event_ref="p2v1_54" upper_left_x="2177" upper_left_y="1932" lower_right_x="2252" lower_right_y="2107"/>
+        <graphic_event event_ref="p2v1_55" upper_left_x="277" upper_left_y="2532" lower_right_x="332" lower_right_y="2637"/>
+        <graphic_event event_ref="p2v1_56" upper_left_x="332" upper_left_y="2527" lower_right_x="397" lower_right_y="2652"/>
+        <graphic_event event_ref="p2v1_57" upper_left_x="392" upper_left_y="2517" lower_right_x="452" lower_right_y="2647"/>
+        <graphic_event event_ref="p2v1_58" upper_left_x="457" upper_left_y="2507" lower_right_x="507" lower_right_y="2637"/>
+        <graphic_event event_ref="p2v1_59" upper_left_x="512" upper_left_y="2502" lower_right_x="572" lower_right_y="2627"/>
+        <graphic_event event_ref="p2v1_60" upper_left_x="572" upper_left_y="2502" lower_right_x="632" lower_right_y="2632"/>
+        <graphic_event event_ref="p2v1_61" upper_left_x="627" upper_left_y="2507" lower_right_x="692" lower_right_y="2632"/>
+        <graphic_event event_ref="p2v1_62" upper_left_x="692" upper_left_y="2512" lower_right_x="742" lower_right_y="2657"/>
+        <graphic_event event_ref="p2v1_63" upper_left_x="747" upper_left_y="2532" lower_right_x="822" lower_right_y="2667"/>
+        <graphic_event event_ref="p2v1_64" upper_left_x="832" upper_left_y="2512" lower_right_x="927" lower_right_y="2657"/>
+        <graphic_event event_ref="p2v1_65" upper_left_x="972" upper_left_y="2517" lower_right_x="1047" lower_right_y="2647"/>
+        <graphic_event event_ref="p2v1_66" upper_left_x="1072" upper_left_y="2507" lower_right_x="1157" lower_right_y="2662"/>
+        <graphic_event event_ref="p2v1_67" upper_left_x="1247" upper_left_y="2507" lower_right_x="1312" lower_right_y="2672"/>
+        <graphic_event event_ref="p2v1_68" upper_left_x="1322" upper_left_y="2537" lower_right_x="1377" lower_right_y="2677"/>
+        <graphic_event event_ref="p2v1_69" upper_left_x="1397" upper_left_y="2542" lower_right_x="1442" lower_right_y="2667"/>
+        <graphic_event event_ref="p2v1_70" upper_left_x="1442" upper_left_y="2527" lower_right_x="1512" lower_right_y="2657"/>
+        <graphic_event event_ref="p2v1_71" upper_left_x="1522" upper_left_y="2522" lower_right_x="1577" lower_right_y="2672"/>
+        <graphic_event event_ref="p2v1_72" upper_left_x="1577" upper_left_y="2532" lower_right_x="1642" lower_right_y="2667"/>
+        <graphic_event event_ref="p2v1_73" upper_left_x="1647" upper_left_y="2532" lower_right_x="1702" lower_right_y="2672"/>
+        <graphic_event event_ref="p2v1_74" upper_left_x="1707" upper_left_y="2537" lower_right_x="1767" lower_right_y="2677"/>
+        <graphic_event event_ref="p2v1_75" upper_left_x="1787" upper_left_y="2507" lower_right_x="1867" lower_right_y="2652"/>
+        <graphic_event event_ref="p2v1_76" upper_left_x="1887" upper_left_y="2487" lower_right_x="1982" lower_right_y="2647"/>
+        <graphic_event event_ref="p2v1_77" upper_left_x="2027" upper_left_y="2487" lower_right_x="2117" lower_right_y="2642"/>
+        <graphic_event event_ref="p2v1_78" upper_left_x="2152" upper_left_y="2472" lower_right_x="2237" lower_right_y="2632"/>
+        <graphic_event event_ref="p2v1_79" upper_left_x="287" upper_left_y="3087" lower_right_x="332" lower_right_y="3262"/>
+        <graphic_event event_ref="p2v1_80" upper_left_x="327" upper_left_y="3082" lower_right_x="372" lower_right_y="3197"/>
+        <graphic_event event_ref="p2v1_81" upper_left_x="367" upper_left_y="3082" lower_right_x="412" lower_right_y="3202"/>
+        <graphic_event event_ref="p2v1_82" upper_left_x="407" upper_left_y="3082" lower_right_x="452" lower_right_y="3217"/>
+        <graphic_event event_ref="p2v1_83" upper_left_x="452" upper_left_y="3087" lower_right_x="492" lower_right_y="3252"/>
+        <graphic_event event_ref="p2v1_84" upper_left_x="492" upper_left_y="3087" lower_right_x="532" lower_right_y="3202"/>
+        <graphic_event event_ref="p2v1_85" upper_left_x="532" upper_left_y="3087" lower_right_x="572" lower_right_y="3222"/>
+        <graphic_event event_ref="p2v1_86" upper_left_x="572" upper_left_y="3077" lower_right_x="612" lower_right_y="3192"/>
+        <graphic_event event_ref="p2v1_87" upper_left_x="612" upper_left_y="3087" lower_right_x="677" lower_right_y="3222"/>
+        <graphic_event event_ref="p2v1_88" upper_left_x="677" upper_left_y="3082" lower_right_x="752" lower_right_y="3227"/>
+        <graphic_event event_ref="p2v1_89" upper_left_x="767" upper_left_y="3087" lower_right_x="827" lower_right_y="3217"/>
+        <graphic_event event_ref="p2v1_90" upper_left_x="832" upper_left_y="3082" lower_right_x="907" lower_right_y="3237"/>
+        <graphic_event event_ref="p2v1_91" upper_left_x="952" upper_left_y="3077" lower_right_x="1002" lower_right_y="3222"/>
+        <graphic_event event_ref="p2v1_92" upper_left_x="997" upper_left_y="3072" lower_right_x="1042" lower_right_y="3187"/>
+        <graphic_event event_ref="p2v1_93" upper_left_x="1042" upper_left_y="3072" lower_right_x="1077" lower_right_y="3197"/>
+        <graphic_event event_ref="p2v1_94" upper_left_x="1077" upper_left_y="3072" lower_right_x="1117" lower_right_y="3207"/>
+        <graphic_event event_ref="p2v1_95" upper_left_x="1117" upper_left_y="3087" lower_right_x="1162" lower_right_y="3212"/>
+        <graphic_event event_ref="p2v1_96" upper_left_x="1162" upper_left_y="3077" lower_right_x="1207" lower_right_y="3192"/>
+        <graphic_event event_ref="p2v1_97" upper_left_x="1202" upper_left_y="3082" lower_right_x="1242" lower_right_y="3197"/>
+        <graphic_event event_ref="p2v1_98" upper_left_x="1242" upper_left_y="3077" lower_right_x="1282" lower_right_y="3197"/>
+        <graphic_event event_ref="p2v1_99" upper_left_x="1287" upper_left_y="3082" lower_right_x="1352" lower_right_y="3207"/>
+        <graphic_event event_ref="p2v1_100" upper_left_x="1357" upper_left_y="3092" lower_right_x="1412" lower_right_y="3207"/>
+        <graphic_event event_ref="p2v1_101" upper_left_x="1437" upper_left_y="3082" lower_right_x="1522" lower_right_y="3212"/>
+        <graphic_event event_ref="p2v1_102" upper_left_x="1537" upper_left_y="3087" lower_right_x="1592" lower_right_y="3232"/>
+        <graphic_event event_ref="p2v1_103" upper_left_x="1652" upper_left_y="3067" lower_right_x="1682" lower_right_y="3217"/>
+        <graphic_event event_ref="p2v1_104" upper_left_x="1687" upper_left_y="3062" lower_right_x="1742" lower_right_y="3212"/>
+        <graphic_event event_ref="p2v1_105" upper_left_x="1742" upper_left_y="3057" lower_right_x="1782" lower_right_y="3212"/>
+        <graphic_event event_ref="p2v1_106" upper_left_x="1787" upper_left_y="3062" lower_right_x="1822" lower_right_y="3212"/>
+        <graphic_event event_ref="p2v1_107" upper_left_x="1822" upper_left_y="3072" lower_right_x="1862" lower_right_y="3217"/>
+        <graphic_event event_ref="p2v1_108" upper_left_x="1867" upper_left_y="3072" lower_right_x="1902" lower_right_y="3192"/>
+        <graphic_event event_ref="p2v1_109" upper_left_x="1907" upper_left_y="3072" lower_right_x="1947" lower_right_y="3202"/>
+        <graphic_event event_ref="p2v1_110" upper_left_x="1952" upper_left_y="3067" lower_right_x="1982" lower_right_y="3192"/>
+        <graphic_event event_ref="p2v1_111" upper_left_x="1992" upper_left_y="3077" lower_right_x="2027" lower_right_y="3207"/>
+        <graphic_event event_ref="p2v1_112" upper_left_x="2037" upper_left_y="3082" lower_right_x="2067" lower_right_y="3217"/>
+        <graphic_event event_ref="p2v1_113" upper_left_x="2072" upper_left_y="3082" lower_right_x="2107" lower_right_y="3202"/>
+        <graphic_event event_ref="p2v1_114" upper_left_x="2117" upper_left_y="3077" lower_right_x="2147" lower_right_y="3232"/>
+        <graphic_event event_ref="p2v1_115" upper_left_x="2147" upper_left_y="3082" lower_right_x="2192" lower_right_y="3232"/>
+        <graphic_event event_ref="p2v1_116" upper_left_x="2192" upper_left_y="3077" lower_right_x="2227" lower_right_y="3237"/>
+        <graphic_event event_ref="p2v1_117" upper_left_x="2232" upper_left_y="3082" lower_right_x="2272" lower_right_y="3212"/>
+        <graphic_event event_ref="p2v1_118" upper_left_x="2277" upper_left_y="3077" lower_right_x="2307" lower_right_y="3217"/>
+      </graphic_instance>
+      <graphic_instance file_name="score_files/finale/inventio01_finale_2.tif" file_format="image_tiff" encoding_format="image_tiff" position_in_group="2" measurement_unit="pixels">
+        <graphic_event event_ref="p1v1_136" upper_left_x="273" upper_left_y="313" lower_right_x="353" lower_right_y="453"/>
+        <graphic_event event_ref="p1v1_137" upper_left_x="373" upper_left_y="313" lower_right_x="459" lower_right_y="499"/>
+        <graphic_event event_ref="p1v1_138" upper_left_x="479" upper_left_y="346" lower_right_x="586" lower_right_y="479"/>
+        <graphic_event event_ref="p1v1_139" upper_left_x="633" upper_left_y="339" lower_right_x="706" lower_right_y="479"/>
+        <graphic_event event_ref="p1v1_140" upper_left_x="773" upper_left_y="386" lower_right_x="859" lower_right_y="519"/>
+        <graphic_event event_ref="p1v1_141" upper_left_x="886" upper_left_y="373" lower_right_x="973" lower_right_y="499"/>
+        <graphic_event event_ref="p1v1_142" upper_left_x="1026" upper_left_y="359" lower_right_x="1133" lower_right_y="486"/>
+        <graphic_event event_ref="p1v1_143" upper_left_x="1313" upper_left_y="326" lower_right_x="1366" lower_right_y="446"/>
+        <graphic_event event_ref="p1v1_144" upper_left_x="1366" upper_left_y="319" lower_right_x="1419" lower_right_y="486"/>
+        <graphic_event event_ref="p1v1_145" upper_left_x="1419" upper_left_y="319" lower_right_x="1479" lower_right_y="493"/>
+        <graphic_event event_ref="p1v1_146" upper_left_x="1486" upper_left_y="319" lower_right_x="1546" lower_right_y="493"/>
+        <graphic_event event_ref="p1v1_147" upper_left_x="1553" upper_left_y="339" lower_right_x="1619" lower_right_y="453"/>
+        <graphic_event event_ref="p1v1_148" upper_left_x="1619" upper_left_y="346" lower_right_x="1673" lower_right_y="479"/>
+        <graphic_event event_ref="p1v1_149" upper_left_x="1686" upper_left_y="339" lower_right_x="1739" lower_right_y="473"/>
+        <graphic_event event_ref="p1v1_150" upper_left_x="1746" upper_left_y="359" lower_right_x="1793" lower_right_y="499"/>
+        <graphic_event event_ref="p1v1_151" upper_left_x="1806" upper_left_y="366" lower_right_x="1853" lower_right_y="499"/>
+        <graphic_event event_ref="p1v1_152" upper_left_x="1866" upper_left_y="366" lower_right_x="1919" lower_right_y="499"/>
+        <graphic_event event_ref="p1v1_153" upper_left_x="1926" upper_left_y="373" lower_right_x="1986" lower_right_y="513"/>
+        <graphic_event event_ref="p1v1_154" upper_left_x="1979" upper_left_y="359" lower_right_x="2039" lower_right_y="493"/>
+        <graphic_event event_ref="p1v1_155" upper_left_x="2059" upper_left_y="373" lower_right_x="2106" lower_right_y="513"/>
+        <graphic_event event_ref="p1v1_156" upper_left_x="2113" upper_left_y="373" lower_right_x="2166" lower_right_y="513"/>
+        <graphic_event event_ref="p1v1_157" upper_left_x="2179" upper_left_y="373" lower_right_x="2226" lower_right_y="506"/>
+        <graphic_event event_ref="p1v1_158" upper_left_x="2246" upper_left_y="373" lower_right_x="2293" lower_right_y="506"/>
+        <graphic_event event_ref="p1v1_159" upper_left_x="273" upper_left_y="979" lower_right_x="333" lower_right_y="1113"/>
+        <graphic_event event_ref="p1v1_160" upper_left_x="333" upper_left_y="956" lower_right_x="386" lower_right_y="1143"/>
+        <graphic_event event_ref="p1v1_161" upper_left_x="386" upper_left_y="963" lower_right_x="453" lower_right_y="1109"/>
+        <graphic_event event_ref="p1v1_162" upper_left_x="446" upper_left_y="956" lower_right_x="513" lower_right_y="1123"/>
+        <graphic_event event_ref="p1v1_163" upper_left_x="539" upper_left_y="963" lower_right_x="579" lower_right_y="1123"/>
+        <graphic_event event_ref="p1v1_164" upper_left_x="579" upper_left_y="986" lower_right_x="639" lower_right_y="1119"/>
+        <graphic_event event_ref="p1v1_165" upper_left_x="639" upper_left_y="979" lower_right_x="699" lower_right_y="1113"/>
+        <graphic_event event_ref="p1v1_166" upper_left_x="706" upper_left_y="1006" lower_right_x="759" lower_right_y="1099"/>
+        <graphic_event event_ref="p1v1_167" upper_left_x="759" upper_left_y="1033" lower_right_x="826" lower_right_y="1153"/>
+        <graphic_event event_ref="p1v1_168" upper_left_x="833" upper_left_y="986" lower_right_x="886" lower_right_y="1139"/>
+        <graphic_event event_ref="p1v1_169" upper_left_x="886" upper_left_y="979" lower_right_x="953" lower_right_y="1146"/>
+        <graphic_event event_ref="p1v1_170" upper_left_x="953" upper_left_y="986" lower_right_x="1006" lower_right_y="1153"/>
+        <graphic_event event_ref="p1v1_171" upper_left_x="1026" upper_left_y="1013" lower_right_x="1086" lower_right_y="1146"/>
+        <graphic_event event_ref="p1v1_172" upper_left_x="1119" upper_left_y="1019" lower_right_x="1173" lower_right_y="1133"/>
+        <graphic_event event_ref="p1v1_173" upper_left_x="1179" upper_left_y="1019" lower_right_x="1233" lower_right_y="1146"/>
+        <graphic_event event_ref="p1v1_174" upper_left_x="1259" upper_left_y="1033" lower_right_x="1326" lower_right_y="1159"/>
+        <graphic_event event_ref="p1v1_175" upper_left_x="1333" upper_left_y="966" lower_right_x="1379" lower_right_y="1133"/>
+        <graphic_event event_ref="p1v1_176" upper_left_x="1393" upper_left_y="966" lower_right_x="1446" lower_right_y="1133"/>
+        <graphic_event event_ref="p1v1_177" upper_left_x="1453" upper_left_y="973" lower_right_x="1513" lower_right_y="1159"/>
+        <graphic_event event_ref="p1v1_178" upper_left_x="1526" upper_left_y="986" lower_right_x="1579" lower_right_y="1133"/>
+        <graphic_event event_ref="p1v1_179" upper_left_x="1593" upper_left_y="973" lower_right_x="1639" lower_right_y="1119"/>
+        <graphic_event event_ref="p1v1_180" upper_left_x="1659" upper_left_y="986" lower_right_x="1706" lower_right_y="1146"/>
+        <graphic_event event_ref="p1v1_181" upper_left_x="1719" upper_left_y="966" lower_right_x="1773" lower_right_y="1126"/>
+        <graphic_event event_ref="p1v1_182" upper_left_x="1786" upper_left_y="946" lower_right_x="1886" lower_right_y="1099"/>
+        <graphic_event event_ref="p1v1_183" upper_left_x="269" upper_left_y="1593" lower_right_x="336" lower_right_y="1739"/>
+        <graphic_event event_ref="p1v1_184" upper_left_x="329" upper_left_y="1599" lower_right_x="403" lower_right_y="1733"/>
+        <graphic_event event_ref="p1v1_185" upper_left_x="396" upper_left_y="1606" lower_right_x="463" lower_right_y="1739"/>
+        <graphic_event event_ref="p1v1_186" upper_left_x="456" upper_left_y="1586" lower_right_x="523" lower_right_y="1739"/>
+        <graphic_event event_ref="p1v1_187" upper_left_x="529" upper_left_y="1586" lower_right_x="583" lower_right_y="1733"/>
+        <graphic_event event_ref="p1v1_188" upper_left_x="569" upper_left_y="1599" lower_right_x="656" lower_right_y="1726"/>
+        <graphic_event event_ref="p1v1_189" upper_left_x="643" upper_left_y="1586" lower_right_x="716" lower_right_y="1719"/>
+        <graphic_event event_ref="p1v1_190" upper_left_x="716" upper_left_y="1606" lower_right_x="783" lower_right_y="1739"/>
+        <graphic_event event_ref="p1v1_191" upper_left_x="783" upper_left_y="1586" lower_right_x="883" lower_right_y="1726"/>
+        <graphic_event event_ref="p1v1_192" upper_left_x="1303" upper_left_y="1606" lower_right_x="1363" lower_right_y="1726"/>
+        <graphic_event event_ref="p1v1_193" upper_left_x="1356" upper_left_y="1599" lower_right_x="1429" lower_right_y="1726"/>
+        <graphic_event event_ref="p1v1_194" upper_left_x="1416" upper_left_y="1606" lower_right_x="1489" lower_right_y="1726"/>
+        <graphic_event event_ref="p1v1_195" upper_left_x="1489" upper_left_y="1613" lower_right_x="1549" lower_right_y="1719"/>
+        <graphic_event event_ref="p1v1_196" upper_left_x="1543" upper_left_y="1626" lower_right_x="1616" lower_right_y="1739"/>
+        <graphic_event event_ref="p1v1_197" upper_left_x="1609" upper_left_y="1606" lower_right_x="1676" lower_right_y="1739"/>
+        <graphic_event event_ref="p1v1_198" upper_left_x="1676" upper_left_y="1606" lower_right_x="1736" lower_right_y="1746"/>
+        <graphic_event event_ref="p1v1_199" upper_left_x="1736" upper_left_y="1599" lower_right_x="1796" lower_right_y="1739"/>
+        <graphic_event event_ref="p1v1_200" upper_left_x="1816" upper_left_y="1593" lower_right_x="1883" lower_right_y="1719"/>
+        <graphic_event event_ref="p1v1_201" upper_left_x="283" upper_left_y="2236" lower_right_x="336" lower_right_y="2376"/>
+        <graphic_event event_ref="p1v1_202" upper_left_x="323" upper_left_y="2243" lower_right_x="403" lower_right_y="2376"/>
+        <graphic_event event_ref="p1v1_203" upper_left_x="396" upper_left_y="2243" lower_right_x="469" lower_right_y="2376"/>
+        <graphic_event event_ref="p1v1_204" upper_left_x="463" upper_left_y="2229" lower_right_x="529" lower_right_y="2363"/>
+        <graphic_event event_ref="p1v1_205" upper_left_x="516" upper_left_y="2216" lower_right_x="596" lower_right_y="2369"/>
+        <graphic_event event_ref="p1v1_206" upper_left_x="603" upper_left_y="2229" lower_right_x="663" lower_right_y="2369"/>
+        <graphic_event event_ref="p1v1_207" upper_left_x="669" upper_left_y="2236" lower_right_x="723" lower_right_y="2349"/>
+        <graphic_event event_ref="p1v1_208" upper_left_x="729" upper_left_y="2243" lower_right_x="783" lower_right_y="2356"/>
+        <graphic_event event_ref="p1v1_209" upper_left_x="796" upper_left_y="2229" lower_right_x="876" lower_right_y="2356"/>
+        <graphic_event event_ref="p1v1_210" upper_left_x="1336" upper_left_y="2229" lower_right_x="1383" lower_right_y="2383"/>
+        <graphic_event event_ref="p1v1_211" upper_left_x="1396" upper_left_y="2243" lower_right_x="1443" lower_right_y="2389"/>
+        <graphic_event event_ref="p1v1_212" upper_left_x="1456" upper_left_y="2243" lower_right_x="1503" lower_right_y="2376"/>
+        <graphic_event event_ref="p1v1_213" upper_left_x="1509" upper_left_y="2236" lower_right_x="1556" lower_right_y="2389"/>
+        <graphic_event event_ref="p1v1_214" upper_left_x="1569" upper_left_y="2229" lower_right_x="1616" lower_right_y="2376"/>
+        <graphic_event event_ref="p1v1_215" upper_left_x="1629" upper_left_y="2243" lower_right_x="1689" lower_right_y="2376"/>
+        <graphic_event event_ref="p1v1_216" upper_left_x="1696" upper_left_y="2229" lower_right_x="1749" lower_right_y="2383"/>
+        <graphic_event event_ref="p1v1_217" upper_left_x="1756" upper_left_y="2256" lower_right_x="1803" lower_right_y="2376"/>
+        <graphic_event event_ref="p1v1_218" upper_left_x="1816" upper_left_y="2256" lower_right_x="1863" lower_right_y="2383"/>
+        <graphic_event event_ref="p1v1_219" upper_left_x="1883" upper_left_y="2249" lower_right_x="1929" lower_right_y="2369"/>
+        <graphic_event event_ref="p1v1_220" upper_left_x="1936" upper_left_y="2229" lower_right_x="1989" lower_right_y="2369"/>
+        <graphic_event event_ref="p1v1_221" upper_left_x="2003" upper_left_y="2216" lower_right_x="2049" lower_right_y="2363"/>
+        <graphic_event event_ref="p1v1_222" upper_left_x="2063" upper_left_y="2203" lower_right_x="2109" lower_right_y="2363"/>
+        <graphic_event event_ref="p1v1_223" upper_left_x="2123" upper_left_y="2223" lower_right_x="2176" lower_right_y="2363"/>
+        <graphic_event event_ref="p1v1_224" upper_left_x="2169" upper_left_y="2216" lower_right_x="2236" lower_right_y="2383"/>
+        <graphic_event event_ref="p1v1_225" upper_left_x="2256" upper_left_y="2229" lower_right_x="2303" lower_right_y="2369"/>
+        <graphic_event event_ref="p1v1_226" upper_left_x="269" upper_left_y="2866" lower_right_x="329" lower_right_y="2993"/>
+        <graphic_event event_ref="p1v1_227" upper_left_x="323" upper_left_y="2846" lower_right_x="383" lower_right_y="2966"/>
+        <graphic_event event_ref="p1v1_228" upper_left_x="376" upper_left_y="2839" lower_right_x="436" lower_right_y="2973"/>
+        <graphic_event event_ref="p1v1_229" upper_left_x="423" upper_left_y="2833" lower_right_x="489" lower_right_y="2973"/>
+        <graphic_event event_ref="p1v1_230" upper_left_x="489" upper_left_y="2826" lower_right_x="543" lower_right_y="2953"/>
+        <graphic_event event_ref="p1v1_231" upper_left_x="543" upper_left_y="2846" lower_right_x="596" lower_right_y="2953"/>
+        <graphic_event event_ref="p1v1_232" upper_left_x="596" upper_left_y="2833" lower_right_x="649" lower_right_y="2973"/>
+        <graphic_event event_ref="p1v1_233" upper_left_x="649" upper_left_y="2853" lower_right_x="696" lower_right_y="2979"/>
+        <graphic_event event_ref="p1v1_234" upper_left_x="696" upper_left_y="2826" lower_right_x="756" lower_right_y="2986"/>
+        <graphic_event event_ref="p1v1_235" upper_left_x="796" upper_left_y="2846" lower_right_x="863" lower_right_y="2973"/>
+        <graphic_event event_ref="p1v1_236" upper_left_x="909" upper_left_y="2873" lower_right_x="983" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_237" upper_left_x="1023" upper_left_y="2879" lower_right_x="1076" lower_right_y="3006"/>
+        <graphic_event event_ref="p1v1_238" upper_left_x="1076" upper_left_y="2879" lower_right_x="1129" lower_right_y="3006"/>
+        <graphic_event event_ref="p1v1_239" upper_left_x="1163" upper_left_y="2839" lower_right_x="1196" lower_right_y="2953"/>
+        <graphic_event event_ref="p1v1_240" upper_left_x="1196" upper_left_y="2833" lower_right_x="1256" lower_right_y="2973"/>
+        <graphic_event event_ref="p1v1_241" upper_left_x="1263" upper_left_y="2839" lower_right_x="1309" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_242" upper_left_x="1316" upper_left_y="2839" lower_right_x="1356" lower_right_y="3006"/>
+        <graphic_event event_ref="p1v1_243" upper_left_x="1363" upper_left_y="2839" lower_right_x="1416" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_244" upper_left_x="1416" upper_left_y="2839" lower_right_x="1469" lower_right_y="2979"/>
+        <graphic_event event_ref="p1v1_245" upper_left_x="1463" upper_left_y="2833" lower_right_x="1516" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_246" upper_left_x="1516" upper_left_y="2833" lower_right_x="1569" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_247" upper_left_x="1576" upper_left_y="2839" lower_right_x="1609" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_248" upper_left_x="1616" upper_left_y="2833" lower_right_x="1669" lower_right_y="2999"/>
+        <graphic_event event_ref="p1v1_249" upper_left_x="1676" upper_left_y="2833" lower_right_x="1723" lower_right_y="2959"/>
+        <graphic_event event_ref="p1v1_250" upper_left_x="1736" upper_left_y="2826" lower_right_x="1776" lower_right_y="3013"/>
+        <graphic_event event_ref="p1v1_251" upper_left_x="1783" upper_left_y="2833" lower_right_x="1829" lower_right_y="3019"/>
+        <graphic_event event_ref="p1v1_252" upper_left_x="1843" upper_left_y="2833" lower_right_x="1876" lower_right_y="2966"/>
+        <graphic_event event_ref="p1v1_253" upper_left_x="1889" upper_left_y="2833" lower_right_x="1929" lower_right_y="3019"/>
+        <graphic_event event_ref="p1v1_254" upper_left_x="1936" upper_left_y="2819" lower_right_x="1983" lower_right_y="2973"/>
+        <graphic_event event_ref="p1v1_255" upper_left_x="2016" upper_left_y="2879" lower_right_x="2069" lower_right_y="3006"/>
+        <graphic_event event_ref="p2v1_119" upper_left_x="276" upper_left_y="609" lower_right_x="336" lower_right_y="729"/>
+        <graphic_event event_ref="p2v1_120" upper_left_x="338" upper_left_y="618" lower_right_x="394" lower_right_y="726"/>
+        <graphic_event event_ref="p2v1_121" upper_left_x="394" upper_left_y="618" lower_right_x="454" lower_right_y="726"/>
+        <graphic_event event_ref="p2v1_122" upper_left_x="450" upper_left_y="618" lower_right_x="510" lower_right_y="746"/>
+        <graphic_event event_ref="p2v1_123" upper_left_x="518" upper_left_y="630" lower_right_x="574" lower_right_y="746"/>
+        <graphic_event event_ref="p2v1_124" upper_left_x="578" upper_left_y="622" lower_right_x="634" lower_right_y="730"/>
+        <graphic_event event_ref="p2v1_125" upper_left_x="642" upper_left_y="622" lower_right_x="698" lower_right_y="750"/>
+        <graphic_event event_ref="p2v1_126" upper_left_x="698" upper_left_y="618" lower_right_x="750" lower_right_y="730"/>
+        <graphic_event event_ref="p2v1_127" upper_left_x="798" upper_left_y="574" lower_right_x="854" lower_right_y="706"/>
+        <graphic_event event_ref="p2v1_128" upper_left_x="850" upper_left_y="582" lower_right_x="914" lower_right_y="710"/>
+        <graphic_event event_ref="p2v1_129" upper_left_x="922" upper_left_y="590" lower_right_x="970" lower_right_y="698"/>
+        <graphic_event event_ref="p2v1_130" upper_left_x="962" upper_left_y="594" lower_right_x="1030" lower_right_y="710"/>
+        <graphic_event event_ref="p2v1_131" upper_left_x="1038" upper_left_y="602" lower_right_x="1098" lower_right_y="718"/>
+        <graphic_event event_ref="p2v1_132" upper_left_x="1106" upper_left_y="586" lower_right_x="1166" lower_right_y="714"/>
+        <graphic_event event_ref="p2v1_133" upper_left_x="1166" upper_left_y="602" lower_right_x="1218" lower_right_y="718"/>
+        <graphic_event event_ref="p2v1_134" upper_left_x="1222" upper_left_y="586" lower_right_x="1278" lower_right_y="718"/>
+        <graphic_event event_ref="p2v1_135" upper_left_x="1310" upper_left_y="590" lower_right_x="1378" lower_right_y="726"/>
+        <graphic_event event_ref="p2v1_136" upper_left_x="1410" upper_left_y="618" lower_right_x="1490" lower_right_y="734"/>
+        <graphic_event event_ref="p2v1_137" upper_left_x="1558" upper_left_y="578" lower_right_x="1618" lower_right_y="686"/>
+        <graphic_event event_ref="p2v1_138" upper_left_x="1706" upper_left_y="570" lower_right_x="1794" lower_right_y="694"/>
+        <graphic_event event_ref="p2v1_139" upper_left_x="1802" upper_left_y="582" lower_right_x="1862" lower_right_y="706"/>
+        <graphic_event event_ref="p2v1_140" upper_left_x="1874" upper_left_y="590" lower_right_x="1922" lower_right_y="698"/>
+        <graphic_event event_ref="p2v1_141" upper_left_x="1934" upper_left_y="598" lower_right_x="1982" lower_right_y="706"/>
+        <graphic_event event_ref="p2v1_142" upper_left_x="1986" upper_left_y="606" lower_right_x="2038" lower_right_y="706"/>
+        <graphic_event event_ref="p2v1_143" upper_left_x="2042" upper_left_y="614" lower_right_x="2110" lower_right_y="718"/>
+        <graphic_event event_ref="p2v1_144" upper_left_x="2118" upper_left_y="598" lower_right_x="2166" lower_right_y="722"/>
+        <graphic_event event_ref="p2v1_145" upper_left_x="2170" upper_left_y="606" lower_right_x="2234" lower_right_y="726"/>
+        <graphic_event event_ref="p2v1_146" upper_left_x="2234" upper_left_y="594" lower_right_x="2290" lower_right_y="714"/>
+        <graphic_event event_ref="p2v1_147" upper_left_x="282" upper_left_y="1220" lower_right_x="330" lower_right_y="1332"/>
+        <graphic_event event_ref="p2v1_148" upper_left_x="334" upper_left_y="1208" lower_right_x="394" lower_right_y="1328"/>
+        <graphic_event event_ref="p2v1_149" upper_left_x="394" upper_left_y="1220" lower_right_x="450" lower_right_y="1324"/>
+        <graphic_event event_ref="p2v1_150" upper_left_x="454" upper_left_y="1204" lower_right_x="518" lower_right_y="1324"/>
+        <graphic_event event_ref="p2v1_151" upper_left_x="526" upper_left_y="1212" lower_right_x="578" lower_right_y="1308"/>
+        <graphic_event event_ref="p2v1_152" upper_left_x="578" upper_left_y="1196" lower_right_x="642" lower_right_y="1308"/>
+        <graphic_event event_ref="p2v1_153" upper_left_x="646" upper_left_y="1204" lower_right_x="702" lower_right_y="1316"/>
+        <graphic_event event_ref="p2v1_154" upper_left_x="706" upper_left_y="1184" lower_right_x="762" lower_right_y="1304"/>
+        <graphic_event event_ref="p2v1_155" upper_left_x="774" upper_left_y="1192" lower_right_x="850" lower_right_y="1344"/>
+        <graphic_event event_ref="p2v1_156" upper_left_x="870" upper_left_y="1224" lower_right_x="946" lower_right_y="1344"/>
+        <graphic_event event_ref="p2v1_157" upper_left_x="1018" upper_left_y="1184" lower_right_x="1082" lower_right_y="1376"/>
+        <graphic_event event_ref="p2v1_158" upper_left_x="1106" upper_left_y="1240" lower_right_x="1174" lower_right_y="1376"/>
+        <graphic_event event_ref="p2v1_159" upper_left_x="1274" upper_left_y="1228" lower_right_x="1342" lower_right_y="1404"/>
+        <graphic_event event_ref="p2v1_160" upper_left_x="1370" upper_left_y="1272" lower_right_x="1458" lower_right_y="1408"/>
+        <graphic_event event_ref="p2v1_161" upper_left_x="1530" upper_left_y="1244" lower_right_x="1590" lower_right_y="1360"/>
+        <graphic_event event_ref="p2v1_162" upper_left_x="1786" upper_left_y="1256" lower_right_x="1842" lower_right_y="1344"/>
+        <graphic_event event_ref="p2v1_163" upper_left_x="1854" upper_left_y="1196" lower_right_x="1906" lower_right_y="1316"/>
+        <graphic_event event_ref="p2v1_164" upper_left_x="1918" upper_left_y="1200" lower_right_x="1970" lower_right_y="1312"/>
+        <graphic_event event_ref="p2v1_165" upper_left_x="1974" upper_left_y="1204" lower_right_x="2030" lower_right_y="1308"/>
+        <graphic_event event_ref="p2v1_166" upper_left_x="2046" upper_left_y="1216" lower_right_x="2098" lower_right_y="1344"/>
+        <graphic_event event_ref="p2v1_167" upper_left_x="2114" upper_left_y="1208" lower_right_x="2158" lower_right_y="1336"/>
+        <graphic_event event_ref="p2v1_168" upper_left_x="2158" upper_left_y="1204" lower_right_x="2226" lower_right_y="1332"/>
+        <graphic_event event_ref="p2v1_169" upper_left_x="2238" upper_left_y="1192" lower_right_x="2298" lower_right_y="1320"/>
+        <graphic_event event_ref="p2v1_170" upper_left_x="282" upper_left_y="1814" lower_right_x="366" lower_right_y="1946"/>
+        <graphic_event event_ref="p2v1_171" upper_left_x="778" upper_left_y="1834" lower_right_x="838" lower_right_y="1970"/>
+        <graphic_event event_ref="p2v1_172" upper_left_x="842" upper_left_y="1858" lower_right_x="902" lower_right_y="1962"/>
+        <graphic_event event_ref="p2v1_173" upper_left_x="902" upper_left_y="1846" lower_right_x="970" lower_right_y="1966"/>
+        <graphic_event event_ref="p2v1_174" upper_left_x="970" upper_left_y="1838" lower_right_x="1026" lower_right_y="1974"/>
+        <graphic_event event_ref="p2v1_175" upper_left_x="1030" upper_left_y="1830" lower_right_x="1090" lower_right_y="1958"/>
+        <graphic_event event_ref="p2v1_176" upper_left_x="1098" upper_left_y="1850" lower_right_x="1154" lower_right_y="1974"/>
+        <graphic_event event_ref="p2v1_177" upper_left_x="1154" upper_left_y="1842" lower_right_x="1218" lower_right_y="1958"/>
+        <graphic_event event_ref="p2v1_178" upper_left_x="1226" upper_left_y="1854" lower_right_x="1274" lower_right_y="1970"/>
+        <graphic_event event_ref="p2v1_179" upper_left_x="1314" upper_left_y="1838" lower_right_x="1386" lower_right_y="1962"/>
+        <graphic_event event_ref="p2v1_180" upper_left_x="1806" upper_left_y="1846" lower_right_x="1858" lower_right_y="1958"/>
+        <graphic_event event_ref="p2v1_181" upper_left_x="1870" upper_left_y="1830" lower_right_x="1922" lower_right_y="1962"/>
+        <graphic_event event_ref="p2v1_182" upper_left_x="1926" upper_left_y="1838" lower_right_x="1990" lower_right_y="1962"/>
+        <graphic_event event_ref="p2v1_183" upper_left_x="1994" upper_left_y="1846" lower_right_x="2042" lower_right_y="1962"/>
+        <graphic_event event_ref="p2v1_184" upper_left_x="2062" upper_left_y="1854" lower_right_x="2110" lower_right_y="1970"/>
+        <graphic_event event_ref="p2v1_185" upper_left_x="2122" upper_left_y="1842" lower_right_x="2166" lower_right_y="1962"/>
+        <graphic_event event_ref="p2v1_186" upper_left_x="2174" upper_left_y="1846" lower_right_x="2238" lower_right_y="1970"/>
+        <graphic_event event_ref="p2v1_187" upper_left_x="2246" upper_left_y="1830" lower_right_x="2294" lower_right_y="1958"/>
+        <graphic_event event_ref="p2v1_188" upper_left_x="282" upper_left_y="2460" lower_right_x="346" lower_right_y="2584"/>
+        <graphic_event event_ref="p2v1_189" upper_left_x="790" upper_left_y="2468" lower_right_x="850" lower_right_y="2600"/>
+        <graphic_event event_ref="p2v1_190" upper_left_x="854" upper_left_y="2488" lower_right_x="918" lower_right_y="2604"/>
+        <graphic_event event_ref="p2v1_191" upper_left_x="926" upper_left_y="2488" lower_right_x="970" lower_right_y="2608"/>
+        <graphic_event event_ref="p2v1_192" upper_left_x="966" upper_left_y="2448" lower_right_x="1038" lower_right_y="2612"/>
+        <graphic_event event_ref="p2v1_193" upper_left_x="1038" upper_left_y="2460" lower_right_x="1110" lower_right_y="2604"/>
+        <graphic_event event_ref="p2v1_194" upper_left_x="1110" upper_left_y="2476" lower_right_x="1174" lower_right_y="2596"/>
+        <graphic_event event_ref="p2v1_195" upper_left_x="1174" upper_left_y="2464" lower_right_x="1242" lower_right_y="2592"/>
+        <graphic_event event_ref="p2v1_196" upper_left_x="1234" upper_left_y="2488" lower_right_x="1306" lower_right_y="2588"/>
+        <graphic_event event_ref="p2v1_197" upper_left_x="1334" upper_left_y="2480" lower_right_x="1406" lower_right_y="2600"/>
+        <graphic_event event_ref="p2v1_198" upper_left_x="1422" upper_left_y="2456" lower_right_x="1518" lower_right_y="2592"/>
+        <graphic_event event_ref="p2v1_199" upper_left_x="1574" upper_left_y="2472" lower_right_x="1638" lower_right_y="2584"/>
+        <graphic_event event_ref="p2v1_200" upper_left_x="1702" upper_left_y="2476" lower_right_x="1770" lower_right_y="2604"/>
+        <graphic_event event_ref="p2v1_201" upper_left_x="1818" upper_left_y="2488" lower_right_x="1882" lower_right_y="2608"/>
+        <graphic_event event_ref="p2v1_202" upper_left_x="1930" upper_left_y="2448" lower_right_x="2010" lower_right_y="2612"/>
+        <graphic_event event_ref="p2v1_203" upper_left_x="2062" upper_left_y="2464" lower_right_x="2138" lower_right_y="2572"/>
+        <graphic_event event_ref="p2v1_204" upper_left_x="2170" upper_left_y="2464" lower_right_x="2242" lower_right_y="2584"/>
+        <graphic_event event_ref="p2v1_205" upper_left_x="278" upper_left_y="3106" lower_right_x="346" lower_right_y="3218"/>
+        <graphic_event event_ref="p2v1_206" upper_left_x="346" upper_left_y="3054" lower_right_x="450" lower_right_y="3218"/>
+        <graphic_event event_ref="p2v1_207" upper_left_x="474" upper_left_y="3074" lower_right_x="554" lower_right_y="3198"/>
+        <graphic_event event_ref="p2v1_208" upper_left_x="590" upper_left_y="3078" lower_right_x="662" lower_right_y="3210"/>
+        <graphic_event event_ref="p2v1_209" upper_left_x="702" upper_left_y="3078" lower_right_x="750" lower_right_y="3254"/>
+        <graphic_event event_ref="p2v1_210" upper_left_x="758" upper_left_y="3138" lower_right_x="802" lower_right_y="3254"/>
+        <graphic_event event_ref="p2v1_211" upper_left_x="810" upper_left_y="3134" lower_right_x="862" lower_right_y="3262"/>
+        <graphic_event event_ref="p2v1_212" upper_left_x="862" upper_left_y="3126" lower_right_x="914" lower_right_y="3262"/>
+        <graphic_event event_ref="p2v1_213" upper_left_x="914" upper_left_y="3122" lower_right_x="970" lower_right_y="3250"/>
+        <graphic_event event_ref="p2v1_214" upper_left_x="974" upper_left_y="3134" lower_right_x="1018" lower_right_y="3254"/>
+        <graphic_event event_ref="p2v1_215" upper_left_x="1026" upper_left_y="3130" lower_right_x="1070" lower_right_y="3258"/>
+        <graphic_event event_ref="p2v1_216" upper_left_x="1070" upper_left_y="3138" lower_right_x="1130" lower_right_y="3258"/>
+        <graphic_event event_ref="p2v1_217" upper_left_x="1154" upper_left_y="3134" lower_right_x="1222" lower_right_y="3262"/>
+        <graphic_event event_ref="p2v1_218" upper_left_x="1254" upper_left_y="3146" lower_right_x="1306" lower_right_y="3266"/>
+        <graphic_event event_ref="p2v1_219" upper_left_x="1326" upper_left_y="3142" lower_right_x="1422" lower_right_y="3262"/>
+        <graphic_event event_ref="p2v1_220" upper_left_x="1454" upper_left_y="3134" lower_right_x="1518" lower_right_y="3278"/>
+        <graphic_event event_ref="p2v1_221" upper_left_x="1562" upper_left_y="3130" lower_right_x="1618" lower_right_y="3254"/>
+        <graphic_event event_ref="p2v1_222" upper_left_x="1626" upper_left_y="3134" lower_right_x="1670" lower_right_y="3254"/>
+        <graphic_event event_ref="p2v1_223" upper_left_x="1682" upper_left_y="3138" lower_right_x="1722" lower_right_y="3262"/>
+        <graphic_event event_ref="p2v1_224" upper_left_x="1730" upper_left_y="3130" lower_right_x="1774" lower_right_y="3262"/>
+        <graphic_event event_ref="p2v1_225" upper_left_x="1794" upper_left_y="3062" lower_right_x="1862" lower_right_y="3190"/>
+        <graphic_event event_ref="p2v1_226" upper_left_x="1870" upper_left_y="3066" lower_right_x="1942" lower_right_y="3250"/>
+        <graphic_event event_ref="p2v1_227" upper_left_x="2018" upper_left_y="3206" lower_right_x="2078" lower_right_y="3274"/>
+      </graphic_instance>
+    </graphic_instance_group>
+  </notational>
+</ieee1599>

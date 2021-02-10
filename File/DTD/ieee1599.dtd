@@ -470,8 +470,8 @@
 <!ELEMENT dynamic (#PCDATA)>
 <!ATTLIST dynamic
 	id CDATA #IMPLIED
-  extension_line_to IDREF #IMPLIED
-  extension_line_shape (normal | dotted | dashed) #IMPLIED
+    extension_line_to IDREF #IMPLIED
+    extension_line_shape (normal | dotted | dashed) #IMPLIED
 	staff_ref IDREF #IMPLIED
 	%spine_ref;>
 
@@ -534,7 +534,7 @@
 <!ATTLIST special_beam
 	id CDATA #IMPLIED
 	fanned_from CDATA #IMPLIED
-  fanned_to CDATA #IMPLIED>
+    fanned_to CDATA #IMPLIED>
 
 <!ELEMENT tablature_hsymbol (tablature_element | barre)+>
 <!ATTLIST tablature_hsymbol
@@ -1029,7 +1029,7 @@
 <!ELEMENT album EMPTY>
 <!ATTLIST album
 	title CDATA #REQUIRED
-  track_number CDATA #IMPLIED
+    track_number CDATA #IMPLIED
 	carrier_type CDATA #IMPLIED
 	catalogue_number CDATA #IMPLIED
 	number_of_tracks CDATA #IMPLIED

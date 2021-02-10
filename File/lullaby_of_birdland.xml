@@ -1,0 +1,2165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ieee1599 SYSTEM "http://standards.ieee.org/downloads/1599/1599-2008/ieee1599.dtd">
+<ieee1599 creator="Finale Plugin" version="1.0">
+  <general>
+    <description>
+      <main_title>Lullaby of Birdland</main_title>
+      <author type="composer">Shearing, George</author>
+      <author type="lyrics">Weiss, George David</author>
+    </description>
+  </general>
+  <logic>
+    <spine>
+      <event id="TimeSignature_part_1_1" timing="0" hpos="0"/>
+      <event id="KeySignature_part_1_1" timing="0" hpos="0"/>
+      <event id="Clef_part_1_1" timing="0" hpos="0"/>
+      <event id="part_1_voice0_measure1_ev0" timing="0" hpos="0"/>
+      <event id="part_1_voice0_measure1_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure1_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure1_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure1_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure1_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure2_ev0" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure2_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure2_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure2_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure3_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure3_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure3_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure3_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure4_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure4_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure4_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure4_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure5_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure5_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure5_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure5_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure5_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure5_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure6_ev0" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure6_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure6_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure6_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure6_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure6_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure6_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure6_ev7" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure7_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure7_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure7_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure7_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure7_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure8_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure8_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure8_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure8_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure8_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure9_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure9_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure9_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure9_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure9_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure9_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure10_ev0" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure10_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure10_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure10_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure11_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure11_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure11_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure11_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure12_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure12_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure12_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure12_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure13_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure13_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure13_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure13_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure13_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure13_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure14_ev0" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure14_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure14_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure14_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure14_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure14_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure14_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure14_ev7" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure15_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure15_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure15_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure15_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure15_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure16_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure17_ev0" timing="4096" hpos="4096"/>
+      <event id="part_1_voice0_measure17_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure17_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure17_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure17_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure17_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure17_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure18_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure18_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure18_ev2" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure19_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure19_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure19_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure19_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure19_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure19_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure19_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure20_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure21_ev0" timing="4096" hpos="4096"/>
+      <event id="part_1_voice0_measure21_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure21_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure21_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure21_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure21_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure21_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure22_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure22_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure22_ev2" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure23_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure23_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure23_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure23_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure23_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure23_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure23_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure24_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure24_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure24_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure24_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure24_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure25_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure25_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure25_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure25_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure25_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure25_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure26_ev0" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure26_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure26_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure26_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure27_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure27_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure27_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure27_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure28_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure28_ev1" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure28_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure28_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure29_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure29_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure29_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure29_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure29_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure29_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure30_ev0" timing="1536" hpos="1536"/>
+      <event id="part_1_voice0_measure30_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure30_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure30_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure30_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure30_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure30_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure30_ev7" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure31_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure31_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure31_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure31_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure31_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure32_ev0" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure32_ev1" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure32_ev2" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure32_ev3" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure32_ev4" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure32_ev5" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure32_ev6" timing="512" hpos="512"/>
+      <event id="part_1_voice0_measure33_ev0" timing="1024" hpos="1024"/>
+      <event id="part_1_voice0_measure33_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure34_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure34_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure35_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure35_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure36_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure36_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure37_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure37_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure38_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure38_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure39_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure39_ev1" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure40_ev0" timing="2048" hpos="2048"/>
+      <event id="part_1_voice0_measure40_ev1" timing="2048" hpos="2048"/>
+    </spine>
+    <los>
+      <staff_list>
+        <staff id="part_1_staff" line_number="5">
+          <time_signature event_ref="TimeSignature_part_1_1">
+            <time_indication num="4" den="4"/>
+          </time_signature>
+          <key_signature event_ref="KeySignature_part_1_1">
+            <flat_num number="3"/>
+          </key_signature>
+          <clef shape="G" event_ref="Clef_part_1_1" staff_step="2" octave_num="0"/>
+        </staff>
+      </staff_list>
+      <part id="part_1">
+        <voice_list>
+          <voice_item id="part_1_0_voice" staff_ref="part_1_staff"/>
+        </voice_list>
+        <measure number="1">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure1_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure1_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure1_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure1_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure1_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure1_ev5">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="2">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure2_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure2_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure2_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure2_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="3">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure3_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure3_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure3_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure3_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="4">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure4_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure4_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure4_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure4_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="5">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure5_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure5_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure5_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure5_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure5_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure5_ev5">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="6">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure6_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure6_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure6_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure6_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure6_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure6_ev5">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure6_ev6">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure6_ev7">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="7">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure7_ev0">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure7_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure7_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure7_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure7_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="flat"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="8">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure8_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure8_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure8_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure8_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="G" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure8_ev4">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="4" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="9">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure9_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure9_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure9_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure9_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure9_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure9_ev5">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="10">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure10_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure10_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure10_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure10_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="11">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure11_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure11_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure11_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure11_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="12">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure12_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure12_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure12_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure12_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="13">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure13_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure13_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure13_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure13_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure13_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure13_ev5">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="14">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure14_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure14_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure14_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure14_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure14_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure14_ev5">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure14_ev6">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure14_ev7">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="15">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure15_ev0">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure15_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure15_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure15_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure15_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="16">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure16_ev0">
+              <duration num="1" den="1"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="17">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure17_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure17_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure17_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure17_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure17_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure17_ev5">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure17_ev6">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="18">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure18_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure18_ev1">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure18_ev2">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="19">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure19_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure19_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure19_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure19_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure19_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure19_ev5">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure19_ev6">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="20">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure20_ev0">
+              <duration num="1" den="1"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="21">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure21_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure21_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure21_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure21_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure21_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure21_ev5">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure21_ev6">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="22">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure22_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure22_ev1">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure22_ev2">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="23">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure23_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure23_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="sharp"/>
+                <printed_accidentals>
+                  <sharp/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure23_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure23_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure23_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure23_ev5">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure23_ev6">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="24">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure24_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure24_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure24_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure24_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure24_ev4">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="25">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure25_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure25_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure25_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure25_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure25_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure25_ev5">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="26">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure26_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure26_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure26_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure26_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="27">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure27_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure27_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure27_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure27_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="28">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure28_ev0">
+              <duration num="1" den="4"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure28_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure28_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure28_ev3">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="29">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure29_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure29_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure29_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure29_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure29_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure29_ev5">
+              <duration num="1" den="4"/>
+              <augmentation_dots number="1"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="30">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure30_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="C" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure30_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure30_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure30_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+                <printed_accidentals>
+                  <natural/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure30_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure30_ev5">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure30_ev6">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure30_ev7">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+                <printed_accidentals>
+                  <flat/>
+                </printed_accidentals>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="31">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure31_ev0">
+              <duration num="1" den="2"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure31_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="B" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure31_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="F" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure31_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure31_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="flat"/>
+                <tie/>
+              </notehead>
+            </chord>
+          </voice>
+        </measure>
+        <measure number="32">
+          <voice voice_item_ref="part_1_0_voice">
+            <chord event_ref="part_1_voice0_measure32_ev0">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="A" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure32_ev1">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="E" actual_accidental="flat"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure32_ev2">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="5" step="D" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure32_ev3">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="G" actual_accidental="natural"/>
+                <tie/>
+              </notehead>
+            </chord>
+            <chord event_ref="part_1_voice0_measure32_ev4">
+              <duration num="1" den="8"/>
+              <notehead>
+                <pitch octave="4" step="G" actual_accidental="natural"/>
+              </notehead>
+            </chord>
+            <rest event_ref="part_1_voice0_measure32_ev5">
+              <duration num="1" den="8"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure32_ev6">
+              <duration num="1" den="4"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="33">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure33_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure33_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="34">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure34_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure34_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="35">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure35_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure35_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="36">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure36_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure36_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="37">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure37_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure37_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="38">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure38_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure38_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="39">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure39_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure39_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+        <measure number="40">
+          <voice voice_item_ref="part_1_0_voice">
+            <rest event_ref="part_1_voice0_measure40_ev0">
+              <duration num="1" den="2"/>
+            </rest>
+            <rest event_ref="part_1_voice0_measure40_ev1">
+              <duration num="1" den="2"/>
+            </rest>
+          </voice>
+        </measure>
+      </part>
+      <lyrics part_ref="part_1" voice_ref="part_1_0_voice">
+        <syllable start_event_ref="part_1_voice0_measure1_ev0" hyphen="yes">Lul</syllable>
+        <syllable start_event_ref="part_1_voice0_measure1_ev1" hyphen="yes">la</syllable>
+        <syllable start_event_ref="part_1_voice0_measure1_ev2" hyphen="no">by</syllable>
+        <syllable start_event_ref="part_1_voice0_measure1_ev3" hyphen="no">of</syllable>
+        <syllable start_event_ref="part_1_voice0_measure1_ev4" hyphen="yes">Bird</syllable>
+        <syllable start_event_ref="part_1_voice0_measure1_ev5" hyphen="no">land,</syllable>
+        <syllable start_event_ref="part_1_voice0_measure2_ev0" hyphen="no">that's</syllable>
+        <syllable start_event_ref="part_1_voice0_measure2_ev1" hyphen="no">what</syllable>
+        <syllable start_event_ref="part_1_voice0_measure2_ev2" end_event_ref="part_1_voice0_measure2_ev3" hyphen="no">I
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure3_ev0" hyphen="yes">Al</syllable>
+        <syllable start_event_ref="part_1_voice0_measure3_ev1" hyphen="no">ways</syllable>
+        <syllable start_event_ref="part_1_voice0_measure3_ev2" end_event_ref="part_1_voice0_measure3_ev3" hyphen="no">hear</syllable>
+        <syllable start_event_ref="part_1_voice0_measure4_ev0" hyphen="no">when</syllable>
+        <syllable start_event_ref="part_1_voice0_measure4_ev1" hyphen="no">you</syllable>
+        <syllable start_event_ref="part_1_voice0_measure4_ev2" end_event_ref="part_1_voice0_measure4_ev3" hyphen="no">sigh
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure5_ev0" hyphen="yes">Nev</syllable>
+        <syllable start_event_ref="part_1_voice0_measure5_ev1" hyphen="no">er</syllable>
+        <syllable start_event_ref="part_1_voice0_measure5_ev2" hyphen="no">in</syllable>
+        <syllable start_event_ref="part_1_voice0_measure5_ev3" hyphen="no">my</syllable>
+        <syllable start_event_ref="part_1_voice0_measure5_ev4" hyphen="yes">word</syllable>
+        <syllable start_event_ref="part_1_voice0_measure5_ev5" hyphen="no">land
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure6_ev0" hyphen="no">Could</syllable>
+        <syllable start_event_ref="part_1_voice0_measure6_ev1" hyphen="no">there</syllable>
+        <syllable start_event_ref="part_1_voice0_measure6_ev2" hyphen="no">be</syllable>
+        <syllable start_event_ref="part_1_voice0_measure6_ev3" end_event_ref="part_1_voice0_measure6_ev4" hyphen="no">ways</syllable>
+        <syllable start_event_ref="part_1_voice0_measure6_ev5" hyphen="no">to</syllable>
+        <syllable start_event_ref="part_1_voice0_measure6_ev6" hyphen="yes">re</syllable>
+        <syllable start_event_ref="part_1_voice0_measure6_ev7" end_event_ref="part_1_voice0_measure7_ev1" hyphen="no">veal
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure7_ev2" hyphen="no">In</syllable>
+        <syllable start_event_ref="part_1_voice0_measure7_ev3" hyphen="no">a</syllable>
+        <syllable start_event_ref="part_1_voice0_measure7_ev4" end_event_ref="part_1_voice0_measure8_ev0" hyphen="no">phrase</syllable>
+        <syllable start_event_ref="part_1_voice0_measure8_ev1" hyphen="no">how</syllable>
+        <syllable start_event_ref="part_1_voice0_measure8_ev2" hyphen="no">I</syllable>
+        <syllable start_event_ref="part_1_voice0_measure8_ev3" end_event_ref="part_1_voice0_measure8_ev4" hyphen="no">feel!
+
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure9_ev0" hyphen="no">Have</syllable>
+        <syllable start_event_ref="part_1_voice0_measure9_ev1" hyphen="no">you</syllable>
+        <syllable start_event_ref="part_1_voice0_measure9_ev2" hyphen="yes">ev</syllable>
+        <syllable start_event_ref="part_1_voice0_measure9_ev3" hyphen="no">er</syllable>
+        <syllable start_event_ref="part_1_voice0_measure9_ev4" hyphen="no">heard</syllable>
+        <syllable start_event_ref="part_1_voice0_measure9_ev5" hyphen="no">two</syllable>
+        <syllable start_event_ref="part_1_voice0_measure10_ev0" hyphen="yes">tur</syllable>
+        <syllable start_event_ref="part_1_voice0_measure10_ev1" hyphen="no">tle</syllable>
+        <syllable start_event_ref="part_1_voice0_measure10_ev2" end_event_ref="part_1_voice0_measure10_ev3" hyphen="no">doves
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure11_ev0" hyphen="no">Bill</syllable>
+        <syllable start_event_ref="part_1_voice0_measure11_ev1" hyphen="no">and</syllable>
+        <syllable start_event_ref="part_1_voice0_measure11_ev2" end_event_ref="part_1_voice0_measure11_ev3" hyphen="no">coo</syllable>
+        <syllable start_event_ref="part_1_voice0_measure12_ev0" hyphen="no">when</syllable>
+        <syllable start_event_ref="part_1_voice0_measure12_ev1" hyphen="no">they</syllable>
+        <syllable start_event_ref="part_1_voice0_measure12_ev2" end_event_ref="part_1_voice0_measure12_ev3" hyphen="no">love?
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure13_ev0" hyphen="no">That's</syllable>
+        <syllable start_event_ref="part_1_voice0_measure13_ev1" hyphen="no">the</syllable>
+        <syllable start_event_ref="part_1_voice0_measure13_ev2" hyphen="no">kind</syllable>
+        <syllable start_event_ref="part_1_voice0_measure13_ev3" hyphen="no">of</syllable>
+        <syllable start_event_ref="part_1_voice0_measure13_ev4" hyphen="yes">mag</syllable>
+        <syllable start_event_ref="part_1_voice0_measure13_ev5" hyphen="no">ic
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure14_ev0" hyphen="yes">Mu</syllable>
+        <syllable start_event_ref="part_1_voice0_measure14_ev1" hyphen="no">sic</syllable>
+        <syllable start_event_ref="part_1_voice0_measure14_ev2" hyphen="no">we</syllable>
+        <syllable start_event_ref="part_1_voice0_measure14_ev3" end_event_ref="part_1_voice0_measure14_ev4" hyphen="no">make</syllable>
+        <syllable start_event_ref="part_1_voice0_measure14_ev5" hyphen="no">with</syllable>
+        <syllable start_event_ref="part_1_voice0_measure14_ev6" hyphen="no">our</syllable>
+        <syllable start_event_ref="part_1_voice0_measure14_ev7" end_event_ref="part_1_voice0_measure15_ev1" hyphen="no">lips</syllable>
+        <syllable start_event_ref="part_1_voice0_measure15_ev2" hyphen="no">when</syllable>
+        <syllable start_event_ref="part_1_voice0_measure15_ev3" hyphen="no">we</syllable>
+        <syllable start_event_ref="part_1_voice0_measure15_ev4" end_event_ref="part_1_voice0_measure16_ev0" hyphen="no">kiss!
+
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure17_ev0" hyphen="no">And</syllable>
+        <syllable start_event_ref="part_1_voice0_measure17_ev1" hyphen="no">there's</syllable>
+        <syllable start_event_ref="part_1_voice0_measure17_ev2" hyphen="no">a</syllable>
+        <syllable start_event_ref="part_1_voice0_measure17_ev3" hyphen="yes">weep</syllable>
+        <syllable start_event_ref="part_1_voice0_measure17_ev4" hyphen="no">y</syllable>
+        <syllable start_event_ref="part_1_voice0_measure17_ev5" hyphen="no">old</syllable>
+        <syllable start_event_ref="part_1_voice0_measure17_ev6" end_event_ref="part_1_voice0_measure18_ev0" hyphen="yes">wil</syllable>
+        <syllable start_event_ref="part_1_voice0_measure18_ev1" end_event_ref="part_1_voice0_measure18_ev2" hyphen="no">low
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure19_ev0" hyphen="no">He</syllable>
+        <syllable start_event_ref="part_1_voice0_measure19_ev1" hyphen="yes">real</syllable>
+        <syllable start_event_ref="part_1_voice0_measure19_ev2" hyphen="no">ly</syllable>
+        <syllable start_event_ref="part_1_voice0_measure19_ev3" hyphen="no">knows</syllable>
+        <syllable start_event_ref="part_1_voice0_measure19_ev4" hyphen="no">how</syllable>
+        <syllable start_event_ref="part_1_voice0_measure19_ev5" hyphen="no">to</syllable>
+        <syllable start_event_ref="part_1_voice0_measure19_ev6" end_event_ref="part_1_voice0_measure20_ev0" hyphen="no">cry
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure21_ev0" hyphen="no">That's</syllable>
+        <syllable start_event_ref="part_1_voice0_measure21_ev1" hyphen="no">how</syllable>
+        <syllable start_event_ref="part_1_voice0_measure21_ev2" hyphen="no">I'd</syllable>
+        <syllable start_event_ref="part_1_voice0_measure21_ev3" hyphen="no">cry</syllable>
+        <syllable start_event_ref="part_1_voice0_measure21_ev4" hyphen="no">in</syllable>
+        <syllable start_event_ref="part_1_voice0_measure21_ev5" hyphen="no">my</syllable>
+        <syllable start_event_ref="part_1_voice0_measure21_ev6" end_event_ref="part_1_voice0_measure22_ev0" hyphen="yes">pil</syllable>
+        <syllable start_event_ref="part_1_voice0_measure22_ev1" end_event_ref="part_1_voice0_measure22_ev2" hyphen="no">low
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure23_ev0" hyphen="no">If</syllable>
+        <syllable start_event_ref="part_1_voice0_measure23_ev1" hyphen="no">you</syllable>
+        <syllable start_event_ref="part_1_voice0_measure23_ev2" hyphen="no">should</syllable>
+        <syllable start_event_ref="part_1_voice0_measure23_ev3" hyphen="no">tell</syllable>
+        <syllable start_event_ref="part_1_voice0_measure23_ev4" hyphen="no">me</syllable>
+        <syllable start_event_ref="part_1_voice0_measure23_ev5" hyphen="yes">fare</syllable>
+        <syllable start_event_ref="part_1_voice0_measure23_ev6" end_event_ref="part_1_voice0_measure24_ev0" hyphen="no">well</syllable>
+        <syllable start_event_ref="part_1_voice0_measure24_ev1" hyphen="no">and</syllable>
+        <syllable start_event_ref="part_1_voice0_measure24_ev2" hyphen="yes">good</syllable>
+        <syllable start_event_ref="part_1_voice0_measure24_ev3" end_event_ref="part_1_voice0_measure24_ev4" hyphen="no">bye
+
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure25_ev0" hyphen="yes">Lul</syllable>
+        <syllable start_event_ref="part_1_voice0_measure25_ev1" hyphen="yes">la</syllable>
+        <syllable start_event_ref="part_1_voice0_measure25_ev2" hyphen="no">by</syllable>
+        <syllable start_event_ref="part_1_voice0_measure25_ev3" hyphen="no">of</syllable>
+        <syllable start_event_ref="part_1_voice0_measure25_ev4" hyphen="yes">Bird</syllable>
+        <syllable start_event_ref="part_1_voice0_measure25_ev5" hyphen="no">land</syllable>
+        <syllable start_event_ref="part_1_voice0_measure26_ev0" hyphen="yes">whis</syllable>
+        <syllable start_event_ref="part_1_voice0_measure26_ev1" hyphen="no">per</syllable>
+        <syllable start_event_ref="part_1_voice0_measure26_ev2" end_event_ref="part_1_voice0_measure26_ev3" hyphen="no">low
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure27_ev0" hyphen="no">Kiss</syllable>
+        <syllable start_event_ref="part_1_voice0_measure27_ev1" hyphen="no">me</syllable>
+        <syllable start_event_ref="part_1_voice0_measure27_ev2" end_event_ref="part_1_voice0_measure27_ev3" hyphen="no">sweet</syllable>
+        <syllable start_event_ref="part_1_voice0_measure28_ev0" hyphen="no">and</syllable>
+        <syllable start_event_ref="part_1_voice0_measure28_ev1" hyphen="no">we'll</syllable>
+        <syllable start_event_ref="part_1_voice0_measure28_ev2" end_event_ref="part_1_voice0_measure28_ev3" hyphen="no">go
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure29_ev0" hyphen="yes">Fly</syllable>
+        <syllable start_event_ref="part_1_voice0_measure29_ev1" hyphen="no">in'</syllable>
+        <syllable start_event_ref="part_1_voice0_measure29_ev2" hyphen="no">high</syllable>
+        <syllable start_event_ref="part_1_voice0_measure29_ev3" hyphen="no">in</syllable>
+        <syllable start_event_ref="part_1_voice0_measure29_ev4" hyphen="yes">Bird</syllable>
+        <syllable start_event_ref="part_1_voice0_measure29_ev5" hyphen="no">land
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure30_ev0" hyphen="no">High</syllable>
+        <syllable start_event_ref="part_1_voice0_measure30_ev1" hyphen="no">in</syllable>
+        <syllable start_event_ref="part_1_voice0_measure30_ev2" hyphen="no">the</syllable>
+        <syllable start_event_ref="part_1_voice0_measure30_ev3" end_event_ref="part_1_voice0_measure30_ev4" hyphen="no">sky</syllable>
+        <syllable start_event_ref="part_1_voice0_measure30_ev5" hyphen="no">up</syllable>
+        <syllable start_event_ref="part_1_voice0_measure30_ev6" hyphen="yes">a</syllable>
+        <syllable start_event_ref="part_1_voice0_measure30_ev7" end_event_ref="part_1_voice0_measure31_ev1" hyphen="no">bove
+</syllable>
+        <syllable start_event_ref="part_1_voice0_measure31_ev2" hyphen="no">All</syllable>
+        <syllable start_event_ref="part_1_voice0_measure31_ev3" hyphen="yes">be</syllable>
+        <syllable start_event_ref="part_1_voice0_measure31_ev4" end_event_ref="part_1_voice0_measure32_ev0" hyphen="no">cause</syllable>
+        <syllable start_event_ref="part_1_voice0_measure32_ev1" hyphen="no">we're</syllable>
+        <syllable start_event_ref="part_1_voice0_measure32_ev2" hyphen="no">in</syllable>
+        <syllable start_event_ref="part_1_voice0_measure32_ev3" tart_event_ref="part_1_voice0_measure32_ev4" hyphen="no">love
+</syllable>
+      </lyrics>
+    </los>
+  </logic>
+  <notational>
+    <graphic_instance_group description="Real Book">
+      <graphic_instance file_name="score_files/real_book/lullaby_of_birdland_realbook.png" file_format="image_png" encoding_format="image_png" position_in_group="1" measurement_unit="pixels">
+        <graphic_event event_ref="part_1_voice0_measure1_ev0" upper_left_x="139" upper_left_y="95" lower_right_x="149" lower_right_y="117"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev1" upper_left_x="163" upper_left_y="97" lower_right_x="173" lower_right_y="119"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev2" upper_left_x="188" upper_left_y="99" lower_right_x="198" lower_right_y="121"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev3" upper_left_x="213" upper_left_y="100" lower_right_x="223" lower_right_y="122"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev4" upper_left_x="239" upper_left_y="93" lower_right_x="249" lower_right_y="115"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev5" upper_left_x="262" upper_left_y="92" lower_right_x="272" lower_right_y="114"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev0" upper_left_x="310" upper_left_y="97" lower_right_x="320" lower_right_y="119"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev1" upper_left_x="341" upper_left_y="93" lower_right_x="351" lower_right_y="115"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev2" upper_left_x="366" upper_left_y="95" lower_right_x="376" lower_right_y="117"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev3" upper_left_x="390" upper_left_y="96" lower_right_x="400" lower_right_y="118"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev0" upper_left_x="442" upper_left_y="98" lower_right_x="452" lower_right_y="120"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev1" upper_left_x="473" upper_left_y="92" lower_right_x="483" lower_right_y="114"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev2" upper_left_x="499" upper_left_y="94" lower_right_x="509" lower_right_y="116"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev3" upper_left_x="524" upper_left_y="93" lower_right_x="534" lower_right_y="115"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev0" upper_left_x="574" upper_left_y="97" lower_right_x="584" lower_right_y="119"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev1" upper_left_x="607" upper_left_y="96" lower_right_x="617" lower_right_y="118"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev2" upper_left_x="631" upper_left_y="98" lower_right_x="641" lower_right_y="120"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev3" upper_left_x="655" upper_left_y="97" lower_right_x="665" lower_right_y="119"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev0" upper_left_x="123" upper_left_y="161" lower_right_x="133" lower_right_y="183"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev1" upper_left_x="145" upper_left_y="161" lower_right_x="155" lower_right_y="183"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev2" upper_left_x="169" upper_left_y="162" lower_right_x="179" lower_right_y="184"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev3" upper_left_x="189" upper_left_y="167" lower_right_x="199" lower_right_y="189"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev4" upper_left_x="212" upper_left_y="168" lower_right_x="222" lower_right_y="190"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev5" upper_left_x="234" upper_left_y="158" lower_right_x="244" lower_right_y="180"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev0" upper_left_x="271" upper_left_y="164" lower_right_x="281" lower_right_y="186"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev1" upper_left_x="293" upper_left_y="155" lower_right_x="303" lower_right_y="177"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev2" upper_left_x="313" upper_left_y="157" lower_right_x="323" lower_right_y="179"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev3" upper_left_x="335" upper_left_y="165" lower_right_x="345" lower_right_y="187"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev4" upper_left_x="358" upper_left_y="165" lower_right_x="368" lower_right_y="187"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev5" upper_left_x="379" upper_left_y="153" lower_right_x="389" lower_right_y="175"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev6" upper_left_x="402" upper_left_y="155" lower_right_x="412" lower_right_y="177"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev7" upper_left_x="424" upper_left_y="165" lower_right_x="434" lower_right_y="187"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev0" upper_left_x="449" upper_left_y="165" lower_right_x="459" lower_right_y="187"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev1" upper_left_x="485" upper_left_y="164" lower_right_x="495" lower_right_y="186"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev2" upper_left_x="508" upper_left_y="156" lower_right_x="518" lower_right_y="178"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev3" upper_left_x="531" upper_left_y="157" lower_right_x="541" lower_right_y="179"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev4" upper_left_x="552" upper_left_y="165" lower_right_x="562" lower_right_y="187"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev0" upper_left_x="579" upper_left_y="166" lower_right_x="589" lower_right_y="188"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev1" upper_left_x="601" upper_left_y="158" lower_right_x="611" lower_right_y="180"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev2" upper_left_x="622" upper_left_y="160" lower_right_x="632" lower_right_y="182"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev3" upper_left_x="645" upper_left_y="169" lower_right_x="655" lower_right_y="191"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev4" upper_left_x="667" upper_left_y="168" lower_right_x="677" lower_right_y="190"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev0" upper_left_x="125" upper_left_y="235" lower_right_x="135" lower_right_y="257"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev1" upper_left_x="149" upper_left_y="234" lower_right_x="159" lower_right_y="256"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev2" upper_left_x="175" upper_left_y="237" lower_right_x="185" lower_right_y="259"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev3" upper_left_x="201" upper_left_y="239" lower_right_x="211" lower_right_y="261"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev4" upper_left_x="226" upper_left_y="229" lower_right_x="236" lower_right_y="251"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev5" upper_left_x="253" upper_left_y="231" lower_right_x="263" lower_right_y="253"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev0" upper_left_x="299" upper_left_y="235" lower_right_x="309" lower_right_y="257"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev1" upper_left_x="333" upper_left_y="232" lower_right_x="343" lower_right_y="254"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev2" upper_left_x="357" upper_left_y="234" lower_right_x="367" lower_right_y="256"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev3" upper_left_x="382" upper_left_y="235" lower_right_x="392" lower_right_y="257"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev0" upper_left_x="436" upper_left_y="237" lower_right_x="446" lower_right_y="259"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev1" upper_left_x="467" upper_left_y="230" lower_right_x="477" lower_right_y="252"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev2" upper_left_x="493" upper_left_y="231" lower_right_x="503" lower_right_y="253"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev3" upper_left_x="519" upper_left_y="231" lower_right_x="529" lower_right_y="253"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev0" upper_left_x="572" upper_left_y="235" lower_right_x="582" lower_right_y="257"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev1" upper_left_x="605" upper_left_y="233" lower_right_x="615" lower_right_y="255"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev2" upper_left_x="630" upper_left_y="236" lower_right_x="640" lower_right_y="258"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev3" upper_left_x="655" upper_left_y="234" lower_right_x="665" lower_right_y="256"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev0" upper_left_x="125" upper_left_y="300" lower_right_x="135" lower_right_y="322"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev1" upper_left_x="147" upper_left_y="299" lower_right_x="157" lower_right_y="321"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev2" upper_left_x="173" upper_left_y="301" lower_right_x="183" lower_right_y="323"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev3" upper_left_x="197" upper_left_y="303" lower_right_x="207" lower_right_y="325"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev4" upper_left_x="221" upper_left_y="305" lower_right_x="231" lower_right_y="327"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev5" upper_left_x="246" upper_left_y="296" lower_right_x="256" lower_right_y="318"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev0" upper_left_x="287" upper_left_y="299" lower_right_x="297" lower_right_y="321"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev1" upper_left_x="311" upper_left_y="291" lower_right_x="321" lower_right_y="313"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev2" upper_left_x="336" upper_left_y="295" lower_right_x="346" lower_right_y="317"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev3" upper_left_x="361" upper_left_y="301" lower_right_x="371" lower_right_y="323"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev4" upper_left_x="384" upper_left_y="303" lower_right_x="394" lower_right_y="325"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev5" upper_left_x="408" upper_left_y="293" lower_right_x="418" lower_right_y="315"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev6" upper_left_x="433" upper_left_y="295" lower_right_x="443" lower_right_y="317"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev7" upper_left_x="457" upper_left_y="303" lower_right_x="467" lower_right_y="325"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev0" upper_left_x="485" upper_left_y="303" lower_right_x="495" lower_right_y="325"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev1" upper_left_x="531" upper_left_y="301" lower_right_x="541" lower_right_y="323"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev2" upper_left_x="555" upper_left_y="300" lower_right_x="565" lower_right_y="322"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev3" upper_left_x="578" upper_left_y="297" lower_right_x="588" lower_right_y="319"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev4" upper_left_x="602" upper_left_y="296" lower_right_x="612" lower_right_y="318"/>
+        <graphic_event event_ref="part_1_voice0_measure16_ev0" upper_left_x="633" upper_left_y="309" lower_right_x="642" lower_right_y="317"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev0" upper_left_x="125" upper_left_y="374" lower_right_x="135" lower_right_y="396"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev1" upper_left_x="158" upper_left_y="371" lower_right_x="168" lower_right_y="393"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev2" upper_left_x="184" upper_left_y="371" lower_right_x="194" lower_right_y="393"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev3" upper_left_x="209" upper_left_y="369" lower_right_x="219" lower_right_y="391"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev4" upper_left_x="233" upper_left_y="373" lower_right_x="243" lower_right_y="395"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev5" upper_left_x="260" upper_left_y="369" lower_right_x="270" lower_right_y="391"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev6" upper_left_x="284" upper_left_y="371" lower_right_x="294" lower_right_y="393"/>
+        <graphic_event event_ref="part_1_voice0_measure18_ev0" upper_left_x="315" upper_left_y="371" lower_right_x="325" lower_right_y="393"/>
+        <graphic_event event_ref="part_1_voice0_measure18_ev1" upper_left_x="340" upper_left_y="375" lower_right_x="350" lower_right_y="397"/>
+        <graphic_event event_ref="part_1_voice0_measure18_ev2" upper_left_x="380" upper_left_y="376" lower_right_x="390" lower_right_y="398"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev0" upper_left_x="435" upper_left_y="375" lower_right_x="445" lower_right_y="397"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev1" upper_left_x="466" upper_left_y="375" lower_right_x="476" lower_right_y="397"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev2" upper_left_x="493" upper_left_y="372" lower_right_x="503" lower_right_y="394"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev3" upper_left_x="518" upper_left_y="370" lower_right_x="528" lower_right_y="392"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev4" upper_left_x="544" upper_left_y="374" lower_right_x="554" lower_right_y="396"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev5" upper_left_x="567" upper_left_y="370" lower_right_x="577" lower_right_y="392"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev6" upper_left_x="593" upper_left_y="372" lower_right_x="603" lower_right_y="394"/>
+        <graphic_event event_ref="part_1_voice0_measure20_ev0" upper_left_x="623" upper_left_y="372" lower_right_x="635" lower_right_y="384"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev0" upper_left_x="123" upper_left_y="443" lower_right_x="133" lower_right_y="465"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev1" upper_left_x="152" upper_left_y="441" lower_right_x="162" lower_right_y="463"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev2" upper_left_x="176" upper_left_y="442" lower_right_x="186" lower_right_y="464"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev3" upper_left_x="197" upper_left_y="440" lower_right_x="207" lower_right_y="462"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev4" upper_left_x="222" upper_left_y="443" lower_right_x="232" lower_right_y="465"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev5" upper_left_x="245" upper_left_y="439" lower_right_x="255" lower_right_y="461"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev6" upper_left_x="267" upper_left_y="442" lower_right_x="277" lower_right_y="464"/>
+        <graphic_event event_ref="part_1_voice0_measure22_ev0" upper_left_x="297" upper_left_y="441" lower_right_x="307" lower_right_y="463"/>
+        <graphic_event event_ref="part_1_voice0_measure22_ev1" upper_left_x="320" upper_left_y="446" lower_right_x="330" lower_right_y="468"/>
+        <graphic_event event_ref="part_1_voice0_measure22_ev2" upper_left_x="355" upper_left_y="445" lower_right_x="365" lower_right_y="467"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev0" upper_left_x="400" upper_left_y="445" lower_right_x="410" lower_right_y="467"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev1" upper_left_x="428" upper_left_y="444" lower_right_x="438" lower_right_y="466"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev2" upper_left_x="451" upper_left_y="441" lower_right_x="461" lower_right_y="463"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev3" upper_left_x="474" upper_left_y="441" lower_right_x="484" lower_right_y="463"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev4" upper_left_x="497" upper_left_y="444" lower_right_x="507" lower_right_y="466"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev5" upper_left_x="519" upper_left_y="440" lower_right_x="529" lower_right_y="462"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev6" upper_left_x="543" upper_left_y="441" lower_right_x="553" lower_right_y="463"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev0" upper_left_x="571" upper_left_y="441" lower_right_x="581" lower_right_y="463"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev1" upper_left_x="594" upper_left_y="440" lower_right_x="604" lower_right_y="462"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev2" upper_left_x="617" upper_left_y="441" lower_right_x="627" lower_right_y="463"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev3" upper_left_x="639" upper_left_y="443" lower_right_x="649" lower_right_y="465"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev4" upper_left_x="664" upper_left_y="442" lower_right_x="674" lower_right_y="464"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev0" upper_left_x="125" upper_left_y="512" lower_right_x="135" lower_right_y="534"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev1" upper_left_x="149" upper_left_y="513" lower_right_x="159" lower_right_y="535"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev2" upper_left_x="175" upper_left_y="515" lower_right_x="185" lower_right_y="537"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev3" upper_left_x="201" upper_left_y="516" lower_right_x="211" lower_right_y="538"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev4" upper_left_x="227" upper_left_y="506" lower_right_x="237" lower_right_y="528"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev5" upper_left_x="253" upper_left_y="510" lower_right_x="263" lower_right_y="532"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev0" upper_left_x="300" upper_left_y="513" lower_right_x="310" lower_right_y="535"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev1" upper_left_x="333" upper_left_y="508" lower_right_x="343" lower_right_y="530"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev2" upper_left_x="357" upper_left_y="510" lower_right_x="367" lower_right_y="532"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev3" upper_left_x="383" upper_left_y="512" lower_right_x="393" lower_right_y="534"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev0" upper_left_x="435" upper_left_y="514" lower_right_x="445" lower_right_y="536"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev1" upper_left_x="469" upper_left_y="507" lower_right_x="479" lower_right_y="529"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev2" upper_left_x="494" upper_left_y="507" lower_right_x="504" lower_right_y="529"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev3" upper_left_x="518" upper_left_y="509" lower_right_x="528" lower_right_y="531"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev0" upper_left_x="573" upper_left_y="512" lower_right_x="583" lower_right_y="534"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev1" upper_left_x="605" upper_left_y="511" lower_right_x="615" lower_right_y="533"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev2" upper_left_x="631" upper_left_y="512" lower_right_x="641" lower_right_y="534"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev3" upper_left_x="657" upper_left_y="513" lower_right_x="667" lower_right_y="535"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev0" upper_left_x="126" upper_left_y="580" lower_right_x="136" lower_right_y="602"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev1" upper_left_x="153" upper_left_y="577" lower_right_x="163" lower_right_y="599"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev2" upper_left_x="179" upper_left_y="581" lower_right_x="189" lower_right_y="603"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev3" upper_left_x="207" upper_left_y="583" lower_right_x="217" lower_right_y="605"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev4" upper_left_x="236" upper_left_y="585" lower_right_x="246" lower_right_y="607"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev5" upper_left_x="265" upper_left_y="573" lower_right_x="275" lower_right_y="595"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev0" upper_left_x="316" upper_left_y="578" lower_right_x="326" lower_right_y="600"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev1" upper_left_x="343" upper_left_y="569" lower_right_x="353" lower_right_y="591"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev2" upper_left_x="371" upper_left_y="573" lower_right_x="381" lower_right_y="595"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev3" upper_left_x="397" upper_left_y="580" lower_right_x="407" lower_right_y="602"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev4" upper_left_x="426" upper_left_y="581" lower_right_x="436" lower_right_y="603"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev5" upper_left_x="453" upper_left_y="570" lower_right_x="463" lower_right_y="592"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev6" upper_left_x="480" upper_left_y="572" lower_right_x="490" lower_right_y="594"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev7" upper_left_x="507" upper_left_y="579" lower_right_x="517" lower_right_y="601"/>
+        <graphic_event event_ref="part_1_voice0_measure31_ev0" upper_left_x="539" upper_left_y="578" lower_right_x="549" lower_right_y="600" />
+        <graphic_event event_ref="part_1_voice0_measure31_ev1" upper_left_x="597" upper_left_y="573" lower_right_x="607" lower_right_y="602" />
+        <graphic_event event_ref="part_1_voice0_measure31_ev2" upper_left_x="625" upper_left_y="572" lower_right_x="635" lower_right_y="594" />
+        <graphic_event event_ref="part_1_voice0_measure31_ev3" upper_left_x="652" upper_left_y="572" lower_right_x="662" lower_right_y="594" />
+        <graphic_event event_ref="part_1_voice0_measure31_ev4" upper_left_x="679" upper_left_y="573" lower_right_x="689" lower_right_y="603" />
+        <graphic_event event_ref="part_1_voice0_measure32_ev0" upper_left_x="124" upper_left_y="648" lower_right_x="134" lower_right_y="676" />
+        <graphic_event event_ref="part_1_voice0_measure32_ev1" upper_left_x="147" upper_left_y="647" lower_right_x="157" lower_right_y="669" />
+        <graphic_event event_ref="part_1_voice0_measure32_ev2" upper_left_x="170" upper_left_y="647" lower_right_x="180" lower_right_y="669" />
+        <graphic_event event_ref="part_1_voice0_measure32_ev3" upper_left_x="193" upper_left_y="646" lower_right_x="203" lower_right_y="678" />
+        <graphic_event event_ref="part_1_voice0_measure32_ev4" upper_left_x="217" upper_left_y="656" lower_right_x="230" lower_right_y="678" />
+        <graphic_event event_ref="part_1_voice0_measure32_ev5" upper_left_x="240" upper_left_y="656" lower_right_x="248" lower_right_y="668" />
+        <graphic_event event_ref="part_1_voice0_measure32_ev6" upper_left_x="262" upper_left_y="654" lower_right_x="271" lower_right_y="669" />
+      </graphic_instance>
+    </graphic_instance_group>
+    <graphic_instance_group description="Transcription">
+      <graphic_instance file_name="score_files/transcription/lullaby_of_birdland_transcription.jpg" file_format="image_jpeg" encoding_format="image_jpeg" position_in_group="1" measurement_unit="pixels">
+        <graphic_event event_ref="part_1_voice0_measure1_ev0" upper_left_x="638" upper_left_y="558" lower_right_x="692" lower_right_y="672"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev1" upper_left_x="696" upper_left_y="558" lower_right_x="750" lower_right_y="672"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev2" upper_left_x="746" upper_left_y="570" lower_right_x="800" lower_right_y="684"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev3" upper_left_x="802" upper_left_y="578" lower_right_x="856" lower_right_y="692"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev4" upper_left_x="856" upper_left_y="590" lower_right_x="910" lower_right_y="704"/>
+        <graphic_event event_ref="part_1_voice0_measure1_ev5" upper_left_x="916" upper_left_y="602" lower_right_x="970" lower_right_y="716"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev0" upper_left_x="1084" upper_left_y="564" lower_right_x="1138" lower_right_y="678"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev1" upper_left_x="1172" upper_left_y="600" lower_right_x="1226" lower_right_y="714"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev2" upper_left_x="1234" upper_left_y="612" lower_right_x="1288" lower_right_y="726"/>
+        <graphic_event event_ref="part_1_voice0_measure2_ev3" upper_left_x="1316" upper_left_y="610" lower_right_x="1370" lower_right_y="724"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev0" upper_left_x="1498" upper_left_y="568" lower_right_x="1552" lower_right_y="682"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev1" upper_left_x="1580" upper_left_y="590" lower_right_x="1634" lower_right_y="704"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev2" upper_left_x="1634" upper_left_y="598" lower_right_x="1688" lower_right_y="712"/>
+        <graphic_event event_ref="part_1_voice0_measure3_ev3" upper_left_x="1710" upper_left_y="600" lower_right_x="1764" lower_right_y="714"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev0" upper_left_x="1876" upper_left_y="564" lower_right_x="1930" lower_right_y="678"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev1" upper_left_x="1982" upper_left_y="554" lower_right_x="2036" lower_right_y="668"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev2" upper_left_x="2058" upper_left_y="568" lower_right_x="2112" lower_right_y="682"/>
+        <graphic_event event_ref="part_1_voice0_measure4_ev3" upper_left_x="2130" upper_left_y="572" lower_right_x="2184" lower_right_y="686"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev0" upper_left_x="420" upper_left_y="798" lower_right_x="474" lower_right_y="912"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev1" upper_left_x="486" upper_left_y="800" lower_right_x="540" lower_right_y="914"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev2" upper_left_x="550" upper_left_y="812" lower_right_x="604" lower_right_y="926"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev3" upper_left_x="620" upper_left_y="818" lower_right_x="674" lower_right_y="932"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev4" upper_left_x="698" upper_left_y="832" lower_right_x="752" lower_right_y="946"/>
+        <graphic_event event_ref="part_1_voice0_measure5_ev5" upper_left_x="770" upper_left_y="842" lower_right_x="828" lower_right_y="948"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev0" upper_left_x="930" upper_left_y="862" lower_right_x="984" lower_right_y="976"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev1" upper_left_x="996" upper_left_y="822" lower_right_x="1050" lower_right_y="936"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev2" upper_left_x="1062" upper_left_y="830" lower_right_x="1116" lower_right_y="944"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev3" upper_left_x="1130" upper_left_y="864" lower_right_x="1184" lower_right_y="972"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev4" upper_left_x="1204" upper_left_y="858" lower_right_x="1258" lower_right_y="972"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev5" upper_left_x="1274" upper_left_y="812" lower_right_x="1328" lower_right_y="926"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev6" upper_left_x="1336" upper_left_y="832" lower_right_x="1390" lower_right_y="946"/>
+        <graphic_event event_ref="part_1_voice0_measure6_ev7" upper_left_x="1412" upper_left_y="868" lower_right_x="1466" lower_right_y="982"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev0" upper_left_x="1506" upper_left_y="860" lower_right_x="1560" lower_right_y="974"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev1" upper_left_x="1656" upper_left_y="872" lower_right_x="1710" lower_right_y="986"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev2" upper_left_x="1702" upper_left_y="826" lower_right_x="1756" lower_right_y="940"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev3" upper_left_x="1760" upper_left_y="838" lower_right_x="1814" lower_right_y="952"/>
+        <graphic_event event_ref="part_1_voice0_measure7_ev4" upper_left_x="1820" upper_left_y="886" lower_right_x="1874" lower_right_y="1000"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev0" upper_left_x="1918" upper_left_y="878" lower_right_x="1972" lower_right_y="992"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev1" upper_left_x="1966" upper_left_y="834" lower_right_x="2020" lower_right_y="948"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev2" upper_left_x="2024" upper_left_y="848" lower_right_x="2078" lower_right_y="962"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev3" upper_left_x="2078" upper_left_y="892" lower_right_x="2132" lower_right_y="1006"/>
+        <graphic_event event_ref="part_1_voice0_measure8_ev4" upper_left_x="2170" upper_left_y="844" lower_right_x="2224" lower_right_y="958"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev0" upper_left_x="424" upper_left_y="1074" lower_right_x="478" lower_right_y="1188"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev1" upper_left_x="480" upper_left_y="1070" lower_right_x="534" lower_right_y="1184"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev2" upper_left_x="554" upper_left_y="1084" lower_right_x="608" lower_right_y="1198"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev3" upper_left_x="600" upper_left_y="1094" lower_right_x="654" lower_right_y="1208"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev4" upper_left_x="672" upper_left_y="1106" lower_right_x="726" lower_right_y="1220"/>
+        <graphic_event event_ref="part_1_voice0_measure9_ev5" upper_left_x="742" upper_left_y="1116" lower_right_x="796" lower_right_y="1230"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev0" upper_left_x="912" upper_left_y="1092" lower_right_x="974" lower_right_y="1206"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev1" upper_left_x="1026" upper_left_y="1118" lower_right_x="1080" lower_right_y="1232"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev2" upper_left_x="1098" upper_left_y="1122" lower_right_x="1152" lower_right_y="1236"/>
+        <graphic_event event_ref="part_1_voice0_measure10_ev3" upper_left_x="1168" upper_left_y="1126" lower_right_x="1222" lower_right_y="1240"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev0" upper_left_x="1382" upper_left_y="1104" lower_right_x="1436" lower_right_y="1218"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev1" upper_left_x="1480" upper_left_y="1106" lower_right_x="1534" lower_right_y="1220"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev2" upper_left_x="1552" upper_left_y="1120" lower_right_x="1606" lower_right_y="1234"/>
+        <graphic_event event_ref="part_1_voice0_measure11_ev3" upper_left_x="1622" upper_left_y="1110" lower_right_x="1676" lower_right_y="1224"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev1" upper_left_x="1944" upper_left_y="1078" lower_right_x="1998" lower_right_y="1192"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev2" upper_left_x="2034" upper_left_y="1082" lower_right_x="2088" lower_right_y="1196"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev3" upper_left_x="2100" upper_left_y="1082" lower_right_x="2154" lower_right_y="1196"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev0" upper_left_x="432" upper_left_y="1312" lower_right_x="486" lower_right_y="1426"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev1" upper_left_x="490" upper_left_y="1312" lower_right_x="544" lower_right_y="1426"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev2" upper_left_x="564" upper_left_y="1322" lower_right_x="618" lower_right_y="1436"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev3" upper_left_x="630" upper_left_y="1334" lower_right_x="684" lower_right_y="1448"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev4" upper_left_x="694" upper_left_y="1344" lower_right_x="748" lower_right_y="1458"/>
+        <graphic_event event_ref="part_1_voice0_measure13_ev5" upper_left_x="772" upper_left_y="1358" lower_right_x="826" lower_right_y="1472"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev0" upper_left_x="932" upper_left_y="1378" lower_right_x="986" lower_right_y="1492"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev1" upper_left_x="1004" upper_left_y="1326" lower_right_x="1058" lower_right_y="1440"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev2" upper_left_x="1064" upper_left_y="1344" lower_right_x="1118" lower_right_y="1458"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev3" upper_left_x="1136" upper_left_y="1392" lower_right_x="1190" lower_right_y="1506"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev4" upper_left_x="1210" upper_left_y="1384" lower_right_x="1264" lower_right_y="1498"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev5" upper_left_x="1276" upper_left_y="1336" lower_right_x="1330" lower_right_y="1450"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev6" upper_left_x="1346" upper_left_y="1350" lower_right_x="1400" lower_right_y="1464"/>
+        <graphic_event event_ref="part_1_voice0_measure14_ev7" upper_left_x="1402" upper_left_y="1388" lower_right_x="1456" lower_right_y="1502"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev0" upper_left_x="1496" upper_left_y="1384" lower_right_x="1550" lower_right_y="1498"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev1" upper_left_x="1650" upper_left_y="1384" lower_right_x="1704" lower_right_y="1498"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev2" upper_left_x="1708" upper_left_y="1386" lower_right_x="1762" lower_right_y="1500"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev3" upper_left_x="1758" upper_left_y="1366" lower_right_x="1812" lower_right_y="1480"/>
+        <graphic_event event_ref="part_1_voice0_measure15_ev4" upper_left_x="1814" upper_left_y="1356" lower_right_x="1868" lower_right_y="1470"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev0" upper_left_x="418" upper_left_y="1590" lower_right_x="472" lower_right_y="1704"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev1" upper_left_x="536" upper_left_y="1576" lower_right_x="590" lower_right_y="1690"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev2" upper_left_x="602" upper_left_y="1578" lower_right_x="656" lower_right_y="1692"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev3" upper_left_x="672" upper_left_y="1568" lower_right_x="726" lower_right_y="1682"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev4" upper_left_x="730" upper_left_y="1594" lower_right_x="784" lower_right_y="1708"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev5" upper_left_x="796" upper_left_y="1570" lower_right_x="850" lower_right_y="1684"/>
+        <graphic_event event_ref="part_1_voice0_measure17_ev6" upper_left_x="870" upper_left_y="1580" lower_right_x="924" lower_right_y="1694"/>
+        <graphic_event event_ref="part_1_voice0_measure18_ev0" upper_left_x="970" upper_left_y="1584" lower_right_x="1024" lower_right_y="1698"/>
+        <graphic_event event_ref="part_1_voice0_measure18_ev2" upper_left_x="1152" upper_left_y="1602" lower_right_x="1206" lower_right_y="1716"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev0" upper_left_x="1328" upper_left_y="1606" lower_right_x="1382" lower_right_y="1720"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev1" upper_left_x="1432" upper_left_y="1606" lower_right_x="1486" lower_right_y="1720"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev2" upper_left_x="1490" upper_left_y="1586" lower_right_x="1544" lower_right_y="1700"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev3" upper_left_x="1556" upper_left_y="1578" lower_right_x="1610" lower_right_y="1692"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev4" upper_left_x="1622" upper_left_y="1606" lower_right_x="1676" lower_right_y="1720"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev5" upper_left_x="1690" upper_left_y="1580" lower_right_x="1744" lower_right_y="1694"/>
+        <graphic_event event_ref="part_1_voice0_measure19_ev6" upper_left_x="1748" upper_left_y="1592" lower_right_x="1802" lower_right_y="1706"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev0" upper_left_x="418" upper_left_y="1848" lower_right_x="472" lower_right_y="1962"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev1" upper_left_x="518" upper_left_y="1840" lower_right_x="572" lower_right_y="1954"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev2" upper_left_x="586" upper_left_y="1844" lower_right_x="640" lower_right_y="1958"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev3" upper_left_x="648" upper_left_y="1832" lower_right_x="702" lower_right_y="1946"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev4" upper_left_x="700" upper_left_y="1858" lower_right_x="754" lower_right_y="1972"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev5" upper_left_x="764" upper_left_y="1836" lower_right_x="818" lower_right_y="1950"/>
+        <graphic_event event_ref="part_1_voice0_measure21_ev6" upper_left_x="832" upper_left_y="1842" lower_right_x="886" lower_right_y="1956"/>
+        <graphic_event event_ref="part_1_voice0_measure22_ev0" upper_left_x="930" upper_left_y="1840" lower_right_x="984" lower_right_y="1954"/>
+        <graphic_event event_ref="part_1_voice0_measure22_ev2" upper_left_x="1102" upper_left_y="1862" lower_right_x="1156" lower_right_y="1976"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev0" upper_left_x="1264" upper_left_y="1866" lower_right_x="1318" lower_right_y="1980"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev1" upper_left_x="1348" upper_left_y="1862" lower_right_x="1402" lower_right_y="1976"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev2" upper_left_x="1416" upper_left_y="1848" lower_right_x="1470" lower_right_y="1962"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev3" upper_left_x="1466" upper_left_y="1840" lower_right_x="1520" lower_right_y="1954"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev4" upper_left_x="1534" upper_left_y="1864" lower_right_x="1588" lower_right_y="1978"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev5" upper_left_x="1588" upper_left_y="1842" lower_right_x="1642" lower_right_y="1956"/>
+        <graphic_event event_ref="part_1_voice0_measure23_ev6" upper_left_x="1650" upper_left_y="1850" lower_right_x="1704" lower_right_y="1964"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev0" upper_left_x="1748" upper_left_y="1846" lower_right_x="1802" lower_right_y="1960"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev1" upper_left_x="1832" upper_left_y="1838" lower_right_x="1886" lower_right_y="1952"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev2" upper_left_x="1920" upper_left_y="1844" lower_right_x="1974" lower_right_y="1958"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev3" upper_left_x="2002" upper_left_y="1860" lower_right_x="2056" lower_right_y="1974"/>
+        <graphic_event event_ref="part_1_voice0_measure24_ev4" upper_left_x="2086" upper_left_y="1862" lower_right_x="2140" lower_right_y="1976"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev0" upper_left_x="428" upper_left_y="2112" lower_right_x="482" lower_right_y="2226"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev1" upper_left_x="482" upper_left_y="2104" lower_right_x="536" lower_right_y="2218"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev2" upper_left_x="538" upper_left_y="2114" lower_right_x="592" lower_right_y="2228"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev3" upper_left_x="608" upper_left_y="2126" lower_right_x="662" lower_right_y="2240"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev4" upper_left_x="662" upper_left_y="2138" lower_right_x="716" lower_right_y="2252"/>
+        <graphic_event event_ref="part_1_voice0_measure25_ev5" upper_left_x="728" upper_left_y="2152" lower_right_x="782" lower_right_y="2266"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev1" upper_left_x="1012" upper_left_y="2142" lower_right_x="1066" lower_right_y="2256"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev2" upper_left_x="1080" upper_left_y="2154" lower_right_x="1134" lower_right_y="2268"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev3" upper_left_x="1152" upper_left_y="2156" lower_right_x="1206" lower_right_y="2270"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev1" upper_left_x="1454" upper_left_y="2144" lower_right_x="1508" lower_right_y="2258"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev2" upper_left_x="1516" upper_left_y="2154" lower_right_x="1570" lower_right_y="2268"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev3" upper_left_x="1590" upper_left_y="2154" lower_right_x="1644" lower_right_y="2268"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev1" upper_left_x="1902" upper_left_y="2108" lower_right_x="1956" lower_right_y="2222"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev2" upper_left_x="1996" upper_left_y="2120" lower_right_x="2050" lower_right_y="2234"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev3" upper_left_x="2088" upper_left_y="2124" lower_right_x="2142" lower_right_y="2238"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev0" upper_left_x="422" upper_left_y="2342" lower_right_x="476" lower_right_y="2456"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev1" upper_left_x="508" upper_left_y="2342" lower_right_x="562" lower_right_y="2456"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev2" upper_left_x="592" upper_left_y="2362" lower_right_x="646" lower_right_y="2476"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev3" upper_left_x="686" upper_left_y="2366" lower_right_x="740" lower_right_y="2480"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev4" upper_left_x="764" upper_left_y="2384" lower_right_x="818" lower_right_y="2498"/>
+        <graphic_event event_ref="part_1_voice0_measure29_ev5" upper_left_x="860" upper_left_y="2390" lower_right_x="914" lower_right_y="2504"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev0" upper_left_x="1060" upper_left_y="2414" lower_right_x="1114" lower_right_y="2528"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev1" upper_left_x="1154" upper_left_y="2358" lower_right_x="1208" lower_right_y="2472"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev2" upper_left_x="1250" upper_left_y="2380" lower_right_x="1304" lower_right_y="2494"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev3" upper_left_x="1338" upper_left_y="2418" lower_right_x="1392" lower_right_y="2532"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev4" upper_left_x="1430" upper_left_y="2412" lower_right_x="1484" lower_right_y="2526"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev5" upper_left_x="1524" upper_left_y="2368" lower_right_x="1578" lower_right_y="2482"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev6" upper_left_x="1624" upper_left_y="2374" lower_right_x="1678" lower_right_y="2488"/>
+        <graphic_event event_ref="part_1_voice0_measure30_ev7" upper_left_x="1712" upper_left_y="2412" lower_right_x="1766" lower_right_y="2526"/>
+        <graphic_event event_ref="part_1_voice0_measure31_ev0" upper_left_x="1822" upper_left_y="2412" lower_right_x="1876" lower_right_y="2526"/>
+        <graphic_event event_ref="part_1_voice0_measure31_ev1" upper_left_x="2020" upper_left_y="2418" lower_right_x="2074" lower_right_y="2532"/>
+        <graphic_event event_ref="part_1_voice0_measure31_ev2" upper_left_x="2098" upper_left_y="2380" lower_right_x="2152" lower_right_y="2494"/>
+        <graphic_event event_ref="part_1_voice0_measure31_ev3" upper_left_x="2166" upper_left_y="2380" lower_right_x="2220" lower_right_y="2494"/>
+        <graphic_event event_ref="part_1_voice0_measure31_ev4" upper_left_x="2234" upper_left_y="2428" lower_right_x="2288" lower_right_y="2542"/>
+        <graphic_event event_ref="part_1_voice0_measure32_ev0" upper_left_x="424" upper_left_y="2754" lower_right_x="478" lower_right_y="2868"/>
+        <graphic_event event_ref="part_1_voice0_measure32_ev1" upper_left_x="514" upper_left_y="2706" lower_right_x="568" lower_right_y="2820"/>
+        <graphic_event event_ref="part_1_voice0_measure32_ev2" upper_left_x="596" upper_left_y="2730" lower_right_x="650" lower_right_y="2844"/>
+        <graphic_event event_ref="part_1_voice0_measure32_ev3" upper_left_x="680" upper_left_y="2772" lower_right_x="734" lower_right_y="2886"/>
+        <graphic_event event_ref="part_1_voice0_measure26_ev0" upper_left_x="888" upper_left_y="2108" lower_right_x="950" lower_right_y="2248"/>
+        <graphic_event event_ref="part_1_voice0_measure28_ev0" upper_left_x="1774" upper_left_y="2114" lower_right_x="1824" lower_right_y="2218"/>
+        <graphic_event event_ref="part_1_voice0_measure27_ev0" upper_left_x="1360" upper_left_y="2118" lower_right_x="1406" lower_right_y="2232"/>
+        <graphic_event event_ref="part_1_voice0_measure32_ev4" upper_left_x="774" upper_left_y="2698" lower_right_x="836" lower_right_y="2826"/>
+        <graphic_event event_ref="part_1_voice0_measure18_ev1" upper_left_x="1036" upper_left_y="1600" lower_right_x="1100" lower_right_y="1710"/>
+        <graphic_event event_ref="part_1_voice0_measure22_ev1" upper_left_x="986" upper_left_y="1860" lower_right_x="1052" lower_right_y="1970"/>
+        <graphic_event event_ref="part_1_voice0_measure20_ev0" upper_left_x="1858" upper_left_y="1582" lower_right_x="1914" lower_right_y="1646"/>
+        <graphic_event event_ref="part_1_voice0_measure32_ev6" upper_left_x="932" upper_left_y="2726" lower_right_x="992" lower_right_y="2818"/>
+        <graphic_event event_ref="part_1_voice0_measure32_ev5" upper_left_x="854" upper_left_y="2722" lower_right_x="906" lower_right_y="2816"/>
+        <graphic_event event_ref="part_1_voice0_measure16_ev0" upper_left_x="1920" upper_left_y="1354" lower_right_x="1982" lower_right_y="1412"/>
+        <graphic_event event_ref="part_1_voice0_measure12_ev0" upper_left_x="1822" upper_left_y="1084" lower_right_x="1870" lower_right_y="1192"/>
+      </graphic_instance>
+    </graphic_instance_group>
+  </notational>
+  <audio>
+    <track file_name="audio_files/lullaby_of_birdland_looney.wmv" file_format="video_x-ms-wmv" encoding_format="video_x-ms-wmv">
+      <track_general>
+        <recordings>
+          <recording date="2011"/>
+        </recordings>
+        <performers>
+          <performer name="Looney" type="performers"/>
+        </performers>
+      </track_general>
+      <track_indexing timing_type="seconds">
+        <track_event event_ref="part_1_voice0_measure1_ev0" start_time="12.5"/>
+        <track_event event_ref="TimeSignature_part_1_1" start_time="12.5"/>
+        <track_event event_ref="KeySignature_part_1_1" start_time="12.5"/>
+        <track_event event_ref="Clef_part_1_1" start_time="12.5"/>
+        <track_event event_ref="part_1_voice0_measure1_ev1" start_time="12.67"/>
+        <track_event event_ref="part_1_voice0_measure1_ev2" start_time="12.86"/>
+        <track_event event_ref="part_1_voice0_measure1_ev3" start_time="13.04"/>
+        <track_event event_ref="part_1_voice0_measure1_ev4" start_time="13.35"/>
+        <track_event event_ref="part_1_voice0_measure1_ev5" start_time="13.51"/>
+        <track_event event_ref="part_1_voice0_measure2_ev0" start_time="14.39"/>
+        <track_event event_ref="part_1_voice0_measure2_ev1" start_time="14.91"/>
+        <track_event event_ref="part_1_voice0_measure2_ev2" start_time="15.08"/>
+        <track_event event_ref="part_1_voice0_measure2_ev3" start_time="15.43"/>
+        <track_event event_ref="part_1_voice0_measure3_ev0" start_time="16.48"/>
+        <track_event event_ref="part_1_voice0_measure3_ev1" start_time="16.99"/>
+        <track_event event_ref="part_1_voice0_measure3_ev2" start_time="17.18"/>
+        <track_event event_ref="part_1_voice0_measure3_ev3" start_time="17.53"/>
+        <track_event event_ref="part_1_voice0_measure4_ev0" start_time="18.57"/>
+        <track_event event_ref="part_1_voice0_measure4_ev1" start_time="19.12"/>
+        <track_event event_ref="part_1_voice0_measure4_ev2" start_time="19.29"/>
+        <track_event event_ref="part_1_voice0_measure4_ev3" start_time="19.64"/>
+        <track_event event_ref="part_1_voice0_measure5_ev0" start_time="20.76"/>
+        <track_event event_ref="part_1_voice0_measure5_ev1" start_time="20.93"/>
+        <track_event event_ref="part_1_voice0_measure5_ev2" start_time="21.28"/>
+        <track_event event_ref="part_1_voice0_measure5_ev3" start_time="21.42"/>
+        <track_event event_ref="part_1_voice0_measure5_ev4" start_time="21.76"/>
+        <track_event event_ref="part_1_voice0_measure5_ev5" start_time="21.92"/>
+        <track_event event_ref="part_1_voice0_measure6_ev0" start_time="22.78"/>
+        <track_event event_ref="part_1_voice0_measure6_ev1" start_time="22.93"/>
+        <track_event event_ref="part_1_voice0_measure6_ev2" start_time="23.28"/>
+        <track_event event_ref="part_1_voice0_measure6_ev3" start_time="23.46"/>
+        <track_event event_ref="part_1_voice0_measure6_ev4" start_time="23.81"/>
+        <track_event event_ref="part_1_voice0_measure6_ev5" start_time="24"/>
+        <track_event event_ref="part_1_voice0_measure6_ev6" start_time="24.35"/>
+        <track_event event_ref="part_1_voice0_measure6_ev7" start_time="24.51"/>
+        <track_event event_ref="part_1_voice0_measure7_ev0" start_time="24.87"/>
+        <track_event event_ref="part_1_voice0_measure7_ev1" start_time="25.92"/>
+        <track_event event_ref="part_1_voice0_measure7_ev2" start_time="26.1"/>
+        <track_event event_ref="part_1_voice0_measure7_ev3" start_time="26.43"/>
+        <track_event event_ref="part_1_voice0_measure7_ev4" start_time="26.6"/>
+        <track_event event_ref="part_1_voice0_measure8_ev0" start_time="26.96"/>
+        <track_event event_ref="part_1_voice0_measure8_ev1" start_time="27.11"/>
+        <track_event event_ref="part_1_voice0_measure8_ev2" start_time="27.5"/>
+        <track_event event_ref="part_1_voice0_measure8_ev3" start_time="27.65"/>
+        <track_event event_ref="part_1_voice0_measure8_ev4" start_time="28.01"/>
+        <track_event event_ref="part_1_voice0_measure9_ev0" start_time="29.03"/>
+        <track_event event_ref="part_1_voice0_measure9_ev1" start_time="29.19"/>
+        <track_event event_ref="part_1_voice0_measure9_ev2" start_time="29.52"/>
+        <track_event event_ref="part_1_voice0_measure9_ev3" start_time="29.68"/>
+        <track_event event_ref="part_1_voice0_measure9_ev4" start_time="30.05"/>
+        <track_event event_ref="part_1_voice0_measure9_ev5" start_time="30.19"/>
+        <track_event event_ref="part_1_voice0_measure10_ev0" start_time="31.04"/>
+        <track_event event_ref="part_1_voice0_measure10_ev1" start_time="31.58"/>
+        <track_event event_ref="part_1_voice0_measure10_ev2" start_time="31.73"/>
+        <track_event event_ref="part_1_voice0_measure10_ev3" start_time="32.14"/>
+        <track_event event_ref="part_1_voice0_measure11_ev0" start_time="33.15"/>
+        <track_event event_ref="part_1_voice0_measure11_ev1" start_time="33.67"/>
+        <track_event event_ref="part_1_voice0_measure11_ev2" start_time="33.83"/>
+        <track_event event_ref="part_1_voice0_measure11_ev3" start_time="34.17"/>
+        <track_event event_ref="part_1_voice0_measure12_ev0" start_time="35.24"/>
+        <track_event event_ref="part_1_voice0_measure12_ev1" start_time="35.76"/>
+        <track_event event_ref="part_1_voice0_measure12_ev2" start_time="35.88"/>
+        <track_event event_ref="part_1_voice0_measure12_ev3" start_time="36.28"/>
+        <track_event event_ref="part_1_voice0_measure13_ev0" start_time="37.3"/>
+        <track_event event_ref="part_1_voice0_measure13_ev1" start_time="37.44"/>
+        <track_event event_ref="part_1_voice0_measure13_ev2" start_time="37.84"/>
+        <track_event event_ref="part_1_voice0_measure13_ev3" start_time="37.98"/>
+        <track_event event_ref="part_1_voice0_measure13_ev4" start_time="38.33"/>
+        <track_event event_ref="part_1_voice0_measure13_ev5" start_time="38.48"/>
+        <track_event event_ref="part_1_voice0_measure14_ev0" start_time="39.34"/>
+        <track_event event_ref="part_1_voice0_measure14_ev1" start_time="39.46"/>
+        <track_event event_ref="part_1_voice0_measure14_ev2" start_time="39.83"/>
+        <track_event event_ref="part_1_voice0_measure14_ev3" start_time="39.96"/>
+        <track_event event_ref="part_1_voice0_measure14_ev4" start_time="40.36"/>
+        <track_event event_ref="part_1_voice0_measure14_ev5" start_time="40.49"/>
+        <track_event event_ref="part_1_voice0_measure14_ev6" start_time="40.87"/>
+        <track_event event_ref="part_1_voice0_measure14_ev7" start_time="41"/>
+        <track_event event_ref="part_1_voice0_measure15_ev0" start_time="41.37"/>
+        <track_event event_ref="part_1_voice0_measure15_ev1" start_time="42.35"/>
+        <track_event event_ref="part_1_voice0_measure15_ev2" start_time="42.5"/>
+        <track_event event_ref="part_1_voice0_measure15_ev3" start_time="42.87"/>
+        <track_event event_ref="part_1_voice0_measure15_ev4" start_time="43"/>
+        <track_event event_ref="part_1_voice0_measure16_ev0" start_time="43.35"/>
+        <track_event event_ref="part_1_voice0_measure17_ev0" start_time="45.36"/>
+        <track_event event_ref="part_1_voice0_measure17_ev1" start_time="45.87"/>
+        <track_event event_ref="part_1_voice0_measure17_ev2" start_time="46.01"/>
+        <track_event event_ref="part_1_voice0_measure17_ev3" start_time="46.38"/>
+        <track_event event_ref="part_1_voice0_measure17_ev4" start_time="46.51"/>
+        <track_event event_ref="part_1_voice0_measure17_ev5" start_time="46.89"/>
+        <track_event event_ref="part_1_voice0_measure17_ev6" start_time="47.03"/>
+        <track_event event_ref="part_1_voice0_measure18_ev0" start_time="47.39"/>
+        <track_event event_ref="part_1_voice0_measure18_ev1" start_time="47.53"/>
+        <track_event event_ref="part_1_voice0_measure18_ev2" start_time="48.39"/>
+        <track_event event_ref="part_1_voice0_measure19_ev0" start_time="49.37"/>
+        <track_event event_ref="part_1_voice0_measure19_ev1" start_time="49.87"/>
+        <track_event event_ref="part_1_voice0_measure19_ev2" start_time="50"/>
+        <track_event event_ref="part_1_voice0_measure19_ev3" start_time="50.36"/>
+        <track_event event_ref="part_1_voice0_measure19_ev4" start_time="50.47"/>
+        <track_event event_ref="part_1_voice0_measure19_ev5" start_time="50.86"/>
+        <track_event event_ref="part_1_voice0_measure19_ev6" start_time="50.99"/>
+        <track_event event_ref="part_1_voice0_measure20_ev0" start_time="51.33"/>
+        <track_event event_ref="part_1_voice0_measure21_ev0" start_time="53.29"/>
+        <track_event event_ref="part_1_voice0_measure21_ev1" start_time="53.78"/>
+        <track_event event_ref="part_1_voice0_measure21_ev2" start_time="53.92"/>
+        <track_event event_ref="part_1_voice0_measure21_ev3" start_time="54.27"/>
+        <track_event event_ref="part_1_voice0_measure21_ev4" start_time="54.43"/>
+        <track_event event_ref="part_1_voice0_measure21_ev5" start_time="54.77"/>
+        <track_event event_ref="part_1_voice0_measure21_ev6" start_time="54.9"/>
+        <track_event event_ref="part_1_voice0_measure22_ev0" start_time="55.27"/>
+        <track_event event_ref="part_1_voice0_measure22_ev1" start_time="55.42"/>
+        <track_event event_ref="part_1_voice0_measure22_ev2" start_time="56.24"/>
+        <track_event event_ref="part_1_voice0_measure23_ev0" start_time="57.23"/>
+        <track_event event_ref="part_1_voice0_measure23_ev1" start_time="57.75"/>
+        <track_event event_ref="part_1_voice0_measure23_ev2" start_time="57.89"/>
+        <track_event event_ref="part_1_voice0_measure23_ev3" start_time="58.23"/>
+        <track_event event_ref="part_1_voice0_measure23_ev4" start_time="58.36"/>
+        <track_event event_ref="part_1_voice0_measure23_ev5" start_time="58.71"/>
+        <track_event event_ref="part_1_voice0_measure23_ev6" start_time="58.85"/>
+        <track_event event_ref="part_1_voice0_measure24_ev0" start_time="59.22"/>
+        <track_event event_ref="part_1_voice0_measure24_ev1" start_time="59.37"/>
+        <track_event event_ref="part_1_voice0_measure24_ev2" start_time="59.7"/>
+        <track_event event_ref="part_1_voice0_measure24_ev3" start_time="59.83"/>
+        <track_event event_ref="part_1_voice0_measure24_ev4" start_time="60.17"/>
+        <track_event event_ref="part_1_voice0_measure25_ev0" start_time="61.15"/>
+        <track_event event_ref="part_1_voice0_measure25_ev1" start_time="61.3"/>
+        <track_event event_ref="part_1_voice0_measure25_ev2" start_time="61.65"/>
+        <track_event event_ref="part_1_voice0_measure25_ev3" start_time="61.78"/>
+        <track_event event_ref="part_1_voice0_measure25_ev4" start_time="62.13"/>
+        <track_event event_ref="part_1_voice0_measure25_ev5" start_time="62.26"/>
+        <track_event event_ref="part_1_voice0_measure26_ev0" start_time="63.14"/>
+        <track_event event_ref="part_1_voice0_measure26_ev1" start_time="63.63"/>
+        <track_event event_ref="part_1_voice0_measure26_ev2" start_time="63.77"/>
+        <track_event event_ref="part_1_voice0_measure26_ev3" start_time="64.12"/>
+        <track_event event_ref="part_1_voice0_measure27_ev0" start_time="65.13"/>
+        <track_event event_ref="part_1_voice0_measure27_ev1" start_time="65.64"/>
+        <track_event event_ref="part_1_voice0_measure27_ev2" start_time="65.8"/>
+        <track_event event_ref="part_1_voice0_measure27_ev3" start_time="66.15"/>
+        <track_event event_ref="part_1_voice0_measure28_ev0" start_time="67.31"/>
+        <track_event event_ref="part_1_voice0_measure28_ev1" start_time="67.84"/>
+        <track_event event_ref="part_1_voice0_measure28_ev2" start_time="68.22"/>
+        <track_event event_ref="part_1_voice0_measure28_ev3" start_time="68.36"/>
+        <track_event event_ref="part_1_voice0_measure29_ev0" start_time="69.31"/>
+        <track_event event_ref="part_1_voice0_measure29_ev1" start_time="69.45"/>
+        <track_event event_ref="part_1_voice0_measure29_ev2" start_time="69.92"/>
+        <track_event event_ref="part_1_voice0_measure29_ev3" start_time="70"/>
+        <track_event event_ref="part_1_voice0_measure29_ev4" start_time="70.12"/>
+        <track_event event_ref="part_1_voice0_measure29_ev5" start_time="70.51"/>
+        <track_event event_ref="part_1_voice0_measure30_ev0" start_time="71.25"/>
+        <track_event event_ref="part_1_voice0_measure30_ev1" start_time="71.5"/>
+        <track_event event_ref="part_1_voice0_measure30_ev2" start_time="71.64"/>
+        <track_event event_ref="part_1_voice0_measure30_ev3" start_time="72.05"/>
+        <track_event event_ref="part_1_voice0_measure30_ev4" start_time="72.17"/>
+        <track_event event_ref="part_1_voice0_measure30_ev5" start_time="72.53"/>
+        <track_event event_ref="part_1_voice0_measure30_ev6" start_time="72.68"/>
+        <track_event event_ref="part_1_voice0_measure30_ev7" start_time="73.16"/>
+        <track_event event_ref="part_1_voice0_measure31_ev0" start_time="73.53"/>
+        <track_event event_ref="part_1_voice0_measure31_ev1" start_time="74.52"/>
+        <track_event event_ref="part_1_voice0_measure31_ev2" start_time="74.68"/>
+      </track_indexing>
+    </track>
+  </audio>
+</ieee1599>
