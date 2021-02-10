@@ -49,6 +49,7 @@ Per non dover copiare manualmente i file necessari al funzionamento della librer
 1. Creare un file batch nella cartella del progetto in Visual Studio che compila il sorgente della libreria e chiamarlo "LibraryPacker.bat".
 2. In `Proprietà di configurazione del progetto > Eventi di compilazione > Riga di comando ` inserire il comando `call "../Librarypacker.bat"`.
 3. Modificare il contenuto del file batch inserendo queste istruzioni, dove $PATH_NEW_PROJECT è il percorso alla directory principale del progetto che importa la libreria:
+
         `
         echo Packing library files...
 
