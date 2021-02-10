@@ -1,4 +1,4 @@
-#Tutorial Compilazione Libreria C/C++ in Visual Studio 2019
+# Tutorial Compilazione Libreria C/C++ in Visual Studio 2019
 
 Impostare il progetto di lavoro come descritto nel file _Tutorial Installazione Sorgente_. Fatto ciò, seguire la seguente procedura:
 
